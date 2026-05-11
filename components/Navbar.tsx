@@ -184,7 +184,7 @@ const navMenus: Record<string, MenuConfig> = {
     title: 'Research',
     items: [
       { label: 'Overview', href: '/research', description: 'Our research mission and approach', icon: Microscope },
-      { label: 'AI & Machine Learning', href: '/research#ai', description: 'Frontier AI models and training', icon: Brain },
+      { label: 'AI & Machine Learning', href: '/models', description: 'Frontier AI models and training', icon: Brain },
       { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
       { label: 'Consensus & Networks', href: '/research#consensus', description: 'Distributed systems and blockchain', icon: Network },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
