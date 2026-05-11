@@ -215,11 +215,11 @@ export default function ZooLabsNarrative() {
             className="grid grid-cols-2 gap-3 md:gap-4"
           >
             {[
-              { v: "$1.75T", l: "Hedge funds" },
-              { v: "$852B", l: "Venture capital" },
-              { v: "$1.2T", l: "Private credit" },
-              { v: "$134B", l: "Real estate" },
-              { v: "$159B", l: "Infrastructure" },
+              { v: "$1.75T", l: "SpaceX" },
+              { v: "$1.2T", l: "Anthropic" },
+              { v: "$852B", l: "OpenAI" },
+              { v: "$159B", l: "Stripe" },
+              { v: "$134B", l: "Databricks" },
               { v: "$113T", l: "Total addressable" },
             ].map((s) => (
               <div
