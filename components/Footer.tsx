@@ -49,7 +49,6 @@ export default function Footer() {
               <li><a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Cryptography</a></li>
               <li><a href={site.links.network} target="_blank" rel="noopener noreferrer" className={linkCn}>Consensus & Networks</a></li>
               <li><a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Papers</a></li>
-              <li><a href={site.links.docs} target="_blank" rel="noopener noreferrer" className={linkCn}>Documentation</a></li>
             </ul>
           </div>
 

@@ -189,6 +189,7 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Consensus & Networks', href: site.links.network, description: 'Distributed systems and blockchain', icon: Network, external: true },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
       { label: 'Open Source', href: '/open-source', description: '727+ repos, revenue sharing', icon: Github },
+      { label: 'Case Studies', href: '/case-studies', description: 'Real-world implementations', icon: Microscope },
     ],
   },
   models: {
@@ -209,19 +210,8 @@ const navMenus: Record<string, MenuConfig> = {
       { label: 'Zoo Dev', href: site.links.dev, description: 'AI coding agent', icon: Code2, external: true },
       { label: 'Zoo Team', href: site.links.team, description: 'Work with Zoo engineers', icon: Boxes, external: true },
       { label: 'Zoo Chat', href: site.links.chat, description: 'AI chat & bot manager', icon: MessageSquare, external: true },
-      { label: 'LLM Gateway', href: 'https://docs.zoo.ngo/docs/llm', description: '200+ AI models, one API', icon: Cpu, external: true },
       { label: 'Zoo Engine', href: site.links.engine, description: 'Cloud GPU inference engine', icon: Server, external: true },
       { label: 'Zoo Edge', href: site.links.edge, description: 'On-device AI inference', icon: Smartphone, external: true },
-    ],
-  },
-  developers: {
-    title: 'Developers',
-    items: [
-      { label: 'Documentation', href: site.links.docs, description: 'Technical guides', icon: BookOpen, external: true },
-      { label: 'Zoo MCP', href: 'https://docs.zoo.ngo/docs/mcp', description: '260+ tools for AI models', icon: Cpu, external: true },
-      { label: 'SDKs', href: 'https://docs.zoo.ngo/docs/sdks', description: 'Python, TS, Go, Rust', icon: Code2, external: true },
-      { label: 'LLM Gateway', href: 'https://docs.zoo.ngo/docs/llm', description: '200+ models, one API', icon: Network, external: true },
-      { label: 'Case Studies', href: '/case-studies', description: 'Real-world implementations', icon: Microscope },
     ],
   },
   company: {
