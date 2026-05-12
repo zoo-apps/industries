@@ -78,7 +78,7 @@ function TryZooDropdown() {
             className="absolute right-0 top-full w-[420px] max-w-[calc(100vw-2rem)] z-50"
           >
             <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-secondary border-border shadow-background/50">
+            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-popover border-border shadow-background/50">
               {/* Zen AI Models */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -280,7 +280,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 800) }}
           >
             <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-secondary border-border shadow-background/50">
+            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-popover border-border shadow-background/50">
               <div className="py-2">
                 {menu.items.map((item) => {
                   const Icon = item.icon
@@ -366,7 +366,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-secondary border-border"
+            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-popover border-border"
           >
             <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
               {Object.entries(navMenus).map(([key, menu]) => (
