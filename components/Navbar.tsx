@@ -185,7 +185,7 @@ const navMenus: Record<string, MenuConfig> = {
     items: [
       { label: 'Overview', href: '/research', description: 'Our research mission and approach', icon: Microscope },
       { label: 'AI & Machine Learning', href: '/models', description: 'Frontier AI models and training', icon: Brain },
-      { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
+      { label: 'Cryptography', href: 'https://papers.zoo.ngo', description: 'Post-quantum and FHE research', icon: Shield, external: true },
       { label: 'Consensus & Networks', href: site.links.network, description: 'Distributed systems and blockchain', icon: Network, external: true },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
       { label: 'Open Source', href: '/open-source', description: '727+ repos, revenue sharing', icon: Github },
@@ -195,8 +195,8 @@ const navMenus: Record<string, MenuConfig> = {
     title: 'Models',
     items: [
       { label: 'Zen Models', href: '/models', description: '600M-1T+ parameter models', icon: Sparkles },
-      { label: 'Zen Coder', href: '/models#coder', description: 'Code generation and analysis', icon: Code2 },
-      { label: 'Zen Omni', href: '/models#omni', description: 'Multimodal vision & audio', icon: Boxes },
+      { label: 'Zen Coder', href: '/models', description: 'Code generation and analysis', icon: Code2 },
+      { label: 'Zen Omni', href: '/models', description: 'Multimodal vision & audio', icon: Boxes },
       { label: 'Model API', href: site.links.modelApi, description: 'API access and pricing', icon: Cpu, external: true },
       { label: 'Hugging Face', href: site.links.huggingFace, description: 'Download models', icon: Bot, external: true },
     ],

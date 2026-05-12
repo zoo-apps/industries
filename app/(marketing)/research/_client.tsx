@@ -1205,7 +1205,7 @@ const [searchQuery, setSearchQuery] = useState("");
                           org === "lux" ? "bg-foreground/20 text-foreground" :
                           org === "zoo" ? "bg-foreground/20 text-foreground" :
                           org === "zen" ? "bg-foreground/20 text-foreground" :
-                          "bg-primary text-foreground"
+                          "bg-primary text-primary-foreground"
                         : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
@@ -1231,7 +1231,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     className={cn(
                       "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
                       activeTopic === topic
-                        ? "bg-primary text-foreground"
+                        ? "bg-primary text-primary-foreground"
                         : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
