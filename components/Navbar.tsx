@@ -196,8 +196,8 @@ const navMenus: Record<string, MenuConfig> = {
     title: 'Models',
     items: [
       { label: 'Zen Models', href: '/models', description: '600M-1T+ parameter models', icon: Sparkles },
-      { label: 'Zen Coder', href: '/models', description: 'Code generation and analysis', icon: Code2 },
-      { label: 'Zen Omni', href: '/models', description: 'Multimodal vision & audio', icon: Boxes },
+      { label: 'Zen Coder', href: '/models#code', description: 'Code generation and analysis', icon: Code2 },
+      { label: 'Zen Omni', href: 'https://huggingface.co/zenlm/zen-omni-8b', description: 'Multimodal vision & audio', icon: Boxes, external: true },
       { label: 'Model API', href: site.links.modelApi, description: 'API access and pricing', icon: Cpu, external: true },
       { label: 'Hugging Face', href: site.links.huggingFace, description: 'Download models', icon: Bot, external: true },
     ],

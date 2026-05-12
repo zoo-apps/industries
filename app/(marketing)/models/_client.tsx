@@ -596,7 +596,8 @@ export default function PageClient({
           return (
             <section
               key={family.id}
-              className={cn("py-20 px-4", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
+              id={family.id}
+              className={cn("py-20 px-4 scroll-mt-24", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
             >
               <div className="max-w-6xl mx-auto">
                 <motion.div
