@@ -539,10 +539,8 @@ export default function PageClient({
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-block px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
-                Zen AI Model Family
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              <span className="pill pill-pink mb-6">Zen AI Model Family</span>
+              <h1 className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
                 Hypermodal AI
               </h1>
               <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
@@ -550,16 +548,16 @@ export default function PageClient({
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                  <button className="btn-brutalist pill-pink">
                     <Sparkles className="w-4 h-4" />
                     Browse Models
-                  </Button>
+                  </button>
                 </a>
                 <a href="https://github.com/zenlm" target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" variant="outline" className="rounded-full px-8 gap-2">
+                  <button className="btn-brutalist pill-green">
                     <Github className="w-4 h-4" />
                     GitHub
-                  </Button>
+                  </button>
                 </a>
               </div>
             </motion.div>
@@ -625,33 +623,33 @@ export default function PageClient({
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
                       viewport={{ once: true }}
-                      className={cn("block p-6 border rounded-xl hover:shadow-lg transition-all group", "bg-foreground/5 border-border hover:border-border")}
+                      className="block p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000] transition-all group text-black"
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-lg font-semibold group-hover:underline">
+                          <h3 className="text-lg font-extrabold uppercase tracking-tight group-hover:underline">
                             {model.name}
                           </h3>
-                          <span className={cn("text-sm font-mono", "text-muted-foreground")}>{model.params}</span>
+                          <span className="text-sm font-mono text-black/60">{model.params}</span>
                         </div>
                         {(model as any).requestAccess ? (
-                          <span className="text-xs px-2 py-1 rounded-full bg-primary/20 text-primary font-medium">Research Preview</span>
+                          <span className="text-[10px] px-2 py-1 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">Research Preview</span>
                         ) : (
-                          <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
                         )}
                       </div>
-                      <p className={cn("text-sm mb-4", "text-muted-foreground")}>{model.description}</p>
+                      <p className="text-sm mb-4 text-black/70">{model.description}</p>
                       <div className="flex flex-wrap gap-2 mb-4">
                         {model.capabilities.map((cap) => (
                           <span
                             key={cap}
-                            className={cn("px-2 py-0.5 text-xs rounded-full", "bg-foreground/10 text-muted-foreground")}
+                            className="px-2 py-0.5 text-xs font-semibold uppercase tracking-wider bg-black text-white border-2 border-black"
                           >
                             {cap}
                           </span>
                         ))}
                       </div>
-                      <div className={cn("flex items-center justify-between text-xs pt-4 border-t", "text-muted-foreground border-border")}>
+                      <div className="flex items-center justify-between text-xs pt-4 border-t-2 border-black text-black/70">
                         <span className="flex items-center gap-1">
                           <Zap className="w-3 h-3" />
                           {model.performance}
@@ -747,15 +745,15 @@ export default function PageClient({
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className={cn("block p-8 rounded-2xl border hover:shadow-lg transition-all group text-center", "bg-foreground/5 border-border hover:border-border")}
+                    className="block p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-center text-black"
                   >
-                    <div className={cn("w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4", "bg-primary")}>
-                      <ToolIcon className={cn("w-6 h-6", "text-primary-foreground")} />
+                    <div className="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-[var(--brand-magenta)] border-2 border-black">
+                      <ToolIcon className="w-6 h-6 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:underline">
+                    <h3 className="text-xl font-extrabold uppercase tracking-tight mb-2 group-hover:underline">
                       {tool.name}
                     </h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{tool.description}</p>
+                    <p className="text-sm text-black/70">{tool.description}</p>
                   </motion.a>
                 );
               })}
@@ -782,9 +780,9 @@ export default function PageClient({
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-secondary rounded-xl p-6 overflow-x-auto"
+              className="bg-black border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-6 overflow-x-auto"
             >
-              <pre className="text-sm text-muted-foreground font-mono">
+              <pre className="text-sm text-[var(--brand-green)] font-mono">
 {`# Install and run any model
 pip install transformers torch
 
@@ -818,15 +816,15 @@ response = client.chat.completions.create(
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className={cn("rounded-full px-8 gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                <button className="btn-brutalist pill-pink">
                   Get Started
                   <ArrowRight className="w-4 h-4" />
-                </Button>
+                </button>
               </a>
               <Link href="/research">
-                <Button size="lg" variant="outline" className="rounded-full px-8">
+                <button className="btn-brutalist pill-green">
                   Research Papers
-                </Button>
+                </button>
               </Link>
             </div>
           </div>
