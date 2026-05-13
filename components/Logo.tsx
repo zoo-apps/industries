@@ -24,7 +24,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
     <Link href="/" className={cn('flex items-center gap-2.5 group', className)}>
       <Image
         src="/zoo-logo.svg"
-        alt="ZOO AI"
+        alt="ZOO INDUSTRIES"
         width={48}
         height={48}
         className={cn(sizes[size].logo, 'transition-transform duration-300 group-hover:scale-105')}
@@ -36,7 +36,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
           sizes[size].text,
           'text-foreground group-hover:text-foreground/90'
         )}>
-          ZOO&nbsp;AI
+          ZOO&nbsp;INDUSTRIES
         </span>
       )}
     </Link>
