@@ -36,7 +36,7 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
           sizes[size].text,
           'text-foreground group-hover:text-foreground/90'
         )}>
-          ZOO&nbsp;INDUSTRIES
+          ZOO&nbsp;<span className="font-light">INDUSTRIES</span>
         </span>
       )}
     </Link>
