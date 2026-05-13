@@ -148,7 +148,7 @@ export default function PageClient() {
         <div className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <span className="pill pill-yellow text-lg md:text-2xl">Modalities</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               One SDK across eight modalities — pick the model, keep the contract.
             </h2>
           </motion.div>
@@ -181,7 +181,7 @@ export default function PageClient() {
         <div className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <span className="pill pill-blue text-lg md:text-2xl">How it works</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               The API is the surface. The ecosystem is the leverage.
             </h2>
             <p className="mt-4 max-w-3xl text-base md:text-lg text-muted-foreground">
@@ -213,7 +213,7 @@ export default function PageClient() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <span className="pill pill-green text-lg md:text-2xl">Endpoints</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               REST + streaming. OpenAI-compatible where it matters.
             </h2>
           </motion.div>
@@ -249,7 +249,7 @@ export default function PageClient() {
         <div className="max-w-5xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
             <span className="pill pill-cyan text-lg md:text-2xl">Quick start</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Three lines and the OpenAI SDK you already have.
             </h2>
           </motion.div>
@@ -264,7 +264,7 @@ export default function PageClient() {
         <div className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <span className="pill pill-red text-lg md:text-2xl">Authentication</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Two ways to prove you are you.
             </h2>
           </motion.div>
@@ -304,7 +304,7 @@ export default function PageClient() {
         <div className="max-w-6xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <span className="pill pill-yellow text-lg md:text-2xl">Pricing</span>
-            <h2 className="mt-5 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Pay for tokens. 25% of that pays the people who built the model.
             </h2>
           </motion.div>

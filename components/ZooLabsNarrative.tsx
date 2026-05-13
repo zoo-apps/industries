@@ -39,7 +39,7 @@ function SectionHead({
     <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
       <span className={`pill ${pillClass} text-lg md:text-2xl`}>{title}</span>
       {subtitle && (
-        <h3 className="mt-5 md:mt-6 text-xl md:text-2xl font-extrabold underline underline-offset-4">
+        <h3 className="mt-10 md:mt-12 text-xl md:text-2xl font-extrabold underline underline-offset-4">
           {subtitle}
         </h3>
       )}
