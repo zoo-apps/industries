@@ -17,7 +17,7 @@ const siteConfig = {
     titleTemplate: '%s | Zoo Industries',
     defaultTitle: 'Zoo Industries — Open AI Research Network',
     ogImage: '/og-image.png',
-    faviconPath: '/favicon.svg',
+    faviconPath: '/favicon.svg?v=rgb',
     themeColor: '#000000',
   },
   links: {
