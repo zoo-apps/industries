@@ -270,3 +270,16 @@ h1, h2, h3, h4, h5, h6 {
 .panel-blue  { --panel-color: var(--brand-blue); }
 .panel-cyan  { --panel-color: var(--brand-cyan); }
 .panel-yellow{ --panel-color: var(--brand-yellow); }
+
+/* Continuous slow rotation for the brand mark in the navbar. */
+.logo-spin {
+  animation: logo-spin 14s linear infinite;
+  transform-origin: 50% 50%;
+}
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-spin { animation: none; }
+}
