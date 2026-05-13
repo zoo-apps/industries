@@ -205,13 +205,13 @@ const navMenus: Record<string, MenuConfig> = {
   products: {
     title: 'Products',
     items: [
-      { label: 'Zoo Industries', href: 'https://zoo.cloud', description: 'Full AI platform and cloud', icon: Brain, external: true },
-      { label: 'Zoo Bot', href: site.links.bot, description: 'AI team in a box', icon: Bot, external: true },
-      { label: 'Zoo Dev', href: site.links.dev, description: 'AI coding agent', icon: Code2, external: true },
+      { label: 'Zoo Cloud', href: '/cloud', description: 'Full AI platform and cloud', icon: Cloud },
+      { label: 'Zoo Bot', href: '/bot', description: 'AI team in a box', icon: Bot },
+      { label: 'Zoo Dev', href: '/dev', description: 'AI coding agent', icon: Code2 },
+      { label: 'Zoo Chat', href: '/chat', description: 'AI chat & bot manager', icon: MessageSquare },
+      { label: 'Zoo Engine', href: '/engine', description: 'Cloud GPU inference engine', icon: Server },
+      { label: 'Zoo Edge', href: '/edge', description: 'On-device AI inference', icon: Smartphone },
       { label: 'Zoo Team', href: site.links.team, description: 'Work with Zoo engineers', icon: Boxes, external: true },
-      { label: 'Zoo Chat', href: site.links.chat, description: 'AI chat & bot manager', icon: MessageSquare, external: true },
-      { label: 'Zoo Engine', href: site.links.engine, description: 'Cloud GPU inference engine', icon: Server, external: true },
-      { label: 'Zoo Edge', href: site.links.edge, description: 'On-device AI inference', icon: Smartphone, external: true },
     ],
   },
   company: {
