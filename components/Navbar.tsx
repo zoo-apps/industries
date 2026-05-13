@@ -78,7 +78,7 @@ function TryZooDropdown() {
             className="absolute right-0 top-full w-[420px] max-w-[calc(100vw-2rem)] z-50"
           >
             <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
+            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
               {/* Zen AI Models */}
               <div className="p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -184,44 +184,34 @@ const navMenus: Record<string, MenuConfig> = {
     title: 'Research',
     items: [
       { label: 'Overview', href: '/research', description: 'Our research mission and approach', icon: Microscope },
-      { label: 'AI & Machine Learning', href: '/research#ai', description: 'Frontier AI models and training', icon: Brain },
-      { label: 'Cryptography', href: '/research#crypto', description: 'Post-quantum and FHE research', icon: Shield },
-      { label: 'Consensus & Networks', href: '/research#consensus', description: 'Distributed systems and blockchain', icon: Network },
+      { label: 'AI & Machine Learning', href: '/models', description: 'Frontier AI models and training', icon: Brain },
+      { label: 'Cryptography', href: 'https://papers.zoo.ngo', description: 'Post-quantum and FHE research', icon: Shield, external: true },
+      { label: 'Consensus & Networks', href: site.links.network, description: 'Distributed systems and blockchain', icon: Network, external: true },
       { label: 'Papers', href: '/research#papers', description: '130+ published research papers', icon: FileText },
       { label: 'Open Source', href: '/open-source', description: '727+ repos, revenue sharing', icon: Github },
+      { label: 'Case Studies', href: '/case-studies', description: 'Real-world implementations', icon: Microscope },
     ],
   },
   models: {
     title: 'Models',
     items: [
       { label: 'Zen Models', href: '/models', description: '600M-1T+ parameter models', icon: Sparkles },
-      { label: 'Zen Coder', href: '/models#coder', description: 'Code generation and analysis', icon: Code2 },
-      { label: 'Zen Omni', href: '/models#omni', description: 'Multimodal vision & audio', icon: Boxes },
-      { label: 'Model API', href: site.links.modelApi, description: 'API access and pricing', icon: Cpu, external: true },
+      { label: 'Zen Coder', href: '/models#code', description: 'Code generation and analysis', icon: Code2 },
+      { label: 'Zen Omni', href: 'https://huggingface.co/zenlm/zen-omni-8b', description: 'Multimodal vision & audio', icon: Boxes, external: true },
+      { label: 'Model API', href: '/api', description: 'API docs, endpoints, ecosystem', icon: Cpu },
       { label: 'Hugging Face', href: site.links.huggingFace, description: 'Download models', icon: Bot, external: true },
     ],
   },
   products: {
     title: 'Products',
     items: [
-      { label: 'Zoo Industries', href: site.links.platform, description: 'Full AI platform and cloud', icon: Brain, external: true },
-      { label: 'Zoo Bot', href: site.links.bot, description: 'AI team in a box', icon: Bot, external: true },
-      { label: 'Zoo Dev', href: site.links.dev, description: 'AI coding agent', icon: Code2, external: true },
+      { label: 'Zoo Cloud', href: '/cloud', description: 'Full AI platform and cloud', icon: Cloud },
+      { label: 'Zoo Bot', href: '/bot', description: 'AI team in a box', icon: Bot },
+      { label: 'Zoo Dev', href: '/dev', description: 'AI coding agent', icon: Code2 },
+      { label: 'Zoo Chat', href: '/chat', description: 'AI chat & bot manager', icon: MessageSquare },
+      { label: 'Zoo Engine', href: '/engine', description: 'Cloud GPU inference engine', icon: Server },
+      { label: 'Zoo Edge', href: '/edge', description: 'On-device AI inference', icon: Smartphone },
       { label: 'Zoo Team', href: site.links.team, description: 'Work with Zoo engineers', icon: Boxes, external: true },
-      { label: 'Zoo Chat', href: site.links.chat, description: 'AI chat & bot manager', icon: MessageSquare, external: true },
-      { label: 'LLM Gateway', href: 'https://docs.zoo.ngo/docs/llm', description: '200+ AI models, one API', icon: Cpu, external: true },
-      { label: 'Zoo Engine', href: site.links.engine, description: 'Cloud GPU inference engine', icon: Server, external: true },
-      { label: 'Zoo Edge', href: site.links.edge, description: 'On-device AI inference', icon: Smartphone, external: true },
-    ],
-  },
-  developers: {
-    title: 'Developers',
-    items: [
-      { label: 'Documentation', href: site.links.docs, description: 'Technical guides', icon: BookOpen, external: true },
-      { label: 'Zoo MCP', href: 'https://docs.zoo.ngo/docs/mcp', description: '260+ tools for AI models', icon: Cpu, external: true },
-      { label: 'SDKs', href: 'https://docs.zoo.ngo/docs/sdks', description: 'Python, TS, Go, Rust', icon: Code2, external: true },
-      { label: 'LLM Gateway', href: 'https://docs.zoo.ngo/docs/llm', description: '200+ models, one API', icon: Network, external: true },
-      { label: 'Case Studies', href: '/case-studies', description: 'Real-world implementations', icon: Microscope },
     ],
   },
   company: {
@@ -280,7 +270,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 800) }}
           >
             <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-secondary/95 border-border shadow-background/50">
+            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
               <div className="py-2">
                 {menu.items.map((item) => {
                   const Icon = item.icon
@@ -366,7 +356,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-secondary/98 border-border"
+            className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-white border-border"
           >
             <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
               {Object.entries(navMenus).map(([key, menu]) => (
