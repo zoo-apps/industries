@@ -205,7 +205,7 @@ const navMenus: Record<string, MenuConfig> = {
   products: {
     title: 'Products',
     items: [
-      { label: 'Zoo Industries', href: site.links.platform, description: 'Full AI platform and cloud', icon: Brain, external: true },
+      { label: 'Zoo Industries', href: 'https://zoo.cloud', description: 'Full AI platform and cloud', icon: Brain, external: true },
       { label: 'Zoo Bot', href: site.links.bot, description: 'AI team in a box', icon: Bot, external: true },
       { label: 'Zoo Dev', href: site.links.dev, description: 'AI coding agent', icon: Code2, external: true },
       { label: 'Zoo Team', href: site.links.team, description: 'Work with Zoo engineers', icon: Boxes, external: true },
