@@ -108,7 +108,9 @@ export default function PageClient() {
       <section className="py-24 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <motion.div {...fade} transition={{ duration: 0.5 }}>
-            <span className="pill pill-pink mb-6">Zen Model API</span>
+            <span className="inline-block mb-6 text-sm md:text-base font-extrabold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-2">
+              Zen Model API
+            </span>
             <h1 className="mt-6 text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
               One endpoint.<br />Every modality.
             </h1>
