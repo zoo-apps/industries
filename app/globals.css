@@ -202,7 +202,17 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: #000;
-  background-color: var(--pill-color, var(--secondary)); /* fallback for reduced-motion */
+  background-color: var(--pill-color, var(--secondary));
+  border: 2px solid #000;
+  border-radius: 0;
+  box-shadow: 8px 8px 0 0 #000;
+  cursor: pointer;
+  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+}
+/* The blue variant gets a continuously cycling rainbow instead of a
+   solid fill. Other .btn-brutalist colors keep their solid pill color. */
+.btn-brutalist.pill-blue {
+  background-color: var(--brand-blue); /* fallback for prefers-reduced-motion */
   background-image: linear-gradient(
     90deg,
     var(--brand-red)     0%,
@@ -216,18 +226,13 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 300% 100%;
   background-position: 0% 50%;
   animation: btn-brutalist-rainbow 6s linear infinite;
-  border: 2px solid #000;
-  border-radius: 0;
-  box-shadow: 8px 8px 0 0 #000;
-  cursor: pointer;
-  transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
 }
 @keyframes btn-brutalist-rainbow {
   0%   { background-position:   0% 50%; }
   100% { background-position: 300% 50%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn-brutalist { animation: none; }
+  .btn-brutalist.pill-blue { animation: none; background-image: none; }
 }
 .btn-brutalist:hover {
   transform: translate(2px, 2px);
