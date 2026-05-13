@@ -1034,14 +1034,9 @@ const [searchQuery, setSearchQuery] = useState("");
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-foreground/10 border border-border mb-6">
-                <Sparkles className="w-4 h-4 text-foreground" />
-                <span className={cn("text-sm font-medium", "text-muted-foreground")}>
-                  130+ Research Papers
-                </span>
-              </div>
-              <h1 className={cn("text-5xl md:text-6xl font-bold tracking-tight mb-6", "text-foreground")}>
-                Research & Publications
+              <span className="pill pill-pink mb-6">130+ Research Papers</span>
+              <h1 className={cn("mt-10 md:mt-12 text-5xl md:text-7xl font-extrabold tracking-tight mb-6", "text-foreground")}>
+                Research &amp; Publications
               </h1>
               <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
@@ -1064,16 +1059,13 @@ const [searchQuery, setSearchQuery] = useState("");
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className={cn(
-                      "p-8 rounded-xl border transition-colors group",
-                      "bg-foreground/5 border-border hover:border-border"
-                    )}
+                    className="p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-black"
                   >
-                    <Icon className={cn("w-10 h-10 mb-4", "text-muted-foreground")} />
-                    <h3 className={cn("text-xl font-semibold mb-3", "text-foreground")}>{area.title}</h3>
-                    <p className={cn("mb-4", "text-muted-foreground")}>{area.description}</p>
+                    <Icon className="w-10 h-10 mb-4 text-black" />
+                    <h3 className="text-xl font-extrabold uppercase tracking-tight mb-3 text-black">{area.title}</h3>
+                    <p className="mb-4 text-black/70">{area.description}</p>
                     <Link href={area.link}
-                      className={cn("text-sm font-medium hover:underline inline-flex items-center gap-1", "text-foreground")}
+                      className="text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1 text-black"
                     >
                       Learn more <ArrowRight className="w-3 h-3" />
                     </Link>
@@ -1099,10 +1091,10 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
+                <button className="btn-brutalist pill-green">
                   <Github className="w-4 h-4" />
                   View all on GitHub
-                </Button>
+                </button>
               </a>
             </div>
 
@@ -1116,24 +1108,21 @@ const [searchQuery, setSearchQuery] = useState("");
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className={cn(
-                    "block p-6 rounded-xl transition-all group",
-                    "bg-foreground/5 border border-border hover:border-border"
-                  )}
+                  className="block p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000] transition-all group text-black"
                 >
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Github className={cn("w-5 h-5", "text-muted-foreground")} />
-                      <span className={cn("font-semibold group-hover:underline", "text-foreground")}>
+                      <Github className="w-5 h-5 text-black" />
+                      <span className="font-extrabold uppercase tracking-tight group-hover:underline text-black">
                         {project.name}
                       </span>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity", "text-muted-foreground")} />
+                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
                   </div>
-                  <p className={cn("text-sm mb-4", "text-muted-foreground")}>{project.description}</p>
-                  <div className={cn("flex items-center gap-4 text-xs", "text-muted-foreground")}>
+                  <p className="text-sm mb-4 text-black/70">{project.description}</p>
+                  <div className="flex items-center gap-4 text-xs text-black/70">
                     <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-foreground/50"></span>
+                      <span className="w-2 h-2 bg-black"></span>
                       {project.language}
                     </span>
                     <span>⭐ {project.stars}</span>
@@ -1159,10 +1148,10 @@ const [searchQuery, setSearchQuery] = useState("");
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="outline" className={cn("gap-2", "border-border text-foreground hover:bg-accent")}>
+                <button className="btn-brutalist pill-green">
                   <Github className="w-4 h-4" />
                   View on GitHub
-                </Button>
+                </button>
               </a>
             </div>
 
@@ -1205,7 +1194,7 @@ const [searchQuery, setSearchQuery] = useState("");
                           org === "lux" ? "bg-foreground/20 text-foreground" :
                           org === "zoo" ? "bg-foreground/20 text-foreground" :
                           org === "zen" ? "bg-foreground/20 text-foreground" :
-                          "bg-primary text-foreground"
+                          "bg-primary text-primary-foreground"
                         : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
@@ -1231,7 +1220,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     className={cn(
                       "px-3 py-1.5 rounded-full text-xs font-medium transition-all",
                       activeTopic === topic
-                        ? "bg-primary text-foreground"
+                        ? "bg-primary text-primary-foreground"
                         : "bg-foreground/10 text-muted-foreground hover:bg-accent"
                     )}
                   >
@@ -1287,50 +1276,44 @@ const [searchQuery, setSearchQuery] = useState("");
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: Math.min(index * 0.02, 0.3) }}
                   className={cn(
-                    "block p-6 rounded-xl transition-all group",
+                    "block p-6 transition-all group bg-white text-black border-2 border-black hover:translate-x-[2px] hover:translate-y-[2px]",
                     paper.featured
-                      ? "bg-gradient-to-br from-white/10 to-transparent border-2 border-border hover:border-border"
-                      : "bg-background/50 border border-border hover:border-border"
+                      ? "shadow-[8px_8px_0_0_var(--brand-yellow)] md:shadow-[10px_10px_0_0_var(--brand-yellow)] hover:shadow-[6px_6px_0_0_var(--brand-yellow)] md:hover:shadow-[8px_8px_0_0_var(--brand-yellow)]"
+                      : "shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000]"
                   )}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2 flex-wrap">
-                        <FileText className={cn("w-5 h-5", "text-muted-foreground")} />
-                        <span className={cn("text-sm", "text-muted-foreground")}>{paper.date}</span>
+                        <FileText className="w-5 h-5 text-black" />
+                        <span className="text-sm text-black/70">{paper.date}</span>
                         {paper.featured && (
-                          <span className="text-xs px-2 py-0.5 rounded-full bg-foreground/10 text-foreground font-medium">
+                          <span className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">
                             Featured
                           </span>
                         )}
-                        <span className={cn(
-                          "text-xs px-2 py-0.5 rounded-full",
-                          paper.org === "hanzo" ? "bg-foreground/10 text-muted-foreground" :
-                          paper.org === "lux" ? "bg-foreground/10 text-muted-foreground" :
-                          paper.org === "zoo" ? "bg-foreground/10 text-muted-foreground" :
-                          "bg-foreground/10 text-muted-foreground"
-                        )}>
+                        <span className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-black text-white border-2 border-black">
                           {orgMeta[paper.org].label}
                         </span>
                       </div>
-                      <h3 className={cn("text-lg font-semibold mb-2 group-hover:underline", "text-foreground")}>
+                      <h3 className="text-lg font-extrabold uppercase tracking-tight mb-2 group-hover:underline text-black">
                         {paper.title}
                       </h3>
-                      <p className={cn("text-sm mb-2", "text-muted-foreground")}>{paper.authors}</p>
-                      <p className={cn("mb-3", "text-muted-foreground")}>{paper.abstract}</p>
+                      <p className="text-sm mb-2 text-black/70">{paper.authors}</p>
+                      <p className="mb-3 text-black/70">{paper.abstract}</p>
                       {/* Topic tags */}
                       <div className="flex flex-wrap gap-1.5">
                         {paper.topics.map(topic => (
                           <span
                             key={topic}
-                            className={cn("text-xs px-2 py-0.5 rounded", "bg-foreground/10 text-muted-foreground")}
+                            className="text-xs px-2 py-0.5 font-semibold uppercase tracking-wider bg-black text-white border-2 border-black"
                           >
                             {topicMeta[topic].label}
                           </span>
                         ))}
                       </div>
                     </div>
-                    <ExternalLink className={cn("w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0", "text-muted-foreground")} />
+                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 text-black/60" />
                   </div>
                 </motion.a>
               ))}
@@ -1365,14 +1348,14 @@ const [searchQuery, setSearchQuery] = useState("");
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/careers">
-                <Button size="lg" className={cn("rounded-full px-8", "bg-primary text-primary-foreground hover:bg-primary/90")}>
+                <button className="btn-brutalist pill-pink">
                   View Open Positions
-                </Button>
+                </button>
               </Link>
               <a href="mailto:research@zoo.ngo">
-                <Button size="lg" variant="outline" className={cn("rounded-full px-8", "border-border text-foreground hover:bg-accent")}>
+                <button className="btn-brutalist pill-green">
                   Contact Research Team
-                </Button>
+                </button>
               </a>
             </div>
           </div>

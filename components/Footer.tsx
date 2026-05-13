@@ -45,11 +45,10 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Research</h4>
             <ul className="space-y-3">
-              <li><Link href="/research#ai" className={linkCn}>AI & Machine Learning</Link></li>
-              <li><Link href="/research#crypto" className={linkCn}>Cryptography</Link></li>
-              <li><Link href="/research#consensus" className={linkCn}>Consensus & Networks</Link></li>
-              <li><Link href="/research#papers" className={linkCn}>Papers</Link></li>
-              <li><a href={site.links.docs} target="_blank" rel="noopener noreferrer" className={linkCn}>Documentation</a></li>
+              <li><Link href="/models" className={linkCn}>AI & Machine Learning</Link></li>
+              <li><a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Cryptography</a></li>
+              <li><a href={site.links.network} target="_blank" rel="noopener noreferrer" className={linkCn}>Consensus & Networks</a></li>
+              <li><a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Papers</a></li>
             </ul>
           </div>
 
