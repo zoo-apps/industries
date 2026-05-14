@@ -92,34 +92,73 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right — geometric stage with mascot + floating cards */}
+          {/* Right — geometric stage. Backdrop is built in CSS (pink and
+              lime solid circles + wide concrete wall) so the proportions
+              match the comp without being constrained by the composite
+              PNG's narrow clipboard-style platform. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative aspect-[19/14] w-full max-w-[680px] mx-auto"
+            className="relative aspect-[19/14] w-full max-w-[720px] mx-auto"
           >
-            {/* Backdrop: pink + lime circles with the concrete platform.
-                object-cover so it fills the frame; concrete platform sits
-                in the lower ~30% of the asset. */}
-            <Image
-              src="/home/10_hero_geometric_backdrop.png"
-              alt=""
+            {/* Pink circle — large, behind the robot, slightly above centre. */}
+            <div
               aria-hidden
-              fill
-              priority
-              className="object-cover select-none pointer-events-none"
+              className="absolute"
+              style={{
+                top: '4%',
+                left: '24%',
+                width: '54%',
+                aspectRatio: '1 / 1',
+                background: '#f0a8d8',
+                borderRadius: '9999px',
+              }}
             />
-            {/* Mascot: only the top half is meant to be visible — clip
-                the bottom so the robot reads as peeking over the wall. */}
+            {/* Lime circle — right edge, peeking from behind. */}
+            <div
+              aria-hidden
+              className="absolute"
+              style={{
+                top: '14%',
+                right: '-6%',
+                width: '46%',
+                aspectRatio: '1 / 1',
+                background: '#c8e83a',
+                borderRadius: '9999px',
+              }}
+            />
+            {/* Concrete wall — full width, lower half, with two dark
+                circular "screws" at the left and right. */}
+            <div
+              aria-hidden
+              className="absolute left-0 right-0"
+              style={{
+                bottom: 0,
+                height: '40%',
+                background: '#d6d0c4',
+                borderTop: '2px solid #000',
+              }}
+            >
+              <div
+                className="absolute rounded-full bg-[#7a7568] border-2 border-black"
+                style={{ left: '6%', top: '38%', width: '4%', aspectRatio: '1 / 1' }}
+              />
+              <div
+                className="absolute rounded-full bg-[#7a7568] border-2 border-black"
+                style={{ right: '6%', top: '38%', width: '4%', aspectRatio: '1 / 1' }}
+              />
+            </div>
+            {/* Mascot: bottom clipped at the concrete top edge so it
+                visually peeks over the wall. */}
             <Image
               src="/home/09_robot_mascot.png"
               alt="Zoo robot mascot"
               width={520}
               height={520}
               priority
-              className="absolute left-1/2 top-[8%] -translate-x-1/2 w-[55%] h-auto select-none"
-              style={{ clipPath: 'inset(0 0 28% 0)' }}
+              className="absolute left-1/2 top-[12%] -translate-x-1/2 w-[44%] h-auto select-none"
+              style={{ clipPath: 'inset(0 0 22% 0)' }}
             />
             {modalityCards.map((c, i) => (
               <motion.div
