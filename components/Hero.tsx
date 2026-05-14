@@ -12,13 +12,13 @@ import site from '@/site.config'
 // (video / agents / 3D). Subtle rotation per card so they read as
 // individually placed rather than gridded.
 const modalityCards = [
-  { src: '/home/11_modality_text_card.png',   alt: 'Text',   pos: 'top-[6%]   left-[26%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
-  { src: '/home/11_modality_audio_card.png',  alt: 'Audio',  pos: 'top-[10%]  right-[8%]',  size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
-  { src: '/home/11_modality_vision_card.png', alt: 'Vision', pos: 'top-[32%]  left-[10%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/home/11_modality_code_card.png',   alt: 'Code',   pos: 'top-[36%]  right-[4%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/home/11_modality_video_card.png',  alt: 'Video',  pos: 'top-[58%]  left-[18%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
-  { src: '/home/11_modality_agents_card.png', alt: 'Agents', pos: 'top-[62%]  right-[2%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/home/11_modality_3d_card.png',     alt: '3D',     pos: 'bottom-[2%] right-[22%]', size: 'w-20 md:w-28', rot: 'rotate-[4deg]' },
+  { src: '/homepagesquares/text.svg',   alt: 'Text',   pos: 'top-[6%]   left-[26%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/homepagesquares/audio.svg',  alt: 'Audio',  pos: 'top-[10%]  right-[8%]',  size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
+  { src: '/homepagesquares/vision.svg', alt: 'Vision', pos: 'top-[32%]  left-[10%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/homepagesquares/code.svg',   alt: 'Code',   pos: 'top-[36%]  right-[4%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/homepagesquares/videos.svg', alt: 'Video',  pos: 'top-[58%]  left-[18%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/homepagesquares/agents.svg', alt: 'Agents', pos: 'top-[62%]  right-[2%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/homepagesquares/3D.svg',     alt: '3D',     pos: 'bottom-[2%] right-[22%]', size: 'w-20 md:w-28', rot: 'rotate-[4deg]' },
 ]
 
 const features = [
