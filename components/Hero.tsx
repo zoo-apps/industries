@@ -6,17 +6,19 @@ import { motion } from 'framer-motion'
 import { KeyRound, Sparkles, BookOpen } from 'lucide-react'
 import site from '@/site.config'
 
-// Floating modality cards laid out around the robot mascot. Each entry
-// targets a position around the centre — desktop only; on mobile we just
-// fan them under the mascot in a wrapped row so the page still works.
+// Floating modality cards laid out around the robot mascot, matching
+// the comp: a top arc (text / audio), a middle band straddling the
+// concrete wall (vision / code), and a lower tier on the platform
+// (video / agents / 3D). Subtle rotation per card so they read as
+// individually placed rather than gridded.
 const modalityCards = [
-  { src: '/home/11_modality_text_card.png',   alt: 'Text',   className: 'top-[2%]   left-[6%]   w-28 md:w-36' },
-  { src: '/home/11_modality_audio_card.png',  alt: 'Audio',  className: 'top-[8%]   right-[18%] w-28 md:w-36' },
-  { src: '/home/11_modality_vision_card.png', alt: 'Vision', className: 'top-[28%]  left-[2%]  w-28 md:w-36' },
-  { src: '/home/11_modality_code_card.png',   alt: 'Code',   className: 'top-[32%]  right-[6%] w-28 md:w-36' },
-  { src: '/home/11_modality_video_card.png',  alt: 'Video',  className: 'top-[56%]  left-[8%]  w-28 md:w-36' },
-  { src: '/home/11_modality_agents_card.png', alt: 'Agents', className: 'top-[58%]  right-[10%] w-28 md:w-36' },
-  { src: '/home/11_modality_3d_card.png',     alt: '3D',     className: 'bottom-[4%] right-[28%] w-28 md:w-36' },
+  { src: '/home/11_modality_text_card.png',   alt: 'Text',   pos: 'top-[6%]   left-[26%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/home/11_modality_audio_card.png',  alt: 'Audio',  pos: 'top-[10%]  right-[8%]',  size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
+  { src: '/home/11_modality_vision_card.png', alt: 'Vision', pos: 'top-[32%]  left-[10%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/home/11_modality_code_card.png',   alt: 'Code',   pos: 'top-[36%]  right-[4%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/home/11_modality_video_card.png',  alt: 'Video',  pos: 'top-[58%]  left-[18%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/home/11_modality_agents_card.png', alt: 'Agents', pos: 'top-[62%]  right-[2%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/home/11_modality_3d_card.png',     alt: '3D',     pos: 'bottom-[2%] right-[22%]', size: 'w-20 md:w-28', rot: 'rotate-[4deg]' },
 ]
 
 const features = [
@@ -95,23 +97,29 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative aspect-[4/3] w-full max-w-[640px] mx-auto"
+            className="relative aspect-[19/14] w-full max-w-[680px] mx-auto"
           >
+            {/* Backdrop: pink + lime circles with the concrete platform.
+                object-cover so it fills the frame; concrete platform sits
+                in the lower ~30% of the asset. */}
             <Image
               src="/home/10_hero_geometric_backdrop.png"
               alt=""
               aria-hidden
               fill
               priority
-              className="object-contain select-none pointer-events-none"
+              className="object-cover select-none pointer-events-none"
             />
+            {/* Mascot: only the top half is meant to be visible — clip
+                the bottom so the robot reads as peeking over the wall. */}
             <Image
               src="/home/09_robot_mascot.png"
               alt="Zoo robot mascot"
               width={520}
               height={520}
               priority
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[42%] w-[58%] h-auto select-none"
+              className="absolute left-1/2 top-[8%] -translate-x-1/2 w-[55%] h-auto select-none"
+              style={{ clipPath: 'inset(0 0 28% 0)' }}
             />
             {modalityCards.map((c, i) => (
               <motion.div
@@ -119,7 +127,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
-                className={`absolute ${c.className} select-none`}
+                className={`absolute ${c.pos} ${c.size} ${c.rot} select-none`}
               >
                 <Image src={c.src} alt={c.alt} width={190} height={190} className="w-full h-auto" />
               </motion.div>
