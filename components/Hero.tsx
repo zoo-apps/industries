@@ -12,13 +12,13 @@ import site from '@/site.config'
 // (video / agents / 3D). Subtle rotation per card so they read as
 // individually placed rather than gridded.
 const modalityCards = [
-  { src: '/homepagesquares/text.svg',   alt: 'Text',   pos: 'top-[6%]   left-[26%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
-  { src: '/homepagesquares/audio.svg',  alt: 'Audio',  pos: 'top-[10%]  right-[8%]',  size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
-  { src: '/homepagesquares/vision.svg', alt: 'Vision', pos: 'top-[32%]  left-[10%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/homepagesquares/code.svg',   alt: 'Code',   pos: 'top-[36%]  right-[4%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/homepagesquares/videos.svg', alt: 'Video',  pos: 'top-[58%]  left-[18%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
-  { src: '/homepagesquares/agents.svg', alt: 'Agents', pos: 'top-[62%]  right-[2%]',  size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
-  { src: '/homepagesquares/3D.svg',     alt: '3D',     pos: 'bottom-[2%] right-[22%]', size: 'w-20 md:w-28', rot: 'rotate-[4deg]' },
+  { src: '/homepagesquares/3D.svg',     alt: '3D',     pos: 'top-[4%]   left-[16%]',  size: 'w-20 md:w-28', rot: 'rotate-[4deg]' },
+  { src: '/homepagesquares/text.svg',   alt: 'Text',   pos: 'top-[2%]   left-[46%]',  size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/homepagesquares/vision.svg', alt: 'Vision', pos: 'top-[28%]  left-[6%]',   size: 'w-20 md:w-28', rot: '-rotate-[5deg]' },
+  { src: '/homepagesquares/audio.svg',  alt: 'Audio',  pos: 'top-[24%]  right-[10%]', size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
+  { src: '/homepagesquares/code.svg',   alt: 'Code',   pos: 'top-[46%]  right-[14%]', size: 'w-20 md:w-28', rot: '-rotate-[3deg]' },
+  { src: '/homepagesquares/videos.svg', alt: 'Video',  pos: 'bottom-[10%] left-[2%]', size: 'w-20 md:w-28', rot: '-rotate-[4deg]' },
+  { src: '/homepagesquares/agents.svg', alt: 'Agents', pos: 'bottom-[8%] right-[8%]', size: 'w-20 md:w-28', rot: 'rotate-[3deg]' },
 ]
 
 const features = [
@@ -92,81 +92,55 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right — geometric stage. Backdrop is built in CSS (pink and
-              lime solid circles + wide concrete wall) so the proportions
-              match the comp without being constrained by the composite
-              PNG's narrow clipboard-style platform. */}
+          {/* Right — geometric stage. Backdrop is circles.svg (orange/red
+              and yellow gradient circles), the zebra peeks over a CSS
+              picket fence drawn in front of it, and the seven modality
+              cards float around. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="relative aspect-[19/14] w-full max-w-[720px] mx-auto"
+            className="relative aspect-[5/4] w-full max-w-[720px] mx-auto"
           >
-            {/* Pink circle — large, behind the robot, slightly above centre. */}
-            <div
-              aria-hidden
-              className="absolute"
-              style={{
-                top: '4%',
-                left: '24%',
-                width: '54%',
-                aspectRatio: '1 / 1',
-                background: '#f0a8d8',
-                borderRadius: '9999px',
-              }}
-            />
-            {/* Lime circle — right edge, peeking from behind. */}
-            <div
-              aria-hidden
-              className="absolute"
-              style={{
-                top: '14%',
-                right: '-6%',
-                width: '46%',
-                aspectRatio: '1 / 1',
-                background: '#c8e83a',
-                borderRadius: '9999px',
-              }}
-            />
-            {/* Concrete wall — full width, lower half, with two dark
-                circular "screws" at the left and right. */}
-            <div
-              aria-hidden
-              className="absolute left-0 right-0"
-              style={{
-                bottom: 0,
-                height: '40%',
-                background: '#d6d0c4',
-                borderTop: '2px solid #000',
-              }}
-            >
-              <div
-                className="absolute rounded-full bg-[#7a7568] border-2 border-black"
-                style={{ left: '6%', top: '38%', width: '4%', aspectRatio: '1 / 1' }}
-              />
-              <div
-                className="absolute rounded-full bg-[#7a7568] border-2 border-black"
-                style={{ right: '6%', top: '38%', width: '4%', aspectRatio: '1 / 1' }}
-              />
-            </div>
-            {/* Mascot: bottom clipped at the concrete top edge so it
-                visually peeks over the wall. */}
+            {/* Backdrop circles — sit behind everything. */}
             <Image
-              src="/home/09_robot_mascot.png"
-              alt="Zoo robot mascot"
-              width={520}
-              height={520}
+              src="/homepagesquares/circles.svg"
+              alt=""
+              aria-hidden
+              fill
               priority
-              className="absolute left-1/2 top-[12%] -translate-x-1/2 w-[44%] h-auto select-none"
-              style={{ clipPath: 'inset(0 0 22% 0)' }}
+              className="object-contain select-none pointer-events-none z-0"
             />
+            {/* Zebra mascot — centred, peeking over the fence. */}
+            <Image
+              src="/homepagesquares/zebra.svg"
+              alt="Zoo zebra mascot"
+              width={1200}
+              height={900}
+              priority
+              className="absolute left-1/2 top-[18%] -translate-x-1/2 w-[48%] h-auto select-none z-10"
+            />
+            {/* White picket fence — bottom 38% of the frame, in front of
+                the zebra, behind the cards. */}
+            <div aria-hidden className="absolute left-0 right-0 bottom-0 h-[36%] z-20 flex items-end gap-[1%] px-[2%]">
+              {Array.from({ length: 11 }).map((_, i) => (
+                <div
+                  key={i}
+                  className="flex-1 h-full bg-white border-2 border-black"
+                  style={{ clipPath: 'polygon(0% 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)' }}
+                />
+              ))}
+              {/* Horizontal rail across the pickets */}
+              <div className="absolute left-[2%] right-[2%] top-[55%] h-[6%] bg-white border-y-2 border-black" />
+            </div>
+            {/* Modality cards — top layer, scatter around the mascot. */}
             {modalityCards.map((c, i) => (
               <motion.div
                 key={c.alt}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.06 }}
-                className={`absolute ${c.pos} ${c.size} ${c.rot} select-none`}
+                className={`absolute z-30 ${c.pos} ${c.size} ${c.rot} select-none`}
               >
                 <Image src={c.src} alt={c.alt} width={190} height={190} className="w-full h-auto" />
               </motion.div>
