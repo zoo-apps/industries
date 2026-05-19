@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { cn } from "@/lib/utils";
 
 export default function Leadership() {
   const leaders = [
@@ -68,122 +67,96 @@ export default function Leadership() {
   ];
 
   return (
-    <section className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-secondary"
-    )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={cn(
-              "text-4xl font-bold mb-4",
-              "text-foreground"
-            )}
-          >
-            Leadership Team
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
-            )}
-          >
-            Our leadership team combines deep AI expertise with operational excellence,
-            driving innovation in frontier AI research while maintaining focus on safety and alignment
-          </motion.p>
-        </div>
+    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8">
-          {leaders.map((leader, index) => (
+        {/* ─── Header — eyebrow with scroll-draw underline + big title ─── */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl"
+        >
+          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+            Leadership team
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+            />
+          </h3>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+            Deep AI expertise, operational excellence.
+          </h2>
+          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            Driving innovation in frontier AI research while staying focused on
+            safety and alignment.
+          </p>
+        </motion.div>
+
+        {/* ─── Leader cards — brutalist panels ──────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
+          {leaders.map((leader, i) => (
             <motion.div
               key={leader.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="text-center group"
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.05 }}
+              className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-5 sm:p-6 md:p-7 flex flex-col"
             >
-              <div className="mb-4">
-                {/* Avatar disc. ``rounded-full`` is mandatory — the global
-                    brutalist reset (``*:not(.rounded-full) { border-radius:
-                    0 !important }``) squares anything that doesn't have it. */}
-                <div className="w-32 h-32 mx-auto aspect-square overflow-hidden rounded-full border border-black transition-all duration-300">
-                  <img
-                    src={leader.image}
-                    alt={leader.name}
-                    className="w-full h-full object-cover grayscale rounded-full transition-all duration-500"
-                  />
-                </div>
+              {/* Avatar disc. ``rounded-full`` survives the brutalist
+                  global radius reset because it's explicitly listed in
+                  the ``:not(.rounded-full)`` exemption. */}
+              <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto aspect-square overflow-hidden rounded-full border-2 border-black mb-4">
+                <img
+                  src={leader.image}
+                  alt={leader.name}
+                  className="w-full h-full object-cover grayscale rounded-full"
+                />
               </div>
-              <h3 className={cn(
-                "text-lg font-semibold mb-1",
-                "text-foreground"
-              )}>
+              <h4 className="text-sm sm:text-base font-extrabold uppercase tracking-tight text-foreground text-center leading-tight">
                 {leader.name}
-              </h3>
-              <p className={cn(
-                "text-sm font-medium mb-3",
-                "text-muted-foreground"
-              )}>
+              </h4>
+              <p className="mt-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.15em] text-muted-foreground text-center">
                 {leader.title}
               </p>
-              <p className={cn(
-                "text-sm",
-                "text-muted-foreground"
-              )}>
+              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed text-center">
                 {leader.bio}
               </p>
             </motion.div>
           ))}
         </div>
 
+        {/* ─── Stats row — three brutalist tiles ────────────────────── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className={cn(
-            "mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 border-t pt-16",
-            "border-border"
-          )}
+          viewport={{ once: true, margin: "-10%" }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6"
         >
-          <div className="text-center">
-            <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
-            )}>
-              2,500+
-            </h4>
-            <p className={"text-muted-foreground"}>
-              OSS Projects
-            </p>
-          </div>
-          <div className="text-center">
-            <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
-            )}>
-              130+
-            </h4>
-            <p className={"text-muted-foreground"}>
-              Research Papers
-            </p>
-          </div>
-          <div className="text-center">
-            <h4 className={cn(
-              "text-3xl font-bold mb-2",
-              "text-foreground"
-            )}>
-              100+
-            </h4>
-            <p className={"text-muted-foreground"}>
-              AI Model Weights
-            </p>
-          </div>
+          {[
+            { v: "2,500+", l: "OSS Projects" },
+            { v: "130+",   l: "Research Papers" },
+            { v: "100+",   l: "AI Model Weights" },
+          ].map((s) => (
+            <div
+              key={s.l}
+              className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-6 sm:p-7 md:p-8 text-center"
+            >
+              <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-none">
+                {s.v}
+              </div>
+              <div className="mt-3 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-muted-foreground">
+                {s.l}
+              </div>
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>
