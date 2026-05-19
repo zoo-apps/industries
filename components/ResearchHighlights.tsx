@@ -126,7 +126,7 @@ export default function ResearchHighlights() {
                 <div className="min-w-0">
                   <Link
                     href={area.link}
-                    className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-[var(--brand-yellow)] transition-colors"
+                    className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] transition-all"
                   >
                     <h4>{area.title}</h4>
                   </Link>
