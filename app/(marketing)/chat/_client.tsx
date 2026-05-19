@@ -15,7 +15,7 @@ const fade = {
 }
 
 const modalitySwitches = [
-  { h: 'Talk',      p: 'Default to zen-eco for fast turns or zen4-pro for thinking. Switch per-message, no new tab needed.', icon: Brain,      color: 'pill-pink' },
+  { h: 'Talk',      p: 'Default to zen-eco for fast turns or zen5-pro for thinking. Switch per-message, no new tab needed.', icon: Brain,      color: 'pill-pink' },
   { h: 'See',       p: 'Drop a screenshot, a PDF, or a chart. zen-omni reads it like context, not a separate upload step.', icon: Eye,         color: 'pill-cyan' },
   { h: 'Draw',      p: 'Hit / image and zen-artist takes over. Inline edits via zen-artist-edit. No model picker dropdown.', icon: ImageIcon,   color: 'pill-yellow' },
   { h: 'Listen',    p: 'Voice mode with zen-translator and zen-scribe — 99 languages, low-latency, optional transcript.',    icon: Music,       color: 'pill-green' },

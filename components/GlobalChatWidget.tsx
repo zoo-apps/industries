@@ -45,11 +45,11 @@ const freeModels: ZenModel[] = [
 ];
 
 const premiumModels: ZenModel[] = [
-  { id: "zen4-pro", name: "Zen4 Pro", description: "80B MoE flagship", params: "80B MoE", tier: "pro" },
-  { id: "zen4", name: "Zen4", description: "744B MoE frontier", params: "744B MoE", tier: "pro" },
-  { id: "zen4-mini", name: "Zen4 Mini", description: "Fast 8B", params: "8B", tier: "pro" },
-  { id: "zen4-coder", name: "Zen4 Coder", description: "Code specialist", params: "480B MoE", tier: "pro" },
-  { id: "zen4-ultra", name: "Zen4 Ultra", description: "Deep reasoning", params: "744B MoE+CoT", tier: "pro" },
+  { id: "zen5-pro", name: "Zen5 Pro", description: "80B MoE flagship", params: "80B MoE", tier: "pro" },
+  { id: "zen5", name: "Zen5", description: "744B MoE frontier", params: "744B MoE", tier: "pro" },
+  { id: "zen5-mini", name: "Zen5 Mini", description: "Fast 8B", params: "8B", tier: "pro" },
+  { id: "zen5-coder", name: "Zen5 Coder", description: "Code specialist", params: "480B MoE", tier: "pro" },
+  { id: "zen5-ultra", name: "Zen5 Ultra", description: "Deep reasoning", params: "744B MoE+CoT", tier: "pro" },
 ];
 
 const chatPresets = [
@@ -113,7 +113,7 @@ const demoResponses: Record<string, string> = {
   default:
     "Zoo Industries builds full-stack private AI infrastructure. Our Zen model family spans 600M to 1T+ parameters across text, vision, video, audio, 3D, code, and agents. Visit [/models](/models) for the full catalog or [/contact](/contact) to talk to our team.",
   models:
-    "The Zen model family includes:\n\n- **Zen4** (744B MoE) - Our frontier model\n- **Zen4 Pro** (80B MoE) - High-performance flagship\n- **Zen4 Ultra** (744B MoE+CoT) - Deep reasoning\n- **Zen4 Coder** (480B MoE) - Code specialist\n- **Zen4 Mini** (8B) - Fast and efficient\n\nAll models are available via the Zoo Industries platform. See [/models](/models) for details.",
+    "The Zen model family includes:\n\n- **Zen5** (744B MoE) - Our frontier model\n- **Zen5 Pro** (80B MoE) - High-performance flagship\n- **Zen5 Ultra** (744B MoE+CoT) - Deep reasoning\n- **Zen5 Coder** (480B MoE) - Code specialist\n- **Zen5 Mini** (8B) - Fast and efficient\n\nAll models are available via the Zoo Industries platform. See [/models](/models) for details.",
   pricing:
     "For pricing information, visit [/pricing](/pricing) or schedule a call with our team at [/contact](/contact). We offer flexible plans for startups, enterprises, and government.",
   research:
@@ -753,7 +753,7 @@ export default function GlobalChatWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
           >
-            <img src="/zen-logo.png" alt="Zen AI" className="w-8 h-8" />
+            <img src="/zoo-logo.svg" alt="Zoo" className="w-8 h-8" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -778,7 +778,7 @@ export default function GlobalChatWidget() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/50">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/10 overflow-hidden">
-                  <img src="/zen-logo.png" alt="Zen AI" className="w-5 h-5" />
+                  <img src="/zoo-logo.svg" alt="Zoo" className="w-5 h-5" />
                 </div>
 
                 {/* Model selector */}

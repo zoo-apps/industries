@@ -15,12 +15,12 @@ const fade = {
 }
 
 const modalities = [
-  { label: 'Text', desc: 'Chat completions, structured output, function calling. zen-eco → zen4-max.', icon: Brain, color: 'pill-pink' },
+  { label: 'Text', desc: 'Chat completions, structured output, function calling. zen-eco → zen5-max.', icon: Brain, color: 'pill-pink' },
   { label: 'Vision', desc: 'Multimodal understanding over images, screenshots, documents, charts.', icon: Eye, color: 'pill-cyan' },
   { label: 'Image', desc: 'Generation, editing, in-painting. zen-artist family.', icon: ImageIcon, color: 'pill-yellow' },
   { label: 'Video', desc: 'Text-to-video, image-to-video, world models. zen-director and zen-voyager.', icon: Video, color: 'pill-blue' },
   { label: 'Audio', desc: 'Speech, music, foley, live translation. zen-scribe, zen-dub, zen-musician.', icon: Music, color: 'pill-green' },
-  { label: 'Code', desc: 'Completion, refactoring, agentic coding. zen-coder and zen4-coder-pro.', icon: Code2, color: 'pill-red' },
+  { label: 'Code', desc: 'Completion, refactoring, agentic coding. zen-coder and zen5-coder-pro.', icon: Code2, color: 'pill-red' },
   { label: '3D & Spatial', desc: 'Mesh, scene, and asset generation. zen-3d and zen-world.', icon: Box, color: 'pill-cyan' },
   { label: 'Agents', desc: 'Tool-using autonomous loops with planner + executor. zen-agent.', icon: Bot, color: 'pill-pink' },
 ]
