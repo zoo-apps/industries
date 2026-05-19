@@ -213,8 +213,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
 }
 /* The blue variant gets a continuously cycling rainbow instead of a
-   solid fill. Other .btn-brutalist colors keep their solid pill color. */
+   solid fill. Other .btn-brutalist colors keep their solid pill color.
+   Text is forced white so it stays legible through the dark-blue trough
+   of the rainbow cycle. */
 .btn-brutalist.pill-blue {
+  color: #fff;
   background-color: var(--brand-blue); /* fallback for prefers-reduced-motion */
   background-image: linear-gradient(
     90deg,

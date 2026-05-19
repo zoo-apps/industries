@@ -10,7 +10,6 @@ import ResearchHighlights from "@/components/ResearchHighlights";
 import Leadership from "@/components/Leadership";
 import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
-import PhilosophyBridge from "@/components/PhilosophyBridge";
 import { cn } from "@/lib/utils";
 
 export default function PageClient() {
@@ -47,7 +46,6 @@ export default function PageClient() {
         <ResearchHighlights />
         <Leadership />
         <TrustedBySection />
-        <PhilosophyBridge />
         <Contact />
       </main>
   );

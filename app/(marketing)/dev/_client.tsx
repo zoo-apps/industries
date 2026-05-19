@@ -46,7 +46,7 @@ export default function PageClient() {
               Zoo Dev clones your repo, reads the whole tree, runs your tests in
               a sandbox, and opens a real PR — with the diff, the rationale, and
               the failing-then-passing test output. Powered by zen-coder and
-              zen4-coder-pro on the same revenue-shared network as the rest of Zoo.
+              zen5-coder-pro on the same revenue-shared network as the rest of Zoo.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.dev} target="_blank" rel="noopener noreferrer">
