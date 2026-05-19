@@ -3,8 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { KeyRound, Sparkles, BookOpen } from 'lucide-react'
-import site from '@/site.config'
+import { Download, Coins, BookOpen } from 'lucide-react'
 
 // Floating modality cards laid out around the robot mascot, matching
 // the comp: a top arc (text / audio), a middle band straddling the
@@ -22,10 +21,10 @@ const modalityCards = [
 ]
 
 const features = [
-  { src: '/home/12_feature_45_open_models.png',       alt: '45+ Open Models',         h: '45+ OPEN MODELS',     p: 'From 0.6B to 1T+ parameters across every modality.' },
-  { src: '/home/13_feature_one_api_all_modalities.png', alt: 'One API. All Modalities', h: 'ONE API. ALL MODALITIES.', p: 'Text, vision, image, video, audio, code, 3D, and agents.' },
-  { src: '/home/14_feature_openai_compatible.png',    alt: 'OpenAI-Compatible',       h: 'OPENAI-COMPATIBLE',   p: 'Same SDK, same JSON. Seamless integration.' },
-  { src: '/home/15_feature_enterprise_ready.png',     alt: 'Enterprise Ready',        h: 'ENTERPRISE READY',    p: 'Secure, scalable, and built for production.' },
+  { src: '/home/12_feature_45_open_models.png',       alt: 'Free + open',     h: 'FREE + OPEN',         p: '45+ open Zen models. No subscription. No vendor lock-in.' },
+  { src: '/home/13_feature_one_api_all_modalities.png', alt: 'Stays on your machine', h: 'STAYS ON YOUR MACHINE', p: 'Run AI locally — chat, images, voice, code. Your data never leaves.' },
+  { src: '/home/14_feature_openai_compatible.png',    alt: 'Earn AI coin',     h: 'EARN AI COIN',        p: 'Share spare GPU + data and get paid. Mine coin while you sleep.' },
+  { src: '/home/15_feature_enterprise_ready.png',     alt: 'Built by the community', h: 'BUILT BY THE COMMUNITY', p: 'Open source, audited, owned by the people using it.' },
 ]
 
 export default function Hero() {
@@ -52,50 +51,50 @@ export default function Hero() {
             className="relative z-10"
           >
             <span className="inline-block mb-6 px-3 py-1 text-xs md:text-sm font-extrabold uppercase tracking-[0.2em] bg-[var(--brand-blue)] text-[var(--brand-yellow)] border-2 border-black">
-              Zen Model API
+              Private AI · Local first · Earn coin
             </span>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-extrabold uppercase tracking-[-0.02em] leading-[0.95] text-foreground">
-              One endpoint.<br />Every modality.
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
+              Your AI.<br />Your data.<br />Your coin.
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-              OpenAI-compatible API for 45+ open-weight Zen models — edge to
-              frontier, 0.6B to 1T+ parameters — across text, vision, image,
-              video, audio, code, 3D, and agents. Same SDK, same JSON, your
-              choice of model.
+              Stop renting AI from giants. Run powerful open Zen models on
+              your own laptop — chat, images, voice, code — with nothing leaving
+              your machine. Share your spare GPU and data, and earn AI coin in
+              return. Yours to keep. Yours to spend.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
+              <Link href="/install">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
-                  <KeyRound className="w-4 h-4" />
-                  Get an API key
+                  <Download className="w-4 h-4" />
+                  Run Zen at home
                 </button>
-              </a>
-              <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
+              </Link>
+              <Link href="/mining">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-magenta)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
-                  <Sparkles className="w-4 h-4" />
-                  Browse weights
+                  <Coins className="w-4 h-4" />
+                  Start earning coin
                 </button>
-              </a>
+              </Link>
               <Link href="/models">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-blue)] text-[var(--brand-yellow)] border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
                   <BookOpen className="w-4 h-4" />
-                  Model catalog
+                  Browse models
                 </button>
               </Link>
             </div>
           </motion.div>
 
           {/* Right — geometric stage. Backdrop is circles.svg (orange/red
-              and yellow gradient circles), the zebra peeks over a CSS
-              picket fence drawn in front of it, and the seven modality
-              cards float around. */}
+              and yellow gradient circles); zebra.svg already includes
+              the picket fence in the artwork, so don't draw another one
+              in CSS or you'll end up with a double fence. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -111,28 +110,15 @@ export default function Hero() {
               priority
               className="object-contain select-none pointer-events-none z-0"
             />
-            {/* Zebra mascot — centred, peeking over the fence. */}
+            {/* Zebra + picket fence — single composite asset. */}
             <Image
               src="/homepagesquares/zebra.svg"
               alt="Zoo zebra mascot"
               width={1200}
               height={900}
               priority
-              className="absolute left-1/2 top-[18%] -translate-x-1/2 w-[48%] h-auto select-none z-10"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[68%] h-auto select-none z-10"
             />
-            {/* White picket fence — bottom 38% of the frame, in front of
-                the zebra, behind the cards. */}
-            <div aria-hidden className="absolute left-0 right-0 bottom-0 h-[36%] z-20 flex items-end gap-[1%] px-[2%]">
-              {Array.from({ length: 11 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="flex-1 h-full bg-white border-2 border-black"
-                  style={{ clipPath: 'polygon(0% 12%, 50% 0%, 100% 12%, 100% 100%, 0% 100%)' }}
-                />
-              ))}
-              {/* Horizontal rail across the pickets */}
-              <div className="absolute left-[2%] right-[2%] top-[55%] h-[6%] bg-white border-y-2 border-black" />
-            </div>
             {/* Modality cards — top layer, scatter around the mascot. */}
             {modalityCards.map((c, i) => (
               <motion.div
