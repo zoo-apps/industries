@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
@@ -28,16 +27,6 @@ export default function Hero() {
     <>
       {/* Hero */}
       <section className="relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
-        {/* Decorative dot grid — top right, desktop only */}
-        <Image
-          src="/home/17_dot_grid.png"
-          alt=""
-          aria-hidden
-          width={280}
-          height={180}
-          className="hidden md:block absolute top-24 right-8 lg:right-16 opacity-90 select-none pointer-events-none"
-        />
-
         <div className="max-w-7xl mx-auto relative">
           {/* Copy */}
           <motion.div
