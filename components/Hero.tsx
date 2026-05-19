@@ -38,7 +38,7 @@ export default function Hero() {
             className="relative z-10 text-center flex flex-col items-center"
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
-              Your brain.<br />Your AI.<br />Your profit.
+              Your AI.<br />Your Work.<br />Your Profit.
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               Stop renting AI from giants. Run powerful open Zen models on
