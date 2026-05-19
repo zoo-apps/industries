@@ -34,11 +34,16 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
       <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
       <div className="block mb-4 relative z-10">
         {image ? (
-          <div className="w-16 h-16 overflow-hidden mb-4">
+          // Circle-cropped avatar. ``rounded-full`` is mandatory because
+          // globals.css has a brutalist reset
+          // (``*:not(.rounded-full):not([data-circle]) { border-radius: 0
+          // !important }``) that nukes any inline border-radius. The
+          // class is what flips the exemption.
+          <div className="w-16 h-16 aspect-square overflow-hidden rounded-full border border-black mb-4">
             <img
               src={image}
               alt={name}
-              className="w-full h-full object-cover grayscale"
+              className="w-full h-full object-cover grayscale rounded-full"
             />
           </div>
         ) : emoji ? (

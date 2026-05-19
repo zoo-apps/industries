@@ -136,8 +136,15 @@ html.dark body {
   --tw-ring-color: var(--ring);
 }
 
-/* Brutalist: no rounded edges anywhere — every box is a hard rectangle. */
-*,
+/* Brutalist by default — every box is a hard rectangle unless an
+   element explicitly opts into being round. The selector matches any
+   element whose class attribute contains ``rounded`` (``rounded``,
+   ``rounded-md``, ``rounded-lg``, ``rounded-xl``, ``rounded-2xl``,
+   ``rounded-3xl``, ``rounded-full``) plus ``[data-circle]`` for ad-hoc
+   round wrappers. The existing brutalist pill / panel / btn-brutalist
+   primitives don't carry a ``rounded-*`` class so they stay sharp —
+   only the navbar dropdowns / new investor surfaces get curves. */
+*:not([class*="rounded"]):not([data-circle]),
 *::before,
 *::after {
   border-radius: 0 !important;

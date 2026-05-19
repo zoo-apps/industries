@@ -51,7 +51,8 @@ export default function Leadership() {
       name: "Anastasia Zacharaoff",
       title: "VP Engineering",
       bio: "Engineering leader driving technical excellence and innovation. Expert in building high-performing engineering teams and scalable systems.",
-      image: "/leadership/anastasia-zacharaoff.png"
+      image: "/leadership/anastasia-zacharaoff.png",
+      zoom: 1.15,
     },
     {
       name: "Rob Ruiz",
@@ -63,13 +64,15 @@ export default function Leadership() {
       name: "Marcus White",
       title: "VP Research",
       bio: "Research leader advancing AI capabilities and innovation. Expert in applied research and bringing cutting-edge technology to production.",
-      image: "/leadership/marcus-white.png"
+      image: "/leadership/marcus-white.png",
+      zoom: 1.15,
     },
     {
       name: "Jackson Mori",
       title: "VP Engineering",
       bio: "Engineering leader building scalable distributed systems. Focused on performance, reliability, and developer experience.",
-      image: "/leadership/jackson-mori.png"
+      image: "/leadership/jackson-mori.png",
+      zoom: 1.15,
     },
     {
       name: "Ole Brereton",
@@ -121,11 +124,20 @@ export default function Leadership() {
               className="text-center group"
             >
               <div className="mb-4">
-                <div className="w-32 h-32 mx-auto overflow-hidden transition-all duration-300">
+                {/* Avatar circle. The ``rounded-full`` class is what
+                    actually clips the image — without it, the global
+                    brutalist reset (``*:not(.rounded-full) { border-radius:
+                    0 !important }`` in globals.css) overrides any inline
+                    border-radius. ``overflow-hidden`` + ``aspect-square``
+                    guarantee a clean 1:1 circle in every grid context.
+                    Per-leader ``zoom`` lets specific portraits crop in
+                    tighter (Marcus / Jackson / Anastasia framed wide). */}
+                <div className="w-32 h-32 mx-auto overflow-hidden rounded-full aspect-square border border-black transition-all duration-300">
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover grayscale transition-all duration-500"
+                    className="w-full h-full object-cover grayscale transition-all duration-500 rounded-full"
+                    style={leader.zoom ? { transform: `scale(${leader.zoom})` } : undefined}
                   />
                 </div>
               </div>

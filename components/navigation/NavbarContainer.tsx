@@ -12,22 +12,21 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Brutalist nav: no rounded pill. Transparent until scrolled, then a
+  // sharp-edged backdrop-blur strip so type stays legible over content
+  // without introducing a curved-pill silhouette that fights the blocky
+  // page treatment. Border-b-only keeps the bar visually flat.
   return (
-    <nav className="fixed top-10 left-0 right-0 z-50 transition-all duration-500">
+    <nav className="fixed top-10 left-0 right-0 z-50 transition-colors duration-300">
       <div
         className={cn(
-          'mx-auto transition-all duration-500 ease-out',
+          'transition-colors duration-300',
           scrolled
-            ? 'mt-4 mx-4 md:mx-8 lg:mx-auto lg:max-w-6xl rounded-full backdrop-blur-xl border bg-background/80 border-border shadow-2xl shadow-background/50'
-            : 'bg-transparent'
+            ? 'backdrop-blur-md bg-background/80 border-b-2 border-black'
+            : 'bg-transparent',
         )}
       >
-        <div
-          className={cn(
-            'max-w-7xl mx-auto flex items-center justify-between transition-all duration-500',
-            scrolled ? 'px-6 py-3' : 'px-4 sm:px-6 lg:px-8 py-4'
-          )}
-        >
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4">
           {children}
         </div>
       </div>

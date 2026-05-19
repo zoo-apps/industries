@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const fade = {
@@ -8,14 +9,56 @@ const fade = {
   viewport: { once: true },
 };
 
+// One tile per ecosystem slug. Renders the JPG when present; falls back
+// to the emoji glyph only if the image is missing or fails to load. The
+// previous markup painted the emoji on top of the loaded image — that's
+// why the bear photo wasn't visible.
+function EcosystemTile({
+  slug,
+  alt,
+  emoji,
+  objectPosition,
+}: {
+  slug: string;
+  alt: string;
+  emoji: string;
+  objectPosition?: string;
+}) {
+  const [failed, setFailed] = useState(false);
+  return (
+    <div className="relative aspect-square border-2 border-black shadow-[6px_6px_0_0_#000] bg-white overflow-hidden">
+      {!failed && (
+        <img
+          src={`/ecosystem/${slug}.jpg`}
+          alt={alt}
+          loading="lazy"
+          onError={() => setFailed(true)}
+          className="w-full h-full object-cover"
+          style={objectPosition ? { objectPosition } : undefined}
+        />
+      )}
+      {failed && (
+        <span
+          aria-hidden
+          className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl pointer-events-none"
+        >
+          {emoji}
+        </span>
+      )}
+    </div>
+  );
+}
+
 // Small image strip under the Foundation prose. Files live in
 // /public/ecosystem/<slug>.jpg — drop replacements there to swap.
-// Falls back to /placeholder.svg if a file is missing.
+// ``objectPosition`` overrides CSS ``object-position`` so off-centre
+// subjects (e.g. the eagle photo where the bird sits in the upper-left
+// third of a portrait crop) land in the middle of the square tile.
 const ecosystemImages = [
   { slug: "bear", alt: "Bear", emoji: "🐻" },
   { slug: "drought", alt: "Drought / dry tree", emoji: "🌳" },
   { slug: "lake", alt: "Lake", emoji: "🏞️" },
-  { slug: "eagle", alt: "Eagle in flight", emoji: "🦅" },
+  { slug: "eagle", alt: "Eagle in flight", emoji: "🦅", objectPosition: "30% 35%" },
   { slug: "forest", alt: "Forest", emoji: "🌲" },
   { slug: "whale", alt: "Whale tail", emoji: "🐋" },
 ];
@@ -77,26 +120,7 @@ export default function Ecosystem() {
           className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 mb-14"
         >
           {ecosystemImages.map((img) => (
-            <div
-              key={img.slug}
-              className="relative aspect-square border-2 border-black shadow-[6px_6px_0_0_#000] bg-white overflow-hidden"
-            >
-              <img
-                src={`/ecosystem/${img.slug}.jpg`}
-                alt={img.alt}
-                loading="lazy"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
-                className="w-full h-full object-cover"
-              />
-              <span
-                aria-hidden
-                className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl pointer-events-none"
-              >
-                {img.emoji}
-              </span>
-            </div>
+            <EcosystemTile key={img.slug} {...img} />
           ))}
         </motion.div>
 

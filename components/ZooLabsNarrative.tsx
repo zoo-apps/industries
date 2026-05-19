@@ -63,6 +63,7 @@ export default function ZooLabsNarrative() {
         </motion.div>
       </Section>
 
+
       {/* ── Conservation activities ─────────────────────────── */}
       <Section id="conservation">
         <SectionHead
@@ -109,6 +110,7 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
+
       {/* ── Zoo Bots ────────────────────────────────────────── */}
       <Section id="bots">
         <SectionHead
@@ -135,6 +137,7 @@ export default function ZooLabsNarrative() {
           ))}
         </div>
       </Section>
+
 
       {/* ── Problem ─────────────────────────────────────────── */}
       <Section id="problem">
@@ -186,6 +189,7 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
+
       {/* ── Private Equity on Chain ────────────────────────── */}
       <Section id="pe-on-chain">
         <SectionHead
@@ -193,8 +197,16 @@ export default function ZooLabsNarrative() {
           title="Private Equity on Chain"
           subtitle="The biggest redistribution of wealth the world is yet to see."
         />
+
+        {/* Top row: copy + quote on the left, AI private valuations
+            collage on the right. The image is intrinsically portrait
+            (712 × 1378) so it lives well in a narrower flanking column. */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
+          <motion.div
+            {...fade}
+            transition={{ duration: 0.5 }}
+            className="panel lg:col-span-2 space-y-4"
+          >
             <p className="text-base md:text-lg font-medium">
               Through , ZOO gains a compliant path to tokenize and
               distribute GPU-backed AI infrastructure using broker-dealer, ATS,
@@ -209,37 +221,85 @@ export default function ZooLabsNarrative() {
               </span>
             </blockquote>
           </motion.div>
-          <motion.div
+
+          <motion.figure
             {...fade}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-2 gap-3 md:gap-4"
+            className="m-0"
           >
-            {[
-              { v: "$1.75T", l: "Hedge funds" },
-              { v: "$852B", l: "Venture capital" },
-              { v: "$1.2T", l: "Private credit" },
-              { v: "$134B", l: "Real estate" },
-              { v: "$159B", l: "Infrastructure" },
-              { v: "$113T", l: "Total addressable" },
-            ].map((s) => (
-              <div
-                key={s.l}
-                className="p-3 md:p-4 border-2 border-black bg-white text-center"
-              >
-                <div className="text-lg md:text-2xl font-extrabold">{s.v}</div>
-                <div className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </motion.div>
+            {/* No padding, no inner bg — the image fills the bordered
+                box edge-to-edge. The caption lives *below* the frame so
+                it doesn't introduce whitespace inside it. */}
+            <div className="border-2 border-black overflow-hidden shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000]">
+              <img
+                src="/pe/ai-private-valuations.png"
+                alt="Five private AI companies and their valuations: SpaceX $1.75T, Anthropic $1.2T, OpenAI $852B, Stripe $159B, Databricks $134B"
+                loading="lazy"
+                className="block w-full h-auto"
+              />
+            </div>
+            <figcaption className="mt-3 text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70 text-center">
+              Private AI · public-market scale
+            </figcaption>
+          </motion.figure>
         </div>
-        <p className="text-xs md:text-sm text-black/60 max-w-3xl">
+
+        {/* TAM grid retained — asset-class framing complements the
+            company-specific collage above. */}
+        <motion.div
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-6 md:mb-8"
+        >
+          {[
+            { v: "$1.75T", l: "Hedge funds" },
+            { v: "$852B", l: "Venture capital" },
+            { v: "$1.2T", l: "Private credit" },
+            { v: "$134B", l: "Real estate" },
+            { v: "$159B", l: "Infrastructure" },
+            { v: "$113T", l: "Total addressable" },
+          ].map((s) => (
+            <div
+              key={s.l}
+              className="p-3 md:p-4 border-2 border-black bg-white text-center"
+            >
+              <div className="text-lg md:text-2xl font-extrabold">{s.v}</div>
+              <div className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70">
+                {s.l}
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Full-width McKinsey growth chart — visualises the 20-year
+            outperformance the quote above is referencing. */}
+        <motion.figure
+          {...fade}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="m-0 mb-6 md:mb-8"
+        >
+          <div className="border-2 border-black overflow-hidden shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000]">
+            <img
+              src="/pe/private-equity-growth.png"
+              alt="Line chart: private equity net asset value vs public equity market capitalisation, 2000-2019. PE NAV rises to roughly 8x baseline by 2019; public-market cap to roughly 2.7x. Indexed to 2000 = 1.0."
+              loading="lazy"
+              className="block w-full h-auto"
+            />
+          </div>
+          <figcaption className="mt-3 text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70 text-center">
+            Private equity NAV vs public equity market cap · 2000–2019
+          </figcaption>
+        </motion.figure>
+
+        <p className="text-xs md:text-sm text-black/60 max-w-4xl">
           Source: Based on World Bank and Preqin data, as cited in McKinsey
-          &amp; Company's "Global Private Markets Review 2020." Data as of year
-          end 2019. Growth rates indexed to 2000 values.
+          &amp; Company's "Global Private Markets Review 2020." McKinsey
+          calculates private equity net asset value as assets under management
+          net of dry powder. Data as of year end 2019. Growth rates indexed
+          to 2000 values.
         </p>
       </Section>
+
 
       {/* ── How Zoo Works ───────────────────────────────────── */}
       <Section id="how">
@@ -267,6 +327,7 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
+
       {/* ── Mine AI / Foundation mission ────────────────────── */}
       <Section id="mine-ai">
         <SectionHead
@@ -286,6 +347,7 @@ export default function ZooLabsNarrative() {
           ))}
         </div>
       </Section>
+
 
       {/* ── Five-Layer Stack ────────────────────────────────── */}
       <Section id="stack">
@@ -352,6 +414,7 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
+
       {/* ── Five Competitive Advantages ─────────────────────── */}
       <Section id="advantages">
         <SectionHead
@@ -404,6 +467,7 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
+
       {/* ── Three Markets ────────────────────────────────────── */}
       <Section id="markets">
         <SectionHead
@@ -444,6 +508,7 @@ export default function ZooLabsNarrative() {
           ))}
         </div>
       </Section>
+
 
       {/* ── Multisensory AI ─────────────────────────────────── */}
       <Section id="multisensory">
@@ -501,6 +566,7 @@ export default function ZooLabsNarrative() {
           ))}
         </div>
       </Section>
+
 
       {/* ── Closing CTA ─────────────────────────────────────── */}
       <Section id="invest">
