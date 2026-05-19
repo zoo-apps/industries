@@ -1,5 +1,18 @@
 name: Deploy to Cloudflare Pages
 
+# Fetches Cloudflare creds from Hanzo KMS (https://kms.hanzo.ai) at
+# deploy time instead of storing CLOUDFLARE_API_TOKEN / ACCOUNT_ID in
+# GitHub. Two ways to authenticate to KMS:
+#
+#   1. OIDC (zero secrets) — set repo VARIABLES:
+#        vars.KMS_IDENTITY_ID  = <KMS Machine Identity for this repo>
+#        vars.KMS_PROJECT_ID   = <KMS workspace/project ID>  (optional)
+#      The KMS-side Machine Identity must trust the GitHub OIDC subject.
+#
+#   2. Legacy bearer token — set ONE repo SECRET:
+#        secrets.HANZO_API_KEY = <KMS personal/service token>
+#      Migrate to OIDC when convenient.
+
 on:
   push:
     branches: [main]
@@ -12,6 +25,7 @@ concurrency:
 permissions:
   contents: read
   deployments: write
+  id-token: write   # required for KMS OIDC
 
 jobs:
   deploy:
@@ -19,9 +33,96 @@ jobs:
     environment:
       name: production
       url: https://zoo.industries
+    env:
+      KMS_URL: https://kms.hanzo.ai
+      KMS_SECRET_PATH: /deploy/cf-pages
+      KMS_ENVIRONMENT: prod
     steps:
       - uses: actions/checkout@v4
 
+      # ── Authenticate to Hanzo KMS ────────────────────────────────
+      - name: Authenticate to Hanzo KMS
+        id: kms-auth
+        env:
+          IDENTITY_ID: ${{ vars.KMS_IDENTITY_ID }}
+          API_KEY: ${{ secrets.HANZO_API_KEY }}
+        run: |
+          set -euo pipefail
+          ACCESS_TOKEN=""
+
+          # OIDC first (zero-secret path)
+          if [ -n "${IDENTITY_ID:-}" ] && [ -n "${ACTIONS_ID_TOKEN_REQUEST_URL:-}" ]; then
+            echo "Trying OIDC auth (identity $IDENTITY_ID)…"
+            OIDC_TOKEN=$(curl -sH "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+              "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=${KMS_URL}" | jq -r '.value // empty')
+            if [ -n "$OIDC_TOKEN" ]; then
+              RESP=$(curl -sf "${KMS_URL}/api/v1/auth/oidc-auth/login" \
+                -H "Content-Type: application/json" \
+                -d "{\"identityId\":\"${IDENTITY_ID}\",\"jwt\":\"${OIDC_TOKEN}\"}" || echo "")
+              ACCESS_TOKEN=$(echo "$RESP" | jq -r '.accessToken // empty')
+            fi
+          fi
+
+          # Fall back to a legacy bearer token
+          if [ -z "$ACCESS_TOKEN" ] && [ -n "${API_KEY:-}" ]; then
+            echo "Falling back to legacy HANZO_API_KEY"
+            ACCESS_TOKEN="$API_KEY"
+          fi
+
+          if [ -z "$ACCESS_TOKEN" ]; then
+            echo "::error::No KMS auth available. Set vars.KMS_IDENTITY_ID (OIDC) or secrets.HANZO_API_KEY (legacy)."
+            exit 1
+          fi
+
+          echo "::add-mask::${ACCESS_TOKEN}"
+          echo "token=${ACCESS_TOKEN}" >> "$GITHUB_OUTPUT"
+
+      # ── Fetch CF creds from KMS ─────────────────────────────────
+      - name: Fetch Cloudflare credentials from KMS
+        id: kms-fetch
+        env:
+          TOKEN: ${{ steps.kms-auth.outputs.token }}
+          WORKSPACE_ID: ${{ vars.KMS_PROJECT_ID }}
+        run: |
+          set -euo pipefail
+          QS=""
+          [ -n "${WORKSPACE_ID:-}" ] && QS="workspaceId=${WORKSPACE_ID}&"
+
+          # v3 first (works with universal/OIDC tokens)
+          RESP=$(curl -sf "${KMS_URL}/api/v3/secrets/raw?${QS}environment=${KMS_ENVIRONMENT}&secretPath=${KMS_SECRET_PATH}" \
+            -H "Authorization: Bearer ${TOKEN}" 2>/dev/null || true)
+
+          # v1 fallback (legacy service tokens)
+          if [ -z "$RESP" ] || [ "$(echo "$RESP" | jq '.secrets | length' 2>/dev/null)" = "0" ]; then
+            RESP=$(curl -sf "${KMS_URL}/api/v1/secrets/raw?secretPath=${KMS_SECRET_PATH}&environment=${KMS_ENVIRONMENT}" \
+              -H "Authorization: Bearer ${TOKEN}" 2>/dev/null || true)
+          fi
+
+          # Try /deploy root if nothing in /deploy/cf-pages
+          if [ -z "$RESP" ] || [ "$(echo "$RESP" | jq '.secrets | length' 2>/dev/null)" = "0" ]; then
+            RESP=$(curl -sf "${KMS_URL}/api/v3/secrets/raw?${QS}environment=${KMS_ENVIRONMENT}&secretPath=/deploy" \
+              -H "Authorization: Bearer ${TOKEN}" 2>/dev/null || true)
+          fi
+
+          if [ -z "$RESP" ]; then
+            echo "::error::Failed to read secrets from KMS"
+            exit 1
+          fi
+
+          TOKEN_VAL=$(echo "$RESP" | jq -r '.secrets[] | select(.secretKey=="CLOUDFLARE_API_TOKEN") | .secretValue')
+          ACCT_VAL=$(echo "$RESP"  | jq -r '.secrets[] | select(.secretKey=="CLOUDFLARE_ACCOUNT_ID") | .secretValue')
+
+          if [ -z "$TOKEN_VAL" ] || [ -z "$ACCT_VAL" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID not present at ${KMS_SECRET_PATH}"
+            exit 1
+          fi
+
+          echo "::add-mask::${TOKEN_VAL}"
+          echo "::add-mask::${ACCT_VAL}"
+          echo "cf_token=${TOKEN_VAL}" >> "$GITHUB_OUTPUT"
+          echo "cf_account=${ACCT_VAL}" >> "$GITHUB_OUTPUT"
+
+      # ── Build ────────────────────────────────────────────────────
       - uses: pnpm/action-setup@v4
         with:
           version: 9
@@ -35,8 +136,9 @@ jobs:
 
       - run: pnpm build
 
+      # ── Deploy ───────────────────────────────────────────────────
       - name: Deploy to Cloudflare Pages
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ steps.kms-fetch.outputs.cf_token }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ steps.kms-fetch.outputs.cf_account }}
         run: npx --yes wrangler@3 pages deploy out --project-name=zoo-industries --branch=main --commit-dirty=true
