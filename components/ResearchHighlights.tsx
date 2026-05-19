@@ -124,9 +124,12 @@ export default function ResearchHighlights() {
                   <area.icon className="w-6 h-6 sm:w-7 sm:h-7 text-black" strokeWidth={2.25} />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight">
-                    {area.title}
-                  </h4>
+                  <Link
+                    href={area.link}
+                    className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-[var(--brand-yellow)] transition-colors"
+                  >
+                    <h4>{area.title}</h4>
+                  </Link>
                   <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {area.description}
                   </p>
@@ -155,7 +158,7 @@ export default function ResearchHighlights() {
 
               <Link
                 href={area.link}
-                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] underline underline-offset-4 hover:no-underline"
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-[var(--brand-yellow)] transition-colors"
               >
                 View all papers
                 <ArrowRight className="w-3.5 h-3.5" />
