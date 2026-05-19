@@ -324,7 +324,7 @@ export default function ZooLabsNarrative() {
               h: "zoo.fund",
               s: "Financing",
               p: "Tokenized infrastructure financing with transparent economics.",
-              c: "var(--brand-blue)",
+              c: "var(--brand-yellow)",
             },
             {
               h: "zoo.vote",
@@ -426,7 +426,7 @@ export default function ZooLabsNarrative() {
             {
               h: "Enterprises",
               p: "Use zoo.network to deploy sovereign AI infrastructure with open, portable architecture instead of vendor-locked enterprise AI stacks.",
-              c: "var(--brand-blue)",
+              c: "var(--brand-cyan)",
             },
           ].map((m, i) => (
             <motion.div
