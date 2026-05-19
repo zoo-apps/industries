@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
+import InvestorNarrative from "@/components/InvestorNarrative";
 import Ecosystem from "@/components/Ecosystem";
 import ZooLabsNarrative from "@/components/ZooLabsNarrative";
 import ServicesOverview from "@/components/ServicesOverview";
@@ -9,7 +10,6 @@ import ResearchHighlights from "@/components/ResearchHighlights";
 import Leadership from "@/components/Leadership";
 import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
-import PhilosophyBridge from "@/components/PhilosophyBridge";
 import { cn } from "@/lib/utils";
 
 export default function PageClient() {
@@ -39,13 +39,13 @@ export default function PageClient() {
   return (
       <main>
         <Hero />
+        <InvestorNarrative />
         <Ecosystem />
         <ZooLabsNarrative />
         <ServicesOverview />
         <ResearchHighlights />
         <Leadership />
         <TrustedBySection />
-        <PhilosophyBridge />
         <Contact />
       </main>
   );

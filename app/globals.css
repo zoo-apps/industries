@@ -136,8 +136,11 @@ html.dark body {
   --tw-ring-color: var(--ring);
 }
 
-/* Brutalist: no rounded edges anywhere — every box is a hard rectangle. */
-*,
+/* Brutalist: every box is a hard rectangle. The only escapes are
+   ``rounded-full`` (circle avatars — team photos, mascot heads) and
+   the ``[data-circle]`` opt-in for anything else that genuinely needs
+   to be a disc. Every other ``rounded-*`` utility is overridden. */
+*:not(.rounded-full):not([data-circle]),
 *::before,
 *::after {
   border-radius: 0 !important;
@@ -175,17 +178,34 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pill-green   { --pill-color: var(--brand-green); }
 .pill-pink    { --pill-color: var(--brand-magenta); }
-.pill-blue    { --pill-color: var(--brand-blue); }
+.pill-blue    { --pill-color: var(--brand-blue); color: #fff; }
 .pill-cyan    { --pill-color: var(--brand-cyan); }
 .pill-yellow  { --pill-color: var(--brand-yellow); }
 .pill-red     { --pill-color: var(--brand-red); }
 .pill-rainbow {
+  /* Repeat the spectrum twice so the gradient can shift left forever
+     without ever revealing an end. ``background-size: 200% 100%`` plus
+     a linear 8 s animation gives a continuous color ribbon underneath
+     the FOUNDATION wordmark. */
   background-image: linear-gradient(
     90deg,
-    var(--brand-yellow) 0%, var(--brand-green) 20%,
-    var(--brand-cyan)   40%, var(--brand-blue)  60%,
-    var(--brand-magenta) 80%, var(--brand-red)  100%
+    var(--brand-yellow)  0%,  var(--brand-green)  8.33%,
+    var(--brand-cyan)    16.66%, var(--brand-blue)   25%,
+    var(--brand-magenta) 33.33%, var(--brand-red)   41.66%,
+    var(--brand-yellow)  50%, var(--brand-green)  58.33%,
+    var(--brand-cyan)    66.66%, var(--brand-blue)   75%,
+    var(--brand-magenta) 83.33%, var(--brand-red)  100%
   );
+  background-size: 200% 100%;
+  background-position: 0% 50%;
+  animation: pill-rainbow-shift 30s linear infinite;
+}
+@keyframes pill-rainbow-shift {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pill-rainbow { animation: none; }
 }
 
 /* Brutalist button — same vibe as .pill but interactive: presses into
@@ -210,8 +230,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
 }
 /* The blue variant gets a continuously cycling rainbow instead of a
-   solid fill. Other .btn-brutalist colors keep their solid pill color. */
+   solid fill. Other .btn-brutalist colors keep their solid pill color.
+   Text is forced white so it stays legible through the dark-blue trough
+   of the rainbow cycle. */
 .btn-brutalist.pill-blue {
+  color: #fff;
   background-color: var(--brand-blue); /* fallback for prefers-reduced-motion */
   background-image: linear-gradient(
     90deg,
@@ -270,6 +293,31 @@ h1, h2, h3, h4, h5, h6 {
 .panel-blue  { --panel-color: var(--brand-blue); }
 .panel-cyan  { --panel-color: var(--brand-cyan); }
 .panel-yellow{ --panel-color: var(--brand-yellow); }
+
+/* Card hover: swap a brutalist white card to the same rainbow ribbon
+   used on .pill-rainbow, but only while hovered. The gradient inherits
+   the 4 s shifting animation so the colors flow under the card. Text
+   stays black; black border + offset shadow stay intact. */
+.card-rainbow-hover {
+  transition: background-color 0.2s ease;
+  background-image: none;
+}
+.card-rainbow-hover:hover {
+  background-image: linear-gradient(
+    90deg,
+    var(--brand-yellow)  0%,  var(--brand-green)  8.33%,
+    var(--brand-cyan)    16.66%, var(--brand-blue)   25%,
+    var(--brand-magenta) 33.33%, var(--brand-red)   41.66%,
+    var(--brand-yellow)  50%, var(--brand-green)  58.33%,
+    var(--brand-cyan)    66.66%, var(--brand-blue)   75%,
+    var(--brand-magenta) 83.33%, var(--brand-red)  100%
+  );
+  background-size: 200% 100%;
+  animation: pill-rainbow-shift 24s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-rainbow-hover:hover { animation: none; }
+}
 
 /* Continuous slow rotation for the brand mark in the navbar. */
 .logo-spin {
