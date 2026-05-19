@@ -131,7 +131,7 @@ export default function Ecosystem() {
             <div className="space-y-3 mb-6 text-base font-medium">
               <p className="underline">Selling &amp; Mining AI Compute</p>
             </div>
-            <div className="panel panel-pink space-y-4 text-white">
+            <div className="panel space-y-4 text-black bg-white">
               <p className="font-bold">
                 To truly democratize data and computation in AI, we must
                 leverage blockchain to decentralize compute and knowledge.
@@ -159,7 +159,7 @@ export default function Ecosystem() {
             <div className="space-y-3 mb-6 text-base font-medium">
               <p className="underline">Our Future Research</p>
             </div>
-            <div className="panel panel-blue space-y-4 text-white">
+            <div className="panel space-y-4 text-black bg-white">
               <p className="font-bold">
                 To further promote our mission to save endangered species, Zoo
                 will introduce an engaging haptic sensory Lab in the Bay Area.

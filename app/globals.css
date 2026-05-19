@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pill-green   { --pill-color: var(--brand-green); }
 .pill-pink    { --pill-color: var(--brand-magenta); }
-.pill-blue    { --pill-color: var(--brand-blue); }
+.pill-blue    { --pill-color: var(--brand-blue); color: #fff; }
 .pill-cyan    { --pill-color: var(--brand-cyan); }
 .pill-yellow  { --pill-color: var(--brand-yellow); }
 .pill-red     { --pill-color: var(--brand-red); }

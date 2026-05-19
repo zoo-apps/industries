@@ -63,7 +63,10 @@ export default function InvestorNarrative() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <span className="inline-block px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.2em] text-white bg-[var(--brand-blue)] border-2 border-black shadow-[6px_6px_0_0_#000]">
+          <span
+            className="inline-block px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.2em] bg-[var(--brand-blue)] border-2 border-black shadow-[6px_6px_0_0_#000]"
+            style={{ color: "#fff" }}
+          >
             Private equity on chain
           </span>
         </motion.div>
@@ -152,14 +155,20 @@ export default function InvestorNarrative() {
               Each step starts black and eases to its brand color when it
               scrolls into view (icon + title share the color via
               ``currentColor`` — Lucide strokes inherit it automatically). */}
-          <ol className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-3 md:gap-5">
+          <motion.ol
+            className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-3 md:gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{ visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
+          >
             {pathSteps.map((s, i) => (
               <motion.li
                 key={s.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-15%" }}
-                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.1 }}
+                variants={{
+                  hidden:  { opacity: 0, y: 24 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                }}
                 className="relative flex flex-col items-center text-center"
               >
                 <s.icon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground" strokeWidth={2} />
@@ -188,7 +197,7 @@ export default function InvestorNarrative() {
                 )}
               </motion.li>
             ))}
-          </ol>
+          </motion.ol>
 
           {/* Broad investor access callout */}
           <div className="mt-8 sm:mt-10 grid grid-cols-[56px_1fr] sm:grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-4 sm:gap-6 items-center border-2 border-black p-5 sm:p-6 md:p-8">

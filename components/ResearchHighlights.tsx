@@ -14,7 +14,7 @@ const researchAreas = [
       { title: "Decentralized Semantic Optimization", href: "https://github.com/zooai/papers", result: "15.2% multi-agent improvement" },
       { title: "HLLM Training-Free GRPO",            href: "https://github.com/zooai/gym",    result: "$18 vs $10,000+ training cost" },
     ],
-    link: "/research#ai",
+    link: "/research#papers",
   },
   {
     icon: Shield,
@@ -25,7 +25,7 @@ const researchAreas = [
       { title: "ETHFALCON Post-Quantum", href: "https://github.com/luxfi/papers", result: "FALCON signatures for EVM" },
       { title: "NTT Transform",          href: "https://github.com/luxfi/papers", result: "85% gas reduction for PQ crypto" },
     ],
-    link: "/research#crypto",
+    link: "/research#papers",
   },
   {
     icon: Network,
@@ -36,7 +36,7 @@ const researchAreas = [
       { title: "Hamiltonian Market Maker",  href: "https://github.com/zooai/papers",        result: "<200 ms quote latency" },
       { title: "ZAP Protocol",              href: "https://github.com/zap-protocol/zap",    result: "Zero-copy AI agent RPC" },
     ],
-    link: "/research#consensus",
+    link: "/research#papers",
   },
   {
     icon: Sparkles,
