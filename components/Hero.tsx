@@ -28,7 +28,7 @@ export default function Hero() {
       {/* Hero. Top padding clears the fixed stack — TopBanner (~38 px,
           ``top-0``) + Navbar (~50 px, ``top-[38px]``) = ~88 px — and
           then leaves a healthy 2x air gap above the headline. */}
-      <section className="relative pt-64 md:pt-72 lg:pt-80 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
+      <section className="relative pt-48 md:pt-56 lg:pt-60 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto relative">
           {/* Copy — centered on the page. */}
           <motion.div
