@@ -80,7 +80,7 @@ export default function Hero() {
 
       {/* Feature strip — minimal inline row. Tiny icon + label per
           item, hairline ``·`` separators, no panel chrome at all. */}
-      <section className="px-4 md:px-8 pb-12 md:pb-16">
+      <section className="px-4 md:px-8 pt-12 md:pt-16 pb-12 md:pb-16">
         <ul className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
           {features.map((f, i) => (
             <li key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
