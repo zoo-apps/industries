@@ -12,13 +12,14 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Brutalist nav: full-bleed bar, single hard bottom border. Background
-  // becomes opaque + blurs once the user scrolls so the navbar sits cleanly
-  // over body content. No rounded pill, no shadow halo — square edges only.
+  // Brutalist nav: full-bleed bar, single hard bottom border. Sits flush
+  // against the TopBanner — pinned via ``top-[var(--banner-h)]`` (set by
+  // TopBanner so the two stack cleanly without a stripe of background
+  // gradient peeking through). Square edges only; no rounded pill.
   return (
     <nav
       className={cn(
-        'fixed top-10 left-0 right-0 z-50 transition-colors duration-200',
+        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px]',
         scrolled
           ? 'bg-background/85 backdrop-blur-md border-b-2 border-black'
           : 'bg-transparent border-b-2 border-transparent'

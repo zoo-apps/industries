@@ -43,10 +43,10 @@ export default function ResearchHighlights() {
     {
       icon: Sparkles,
       title: "Zen AI Models",
-      description: "Zen4/5 — from 4B to 2T+ MoDE parameters with GT-QLoRA MoE fine-tuning",
+      description: "Zen5/5 — from 4B to 2T+ MoDE parameters with GT-QLoRA MoE fine-tuning",
       papers: [
-        { title: "GT-QLoRA: MoE Fine-Tuning", href: "https://zenlm.org/papers/zen4-ultra-gt-qlora.pdf", result: "Gate-targeted behavioral modification" },
-        { title: "Zen4 Model Family", href: "https://huggingface.co/zenlm", result: "4B-1T+ abliterated models" },
+        { title: "GT-QLoRA: MoE Fine-Tuning", href: "https://zenlm.org/papers/zen5-ultra-gt-qlora.pdf", result: "Gate-targeted behavioral modification" },
+        { title: "Zen5 Model Family", href: "https://huggingface.co/zenlm", result: "4B-1T+ abliterated models" },
         { title: "Zen5 Ultra (Research Preview)", href: "https://zenlm.org/docs/models#zen5", result: "2T+ MoDE — request access" },
       ],
       link: "/models"

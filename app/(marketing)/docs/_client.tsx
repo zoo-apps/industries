@@ -236,7 +236,7 @@ const codeExamples: Record<string, string> = {
 client = Zoo()
 
 response = client.chat.completions.create(
-    model="zen4",
+    model="zen5",
     messages=[
         {"role": "user", "content": "Explain quantum computing in one paragraph."}
     ],
@@ -248,7 +248,7 @@ print(response.choices[0].message.content)`,
 const client = new Zoo();
 
 const response = await client.chat.completions.create({
-  model: "zen4",
+  model: "zen5",
   messages: [
     { role: "user", content: "Explain quantum computing in one paragraph." },
   ],
@@ -268,7 +268,7 @@ func main() {
 
     resp, _ := client.Chat.Completions.New(context.TODO(),
         hanzo.ChatCompletionNewParams{
-            Model: "zen4",
+            Model: "zen5",
             Messages: []hanzo.ChatCompletionMessageParam{
                 {Role: "user", Content: "Explain quantum computing in one paragraph."},
             },
@@ -286,7 +286,7 @@ async fn main() -> Result<(), hanzo::Error> {
     let response = client
         .chat()
         .completions()
-        .create("zen4")
+        .create("zen5")
         .message("user", "Explain quantum computing in one paragraph.")
         .send()
         .await?;

@@ -20,7 +20,7 @@ export ZOO_API_KEY="zk-your-api-key"
 curl https://api.zoo.network/v1/chat/completions \\
   -H "Authorization: Bearer $ZOO_API_KEY" \\
   -H "Content-Type: application/json" \\
-  -d '{"model": "zen4", "messages": [{"role": "user", "content": "Hello, Zen!"}]}'`,
+  -d '{"model": "zen5", "messages": [{"role": "user", "content": "Hello, Zen!"}]}'`,
       description: "Get started with Zoo Industries in minutes — every new account gets $5 free credit"
     },
     {
@@ -32,9 +32,9 @@ curl https://api.zoo.network/v1/chat/completions \\
 # Initialize the client
 client = Zoo(api_key="zk-your-api-key")
 
-# Generate a response with zen4
+# Generate a response with zen5
 response = client.chat.completions.create(
-    model="zen4",
+    model="zen5",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "Explain quantum computing in simple terms"}
@@ -54,9 +54,9 @@ print(response.choices[0].message.content)`,
 
 const client = new Zoo({ apiKey: "zk-your-api-key" });
 
-// Stream a response from zen4-coder
+// Stream a response from zen5-coder
 const stream = await client.chat.completions.create({
-  model: "zen4-coder",
+  model: "zen5-coder",
   messages: [{ role: "user", content: "Write a Go HTTP server with graceful shutdown" }],
   stream: true,
 });
@@ -111,7 +111,7 @@ for i, embedding in enumerate(response.data):
 # Combine with chat for RAG pipeline
 context = "Retrieved context from vector search..."
 answer = client.chat.completions.create(
-    model="zen4",
+    model="zen5",
     messages=[
         {"role": "system", "content": f"Answer based on: {context}"},
         {"role": "user", "content": "What is quantum computing?"}
