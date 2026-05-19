@@ -117,7 +117,7 @@ export default function ResearchHighlights() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-10%" }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.08 }}
-              className="card-rainbow-hover group/card border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] p-6 sm:p-8 md:p-10"
+              className="border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] p-6 sm:p-8 md:p-10"
             >
               <div className="flex items-start gap-4 mb-5 sm:mb-6">
                 <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:bg-[var(--brand-yellow)] transition-colors cursor-pointer">
