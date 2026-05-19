@@ -753,7 +753,7 @@ export default function GlobalChatWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
           >
-            <img src="/zoo-logo.png" alt="Zoo" className="w-8 h-8" />
+            <img src="/zoo-logo.svg" alt="Zoo" className="w-8 h-8" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -778,7 +778,7 @@ export default function GlobalChatWidget() {
             <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/50">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/10 overflow-hidden">
-                  <img src="/zoo-logo.png" alt="Zoo" className="w-5 h-5" />
+                  <img src="/zoo-logo.svg" alt="Zoo" className="w-5 h-5" />
                 </div>
 
                 {/* Model selector */}
