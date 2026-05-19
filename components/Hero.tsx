@@ -78,13 +78,14 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Feature strip */}
-      <section className="relative border-y-2 border-black bg-[var(--brand-yellow)]/[0.08]">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
+      {/* Feature strip — wrapped in a single brutalist panel so it reads
+          as one block alongside the other framed sections on the page. */}
+      <section className="px-4 md:px-8 pb-12 md:pb-16">
+        <div className="max-w-7xl mx-auto border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
           {features.map((f) => (
             <div key={f.h} className="flex items-center gap-4 px-5 md:px-6 py-5 md:py-6">
               <div
-                className="shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 border-2 border-black"
+                className="shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 border-2 border-black shadow-[3px_3px_0_0_#000]"
                 style={{ backgroundColor: f.tint }}
                 aria-hidden
               >
