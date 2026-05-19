@@ -60,18 +60,6 @@ export default function Leadership() {
       image: "/leadership/rob-ruiz.png"
     },
     {
-      name: "Marcus White",
-      title: "VP Research",
-      bio: "Research leader advancing AI capabilities and innovation. Expert in applied research and bringing cutting-edge technology to production.",
-      image: "/leadership/marcus-white.png"
-    },
-    {
-      name: "Jackson Mori",
-      title: "VP Engineering",
-      bio: "Engineering leader building scalable distributed systems. Focused on performance, reliability, and developer experience.",
-      image: "/leadership/jackson-mori.png"
-    },
-    {
       name: "Ole Brereton",
       title: "Executive VP",
       bio: "Senior executive driving strategic initiatives and high-impact partnerships across the organization.",
@@ -121,11 +109,14 @@ export default function Leadership() {
               className="text-center group"
             >
               <div className="mb-4">
-                <div className="w-32 h-32 mx-auto overflow-hidden transition-all duration-300">
+                {/* Avatar disc. ``rounded-full`` is mandatory — the global
+                    brutalist reset (``*:not(.rounded-full) { border-radius:
+                    0 !important }``) squares anything that doesn't have it. */}
+                <div className="w-32 h-32 mx-auto aspect-square overflow-hidden rounded-full border border-black transition-all duration-300">
                   <img
                     src={leader.image}
                     alt={leader.name}
-                    className="w-full h-full object-cover grayscale transition-all duration-500"
+                    className="w-full h-full object-cover grayscale rounded-full transition-all duration-500"
                   />
                 </div>
               </div>
