@@ -39,7 +39,7 @@ export default function Hero() {
             className="relative z-10"
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
-              Your AI.<br />Your data.<br />Your coin.
+              Your brain.<br />Your AI.<br />Your profit.
             </h1>
             <p className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               Stop renting AI from giants. Run powerful open Zen models on
