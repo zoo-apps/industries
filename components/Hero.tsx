@@ -64,9 +64,9 @@ export default function Hero() {
                   Start earning coin
                 </button>
               </Link>
-              <Link href="/models">
+              <Link href="/models" className="w-full sm:w-auto">
                 <button
-                  className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-blue)] text-white border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-blue)] text-white border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
                   <BookOpen className="w-4 h-4" />
                   Browse models
