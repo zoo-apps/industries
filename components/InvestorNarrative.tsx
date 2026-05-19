@@ -137,8 +137,16 @@ export default function InvestorNarrative() {
           transition={{ duration: 0.5 }}
           className="border-2 border-black bg-white/60 p-6 sm:p-8 md:p-10 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]"
         >
-          <h3 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-8 sm:mb-10">
+          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-8 sm:mb-10">
             The path Zoo unlocks
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+            />
           </h3>
           {/* Mobile: vertical list with down-arrows. Desktop: 5-col row.
               Each step starts black and eases to its brand color when it
@@ -203,8 +211,16 @@ export default function InvestorNarrative() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
         >
-          <h3 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Why now
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+            />
           </h3>
           <div className="border-2 border-black bg-white/60 divide-y divide-black/30 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
             {whyNow.map((w, i) => (
