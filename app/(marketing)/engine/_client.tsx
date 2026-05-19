@@ -15,8 +15,8 @@ const fade = {
 }
 
 const fleet = [
-  { h: 'NVIDIA H100 / H200', p: 'Frontier text + multimodal. The default for zen4-max, zen4 (MoE), zen-omni at scale.',          color: 'pill-pink' },
-  { h: 'AMD MI300X',         p: '192 GB HBM3 per card — fits zen4-max with room. Better $/token on context-heavy workloads.',     color: 'pill-yellow' },
+  { h: 'NVIDIA H100 / H200', p: 'Frontier text + multimodal. The default for zen5-max, zen5 (MoE), zen-omni at scale.',          color: 'pill-pink' },
+  { h: 'AMD MI300X',         p: '192 GB HBM3 per card — fits zen5-max with room. Better $/token on context-heavy workloads.',     color: 'pill-yellow' },
   { h: 'AWS Trainium 2',     p: 'Lowest $/token for embeddings, reranking, and zen-eco-4b. Default route for cheap-and-fast.',    color: 'pill-cyan' },
   { h: 'Apple M-series',     p: 'Pooled Mac Studios for low-load batch jobs. Underused capacity → cheap inference on the edge of the cloud.', color: 'pill-green' },
 ]
