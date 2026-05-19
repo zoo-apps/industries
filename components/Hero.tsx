@@ -47,7 +47,7 @@ export default function Hero() {
               return. Yours to keep. Yours to spend.
             </p>
 
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-16 md:mt-20 flex flex-wrap justify-center gap-4">
               <Link href="/install">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
