@@ -31,12 +31,12 @@ export default function Hero() {
           collides with the underside of the menu bar at any breakpoint. */}
       <section className="relative pt-32 md:pt-36 lg:pt-40 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto relative">
-          {/* Copy */}
+          {/* Copy — centered on the page. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative z-10"
+            className="relative z-10 text-center flex flex-col items-center"
           >
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
               Your brain.<br />Your AI.<br />Your profit.
@@ -48,7 +48,7 @@ export default function Hero() {
               return. Yours to keep. Yours to spend.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link href="/install">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
