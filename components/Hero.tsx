@@ -72,7 +72,7 @@ export default function Hero() {
                   Run Zen at home
                 </button>
               </Link>
-              <Link href="/mining">
+              <Link href="/cloud">
                 <button
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-magenta)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
