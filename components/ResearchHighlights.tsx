@@ -140,7 +140,7 @@ export default function ResearchHighlights() {
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-foreground hover:text-background transition-colors"
+                      className="flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--brand-yellow)] hover:text-black transition-colors"
                     >
                       <span className="text-xs sm:text-sm font-extrabold uppercase tracking-tight">
                         {p.title}
