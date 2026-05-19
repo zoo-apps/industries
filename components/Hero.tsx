@@ -91,25 +91,16 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right — geometric stage. Backdrop is circles.svg (orange/red
-              and yellow gradient circles); zebra.svg already includes
-              the picket fence in the artwork, so don't draw another one
-              in CSS or you'll end up with a double fence. */}
+          {/* Right — geometric stage. zebra.svg includes the picket fence
+              baked into the artwork, so don't draw one in CSS or you'll
+              double up. (Circles backdrop intentionally omitted; the
+              iridescent body gradient carries the color behind the zebra.) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="relative aspect-[5/4] w-full max-w-[720px] mx-auto"
           >
-            {/* Backdrop circles — sit behind everything. */}
-            <Image
-              src="/homepagesquares/circles.svg"
-              alt=""
-              aria-hidden
-              fill
-              priority
-              className="object-contain select-none pointer-events-none z-0"
-            />
             {/* Zebra + picket fence — single composite asset. */}
             <Image
               src="/homepagesquares/zebra.svg"
