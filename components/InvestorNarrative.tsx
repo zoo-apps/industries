@@ -15,21 +15,23 @@ import {
 } from "lucide-react";
 
 // THE PATH ZOO UNLOCKS — five-step flow from physical GPU capex to
-// instant on-chain settlement. Each step gets a Lucide stand-in for
-// the brutalist black icons used in the Figma.
+// instant on-chain settlement. Each step has a brand color it eases
+// into as you scroll past it (icon + title share the color via
+// ``currentColor``; Lucide strokes inherit it automatically).
 const pathSteps = [
-  { icon: Server,       title: "GPU-backed AI infrastructure", body: "High-demand, cash-generative assets." },
-  { icon: Coins,        title: "Tokenized private equity",     body: "Economic exposure to private companies." },
-  { icon: ShieldCheck,  title: "ATS trading",                  body: "Broker-dealer compliant trading in a regulated ATS." },
-  { icon: FileText,     title: "Transfer agency",              body: "Onboarding, cap-table management, investor servicing." },
-  { icon: Cuboid,       title: "On-chain settlement",          body: "Transparent, secure, instant settlement." },
+  { icon: Server,       title: "GPU-backed AI infrastructure", body: "High-demand, cash-generative assets.",                        color: "var(--brand-magenta)" },
+  { icon: Coins,        title: "Tokenized private equity",     body: "Economic exposure to private companies.",                     color: "var(--brand-yellow)"  },
+  { icon: ShieldCheck,  title: "ATS trading",                  body: "Broker-dealer compliant trading in a regulated ATS.",         color: "var(--brand-green)"   },
+  { icon: FileText,     title: "Transfer agency",              body: "Onboarding, cap-table management, investor servicing.",       color: "var(--brand-cyan)"    },
+  { icon: Cuboid,       title: "On-chain settlement",          body: "Transparent, secure, instant settlement.",                    color: "var(--brand-blue)"    },
 ];
 
 // WHY NOW — three reasons stacked vertically with hairline dividers.
+// Same scroll-in colorization as the path steps.
 const whyNow = [
-  { icon: TrendingUp, title: "AI infrastructure demand is exploding",            body: "Compute is the new oil of the digital economy." },
-  { icon: Landmark,   title: "Private valuations are reaching public-market scale", body: "Top private AI companies are already worth hundreds of billions to trillions." },
-  { icon: ShieldCheck, title: "Tokenization rails are finally mature",            body: "Regulation, compliance, and infrastructure are aligning for mainstream access." },
+  { icon: TrendingUp, title: "AI infrastructure demand is exploding",            body: "Compute is the new oil of the digital economy.",                                 color: "var(--brand-red)"     },
+  { icon: Landmark,   title: "Private valuations are reaching public-market scale", body: "Top private AI companies are already worth hundreds of billions to trillions.", color: "var(--brand-magenta)" },
+  { icon: ShieldCheck, title: "Tokenization rails are finally mature",            body: "Regulation, compliance, and infrastructure are aligning for mainstream access.", color: "var(--brand-green)"   },
 ];
 
 // AI-native private companies — five rows on a rainbow ribbon.
@@ -54,7 +56,7 @@ const sectorTiles = [
 
 export default function InvestorNarrative() {
   return (
-    <section className="relative bg-background border-y-2 border-black overflow-hidden">
+    <section className="relative bg-background border-b-2 border-black overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32 space-y-12 sm:space-y-16 md:space-y-20">
 
         {/* ─── Eyebrow pill (solid brand-blue) ───────────────────────── */}
@@ -141,11 +143,21 @@ export default function InvestorNarrative() {
           <h3 className="text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-8 sm:mb-10">
             The path Zoo unlocks
           </h3>
-          {/* Mobile: vertical list with down-arrows. Desktop: 5-col row. */}
+          {/* Mobile: vertical list with down-arrows. Desktop: 5-col row.
+              Each step starts black and eases to its brand color when it
+              scrolls into view (icon + title share the color via
+              ``currentColor`` — Lucide strokes inherit it automatically). */}
           <ol className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-3 md:gap-5">
             {pathSteps.map((s, i) => (
-              <li key={s.title} className="relative flex flex-col items-center text-center">
-                <s.icon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground" strokeWidth={2} />
+              <motion.li
+                key={s.title}
+                initial={{ color: "#000000" }}
+                whileInView={{ color: s.color }}
+                viewport={{ once: true, margin: "-15%" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 + i * 0.1 }}
+                className="relative flex flex-col items-center text-center"
+              >
+                <s.icon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16" strokeWidth={2} />
                 <div className="mt-3 sm:mt-4 text-xs sm:text-[10px] md:text-xs font-extrabold uppercase tracking-tight leading-tight">
                   {s.title}
                 </div>
@@ -169,7 +181,7 @@ export default function InvestorNarrative() {
                     ↓
                   </span>
                 )}
-              </li>
+              </motion.li>
             ))}
           </ol>
 
@@ -198,13 +210,17 @@ export default function InvestorNarrative() {
             Why now
           </h3>
           <div className="border-2 border-black bg-white/60 divide-y divide-black/30 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
-            {whyNow.map((w) => (
-              <div
+            {whyNow.map((w, i) => (
+              <motion.div
                 key={w.title}
+                initial={{ color: "#000000" }}
+                whileInView={{ color: w.color }}
+                viewport={{ once: true, margin: "-15%" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 + i * 0.15 }}
                 className="grid grid-cols-[64px_1fr] sm:grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4 sm:gap-6 md:gap-8 p-5 sm:p-7 md:p-9 items-start"
               >
                 <div className="flex items-center justify-center border-r border-black/20 pr-2 sm:pr-4">
-                  <w.icon className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 text-foreground" strokeWidth={2} />
+                  <w.icon className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20" strokeWidth={2} />
                 </div>
                 <div>
                   <h4 className="text-sm sm:text-base md:text-lg font-extrabold uppercase tracking-tight leading-tight">
@@ -214,7 +230,7 @@ export default function InvestorNarrative() {
                     {w.body}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
