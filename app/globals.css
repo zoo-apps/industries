@@ -136,8 +136,11 @@ html.dark body {
   --tw-ring-color: var(--ring);
 }
 
-/* Brutalist: no rounded edges anywhere — every box is a hard rectangle. */
-*,
+/* Brutalist: every box is a hard rectangle. The only escapes are
+   ``rounded-full`` (circle avatars — team photos, mascot heads) and
+   the ``[data-circle]`` opt-in for anything else that genuinely needs
+   to be a disc. Every other ``rounded-*`` utility is overridden. */
+*:not(.rounded-full):not([data-circle]),
 *::before,
 *::after {
   border-radius: 0 !important;
