@@ -78,23 +78,25 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Feature strip — wrapped in a single brutalist panel so it reads
-          as one block alongside the other framed sections on the page. */}
+      {/* Feature strip — minimal, billboard-style. Naked icon stroked
+          in a brand color, a single big label, no chip / no shadow per
+          tile. Whole row sits inside one brutalist panel, hairline
+          dividers between cells. */}
       <section className="px-4 md:px-8 pb-12 md:pb-16">
-        <div className="max-w-7xl mx-auto border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
+        <div className="max-w-7xl mx-auto border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] grid grid-cols-2 md:grid-cols-4 divide-x-2 divide-y-2 md:divide-y-0 divide-black">
           {features.map((f) => (
-            <div key={f.h} className="flex items-center gap-4 px-5 md:px-6 py-5 md:py-6">
-              <div
-                className="shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 border-2 border-black shadow-[3px_3px_0_0_#000]"
-                style={{ backgroundColor: f.tint }}
-                aria-hidden
-              >
-                <f.icon className="w-7 h-7 md:w-9 md:h-9 text-black" strokeWidth={2.25} />
-              </div>
-              <div className="min-w-0">
-                <h4 className="text-sm md:text-base font-extrabold uppercase tracking-tight text-foreground">{f.h}</h4>
-                <p className="text-xs md:text-sm text-muted-foreground mt-1">{f.p}</p>
-              </div>
+            <div
+              key={f.h}
+              className="flex flex-col items-center text-center gap-3 sm:gap-4 px-4 sm:px-6 py-7 sm:py-9 md:py-10"
+            >
+              <f.icon
+                className="w-9 h-9 md:w-11 md:h-11"
+                strokeWidth={2}
+                style={{ color: f.tint }}
+              />
+              <h4 className="text-sm md:text-base font-extrabold uppercase tracking-tight text-foreground leading-tight">
+                {f.h}
+              </h4>
             </div>
           ))}
         </div>
