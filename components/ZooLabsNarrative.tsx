@@ -307,37 +307,45 @@ export default function ZooLabsNarrative() {
               s: "Models",
               p: "Openly trained, free, private local AI models.",
               c: "var(--brand-yellow)",
+              href: "https://zenlm.org",
             },
             {
               h: "zoo.cloud",
               s: "Compute",
               p: "Decentralized GPU/inference network.",
               c: "var(--brand-green)",
+              href: "https://zoo.cloud",
             },
             {
               h: "zoo.network",
               s: "Settlement",
               p: "Post-quantum, GPU-native blockchain (EVM, block STM, consensus on GPU) + Open AI mining.",
               c: "var(--brand-cyan)",
+              href: "https://zoo.network",
             },
             {
               h: "zoo.fund",
               s: "Financing",
               p: "Tokenized infrastructure financing with transparent economics.",
               c: "var(--brand-yellow)",
+              href: "https://zoo.fund",
             },
             {
               h: "zoo.vote",
               s: "Governance",
               p: "Open governance — community-owned decision-making.",
               c: "var(--brand-magenta)",
+              href: "https://zoo.vote",
             },
           ].map((layer, i) => (
-            <motion.div
+            <motion.a
               key={layer.h}
+              href={layer.href}
+              target="_blank"
+              rel="noopener noreferrer"
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="p-4 md:p-5 border-2 border-black shadow-[6px_6px_0_0_#000] text-black"
+              className="block p-4 md:p-5 border-2 border-black shadow-[6px_6px_0_0_#000] text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-transform"
               style={{ backgroundColor: layer.c }}
             >
               <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold mb-1 opacity-70">
@@ -347,7 +355,7 @@ export default function ZooLabsNarrative() {
                 {layer.h}
               </div>
               <p className="text-xs md:text-sm font-medium">{layer.p}</p>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </Section>

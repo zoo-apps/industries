@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from 'lucide-react'
 
 export default function TopBanner() {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] bg-[var(--brand-green)] text-black">
+    <div className="pill-rainbow fixed top-0 inset-x-0 z-[60] text-black border-b-2 border-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-center gap-3 text-center text-sm font-semibold">
         <Sparkles className="w-4 h-4 shrink-0" aria-hidden />
         <span className="truncate">Run private AI on your laptop. Earn coin sharing your compute.</span>
