@@ -10,14 +10,13 @@ const fade = {
 
 // Small image strip under the Foundation prose. Files live in
 // /public/ecosystem/<slug>.jpg — drop replacements there to swap.
-// Falls back to /placeholder.svg if a file is missing.
 const ecosystemImages = [
-  { slug: "bear", alt: "Bear", emoji: "🐻" },
-  { slug: "drought", alt: "Drought / dry tree", emoji: "🌳" },
-  { slug: "lake", alt: "Lake", emoji: "🏞️" },
-  { slug: "eagle", alt: "Eagle in flight", emoji: "🦅" },
-  { slug: "forest", alt: "Forest", emoji: "🌲" },
-  { slug: "whale", alt: "Whale tail", emoji: "🐋" },
+  { slug: "bear",    alt: "Bear" },
+  { slug: "drought", alt: "Drought / dry tree" },
+  { slug: "lake",    alt: "Lake" },
+  { slug: "eagle",   alt: "Eagle in flight" },
+  { slug: "forest",  alt: "Forest" },
+  { slug: "whale",   alt: "Whale tail" },
 ];
 
 export default function Ecosystem() {
@@ -85,17 +84,8 @@ export default function Ecosystem() {
                 src={`/ecosystem/${img.slug}.jpg`}
                 alt={img.alt}
                 loading="lazy"
-                onError={(e) => {
-                  (e.currentTarget as HTMLImageElement).style.display = "none";
-                }}
                 className="w-full h-full object-cover"
               />
-              <span
-                aria-hidden
-                className="absolute inset-0 flex items-center justify-center text-3xl sm:text-4xl pointer-events-none"
-              >
-                {img.emoji}
-              </span>
             </div>
           ))}
         </motion.div>
