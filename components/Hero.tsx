@@ -26,10 +26,9 @@ export default function Hero() {
   return (
     <>
       {/* Hero. Top padding clears the fixed stack — TopBanner (~38 px,
-          ``top-0``) + Navbar (~50 px, ``top-[38px]``) = ~88 px. We pad
-          the Hero a healthy amount past that so the headline never
-          collides with the underside of the menu bar at any breakpoint. */}
-      <section className="relative pt-32 md:pt-36 lg:pt-40 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
+          ``top-0``) + Navbar (~50 px, ``top-[38px]``) = ~88 px — and
+          then leaves a healthy 2x air gap above the headline. */}
+      <section className="relative pt-64 md:pt-72 lg:pt-80 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto relative">
           {/* Copy — centered on the page. */}
           <motion.div
@@ -80,7 +79,7 @@ export default function Hero() {
 
       {/* Feature strip — minimal inline row. Tiny icon + label per
           item, hairline ``·`` separators, no panel chrome at all. */}
-      <section className="px-4 md:px-8 pt-12 md:pt-16 pb-12 md:pb-16">
+      <section className="px-4 md:px-8 pb-12 md:pb-16">
         <ul className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
           {features.map((f, i) => (
             <li key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
