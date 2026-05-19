@@ -324,7 +324,7 @@ export default function ZooLabsNarrative() {
               h: "zoo.fund",
               s: "Financing",
               p: "Tokenized infrastructure financing with transparent economics.",
-              c: "var(--brand-blue)",
+              c: "var(--brand-yellow)",
             },
             {
               h: "zoo.vote",
@@ -426,7 +426,7 @@ export default function ZooLabsNarrative() {
             {
               h: "Enterprises",
               p: "Use zoo.network to deploy sovereign AI infrastructure with open, portable architecture instead of vendor-locked enterprise AI stacks.",
-              c: "var(--brand-blue)",
+              c: "var(--brand-cyan)",
             },
           ].map((m, i) => (
             <motion.div
@@ -480,8 +480,16 @@ export default function ZooLabsNarrative() {
           ))}
         </div>
 
-        <h4 className="text-lg md:text-xl font-extrabold uppercase mb-4 md:mb-5 tracking-tight">
+        <h4 className="relative inline-block text-lg md:text-xl font-extrabold uppercase mb-6 md:mb-7 tracking-tight">
           Compatible devices
+          <motion.span
+            aria-hidden
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, margin: "-15%" }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+          />
         </h4>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {[
@@ -492,12 +500,16 @@ export default function ZooLabsNarrative() {
             "Volumetric 3D",
             "Tablets · Phones",
           ].map((d, i) => (
-            <div
+            <motion.div
               key={d}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 + i * 0.08 }}
               className="p-3 md:p-4 border-2 border-black bg-white text-center font-extrabold uppercase tracking-tight text-xs md:text-sm shadow-[4px_4px_0_0_#000] md:shadow-[6px_6px_0_0_#000]"
             >
               {d}
-            </div>
+            </motion.div>
           ))}
         </div>
       </Section>

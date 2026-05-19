@@ -53,7 +53,7 @@ const authMethods = [
   -H "Authorization: Bearer $ZOO_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "model": "zen4",
+    "model": "zen5",
     "messages": [{"role": "user", "content": "Hello"}]
   }'`,
   },
@@ -83,7 +83,7 @@ const endpoints: { category: string; items: Endpoint[] }[] = [
         path: "/v1/chat/completions",
         description: "Create a chat completion. Supports streaming, function calling, and tool use.",
         example: `{
-  "model": "zen4",
+  "model": "zen5",
   "messages": [
     {"role": "system", "content": "You are a helpful assistant."},
     {"role": "user", "content": "Explain quantum computing."}
@@ -105,9 +105,9 @@ const endpoints: { category: string; items: Endpoint[] }[] = [
         example: `// Response
 {
   "data": [
-    {"id": "zen4", "object": "model", "owned_by": "hanzo"},
-    {"id": "zen4-max", "object": "model", "owned_by": "hanzo"},
-    {"id": "zen4-coder", "object": "model", "owned_by": "hanzo"}
+    {"id": "zen5", "object": "model", "owned_by": "hanzo"},
+    {"id": "zen5-max", "object": "model", "owned_by": "hanzo"},
+    {"id": "zen5-coder", "object": "model", "owned_by": "hanzo"}
   ]
 }`,
       },
@@ -115,9 +115,9 @@ const endpoints: { category: string; items: Endpoint[] }[] = [
         method: "GET",
         path: "/v1/models/{model_id}",
         description: "Retrieve details for a specific model.",
-        example: `// GET /v1/models/zen4
+        example: `// GET /v1/models/zen5
 {
-  "id": "zen4",
+  "id": "zen5",
   "object": "model",
   "owned_by": "hanzo",
   "permission": []
@@ -147,7 +147,7 @@ const endpoints: { category: string; items: Endpoint[] }[] = [
         path: "/v1/completions",
         description: "Create a text completion. Legacy endpoint — prefer chat completions for new projects.",
         example: `{
-  "model": "zen4",
+  "model": "zen5",
   "prompt": "Once upon a time",
   "max_tokens": 256,
   "temperature": 0.7

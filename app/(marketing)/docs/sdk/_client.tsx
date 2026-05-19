@@ -62,7 +62,7 @@ client = Zoo()  # uses ZOO_API_KEY env var
 
 # Chat completion
 response = client.chat.completions.create(
-    model="zen4",
+    model="zen5",
     messages=[
         {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": "What is the Zen model family?"},
@@ -81,7 +81,7 @@ async def main():
 
     # Streaming response
     stream = await client.chat.completions.create(
-        model="zen4",
+        model="zen5",
         messages=[
             {"role": "user", "content": "Write a haiku about AI."},
         ],
@@ -120,7 +120,7 @@ const client = new Zoo(); // uses ZOO_API_KEY env var
 
 // Chat completion
 const response = await client.chat.completions.create({
-  model: "zen4",
+  model: "zen5",
   messages: [
     { role: "system", content: "You are a helpful assistant." },
     { role: "user", content: "What is the Zen model family?" },
@@ -137,7 +137,7 @@ const client = new Zoo();
 
 // Streaming response
 const stream = await client.chat.completions.create({
-  model: "zen4",
+  model: "zen5",
   messages: [
     { role: "user", content: "Write a haiku about AI." },
   ],
@@ -184,7 +184,7 @@ func main() {
 
     resp, err := client.Chat.Completions.New(context.TODO(),
         hanzo.ChatCompletionNewParams{
-            Model: "zen4",
+            Model: "zen5",
             Messages: []hanzo.ChatCompletionMessageParam{
                 {Role: "system", Content: "You are a helpful assistant."},
                 {Role: "user", Content: "What is the Zen model family?"},
@@ -213,7 +213,7 @@ func main() {
 
     stream, err := client.Chat.Completions.NewStreaming(context.TODO(),
         hanzo.ChatCompletionNewParams{
-            Model: "zen4",
+            Model: "zen5",
             Messages: []hanzo.ChatCompletionMessageParam{
                 {Role: "user", Content: "Write a haiku about AI."},
             },
@@ -265,7 +265,7 @@ async fn main() -> Result<(), hanzo::Error> {
     let response = client
         .chat()
         .completions()
-        .create("zen4")
+        .create("zen5")
         .system("You are a helpful assistant.")
         .message("user", "What is the Zen model family?")
         .temperature(0.7)
@@ -287,7 +287,7 @@ async fn main() -> Result<(), hanzo::Error> {
     let mut stream = client
         .chat()
         .completions()
-        .create("zen4")
+        .create("zen5")
         .message("user", "Write a haiku about AI.")
         .stream()
         .await?;

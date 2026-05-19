@@ -90,8 +90,7 @@ export default function ServicesOverview() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-8 border-2 border-black text-black shadow-[10px_10px_0_0_#000]"
-                style={{ backgroundColor: service.color }}
+                className="card-rainbow-hover p-8 border-2 border-black bg-white text-black shadow-[10px_10px_0_0_#000]"
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
