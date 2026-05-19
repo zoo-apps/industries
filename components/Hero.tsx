@@ -78,28 +78,20 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* Feature strip — minimal, billboard-style. Naked icon stroked
-          in a brand color, a single big label, no chip / no shadow per
-          tile. Whole row sits inside one brutalist panel, hairline
-          dividers between cells. */}
+      {/* Feature strip — minimal inline row. Tiny icon + label per
+          item, hairline ``·`` separators, no panel chrome at all. */}
       <section className="px-4 md:px-8 pb-12 md:pb-16">
-        <div className="max-w-7xl mx-auto border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] grid grid-cols-2 md:grid-cols-4 divide-x-2 divide-y-2 md:divide-y-0 divide-black">
-          {features.map((f) => (
-            <div
-              key={f.h}
-              className="flex flex-col items-center text-center gap-3 sm:gap-4 px-4 sm:px-6 py-7 sm:py-9 md:py-10"
-            >
-              <f.icon
-                className="w-9 h-9 md:w-11 md:h-11"
-                strokeWidth={2}
-                style={{ color: f.tint }}
-              />
-              <h4 className="text-sm md:text-base font-extrabold uppercase tracking-tight text-foreground leading-tight">
-                {f.h}
-              </h4>
-            </div>
+        <ul className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
+          {features.map((f, i) => (
+            <li key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
+              <f.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" strokeWidth={2.25} style={{ color: f.tint }} />
+              <span>{f.h}</span>
+              {i < features.length - 1 && (
+                <span aria-hidden className="text-muted-foreground/50 select-none ml-3 sm:ml-5">·</span>
+              )}
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </>
   )
