@@ -73,7 +73,7 @@ export default function PageClient() {
       description: "Released 100+ model weights spanning text, vision, video, audio, 3D, code, and agents",
       results: [
         "41 models across 8 families",
-        "1.04T MoE flagship (zen4-max, Zen MoDE architecture)",
+        "1.04T MoE flagship (zen5-max, Zen MoDE architecture)",
         "671B MoE (zen-max) with 71.3% SWE-bench",
         "Zen5 (2T+) in training — on-chain via NVIDIA TEE"
       ],

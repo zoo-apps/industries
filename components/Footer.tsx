@@ -72,7 +72,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border transition-colors border-border bg-foreground/5 hover:bg-accent text-muted-foreground hover:text-foreground"
             >
               <span className="text-muted-foreground text-sm">&#9889;</span>
-              <span className="text-sm font-medium">Zen 4 Models</span>
+              <span className="text-sm font-medium">Zen 5 Models</span>
               <span className="text-xs text-muted-foreground">600M-1T+ params</span>
             </a>
           </div>
