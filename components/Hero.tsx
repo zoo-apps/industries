@@ -3,13 +3,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Download, Coins, BookOpen } from 'lucide-react'
+import {
+  Download,
+  Coins,
+  BookOpen,
+  Unlock,
+  Laptop,
+  Pickaxe,
+  Users,
+  type LucideIcon,
+} from 'lucide-react'
 
-const features = [
-  { src: '/home/12_feature_45_open_models.png',       alt: 'Free + open',     h: 'FREE + OPEN',         p: '45+ open Zen models. No subscription. No vendor lock-in.' },
-  { src: '/home/13_feature_one_api_all_modalities.png', alt: 'Stays on your machine', h: 'STAYS ON YOUR MACHINE', p: 'Run AI locally — chat, images, voice, code. Your data never leaves.' },
-  { src: '/home/14_feature_openai_compatible.png',    alt: 'Earn AI coin',     h: 'EARN AI COIN',        p: 'Share spare GPU + data and get paid. Mine coin while you sleep.' },
-  { src: '/home/15_feature_enterprise_ready.png',     alt: 'Built by the community', h: 'BUILT BY THE COMMUNITY', p: 'Open source, audited, owned by the people using it.' },
+type Feature = { icon: LucideIcon; tint: string; h: string; p: string }
+
+const features: Feature[] = [
+  { icon: Unlock,  tint: 'var(--brand-yellow)',  h: 'FREE + OPEN',          p: '45+ open Zen models. No subscription. No vendor lock-in.' },
+  { icon: Laptop,  tint: 'var(--brand-cyan)',    h: 'STAYS ON YOUR MACHINE', p: 'Run AI locally — chat, images, voice, code. Your data never leaves.' },
+  { icon: Pickaxe, tint: 'var(--brand-magenta)', h: 'EARN AI COIN',          p: 'Share spare GPU + data and get paid. Mine coin while you sleep.' },
+  { icon: Users,   tint: 'var(--brand-green)',   h: 'BUILT BY THE COMMUNITY', p: 'Open source, audited, owned by the people using it.' },
 ]
 
 export default function Hero() {
@@ -80,7 +91,13 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y-2 md:divide-y-0 md:divide-x-2 divide-black">
           {features.map((f) => (
             <div key={f.h} className="flex items-center gap-4 px-5 md:px-6 py-5 md:py-6">
-              <Image src={f.src} alt={f.alt} width={120} height={120} className="w-14 h-14 md:w-16 md:h-16 shrink-0" />
+              <div
+                className="shrink-0 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 border-2 border-black"
+                style={{ backgroundColor: f.tint }}
+                aria-hidden
+              >
+                <f.icon className="w-7 h-7 md:w-9 md:h-9 text-black" strokeWidth={2.25} />
+              </div>
               <div className="min-w-0">
                 <h4 className="text-sm md:text-base font-extrabold uppercase tracking-tight text-foreground">{f.h}</h4>
                 <p className="text-xs md:text-sm text-muted-foreground mt-1">{f.p}</p>
