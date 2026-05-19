@@ -25,8 +25,11 @@ const features: Feature[] = [
 export default function Hero() {
   return (
     <>
-      {/* Hero */}
-      <section className="relative pt-20 md:pt-24 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
+      {/* Hero. Top padding clears the fixed stack — TopBanner (~38 px,
+          ``top-0``) + Navbar (~50 px, ``top-[38px]``) = ~88 px. We pad
+          the Hero a healthy amount past that so the headline never
+          collides with the underside of the menu bar at any breakpoint. */}
+      <section className="relative pt-32 md:pt-36 lg:pt-40 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto relative">
           {/* Copy */}
           <motion.div
