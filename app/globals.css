@@ -294,6 +294,31 @@ h1, h2, h3, h4, h5, h6 {
 .panel-cyan  { --panel-color: var(--brand-cyan); }
 .panel-yellow{ --panel-color: var(--brand-yellow); }
 
+/* Card hover: swap a brutalist white card to the same rainbow ribbon
+   used on .pill-rainbow, but only while hovered. The gradient inherits
+   the 4 s shifting animation so the colors flow under the card. Text
+   stays black; black border + offset shadow stay intact. */
+.card-rainbow-hover {
+  transition: background-color 0.2s ease;
+  background-image: none;
+}
+.card-rainbow-hover:hover {
+  background-image: linear-gradient(
+    90deg,
+    var(--brand-yellow)  0%,  var(--brand-green)  8.33%,
+    var(--brand-cyan)    16.66%, var(--brand-blue)   25%,
+    var(--brand-magenta) 33.33%, var(--brand-red)   41.66%,
+    var(--brand-yellow)  50%, var(--brand-green)  58.33%,
+    var(--brand-cyan)    66.66%, var(--brand-blue)   75%,
+    var(--brand-magenta) 83.33%, var(--brand-red)  100%
+  );
+  background-size: 200% 100%;
+  animation: pill-rainbow-shift 4s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-rainbow-hover:hover { animation: none; }
+}
+
 /* Continuous slow rotation for the brand mark in the navbar. */
 .logo-spin {
   animation: logo-spin 14s linear infinite;
