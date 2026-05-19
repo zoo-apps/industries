@@ -50,9 +50,6 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="relative z-10"
           >
-            <span className="inline-block mb-6 px-3 py-1 text-xs md:text-sm font-extrabold uppercase tracking-[0.2em] bg-[var(--brand-blue)] text-white border-2 border-black">
-              Private AI · Local first · Earn coin
-            </span>
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
               Your AI.<br />Your data.<br />Your coin.
             </h1>
