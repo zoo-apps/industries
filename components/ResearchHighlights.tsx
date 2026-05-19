@@ -3,276 +3,227 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Brain, Shield, Network, Sparkles } from "lucide-react";
-import { cn } from "@/lib/utils";
+
+const researchAreas = [
+  {
+    icon: Brain,
+    title: "AI & Machine Learning",
+    description: "100+ model weights from 0.6B to 1T+ with Training-Free GRPO optimization.",
+    papers: [
+      { title: "Active Semantic Optimization (ASO)", href: "https://github.com/zooai/papers", result: "18.2% SWE-bench resolution" },
+      { title: "Decentralized Semantic Optimization", href: "https://github.com/zooai/papers", result: "15.2% multi-agent improvement" },
+      { title: "HLLM Training-Free GRPO",            href: "https://github.com/zooai/gym",    result: "$18 vs $10,000+ training cost" },
+    ],
+    link: "/research#ai",
+  },
+  {
+    icon: Shield,
+    title: "Cryptography & Security",
+    description: "Post-quantum cryptography and GPU-accelerated fully homomorphic encryption.",
+    papers: [
+      { title: "Quasar Consensus",       href: "https://github.com/luxfi/papers", result: "Quantum-secure finality" },
+      { title: "ETHFALCON Post-Quantum", href: "https://github.com/luxfi/papers", result: "FALCON signatures for EVM" },
+      { title: "NTT Transform",          href: "https://github.com/luxfi/papers", result: "85% gas reduction for PQ crypto" },
+    ],
+    link: "/research#crypto",
+  },
+  {
+    icon: Network,
+    title: "Consensus & Networks",
+    description: "Multi-consensus blockchain architecture with TEE attestation.",
+    papers: [
+      { title: "Lux Multi-Consensus",       href: "https://github.com/luxfi/papers",        result: "Wave, Focus, Quasar protocols" },
+      { title: "Hamiltonian Market Maker",  href: "https://github.com/zooai/papers",        result: "<200 ms quote latency" },
+      { title: "ZAP Protocol",              href: "https://github.com/zap-protocol/zap",    result: "Zero-copy AI agent RPC" },
+    ],
+    link: "/research#consensus",
+  },
+  {
+    icon: Sparkles,
+    title: "Zen AI Models",
+    description: "Zen5/5 — from 4B to 2T+ MoDE parameters with GT-QLoRA MoE fine-tuning.",
+    papers: [
+      { title: "GT-QLoRA: MoE Fine-Tuning",      href: "https://zenlm.org/papers/zen5-ultra-gt-qlora.pdf", result: "Gate-targeted behavioral mod" },
+      { title: "Zen5 Model Family",              href: "https://huggingface.co/zenlm",                    result: "4B–1T+ abliterated models" },
+      { title: "Zen5 Ultra (Research Preview)",  href: "https://zenlm.org/docs/models#zen5",              result: "2T+ MoDE — request access" },
+    ],
+    link: "/models",
+  },
+];
+
+const featuredPapers = [
+  {
+    date: "Jan 2026",
+    category: "AI Training",
+    title: "Training-Free Adaptation via Active Semantic Optimization",
+    description: "Achieving 18.2% SWE-bench resolution with zero additional training through TF-GRPO and BitDelta compression.",
+    href: "https://github.com/zooai/papers",
+  },
+  {
+    date: "Jan 2026",
+    category: "Cryptography",
+    title: "Quasar: Dual-Certificate Quantum-Secure Consensus",
+    description: "Post-quantum finality using BLS and Corona threshold signatures for blockchain security.",
+    href: "https://github.com/luxfi/papers",
+  },
+  {
+    date: "Dec 2025",
+    category: "AI Economics",
+    title: "Hamiltonian Market Maker for Decentralized AI Compute",
+    description: "Novel invariant H(Ψ,Θ) = κ achieving <200 ms latency and 98.7% price stability for AI compute markets.",
+    href: "https://github.com/zooai/papers",
+  },
+];
 
 export default function ResearchHighlights() {
-  const researchAreas = [
-    {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description: "100+ model weights from 0.6B to 1T+ with Training-Free GRPO optimization",
-      papers: [
-        { title: "Active Semantic Optimization (ASO)", href: "https://github.com/zooai/papers", result: "18.2% SWE-bench resolution" },
-        { title: "Decentralized Semantic Optimization", href: "https://github.com/zooai/papers", result: "15.2% multi-agent improvement" },
-        { title: "HLLM Training-Free GRPO", href: "https://github.com/zooai/gym", result: "$18 vs $10,000+ training cost" },
-      ],
-      link: "/research#ai"
-    },
-    {
-      icon: Shield,
-      title: "Cryptography & Security",
-      description: "Post-quantum cryptography and GPU-accelerated fully homomorphic encryption",
-      papers: [
-        { title: "Quasar Consensus", href: "https://github.com/luxfi/papers", result: "Quantum-secure finality" },
-        { title: "ETHFALCON Post-Quantum", href: "https://github.com/luxfi/papers", result: "FALCON signatures for EVM" },
-        { title: "NTT Transform", href: "https://github.com/luxfi/papers", result: "85% gas reduction for PQ crypto" },
-      ],
-      link: "/research#crypto"
-    },
-    {
-      icon: Network,
-      title: "Consensus & Networks",
-      description: "Multi-consensus blockchain architecture with TEE attestation",
-      papers: [
-        { title: "Lux Multi-Consensus", href: "https://github.com/luxfi/papers", result: "Wave, Focus, Quasar protocols" },
-        { title: "Hamiltonian Market Maker", href: "https://github.com/zooai/papers", result: "<200ms quote latency" },
-        { title: "ZAP Protocol", href: "https://github.com/zap-protocol/zap", result: "Zero-copy AI agent RPC" },
-      ],
-      link: "/research#consensus"
-    },
-    {
-      icon: Sparkles,
-      title: "Zen AI Models",
-      description: "Zen5/5 — from 4B to 2T+ MoDE parameters with GT-QLoRA MoE fine-tuning",
-      papers: [
-        { title: "GT-QLoRA: MoE Fine-Tuning", href: "https://zenlm.org/papers/zen5-ultra-gt-qlora.pdf", result: "Gate-targeted behavioral modification" },
-        { title: "Zen5 Model Family", href: "https://huggingface.co/zenlm", result: "4B-1T+ abliterated models" },
-        { title: "Zen5 Ultra (Research Preview)", href: "https://zenlm.org/docs/models#zen5", result: "2T+ MoDE — request access" },
-      ],
-      link: "/models"
-    }
-  ];
-
-  const featuredPapers = [
-    {
-      date: "Jan 2026",
-      category: "AI Training",
-      title: "Training-Free Adaptation via Active Semantic Optimization",
-      description: "Achieving 18.2% SWE-bench resolution with zero additional training through TF-GRPO and BitDelta compression.",
-      href: "https://github.com/zooai/papers"
-    },
-    {
-      date: "Jan 2026",
-      category: "Cryptography",
-      title: "Quasar: Dual-Certificate Quantum-Secure Consensus",
-      description: "Post-quantum finality using BLS and Corona threshold signatures for blockchain security.",
-      href: "https://github.com/luxfi/papers"
-    },
-    {
-      date: "Dec 2025",
-      category: "AI Economics",
-      title: "Hamiltonian Market Maker for Decentralized AI Compute",
-      description: "Novel invariant H(Ψ,Θ) = κ achieving <200ms latency and 98.7% price stability for AI compute markets.",
-      href: "https://github.com/zooai/papers"
-    }
-  ];
-
   return (
-    <section className={cn(
-      "py-20 transition-colors duration-300",
-      "bg-secondary"
-    )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className={cn(
-              "text-4xl font-bold mb-4",
-              "text-foreground"
-            )}
-          >
-            Research at the Frontier
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className={cn(
-              "text-xl max-w-3xl mx-auto",
-              "text-muted-foreground"
-            )}
-          >
-            58 published papers across AI, cryptography, consensus, and distributed systems.
-            Our research teams investigate the safety, efficiency, and societal impacts of AI.
-          </motion.p>
-        </div>
+    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
-        {/* Research Areas Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {researchAreas.map((area, index) => {
-            const Icon = area.icon;
-            return (
-              <motion.div
-                key={area.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={cn(
-                  "p-8 rounded-xl border transition-all duration-300 group",
-                  "bg-foreground/5 border-border hover:border-border"
-                )}
-              >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className={cn(
-                    "w-12 h-12 rounded-xl flex items-center justify-center",
-                    "bg-foreground/10"
-                  )}>
-                    <Icon className={cn(
-                      "w-6 h-6",
-                      "text-foreground"
-                    )} />
-                  </div>
-                  <div>
-                    <h3 className={cn(
-                      "text-xl font-semibold mb-1",
-                      "text-foreground"
-                    )}>
-                      {area.title}
-                    </h3>
-                    <p className={cn(
-                      "text-sm",
-                      "text-muted-foreground"
-                    )}>
-                      {area.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="space-y-3 mb-4">
-                  {area.papers.map((paper) => (
-                    <a
-                      key={paper.title}
-                      href={paper.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "flex items-center justify-between py-2 px-3 rounded-lg transition-colors group/paper",
-                        "hover:bg-accent"
-                      )}
-                    >
-                      <span className={cn(
-                        "text-sm font-medium",
-                        "text-foreground/80"
-                      )}>
-                        {paper.title}
-                      </span>
-                      <span className={cn(
-                        "text-xs px-2 py-1 rounded-full",
-                        "bg-foreground/10 text-muted-foreground"
-                      )}>
-                        {paper.result}
-                      </span>
-                    </a>
-                  ))}
-                </div>
-
-                <Link href={area.link}
-                  className={cn(
-                    "inline-flex items-center text-sm font-medium transition-colors",
-                    "text-muted-foreground hover:text-foreground"
-                  )}
-                >
-                  View all papers
-                  <ArrowRight className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" />
-                </Link>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Featured Papers */}
+        {/* ─── Section header — brutalist eyebrow + big title ────── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl"
         >
-          <h3 className={cn(
-            "text-2xl font-semibold mb-6",
-            "text-foreground"
-          )}>
-            Latest Publications
+          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+            Research at the frontier
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+            />
           </h3>
-          <div className="space-y-4">
-            {featuredPapers.map((paper, index) => (
-              <a
-                key={paper.title}
-                href={paper.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "flex items-start gap-6 p-6 rounded-xl border transition-all duration-300 group",
-                  "bg-foreground/5 border-border hover:border-border"
-                )}
-              >
-                <div className={cn(
-                  "text-sm shrink-0",
-                  "text-muted-foreground"
-                )}>
-                  {paper.date}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+            58 papers across AI, cryptography, consensus, and distributed systems.
+          </h2>
+          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+            Our research teams investigate the safety, efficiency, and societal
+            impacts of AI.
+          </p>
+        </motion.div>
+
+        {/* ─── Research areas — 4 brutalist panels ────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+          {researchAreas.map((area, i) => (
+            <motion.div
+              key={area.title}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.08 }}
+              className="border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] p-6 sm:p-8 md:p-10"
+            >
+              <div className="flex items-start gap-4 mb-5 sm:mb-6">
+                <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
+                  <area.icon className="w-6 h-6 sm:w-7 sm:h-7 text-black" strokeWidth={2.25} />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <div className={cn(
-                    "text-xs font-medium uppercase tracking-wider mb-1",
-                    "text-muted-foreground"
-                  )}>
-                    {paper.category}
-                  </div>
-                  <h4 className={cn(
-                    "text-lg font-semibold mb-2 group-hover:underline",
-                    "text-foreground"
-                  )}>
-                    {paper.title}
+                <div className="min-w-0">
+                  <h4 className="text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight">
+                    {area.title}
                   </h4>
-                  <p className={cn(
-                    "text-sm",
-                    "text-muted-foreground"
-                  )}>
-                    {paper.description}
+                  <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {area.description}
                   </p>
                 </div>
-                <ExternalLink className={cn(
-                  "w-5 h-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity",
-                  "text-muted-foreground"
-                )} />
-              </a>
+              </div>
+
+              <ul className="border-2 border-black divide-y-2 divide-black mb-6 bg-white/40">
+                {area.papers.map((p) => (
+                  <li key={p.title}>
+                    <a
+                      href={p.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-foreground hover:text-background transition-colors"
+                    >
+                      <span className="text-xs sm:text-sm font-extrabold uppercase tracking-tight">
+                        {p.title}
+                      </span>
+                      <span className="shrink-0 text-[10px] sm:text-xs font-bold tabular-nums whitespace-nowrap">
+                        {p.result}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+
+              <Link
+                href={area.link}
+                className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] underline underline-offset-4 hover:no-underline"
+              >
+                View all papers
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ─── Latest Publications — three brutalist rows ─────── */}
+        <div>
+          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+            Latest publications
+            <motion.span
+              aria-hidden
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true, margin: "-15%" }}
+              transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+              className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
+            />
+          </h3>
+          <div className="border-2 border-black bg-white/60 divide-y-2 divide-black shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
+            {featuredPapers.map((p, i) => (
+              <motion.a
+                key={p.title}
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-10%" }}
+                transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.1 }}
+                className="group grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 sm:gap-6 items-start px-5 sm:px-7 md:px-9 py-5 sm:py-6 md:py-7 hover:bg-foreground/[0.04] transition-colors"
+              >
+                <div className="flex flex-col gap-1">
+                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">
+                    {p.date}
+                  </span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    {p.category}
+                  </span>
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight leading-tight text-foreground group-hover:underline underline-offset-4">
+                    {p.title}
+                  </h4>
+                  <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    {p.description}
+                  </p>
+                </div>
+                <ExternalLink
+                  aria-hidden
+                  className="hidden sm:block w-5 h-5 mt-1 shrink-0 text-foreground opacity-40 group-hover:opacity-100 transition-opacity"
+                />
+              </motion.a>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="mt-12 text-center"
-        >
+        {/* ─── CTA — brutalist button ──────────────────────────── */}
+        <div className="text-center">
           <Link href="/research">
-            <motion.button
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className={cn(
-                "inline-flex items-center px-6 py-3 rounded-full font-medium transition-colors",
-                "bg-primary text-primary-foreground hover:bg-primary/90"
-              )}
-            >
-              View All Research
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </motion.button>
+            <button className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 md:py-4 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all">
+              View all research
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
