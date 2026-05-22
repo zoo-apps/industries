@@ -13,19 +13,17 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
   }, [])
 
   // Brutalist nav: full-bleed bar, single hard bottom border. Pinned
-  // flush against the TopBanner at ``top-[38px]``. Background is solid
-  // ``bg-white`` (no /opacity, no backdrop-blur) — at lower opacities
-  // the iridescent body gradient bled through and ``backdrop-blur``
-  // averaged the colors into a muddy grey, which read as a "dark
-  // overlay" on production. Solid white reads cleanly at every scroll
-  // position over every gradient hue.
+  // flush against the TopBanner at ``top-[38px]``. Frosted glass is
+  // ALWAYS on (incl. initial load) so the iridescent page gradient +
+  // hero content never bleed through cleanly behind the nav. Scroll
+  // just bumps opacity + adds the hard black border for separation.
   return (
     <nav
       className={cn(
-        'fixed left-0 right-0 z-50 transition-shadow duration-200 top-[38px] bg-white',
+        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px] backdrop-blur-md',
         scrolled
-          ? 'border-b-2 border-black'
-          : 'border-b-2 border-transparent'
+          ? 'bg-white/80 dark:bg-black/70 border-b-2 border-black'
+          : 'bg-white/55 dark:bg-black/50 border-b-2 border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
