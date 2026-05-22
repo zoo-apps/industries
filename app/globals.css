@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
 
+/* Tailwind v4 defaults the ``dark:`` variant to ``@media (prefers-color-
+   scheme: dark)``, which means OS-level dark mode triggers it regardless
+   of what next-themes sets on <html>. Rebind it to a class-based variant
+   so ``forcedTheme="light"`` in the layout actually wins — without this,
+   the navbar's ``dark:bg-black/70`` activated whenever the visitor's OS
+   was in dark mode and the bar rendered as a dark overlay on production. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   /* Iridescent pastel gradient — applied via body background-image. The
      token is transparent so sections using bg-background let the gradient
