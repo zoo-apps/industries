@@ -41,10 +41,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geist.variable} ${mono.variable}`} suppressHydrationWarning>
       <body className="antialiased bg-background text-foreground">
+        {/* Light-only — the brutalist iridescent palette isn't designed
+            for dark backgrounds; ``enableSystem`` was flipping anyone
+            whose OS is in dark mode to ``--background: #0a0a0a``, which
+            turned the navbar (``bg-background/85``) into a black bar
+            over the gradient body. */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem
+          forcedTheme="light"
           disableTransitionOnChange
         >
           {children}
