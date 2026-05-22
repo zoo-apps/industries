@@ -12,17 +12,20 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Brutalist nav: full-bleed bar, single hard bottom border. Sits flush
-  // against the TopBanner — pinned via ``top-[var(--banner-h)]`` (set by
-  // TopBanner so the two stack cleanly without a stripe of background
-  // gradient peeking through). Square edges only; no rounded pill.
+  // Brutalist nav: full-bleed bar, single hard bottom border. Pinned
+  // flush against the TopBanner at ``top-[38px]``. Background is solid
+  // ``bg-white`` (no /opacity, no backdrop-blur) — at lower opacities
+  // the iridescent body gradient bled through and ``backdrop-blur``
+  // averaged the colors into a muddy grey, which read as a "dark
+  // overlay" on production. Solid white reads cleanly at every scroll
+  // position over every gradient hue.
   return (
     <nav
       className={cn(
-        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px]',
+        'fixed left-0 right-0 z-50 transition-shadow duration-200 top-[38px] bg-white',
         scrolled
-          ? 'bg-white/85 backdrop-blur-md border-b-2 border-black'
-          : 'bg-transparent border-b-2 border-transparent'
+          ? 'border-b-2 border-black'
+          : 'border-b-2 border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
