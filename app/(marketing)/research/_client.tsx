@@ -1034,7 +1034,9 @@ const [searchQuery, setSearchQuery] = useState("");
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="pill pill-pink mb-6">130+ Research Papers</span>
+              <span className="inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground underline underline-offset-4 decoration-2">
+                130+ Research Papers
+              </span>
               <h1 className={cn("mt-10 md:mt-12 text-5xl md:text-7xl font-extrabold tracking-tight mb-6", "text-foreground")}>
                 Research &amp; Publications
               </h1>
