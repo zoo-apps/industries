@@ -12,18 +12,18 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Brutalist nav: full-bleed bar, single hard bottom border. Pinned
-  // flush against the TopBanner at ``top-[38px]``. Frosted glass is
-  // ALWAYS on (incl. initial load) so the iridescent page gradient +
-  // hero content never bleed through cleanly behind the nav. Scroll
-  // just bumps opacity + adds the hard black border for separation.
+  // Brutalist nav: solid white at all times. Hard 2-px black bottom
+  // border on scroll for separation; transparent border off-scroll so
+  // the bar reads as one continuous slab with the TopBanner above.
+  // No frosted blur, no opacity — the white must be unambiguous over
+  // the iridescent page gradient + hero.
   return (
     <nav
       className={cn(
-        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px] backdrop-blur-md',
+        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px] bg-white dark:bg-black',
         scrolled
-          ? 'bg-white/80 dark:bg-black/70 border-b-2 border-black'
-          : 'bg-white/55 dark:bg-black/50 border-b-2 border-transparent'
+          ? 'border-b-2 border-black'
+          : 'border-b-2 border-transparent'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">

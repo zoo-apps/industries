@@ -206,14 +206,14 @@ h1, h2, h3, h4, h5, h6 {
   );
   background-size: 200% 100%;
   background-position: 0% 50%;
-  animation: pill-rainbow-shift 30s linear infinite;
+  /* Animation removed 2026-05-23 — the continuous left-shift read as a
+     distracting "moving across" motion at the very top of the page.
+     The colorful gradient stays, pinned. Hover-driven .button-rainbow
+     variant below still animates as expected. */
 }
 @keyframes pill-rainbow-shift {
   0%   { background-position:   0% 50%; }
   100% { background-position: 200% 50%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .pill-rainbow { animation: none; }
 }
 
 /* Brutalist button — same vibe as .pill but interactive: presses into
