@@ -12,18 +12,24 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Brutalist nav: solid white at all times. Hard 2-px black bottom
-  // border on scroll for separation; transparent border off-scroll so
-  // the bar reads as one continuous slab with the TopBanner above.
-  // No frosted blur, no opacity — the white must be unambiguous over
-  // the iridescent page gradient + hero.
+  // Apple-style frosted glass nav.
+  //
+  // Top of page (not scrolled): fully transparent — no bg, no border,
+  // no blur. The hero gradient flows through cleanly behind the logo +
+  // nav links. The wordmark itself carries the page identity.
+  //
+  // Scrolled past 50px: switch to translucent frosted glass. Heavy
+  // backdrop-blur (xl + saturate boost) imitates iOS / macOS chrome,
+  // sitting *on top of* the page rather than replacing it. Subtle
+  // hairline border + tiny shadow gives the slab depth without going
+  // grey. Dark-mode mirrors the same recipe over black.
   return (
     <nav
       className={cn(
-        'fixed left-0 right-0 z-50 transition-colors duration-200 top-[38px] bg-white dark:bg-black',
+        'fixed left-0 right-0 z-50 top-[38px] transition-all duration-300',
         scrolled
-          ? 'border-b-2 border-black'
-          : 'border-b-2 border-transparent'
+          ? 'bg-white/60 dark:bg-black/50 backdrop-blur-2xl backdrop-saturate-150 border-b border-black/5 dark:border-white/10 shadow-[0_1px_0_0_rgba(0,0,0,0.04),0_8px_24px_-12px_rgba(0,0,0,0.12)]'
+          : 'bg-transparent border-b border-transparent backdrop-blur-0'
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
