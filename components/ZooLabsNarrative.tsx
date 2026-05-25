@@ -122,7 +122,7 @@ export default function ZooLabsNarrative() {
             "Intelligent animal agents with a gamified economy and marketplace.",
             "Supports endangered species and wildlife in the real world.",
             "Autonomous creation and task execution.",
-            "Liquidity Protocol gives blockchain investors access to $113 Trillion worth of digital securities.",
+            "Regulated tokenization partners give blockchain investors access to $113 Trillion worth of digital securities.",
           ].map((line, i) => (
             <motion.div
               key={i}
@@ -196,7 +196,7 @@ export default function ZooLabsNarrative() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
             <p className="text-base md:text-lg font-medium">
-              Through a regulated partner, ZOO gains a compliant path to tokenize and
+              Through our regulated tokenization partner, ZOO gains a compliant path to tokenize and
               distribute GPU-backed AI infrastructure using broker-dealer, ATS,
               transfer agency, and blockchain settlement rails.
             </p>
@@ -250,7 +250,7 @@ export default function ZooLabsNarrative() {
             "Choose your display. Your experience is unique and tailored to whichever compatible device you use.",
             "Train up your buddy to be a specialist and sell them to collect $ZOO coin, and mine $AI.",
             "Play, learn, and task your buddy with almost anything. Trade them or sell copies.",
-            "Exchange your $AI or $ZOO coins for any other cryptocurrency, and up to 13,000+ digital securities via our regulated ATS partner, a regulated partner.",
+            "Exchange your $AI or $ZOO coins for any other cryptocurrency, and up to 13,000+ digital securities via our regulated ATS partner.",
           ].map((step, i) => (
             <motion.div
               key={i}

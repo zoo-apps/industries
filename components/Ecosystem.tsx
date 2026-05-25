@@ -112,11 +112,11 @@ export default function Ecosystem() {
                 Exclusive access to regulated tokenization infrastructure
               </p>
               <p>
-                Through a regulated partner, ZOO can bring GPU-backed AI
-                infrastructure into a regulated market structure, leveraging
-                broker-dealer, ATS, transfer agency, and blockchain settlement
-                rails to reach accredited and institutional capital beyond
-                crypto-native investors.
+                Through our regulated tokenization partner, ZOO can bring
+                GPU-backed AI infrastructure into a regulated market structure,
+                leveraging broker-dealer, ATS, transfer agency, and blockchain
+                settlement rails to reach accredited and institutional capital
+                beyond crypto-native investors.
               </p>
             </div>
           </motion.div>
