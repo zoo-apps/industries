@@ -95,18 +95,10 @@ export default function InvestorNarrative() {
         >
           <div className="p-6 sm:p-8 md:p-10 border-b-2 md:border-b-0 md:border-r-2 border-black">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-foreground">
-              Through{" "}
-              <Link
-                href="https://"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-extrabold underline underline-offset-2"
-              >
-                
-              </Link>
-              , ZOO gains a compliant path to tokenize and distribute GPU-backed
-              AI infrastructure using broker-dealer, ATS, transfer agency, and
-              blockchain settlement rails.
+              Through our regulated tokenization partner, ZOO gains a compliant
+              path to tokenize and distribute GPU-backed AI infrastructure using
+              broker-dealer, ATS, transfer agency, and blockchain settlement
+              rails.
             </p>
             <blockquote className="mt-6 sm:mt-8 pl-5 sm:pl-6 border-l-[6px] sm:border-l-8 border-black">
               <p className="italic text-sm sm:text-base md:text-lg text-foreground leading-relaxed">
