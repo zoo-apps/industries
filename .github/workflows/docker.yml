@@ -11,9 +11,15 @@ jobs:
     with:
       image: ghcr.io/zooai/zoo-industries
       runner-amd64: zoo-build-linux-amd64
-      runner-arm64: zoo-build-linux-arm64
+      runner-arm64: zoo-build-linux-amd64
       runner-deploy: zoo-build-linux-amd64
-      platforms: "linux/amd64,linux/arm64"
+      platforms: "linux/amd64"
+      # Deploy gate in the shared workflow requires
+      # `(create-manifest|tag-single-arch).result == 'success'`. For
+      # single-arch builds, tag-single-arch only runs on tag pushes,
+      # so set `deploy: true` here AND push a `v*` tag to trigger
+      # the rollout. main-branch pushes still build + push the image
+      # for image freshness; the actual k8s rollout happens on tag.
       deploy: true
       deploy-namespace: zoo
       deploy-deployment: zoo-industries
