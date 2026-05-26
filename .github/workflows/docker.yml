@@ -11,9 +11,9 @@ jobs:
     with:
       image: ghcr.io/zooai/zoo-industries
       runner-amd64: zoo-build-linux-amd64
-      runner-arm64: zoo-build-linux-amd64
+      runner-arm64: zoo-build-linux-arm64
       runner-deploy: zoo-build-linux-amd64
-      platforms: "linux/amd64"
+      platforms: "linux/amd64,linux/arm64"
       deploy: true
       deploy-namespace: zoo
       deploy-deployment: zoo-industries
