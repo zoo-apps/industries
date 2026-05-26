@@ -6,7 +6,7 @@ on:
     tags: ['v*']
 
 jobs:
-  build:
+  docker:
     uses: zooai/.github/.github/workflows/docker-build.yml@main
     with:
       image: ghcr.io/zooai/zoo-industries
@@ -14,49 +14,12 @@ jobs:
       runner-arm64: zoo-build-linux-amd64
       runner-deploy: zoo-deploy-linux-amd64
       platforms: "linux/amd64"
-      # The shared workflow's deploy step only runs `kubectl rollout
-      # restart`, which is a no-op when the deployment is pinned to a
-      # specific tag (which we want for repeatability). We do our own
-      # `kubectl set image` in the deploy job below instead.
-      deploy: false
+      # The deployment lives on do-sfo3-lux-k8s/zoo-mainnet, behind the
+      # hanzo-ingress DaemonSet (CF DNS → 134.199.138.27). The
+      # zoo-deploy-linux-amd64 runner mounts a kubeconfig that targets
+      # the zoo-deploy SA on lux-k8s with namespace-scoped Role.
+      deploy: true
+      deploy-namespace: zoo-mainnet
+      deploy-deployment: zoo-industries
+      deploy-container: spa
     secrets: inherit
-
-  deploy:
-    needs: build
-    if: startsWith(github.ref, 'refs/tags/v')
-    runs-on: zoo-deploy-linux-amd64
-    environment: production
-    steps:
-      - name: Install kubectl
-        run: |
-          curl -sLO "https://dl.k8s.io/release/$(curl -sL https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-          chmod +x kubectl
-          echo "${PWD}" >> "$GITHUB_PATH"
-
-      - name: Roll deployment to ${{ github.ref_name }}
-        run: |
-          VERSION="${GITHUB_REF_NAME#v}"
-          IMAGE="ghcr.io/zooai/zoo-industries:${VERSION}-amd64"
-          echo "Rolling lux-k8s/zoo-mainnet/zoo-industries → ${IMAGE}"
-          kubectl -n zoo-mainnet set image deploy/zoo-industries spa="${IMAGE}"
-
-          # Poll readiness — zoo-deploy SA can't watch, so we use get
-          for i in $(seq 1 30); do
-            READY=$(kubectl -n zoo-mainnet get deploy zoo-industries \
-              -o jsonpath='{.status.readyReplicas}' 2>/dev/null || echo 0)
-            UPDATED=$(kubectl -n zoo-mainnet get deploy zoo-industries \
-              -o jsonpath='{.status.updatedReplicas}' 2>/dev/null || echo 0)
-            DESIRED=$(kubectl -n zoo-mainnet get deploy zoo-industries \
-              -o jsonpath='{.spec.replicas}' 2>/dev/null || echo 1)
-            AVAILABLE=$(kubectl -n zoo-mainnet get deploy zoo-industries \
-              -o jsonpath='{.status.conditions[?(@.type=="Available")].status}' 2>/dev/null)
-            echo "[${i}] available=${AVAILABLE} updated=${UPDATED} ready=${READY}/${DESIRED}"
-            if [ "${AVAILABLE}" = "True" ] && [ "${READY}" = "${DESIRED}" ] \
-                && [ "${UPDATED}" = "${DESIRED}" ]; then
-              echo "Deploy complete"
-              exit 0
-            fi
-            sleep 10
-          done
-          echo "ERROR: rollout did not converge"
-          exit 1
