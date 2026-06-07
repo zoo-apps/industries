@@ -10,9 +10,9 @@ jobs:
     uses: zooai/.github/.github/workflows/docker-build.yml@main
     with:
       image: ghcr.io/zooai/zoo-industries
-      runner-amd64: zoo-build-linux-amd64
+      runner-amd64: evo
       runner-arm64: zoo-build-linux-amd64
-      runner-deploy: zoo-deploy-linux-amd64
+      runner-deploy: evo
       platforms: "linux/amd64"
       # The deployment lives on do-sfo3-lux-k8s/zoo-mainnet, behind the
       # hanzo-ingress DaemonSet (CF DNS → 134.199.138.27). The
