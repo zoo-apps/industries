@@ -27,5 +27,4 @@ next-env.d.ts
 *.sln
 *.sw?
 
-CLAUDE.md
 .claude/settings.local.json
