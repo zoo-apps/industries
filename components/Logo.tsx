@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
@@ -22,15 +22,17 @@ const sizes = {
 // of tomorrow.").
 export default function Logo({ className = '', showText = true, size = 'md' }: LogoProps) {
   return (
-    <Link href="/" className={cn('flex items-center gap-2.5 group', className)}>
-      <Image
+    <Link href="/" style={css(cn('flex items-center gap-2.5 group', className))}>
+      <Box tag="span" className={cn('grid', cn(sizes[size].logo, 'logo-spin transition-transform duration-300 group-hover:scale-105'))}>
+        <Image
         src="/zoo-logo.svg"
         alt="ZOO INDUSTRIES"
         width={48}
         height={48}
-        className={cn(sizes[size].logo, 'logo-spin transition-transform duration-300 group-hover:scale-105')}
+        style={css('w-full h-full')}
         priority
       />
+      </Box>
       {showText && (
         <Box tag="span" className={cn(
           'font-extrabold uppercase tracking-tight transition-colors duration-300',

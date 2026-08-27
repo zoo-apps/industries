@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -53,19 +53,19 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.dev} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <Terminal className="w-4 h-4" />
+                  <Terminal style={css('w-4 h-4')} />
                   Install the CLI
                 </Box>
               </a>
               <a href="https://github.com/zooai" target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Github className="w-4 h-4" />
+                  <Github style={css('w-4 h-4')} />
                   GitHub bot
                 </Box>
               </a>
               <Link href="/models">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Brain className="w-4 h-4" />
+                  <Brain style={css('w-4 h-4')} />
                   zen-coder models
                 </Box>
               </Link>
@@ -94,7 +94,7 @@ export default function PageClient() {
                 >
                   <Box className="flex items-center gap-3 mb-3">
                     <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-yellow">
-                      <Icon className="w-5 h-5 text-black" />
+                      <Icon style={css('w-5 h-5 text-black')} />
                     </Box>
                     <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{s.h}</Box>
                   </Box>
@@ -142,14 +142,14 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.dev} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <Code2 className="w-4 h-4" />
+                <Code2 style={css('w-4 h-4')} />
                 Get Zoo Dev
               </Box>
             </a>
             <Link href="/api">
               <Box tag="button" className="btn-brutalist pill-green">
                 On the Zen API
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </Link>
           </Box>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { useEffect } from "react";
 import { Button } from "@hanzo/ui";
 import { ExternalLink } from "lucide-react";
@@ -28,8 +28,8 @@ export default function PageClient() {
         </div>
         <div>
           <a href="https://zoo.id">
-            <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-              Continue to Zoo ID <ExternalLink className="w-4 h-4 ml-2" />
+            <Button {...sx('w-full bg-primary text-primary-foreground hover:bg-primary/90')}>
+              Continue to Zoo ID <ExternalLink style={css('w-4 h-4 ml-2')} />
             </Button>
           </a>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -55,9 +55,10 @@ export default function PhilosophyBridge() {
 
           <Link
             href="https://zoo.ngo/philosophy"
-            className="inline-flex items-center px-6 py-3 rounded-full font-medium border border-border/50 bg-transparent hover:bg-white/5 text-sm text-foreground transition-colors gap-2"
           >
-            The Zen of Zoo <ArrowRight className="w-4 h-4" />
+            <Box tag="span" className="inline-flex items-center px-6 py-3 rounded-full font-medium border border-border/50 bg-transparent hover:bg-white/5 text-sm text-foreground transition-colors gap-2">
+            The Zen of Zoo <ArrowRight style={css('w-4 h-4')} />
+            </Box>
           </Link>
         </M>
       </Box>

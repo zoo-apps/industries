@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -183,7 +183,7 @@ const errorCodes = [
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
-    <button
+    <Box tag="button"
       onClick={() => {
         navigator.clipboard.writeText(text);
         setCopied(true);
@@ -195,8 +195,8 @@ function CopyButton({ text }: { text: string }) {
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-    </button>
+      {copied ? <Check style={css('w-3.5 h-3.5')} /> : <Copy style={css('w-3.5 h-3.5')} />}
+    </Box>
   );
 }
 
@@ -246,9 +246,10 @@ export default function PageClient() {
         >
           <Link
             href="/docs"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
+            <Box tag="span" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6">
+            <ArrowLeft style={css('w-3.5 h-3.5')} /> Back to Docs
+            </Box>
           </Link>
           <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">API Reference</Box>
           <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
@@ -307,7 +308,7 @@ client = OpenAI(
                 )}
               >
                 <Box className="flex items-center gap-3 min-w-[180px]">
-                  <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
+                  <Globe style={css('w-4 h-4 text-muted-foreground shrink-0')} />
                   <Box tag="span" className="font-semibold text-sm">{item.service}</Box>
                 </Box>
                 <Box tag="code" className="text-sm font-mono text-muted-foreground">{item.url}</Box>
@@ -334,7 +335,7 @@ client = OpenAI(
             {authMethods.map((auth) => (
               <div key={auth.method}>
                 <Box className="flex items-center gap-2 mb-2">
-                  <Lock className="w-4 h-4 text-muted-foreground" />
+                  <Lock style={css('w-4 h-4 text-muted-foreground')} />
                   <Box tag="h3" className="text-lg font-semibold">{auth.method}</Box>
                 </Box>
                 <Box tag="p" className="text-sm text-muted-foreground mb-4">{auth.description}</Box>
@@ -492,8 +493,8 @@ client = OpenAI(
             Our SDKs handle authentication, retries, streaming, and typed responses out of the box.
           </Box>
           <Link href="/docs/sdk">
-            <Button variant="outline" className="gap-2">
-              View SDKs <ArrowRight className="w-4 h-4" />
+            <Button variant="outline" {...sx('gap-2')}>
+              View SDKs <ArrowRight style={css('w-4 h-4')} />
             </Button>
           </Link>
         </M>

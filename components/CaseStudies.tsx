@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
@@ -120,10 +120,12 @@ export default function CaseStudies() {
                 )}>
                   <Box tag="span" className="text-sm font-semibold">{study.impact}</Box>
                 </Box>
-                <ExternalLink className={cn(
+                <Box tag="span" className={cn('grid', cn(
                   "w-5 h-5 transition-colors",
                   "text-foreground/30 group-hover:text-foreground"
-                )} />
+                ))}>
+                  <ExternalLink style={css('w-full h-full')} />
+                </Box>
               </Box>
             </M>
           ))}
@@ -140,7 +142,7 @@ export default function CaseStudies() {
             className="inline-flex items-center font-semibold hover:underline"
           >
             View All Research Papers
-            <ArrowRight className="w-4 h-4 ml-2" />
+            <ArrowRight style={css('w-4 h-4 ml-2')} />
           </Box>
         </M>
       </Box>

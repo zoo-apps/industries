@@ -82,7 +82,7 @@ export default function Ecosystem() {
               key={img.slug}
               className="relative aspect-square border-2 border-black shadow-[6px_6px_0_0_#000] bg-white overflow-hidden"
             >
-              <img
+              <Box tag="img"
                 src={`/ecosystem/${img.slug}.jpg`}
                 alt={img.alt}
                 loading="lazy"

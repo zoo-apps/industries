@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -150,17 +150,17 @@ function PlanSkeleton() {
   return (
     <Box className="rounded-2xl border border-border p-8 animate-pulse">
       <Box className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-lg bg-foreground/10" />
-        <div className="h-6 w-24 bg-foreground/10 rounded" />
+        <Box className="w-10 h-10 rounded-lg bg-foreground/10" />
+        <Box className="h-6 w-24 bg-foreground/10 rounded" />
       </Box>
-      <div className="h-10 w-20 bg-foreground/10 rounded mb-4" />
-      <div className="h-4 w-48 bg-foreground/10 rounded mb-6" />
-      <div className="h-10 w-full bg-foreground/10 rounded mb-6" />
+      <Box className="h-10 w-20 bg-foreground/10 rounded mb-4" />
+      <Box className="h-4 w-48 bg-foreground/10 rounded mb-6" />
+      <Box className="h-10 w-full bg-foreground/10 rounded mb-6" />
       <Box className="space-y-3">
         {Array.from({ length: 5 }).map((_, i) => (
           <Box key={i} className="flex items-center gap-3">
-            <div className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
-            <div className="h-4 w-full bg-foreground/10 rounded" />
+            <Box className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
+            <Box className="h-4 w-full bg-foreground/10 rounded" />
           </Box>
         ))}
       </Box>
@@ -173,19 +173,19 @@ function EnterpriseSkeleton() {
     <Box className="rounded-2xl border border-border p-8 md:p-12 mb-20 animate-pulse">
       <Box className="grid md:grid-cols-2 gap-12">
         <div>
-          <div className="h-6 w-32 bg-foreground/10 rounded-full mb-4" />
-          <div className="h-8 w-64 bg-foreground/10 rounded mb-4" />
-          <div className="h-16 w-full bg-foreground/10 rounded mb-6" />
+          <Box className="h-6 w-32 bg-foreground/10 rounded-full mb-4" />
+          <Box className="h-8 w-64 bg-foreground/10 rounded mb-4" />
+          <Box className="h-16 w-full bg-foreground/10 rounded mb-6" />
           <Box className="flex gap-4">
-            <div className="h-10 w-32 bg-foreground/10 rounded" />
-            <div className="h-10 w-32 bg-foreground/10 rounded" />
+            <Box className="h-10 w-32 bg-foreground/10 rounded" />
+            <Box className="h-10 w-32 bg-foreground/10 rounded" />
           </Box>
         </div>
         <Box className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {Array.from({ length: 8 }).map((_, i) => (
             <Box key={i} className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
-              <div className="h-4 w-full bg-foreground/10 rounded" />
+              <Box className="w-5 h-5 rounded bg-foreground/10 flex-shrink-0" />
+              <Box className="h-4 w-full bg-foreground/10 rounded" />
             </Box>
           ))}
         </Box>
@@ -197,14 +197,14 @@ function EnterpriseSkeleton() {
 function PolicySkeleton() {
   return (
     <Box className="rounded-2xl border border-border p-8 md:p-12 mb-20 animate-pulse">
-      <div className="h-8 w-48 bg-foreground/10 rounded mb-8" />
+      <Box className="h-8 w-48 bg-foreground/10 rounded mb-8" />
       <Box className="grid md:grid-cols-2 gap-8 mb-8">
-        <div className="h-32 bg-foreground/10 rounded-xl" />
-        <div className="h-32 bg-foreground/10 rounded-xl" />
+        <Box className="h-32 bg-foreground/10 rounded-xl" />
+        <Box className="h-32 bg-foreground/10 rounded-xl" />
       </Box>
       <Box className="flex flex-wrap gap-3">
         {Array.from({ length: 4 }).map((_, i) => (
-          <div key={i} className="h-8 w-40 bg-foreground/10 rounded-full" />
+          <Box key={i} className="h-8 w-40 bg-foreground/10 rounded-full" />
         ))}
       </Box>
     </Box>
@@ -320,7 +320,7 @@ export default function PageClient() {
                 "bg-foreground/5"
               )}
             >
-              <button
+              <Box tag="button"
                 onClick={() => setBillingPeriod("monthly")}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-colors",
@@ -330,8 +330,8 @@ export default function PageClient() {
                 )}
               >
                 Monthly
-              </button>
-              <button
+              </Box>
+              <Box tag="button"
                 onClick={() => setBillingPeriod("annual")}
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-colors",
@@ -351,7 +351,7 @@ export default function PageClient() {
                 >
                   Save 20%
                 </Box>
-              </button>
+              </Box>
             </Box>
           </M>
 
@@ -420,10 +420,10 @@ export default function PageClient() {
                         )}
                       >
                         <Icon
-                          className={cn(
+                          style={css(cn(
                             "w-5 h-5",
                             highlighted ? "text-primary-foreground" : ""
-                          )}
+                          ))}
                         />
                       </Box>
                       <Box tag="h3" className="text-xl font-semibold">{plan.name}</Box>
@@ -456,12 +456,12 @@ export default function PageClient() {
                       rel="noopener noreferrer"
                     >
                       <Button
-                        className={cn(
+                        {...sx(cn(
                           "w-full mb-6",
                           highlighted
                             ? "bg-primary text-primary-foreground hover:bg-primary/90"
                             : "bg-foreground/10 text-foreground hover:bg-accent"
-                        )}
+                        ))}
                       >
                         {ctaText}
                       </Button>
@@ -470,7 +470,7 @@ export default function PageClient() {
                     <Box tag="ul" className="space-y-3">
                       {plan.features.map((feature) => (
                         <Box tag="li" key={feature} className="flex items-start gap-3">
-                          <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                          <Check style={css('h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0')} />
                           <Box tag="span"
                             className={cn(
                               "text-sm",
@@ -510,7 +510,7 @@ export default function PageClient() {
                       "bg-foreground/10"
                     )}
                   >
-                    <Building2 className="w-4 h-4" />
+                    <Building2 style={css('w-4 h-4')} />
                     {enterprisePlan.name}
                   </Box>
                   <Box tag="h2" className="text-3xl font-bold mb-4">
@@ -523,12 +523,12 @@ export default function PageClient() {
                   <Box className="flex flex-col sm:flex-row gap-4">
                     <Link href="/contact">
                       <Button
-                        className={cn(
+                        {...sx(cn(
                           "bg-primary text-primary-foreground hover:bg-primary/90"
-                        )}
+                        ))}
                       >
                         Contact Sales
-                        <ArrowRight className="w-4 h-4 ml-2" />
+                        <ArrowRight style={css('w-4 h-4 ml-2')} />
                       </Button>
                     </Link>
                     <a
@@ -538,9 +538,9 @@ export default function PageClient() {
                     >
                       <Button
                         variant="outline"
-                        className={cn(
+                        {...sx(cn(
                           "border-border text-foreground hover:bg-accent"
-                        )}
+                        ))}
                       >
                         Schedule a Demo
                       </Button>
@@ -551,7 +551,7 @@ export default function PageClient() {
                   <Box tag="ul" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {enterprisePlan.features.map((feature) => (
                       <Box tag="li" key={feature} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                        <Check style={css('h-5 w-5 text-muted-foreground mt-0.5 flex-shrink-0')} />
                         <Box tag="span"
                           className={cn(
                             "text-sm",
@@ -603,7 +603,7 @@ export default function PageClient() {
                         "bg-primary"
                       )}
                     >
-                      <DollarSign className="w-5 h-5 text-primary-foreground" />
+                      <DollarSign style={css('w-5 h-5 text-primary-foreground')} />
                     </Box>
                     <div>
                       <Box tag="h3" className="font-semibold">
@@ -654,7 +654,7 @@ export default function PageClient() {
                         "bg-primary"
                       )}
                     >
-                      <Heart className="w-5 h-5 text-primary-foreground" />
+                      <Heart style={css('w-5 h-5 text-primary-foreground')} />
                     </Box>
                     <div>
                       <Box tag="h3" className="font-semibold">
@@ -690,7 +690,7 @@ export default function PageClient() {
                       key={principle}
                       className="flex items-center gap-2"
                     >
-                      <Shield className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                      <Shield style={css('w-4 h-4 text-muted-foreground flex-shrink-0')} />
                       <Box tag="span"
                         className={cn(
                           "text-sm",
@@ -732,7 +732,7 @@ export default function PageClient() {
 
             {modelLoading ? (
               <Box className="flex items-center justify-center py-16">
-                <Loader2 className="w-6 h-6 animate-spin mr-2" />
+                <Loader2 style={css('w-6 h-6 animate-spin mr-2')} />
                 <Box tag="span" className={cn("text-muted-foreground")}>
                   Loading live pricing...
                 </Box>
@@ -1007,9 +1007,9 @@ export default function PageClient() {
                 rel="noopener noreferrer"
               >
                 <Button
-                  className={cn(
+                  {...sx(cn(
                     "bg-primary text-primary-foreground hover:bg-primary/90"
-                  )}
+                  ))}
                 >
                   Start Building Free
                 </Button>
@@ -1017,9 +1017,9 @@ export default function PageClient() {
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  className={cn(
+                  {...sx(cn(
                     "border-border text-foreground hover:bg-accent"
-                  )}
+                  ))}
                 >
                   Talk to Sales
                 </Button>

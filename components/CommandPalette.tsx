@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef, useCallback } from "react";
@@ -162,8 +162,8 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                 "flex items-center gap-3 px-4 py-3 border-b",
                 "border-border"
               )}>
-                <Search className={cn("w-5 h-5", "text-muted-foreground")} />
-                <input
+                <Search style={css(cn("w-5 h-5", "text-muted-foreground"))} />
+                <Box tag="input"
                   ref={inputRef}
                   type="text"
                   value={search}
@@ -206,7 +206,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                         const isSelected = index === selectedIndex;
 
                         return (
-                          <button
+                          <Box tag="button"
                             key={cmd.id}
                             onClick={() => handleSelect(cmd)}
                             onMouseEnter={() => setSelectedIndex(index)}
@@ -223,21 +223,21 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                                 ? "bg-foreground/15"
                                 : "bg-foreground/10"
                             )}>
-                              <Icon className={cn(
+                              <Icon style={css(cn(
                                 "w-4 h-4",
                                 isSelected
                                   ? "text-foreground"
                                   : "text-muted-foreground"
-                              )} />
+                              ))} />
                             </Box>
                             <Box className="flex-1 min-w-0">
                               <Box className="flex items-center gap-2">
                                 <Box tag="span" className="text-sm font-medium truncate">{cmd.title}</Box>
                                 {cmd.external && (
-                                  <ExternalLink className={cn(
+                                  <ExternalLink style={css(cn(
                                     "w-3 h-3",
                                     "text-muted-foreground"
-                                  )} />
+                                  ))} />
                                 )}
                               </Box>
                               {cmd.description && (
@@ -250,12 +250,12 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                               )}
                             </Box>
                             {isSelected && (
-                              <ArrowRight className={cn(
+                              <ArrowRight style={css(cn(
                                 "w-4 h-4",
                                 "text-muted-foreground"
-                              )} />
+                              ))} />
                             )}
-                          </button>
+                          </Box>
                         );
                       })}
                     </div>
@@ -285,7 +285,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                   "flex items-center gap-1 text-[10px]",
                   "text-muted-foreground"
                 )}>
-                  <Command className="w-3 h-3" />
+                  <Command style={css('w-3 h-3')} />
                   <span>K to toggle</span>
                 </Box>
               </Box>

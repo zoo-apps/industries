@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -97,7 +97,7 @@ export default function ServicesOverview() {
                 <Box className="flex items-start space-x-4">
                   <Box className="flex-shrink-0">
                     <Box className="w-12 h-12 flex items-center justify-center bg-black">
-                      <Icon className="w-6 h-6 text-white" />
+                      <Icon style={css('w-6 h-6 text-white')} />
                     </Box>
                   </Box>
                   <Box className="flex-1">
@@ -110,7 +110,7 @@ export default function ServicesOverview() {
                     <Box className="space-y-2 mb-4">
                       {service.capabilities.map((capability) => (
                         <Box key={capability} className="flex items-center text-sm text-black/90 font-medium">
-                          <div className="w-2 h-2 mr-2 bg-black" />
+                          <Box className="w-2 h-2 mr-2 bg-black" />
                           {capability}
                         </Box>
                       ))}
@@ -122,13 +122,14 @@ export default function ServicesOverview() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-black underline underline-offset-2 hover:no-underline"
                       >
-                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                        {service.cta} <ArrowRight style={css('w-3.5 h-3.5')} />
                       </Box>
                     ) : (
                       <Link href={service.link}
-                        className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-black underline underline-offset-2 hover:no-underline"
                       >
-                        {service.cta} <ArrowRight className="w-3.5 h-3.5" />
+                        <Box tag="span" className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-black underline underline-offset-2 hover:no-underline">
+                        {service.cta} <ArrowRight style={css('w-3.5 h-3.5')} />
+                        </Box>
                       </Link>
                     )}
                   </Box>

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -187,7 +187,7 @@ export default function PageClient() {
               className="text-center mb-16"
             >
               <Box className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
-                <Megaphone className="w-4 h-4 text-foreground" />
+                <Megaphone style={css('w-4 h-4 text-foreground')} />
                 <Box tag="span" className="text-foreground text-sm font-medium">News & Announcements</Box>
               </Box>
               <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
@@ -215,7 +215,7 @@ export default function PageClient() {
 
             <Box className="relative">
               {/* Timeline line */}
-              <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-foreground/10")} />
+              <Box className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-foreground/10")} />
 
               {announcements.map((month, monthIndex) => (
                 <Box key={month.date} className="mb-16">
@@ -226,7 +226,7 @@ export default function PageClient() {
                     viewport={{ once: true }}
                     className="relative flex items-center mb-8"
                   >
-                    <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4", "border-background")} />
+                    <Box className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4", "border-background")} />
                     <Box className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
                       <Box tag="span" className="text-xl font-bold">{month.date}</Box>
                     </Box>
@@ -254,7 +254,7 @@ export default function PageClient() {
                               {item.type}
                             </Box>
                             <Box tag="span" className={cn("text-sm flex items-center gap-1", "text-muted-foreground")}>
-                              <Calendar className="w-3 h-3" />
+                              <Calendar style={css('w-3 h-3')} />
                               {month.date.split(" ")[0]} {item.day}
                             </Box>
                           </Box>
@@ -267,7 +267,7 @@ export default function PageClient() {
                             className="text-foreground text-sm font-medium flex items-center gap-1 hover:underline"
                           >
                             Read more
-                            <ExternalLink className="w-3 h-3" />
+                            <ExternalLink style={css('w-3 h-3')} />
                           </Box>
                         </Box>
                       </M>
@@ -290,10 +290,10 @@ export default function PageClient() {
               className="flex items-center justify-between mb-12"
             >
               <Box className="flex items-center gap-3">
-                <FileText className="w-6 h-6 text-foreground" />
+                <FileText style={css('w-6 h-6 text-foreground')} />
                 <Box tag="h2" className="text-3xl font-bold">Press Releases</Box>
               </Box>
-              <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
+              <Button variant="outline" {...sx(cn("border-border text-foreground hover:bg-accent"))}>
                 View All
               </Button>
             </M>
@@ -321,10 +321,10 @@ export default function PageClient() {
                     </Box>
                     <Button
                       variant="ghost"
-                      className="text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap"
+                      {...sx('text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap')}
                     >
                       Read Release
-                      <ExternalLink className="w-4 h-4 ml-2" />
+                      <ExternalLink style={css('w-4 h-4 ml-2')} />
                     </Button>
                   </Box>
                 </M>
@@ -351,11 +351,11 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
-                  <Button className="bg-primary hover:bg-primary/90 text-foreground">
+                  <Button {...sx('bg-primary hover:bg-primary/90 text-foreground')}>
                     Contact Press Team
                   </Button>
                 </a>
-                <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
+                <Button variant="outline" {...sx(cn("border-border text-foreground hover:bg-accent"))}>
                   Download Press Kit
                 </Button>
               </Box>

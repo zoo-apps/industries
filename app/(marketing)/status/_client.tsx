@@ -1,29 +1,16 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import {
-  CheckCircle,
-  Server,
-  Database,
-  Shield,
-  Cloud,
-  Cpu,
-  Globe,
-  AlertCircle,
-  Clock,
-  Activity,
-  ExternalLink,
-  RefreshCw,
-} from "lucide-react";
+import { CheckCircle, Server, Database, Shield, Cloud, Cpu, Globe, AlertCircle, Clock, Activity, ExternalLink, RefreshCw, type LucideIcon } from 'lucide-react'
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
 
 interface ServiceStatus {
   name: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   status: "operational" | "degraded" | "outage" | "maintenance";
   description: string;
   url?: string;
@@ -221,9 +208,9 @@ export default function PageClient() {
               <Box className="flex items-center justify-between flex-wrap gap-4">
                 <Box className="flex items-center gap-4">
                   {allOperational ? (
-                    <CheckCircle className="w-12 h-12 text-muted-foreground" />
+                    <CheckCircle style={css('w-12 h-12 text-muted-foreground')} />
                   ) : (
-                    <AlertCircle className="w-12 h-12 text-muted-foreground" />
+                    <AlertCircle style={css('w-12 h-12 text-muted-foreground')} />
                   )}
                   <div>
                     <Box tag="h1" className="text-3xl md:text-4xl font-bold">
@@ -242,13 +229,13 @@ export default function PageClient() {
                     size="sm"
                     onClick={handleRefresh}
                     disabled={isRefreshing}
-                    className={cn("text-muted-foreground hover:text-foreground")}
+                    {...sx(cn("text-muted-foreground hover:text-foreground"))}
                   >
-                    <RefreshCw className={cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : "")} />
+                    <RefreshCw style={css(cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : ""))} />
                     Refresh
                   </Button>
                   <Box className={cn("flex items-center gap-2 text-sm", "text-muted-foreground")}>
-                    <Clock className="w-4 h-4" />
+                    <Clock style={css('w-4 h-4')} />
                     <span>Updated {formatTime(lastUpdated)}</span>
                   </Box>
                 </Box>
@@ -263,7 +250,7 @@ export default function PageClient() {
               className="mb-12"
             >
               <Box className="flex items-center gap-3 mb-6">
-                <Activity className="w-5 h-5" />
+                <Activity style={css('w-5 h-5')} />
                 <Box tag="h2" className="text-xl font-semibold">Services</Box>
               </Box>
 
@@ -286,7 +273,7 @@ export default function PageClient() {
                       <Box className="flex items-center justify-between">
                         <Box className="flex items-center gap-3">
                           <Box className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-foreground/10")}>
-                            <Icon className={cn("w-5 h-5", "text-muted-foreground")} />
+                            <Icon style={css(cn("w-5 h-5", "text-muted-foreground"))} />
                           </Box>
                           <div>
                             <Box className="flex items-center gap-2">
@@ -298,7 +285,7 @@ export default function PageClient() {
                                   rel="noopener noreferrer"
                                   className={cn("text-muted-foreground hover:text-muted-foreground")}
                                 >
-                                  <ExternalLink className="w-3 h-3" />
+                                  <ExternalLink style={css('w-3 h-3')} />
                                 </Box>
                               )}
                             </Box>
@@ -306,7 +293,7 @@ export default function PageClient() {
                           </div>
                         </Box>
                         <Box className={cn("flex items-center gap-2 px-3 py-1 rounded-full", colors.bgLight)}>
-                          <div className={cn("w-2 h-2 rounded-full", colors.bg)} />
+                          <Box className={cn("w-2 h-2 rounded-full", colors.bg)} />
                           <Box tag="span" className={cn("text-xs font-medium capitalize", colors.text)}>
                             {service.status}
                           </Box>
@@ -338,7 +325,7 @@ export default function PageClient() {
                     // Real uptime data - mark actual maintenance windows
                     const isMaintenance = i === 25 || i === 45 || i === 70 || i === 85;
                     return (
-                      <div
+                      <Box
                         key={i}
                         className={cn(
                           "flex-1 h-8 rounded-sm transition-colors hover:opacity-80",
@@ -353,10 +340,10 @@ export default function PageClient() {
                   <span>90 days ago</span>
                   <Box className="flex items-center gap-4">
                     <Box tag="span" className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Operational
+                      <Box className="w-2 h-2 rounded-sm bg-foreground/20" /> Operational
                     </Box>
                     <Box tag="span" className="flex items-center gap-1">
-                      <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Maintenance
+                      <Box className="w-2 h-2 rounded-sm bg-foreground/20" /> Maintenance
                     </Box>
                   </Box>
                   <span>Today</span>
@@ -422,12 +409,12 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://x.com/zoo_labs" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
+                  <Button variant="outline" {...sx(cn("border-border hover:bg-accent"))}>
                     Follow @zoo_labs
                   </Button>
                 </a>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
+                  <Button variant="outline" {...sx(cn("border-border hover:bg-accent"))}>
                     Join Discord
                   </Button>
                 </a>

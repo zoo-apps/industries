@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -124,20 +124,20 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <KeyRound className="w-4 h-4" />
+                  <KeyRound style={css('w-4 h-4')} />
                   Get an API key
                 </Box>
               </a>
               <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles style={css('w-4 h-4')} />
                   Browse weights
                 </Box>
               </a>
               <Link href="/models">
                 <Box tag="button" className="btn-brutalist pill-cyan">
                   Model catalog
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight style={css('w-4 h-4')} />
                 </Box>
               </Link>
             </Box>
@@ -166,7 +166,7 @@ export default function PageClient() {
                 >
                   <Box className="flex items-center gap-3 mb-3">
                     <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center ${m.color}`}>
-                      <Icon className="w-5 h-5 text-black" />
+                      <Icon style={css('w-5 h-5 text-black')} />
                     </Box>
                     <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{m.label}</Box>
                   </Box>
@@ -274,7 +274,7 @@ export default function PageClient() {
             <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
               <Box className="flex items-center gap-3 mb-3">
                 <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-yellow">
-                  <KeyRound className="w-5 h-5 text-black" />
+                  <KeyRound style={css('w-5 h-5 text-black')} />
                 </Box>
                 <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">API key</Box>
               </Box>
@@ -287,7 +287,7 @@ export default function PageClient() {
             <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
               <Box className="flex items-center gap-3 mb-3">
                 <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-cyan">
-                  <Shield className="w-5 h-5 text-black" />
+                  <Shield style={css('w-5 h-5 text-black')} />
                 </Box>
                 <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">Zoo ID (DID)</Box>
               </Box>
@@ -353,19 +353,19 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <KeyRound className="w-4 h-4" />
+                <KeyRound style={css('w-4 h-4')} />
                 Get an API key
               </Box>
             </a>
             <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-green">
-                <Github className="w-4 h-4" />
+                <Github style={css('w-4 h-4')} />
                 Zen on Hugging Face
               </Box>
             </a>
             <a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-cyan">
-                <FileText className="w-4 h-4" />
+                <FileText style={css('w-4 h-4')} />
                 Read the papers
               </Box>
             </a>

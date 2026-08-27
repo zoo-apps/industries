@@ -1,32 +1,16 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
-import {
-  ArrowRight,
-  ExternalLink,
-  Github,
-  Brain,
-  Cpu,
-  Zap,
-  Code,
-  Eye,
-  Mic,
-  Sparkles,
-  Layers,
-  Network,
-  Server,
-  Search,
-  Shield,
-} from "lucide-react";
+import { ArrowRight, ExternalLink, Github, Brain, Cpu, Zap, Code, Eye, Mic, Sparkles, Layers, Network, Server, Search, Shield, type LucideIcon } from 'lucide-react'
 import type { FamilyData } from "./page";
 
 // Icon lookup by family ID — icons are client-only (React components)
-const FAMILY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+const FAMILY_ICONS: Record<string, LucideIcon> = {
   zen5:       Sparkles,
   code:       Code,
   zen3:       Brain,
@@ -497,13 +481,13 @@ export default function PageClient({
               <Box className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
                   <Box tag="button" className="btn-brutalist pill-pink">
-                    <Sparkles className="w-4 h-4" />
+                    <Sparkles style={css('w-4 h-4')} />
                     Browse Models
                   </Box>
                 </a>
                 <a href="https://github.com/zenlm" target="_blank" rel="noopener noreferrer">
                   <Box tag="button" className="btn-brutalist pill-green">
-                    <Github className="w-4 h-4" />
+                    <Github style={css('w-4 h-4')} />
                     GitHub
                   </Box>
                 </a>
@@ -554,7 +538,7 @@ export default function PageClient({
                   className="mb-12"
                 >
                   <Box className="flex items-center gap-3 mb-4">
-                    <FamilyIcon className={cn("w-8 h-8", "text-muted-foreground")} />
+                    <FamilyIcon style={css(cn("w-8 h-8", "text-muted-foreground"))} />
                     <Box tag="h2" className="text-3xl font-bold">{family.title}</Box>
                   </Box>
                   <Box tag="p" className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</Box>
@@ -583,7 +567,9 @@ export default function PageClient({
                         {(model as any).requestAccess ? (
                           <Box tag="span" className="text-[10px] px-2 py-1 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">Research Preview</Box>
                         ) : (
-                          <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
+                          <Box tag="span" className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60 grid">
+                            <ExternalLink style={css('w-full h-full')} />
+                          </Box>
                         )}
                       </Box>
                       <Box tag="p" className="text-sm mb-4 text-black/70">{model.description}</Box>
@@ -599,11 +585,11 @@ export default function PageClient({
                       </Box>
                       <Box className="flex items-center justify-between text-xs pt-4 border-t-2 border-black text-black/70">
                         <Box tag="span" className="flex items-center gap-1">
-                          <Zap className="w-3 h-3" />
+                          <Zap style={css('w-3 h-3')} />
                           {model.performance}
                         </Box>
                         <Box tag="span" className="flex items-center gap-1">
-                          <Cpu className="w-3 h-3" />
+                          <Cpu style={css('w-3 h-3')} />
                           {model.memory}
                         </Box>
                       </Box>
@@ -696,7 +682,7 @@ export default function PageClient({
                     className="block p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-center text-black"
                   >
                     <Box className="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-[var(--brand-magenta)] border-2 border-black">
-                      <ToolIcon className="w-6 h-6 text-white" />
+                      <ToolIcon style={css('w-6 h-6 text-white')} />
                     </Box>
                     <Box tag="h3" className="text-xl font-extrabold uppercase tracking-tight mb-2 group-hover:underline">
                       {tool.name}
@@ -766,7 +752,7 @@ response = client.chat.completions.create(
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
                   Get Started
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight style={css('w-4 h-4')} />
                 </Box>
               </a>
               <Link href="/research">

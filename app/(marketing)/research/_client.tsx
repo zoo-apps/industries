@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -1024,8 +1024,8 @@ const [searchQuery, setSearchQuery] = useState("");
         {/* Hero Section */}
         <Box tag="section" className="relative py-24 px-4 overflow-hidden">
           {/* Background gradient */}
-          <div
-            className="absolute inset-0 pointer-events-none"
+          <Box
+            className="absolute inset-0 pointer-events-none overflow-hidden"
             style={{
               background: 'radial-gradient(ellipse 800px 800px at 50% 0%, rgba(255, 255, 255, 0.05), transparent)',
             }}
@@ -1065,13 +1065,13 @@ const [searchQuery, setSearchQuery] = useState("");
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     className="p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-black"
                   >
-                    <Icon className="w-10 h-10 mb-4 text-black" />
+                    <Icon style={css('w-10 h-10 mb-4 text-black')} />
                     <Box tag="h3" className="text-xl font-extrabold uppercase tracking-tight mb-3 text-black">{area.title}</Box>
                     <Box tag="p" className="mb-4 text-black/70">{area.description}</Box>
                     <Link href={area.link}
-                      className="text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1 text-black"
+                      style={css('text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1 text-black')}
                     >
-                      Learn more <ArrowRight className="w-3 h-3" />
+                      Learn more <ArrowRight style={css('w-3 h-3')} />
                     </Link>
                   </M>
                 );
@@ -1096,7 +1096,7 @@ const [searchQuery, setSearchQuery] = useState("");
                 rel="noopener noreferrer"
               >
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Github className="w-4 h-4" />
+                  <Github style={css('w-4 h-4')} />
                   View all on GitHub
                 </Box>
               </a>
@@ -1116,12 +1116,14 @@ const [searchQuery, setSearchQuery] = useState("");
                 >
                   <Box className="flex items-start justify-between mb-3">
                     <Box className="flex items-center gap-2">
-                      <Github className="w-5 h-5 text-black" />
+                      <Github style={css('w-5 h-5 text-black')} />
                       <Box tag="span" className="font-extrabold uppercase tracking-tight group-hover:underline text-black">
                         {project.name}
                       </Box>
                     </Box>
-                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
+                    <Box tag="span" className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60 grid">
+                      <ExternalLink style={css('w-full h-full')} />
+                    </Box>
                   </Box>
                   <Box tag="p" className="text-sm mb-4 text-black/70">{project.description}</Box>
                   <Box className="flex items-center gap-4 text-xs text-black/70">
@@ -1153,7 +1155,7 @@ const [searchQuery, setSearchQuery] = useState("");
                 rel="noopener noreferrer"
               >
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Github className="w-4 h-4" />
+                  <Github style={css('w-4 h-4')} />
                   View on GitHub
                 </Box>
               </a>
@@ -1162,8 +1164,8 @@ const [searchQuery, setSearchQuery] = useState("");
             {/* Search Bar */}
             <Box className="mb-6">
               <Box className={cn("relative flex items-center rounded-lg", "bg-foreground/10")}>
-                <Search className={cn("absolute left-4 w-5 h-5", "text-muted-foreground")} />
-                <input
+                <Search style={css(cn("absolute left-4 w-5 h-5", "text-muted-foreground"))} />
+                <Box tag="input"
                   type="text"
                   placeholder="Search papers by title, author, or topic..."
                   value={searchQuery}
@@ -1175,7 +1177,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     onClick={clearFilters}
                     className={cn("absolute right-4 p-1 rounded-full", "hover:bg-accent")}
                   >
-                    <X className={cn("w-4 h-4", "text-muted-foreground")} />
+                    <X style={css(cn("w-4 h-4", "text-muted-foreground"))} />
                   </Box>
                 )}
               </Box>
@@ -1188,7 +1190,7 @@ const [searchQuery, setSearchQuery] = useState("");
               </Box>
               <Box className="flex flex-wrap gap-2">
                 {(["all", "hanzo", "lux", "zoo", "zen"] as const).map((org) => (
-                  <button
+                  <Box tag="button"
                     key={org}
                     onClick={() => setActiveOrg(org)}
                     className={cn(
@@ -1206,7 +1208,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     {org !== "all" && (
                       <Box tag="span" className="ml-1.5 opacity-70">({orgCounts[org] || 0})</Box>
                     )}
-                  </button>
+                  </Box>
                 ))}
               </Box>
             </Box>
@@ -1218,7 +1220,7 @@ const [searchQuery, setSearchQuery] = useState("");
               </Box>
               <Box className="flex flex-wrap gap-2">
                 {(["all", "consensus", "ai", "models", "agents", "fhe", "mpc", "zkp", "pqc", "defi", "identity", "infrastructure"] as const).map((topic) => (
-                  <button
+                  <Box tag="button"
                     key={topic}
                     onClick={() => setActiveTopic(topic)}
                     className={cn(
@@ -1232,7 +1234,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     {topic !== "all" && topicCounts[topic] && (
                       <Box tag="span" className="ml-1.5 opacity-70">({topicCounts[topic]})</Box>
                     )}
-                  </button>
+                  </Box>
                 ))}
               </Box>
             </Box>
@@ -1244,7 +1246,7 @@ const [searchQuery, setSearchQuery] = useState("");
               </Box>
               <Box className="flex items-center gap-2">
                 <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>Sort:</Box>
-                <button
+                <Box tag="button"
                   onClick={() => setSortBy("date")}
                   className={cn(
                     "px-3 py-1 rounded text-sm",
@@ -1254,8 +1256,8 @@ const [searchQuery, setSearchQuery] = useState("");
                   )}
                 >
                   Date
-                </button>
-                <button
+                </Box>
+                <Box tag="button"
                   onClick={() => setSortBy("title")}
                   className={cn(
                     "px-3 py-1 rounded text-sm",
@@ -1265,7 +1267,7 @@ const [searchQuery, setSearchQuery] = useState("");
                   )}
                 >
                   Title
-                </button>
+                </Box>
               </Box>
             </Box>
 
@@ -1289,7 +1291,7 @@ const [searchQuery, setSearchQuery] = useState("");
                   <Box className="flex items-start justify-between">
                     <Box className="flex-1">
                       <Box className="flex items-center gap-3 mb-2 flex-wrap">
-                        <FileText className="w-5 h-5 text-black" />
+                        <FileText style={css('w-5 h-5 text-black')} />
                         <Box tag="span" className="text-sm text-black/70">{paper.date}</Box>
                         {paper.featured && (
                           <Box tag="span" className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">
@@ -1317,7 +1319,9 @@ const [searchQuery, setSearchQuery] = useState("");
                         ))}
                       </Box>
                     </Box>
-                    <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 text-black/60" />
+                    <Box tag="span" className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 text-black/60 grid">
+                      <ExternalLink style={css('w-full h-full')} />
+                    </Box>
                   </Box>
                 </M>
               ))}
@@ -1340,8 +1344,8 @@ const [searchQuery, setSearchQuery] = useState("");
         {/* CTA Section */}
         <Box tag="section" className="relative py-24 px-4 overflow-hidden">
           {/* Decorative blur */}
-          <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/5")} />
-          <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/[0.03]")} />
+          <Box className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/5")} />
+          <Box className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/[0.03]")} />
 
           <Box className="max-w-4xl mx-auto text-center relative z-10">
             <Box tag="h2" className={cn("text-3xl font-bold mb-4", "text-foreground")}>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -54,13 +54,13 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.chat} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles style={css('w-4 h-4')} />
                   Open Zoo Chat
                 </Box>
               </a>
               <Link href="/api">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Brain className="w-4 h-4" />
+                  <Brain style={css('w-4 h-4')} />
                   API behind the chat
                 </Box>
               </Link>
@@ -88,7 +88,7 @@ export default function PageClient() {
                   className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-5 md:p-6 text-black"
                 >
                   <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center mb-3 ${m.color}`}>
-                    <Icon className="w-5 h-5 text-black" />
+                    <Icon style={css('w-5 h-5 text-black')} />
                   </Box>
                   <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight mb-2">{m.h}</Box>
                   <Box tag="p" className="text-sm md:text-base font-medium text-black/80">{m.p}</Box>
@@ -135,15 +135,15 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.chat} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare style={css('w-4 h-4')} />
                 Open Zoo Chat
               </Box>
             </a>
             <Link href="/edge">
               <Box tag="button" className="btn-brutalist pill-green">
-                <Smartphone className="w-4 h-4" />
+                <Smartphone style={css('w-4 h-4')} />
                 On-device mode
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </Link>
           </Box>

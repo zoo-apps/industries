@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -128,7 +128,7 @@ const typeColors: Record<string, string> = {
 };
 
 const LogoPreview = () => (
-  <img src="/zoo-logo.svg" alt="Zoo" className="w-12 h-12" />
+  <Box tag="img" src="/zoo-logo.svg" alt="Zoo" className="w-12 h-12" />
 );
 
 export default function PageClient() {
@@ -144,7 +144,7 @@ export default function PageClient() {
               transition={{ duration: 0.5 }}
             >
               <Box className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
-                <FileText className="w-4 h-4" />
+                <FileText style={css('w-4 h-4')} />
                 Press Room
               </Box>
               <Box tag="h1" className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
@@ -155,14 +155,14 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-wrap gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
-                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    <Mail className="w-4 h-4" />
+                  <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                    <Mail style={css('w-4 h-4')} />
                     Contact Press Team
                   </Button>
                 </a>
                 <a href="https://github.com/zooai/brand" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className="gap-2">
-                    <Download className="w-4 h-4" />
+                  <Button variant="outline" {...sx('gap-2')}>
+                    <Download style={css('w-4 h-4')} />
                     Download Press Kit
                   </Button>
                 </a>
@@ -175,7 +175,7 @@ export default function PageClient() {
         <Box tag="section" className="py-16 px-4">
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-6">
-              <Building2 className={cn("w-6 h-6", "text-muted-foreground")} />
+              <Building2 style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">About Zoo Industries</Box>
             </Box>
             <Box className="max-w-3xl">
@@ -196,7 +196,7 @@ export default function PageClient() {
         <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-8">
-              <Mail className={cn("w-6 h-6", "text-muted-foreground")} />
+              <Mail style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">Press Contact</Box>
             </Box>
             <Box className="grid md:grid-cols-3 gap-6">
@@ -207,11 +207,11 @@ export default function PageClient() {
                     href="mailto:press@zoo.ngo"
                     className={cn("flex items-center gap-2 transition-colors", "text-muted-foreground hover:text-foreground")}
                   >
-                    <Mail className="w-4 h-4" />
+                    <Mail style={css('w-4 h-4')} />
                     press@zoo.ngo
                   </Box>
                   <Box className={cn("flex items-center gap-2", "text-muted-foreground")}>
-                    <Phone className="w-4 h-4" />
+                    <Phone style={css('w-4 h-4')} />
                     +1 (913) 777-4443
                   </Box>
                 </Box>
@@ -228,8 +228,8 @@ export default function PageClient() {
                 <Box tag="h3" className="font-semibold mb-4">Schedule Interview</Box>
                 <Box tag="p" className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</Box>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button size="sm" variant="outline" className="w-full gap-2">
-                    <Calendar className="w-4 h-4" />
+                  <Button size="sm" variant="outline" {...sx('w-full gap-2')}>
+                    <Calendar style={css('w-4 h-4')} />
                     Schedule via Cal.com
                   </Button>
                 </a>
@@ -243,12 +243,12 @@ export default function PageClient() {
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center justify-between mb-8">
               <Box className="flex items-center gap-3">
-                <Palette className={cn("w-6 h-6", "text-muted-foreground")} />
+                <Palette style={css(cn("w-6 h-6", "text-muted-foreground"))} />
                 <Box tag="h2" className="text-2xl font-bold">Brand Assets</Box>
               </Box>
               <a href="https://github.com/zooai/brand" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Github className="w-4 h-4" />
+                <Button variant="outline" size="sm" {...sx('gap-2')}>
+                  <Github style={css('w-4 h-4')} />
                   View on GitHub
                 </Button>
               </a>
@@ -305,14 +305,14 @@ export default function PageClient() {
 
             <Box className="flex flex-wrap gap-4">
               <a href="https://github.com/zooai/brand/archive/refs/heads/main.zip">
-                <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                  <Download className="w-4 h-4" />
+                <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                  <Download style={css('w-4 h-4')} />
                   Download All Assets (ZIP)
                 </Button>
               </a>
               <a href="https://github.com/zooai/brand/blob/main/GUIDELINES.md" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" className="gap-2">
-                  <BookOpen className="w-4 h-4" />
+                <Button variant="outline" {...sx('gap-2')}>
+                  <BookOpen style={css('w-4 h-4')} />
                   Brand Guidelines
                 </Button>
               </a>
@@ -324,7 +324,7 @@ export default function PageClient() {
         <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-8">
-              <Calendar className={cn("w-6 h-6", "text-muted-foreground")} />
+              <Calendar style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">Press Releases & Announcements</Box>
             </Box>
             <Box className="space-y-4">
@@ -357,9 +357,9 @@ export default function PageClient() {
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="flex-shrink-0"
                       >
-                        <Button variant="ghost" size="sm" className={cn("gap-1", "text-muted-foreground hover:text-foreground")}>
+                        <Button variant="ghost" size="sm" {...sx(cn("gap-1", "text-muted-foreground hover:text-foreground"))}>
                           Learn more
-                          <ExternalLink className="w-3 h-3" />
+                          <ExternalLink style={css('w-3 h-3')} />
                         </Button>
                       </Box>
                     )}
@@ -374,7 +374,7 @@ export default function PageClient() {
         <Box tag="section" className="py-16 px-4">
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-8">
-              <Globe className={cn("w-6 h-6", "text-muted-foreground")} />
+              <Globe style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">Connect With Us</Box>
             </Box>
             <Box className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -388,7 +388,9 @@ export default function PageClient() {
                     rel="noopener noreferrer"
                     className={cn("p-4 rounded-xl border transition-colors text-center group", "bg-foreground/5 border-border hover:border-border")}
                   >
-                    <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
+                    <Box tag="span" className={cn('grid', cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-muted-foreground group-hover:text-foreground"))}>
+                      <Icon style={css('w-full h-full')} />
+                    </Box>
                     <Box className="font-semibold mb-1">{social.name}</Box>
                     <Box className={cn("text-sm", "text-muted-foreground")}>{social.handle}</Box>
                   </Box>
@@ -402,24 +404,24 @@ export default function PageClient() {
         <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-8">
-              <Users className={cn("w-6 h-6", "text-muted-foreground")} />
+              <Users style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">Leadership & Executive Bios</Box>
             </Box>
             <Box className={cn("p-8 rounded-xl border text-center", "bg-foreground/5 border-border")}>
-              <Award className={cn("w-12 h-12 mx-auto mb-4", "text-muted-foreground")} />
+              <Award style={css(cn("w-12 h-12 mx-auto mb-4", "text-muted-foreground"))} />
               <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                 For executive bios, headshots, and interview requests, please contact our press team directly.
               </Box>
               <Box className="flex flex-wrap gap-4 justify-center">
                 <Link href="/team">
-                  <Button variant="outline" className="gap-2">
-                    <Users className="w-4 h-4" />
+                  <Button variant="outline" {...sx('gap-2')}>
+                    <Users style={css('w-4 h-4')} />
                     View Team Page
                   </Button>
                 </Link>
                 <a href="mailto:press@zoo.ngo">
-                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
-                    <Mail className="w-4 h-4" />
+                  <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                    <Mail style={css('w-4 h-4')} />
                     Request Executive Bios
                   </Button>
                 </a>
@@ -432,7 +434,7 @@ export default function PageClient() {
         <Box tag="section" className="py-16 px-4">
           <Box className="max-w-6xl mx-auto">
             <Box className="flex items-center gap-3 mb-8">
-              <BookOpen className={cn("w-6 h-6", "text-muted-foreground")} />
+              <BookOpen style={css(cn("w-6 h-6", "text-muted-foreground"))} />
               <Box tag="h2" className="text-2xl font-bold">Coverage Guidelines</Box>
             </Box>
             <Box className="grid md:grid-cols-2 gap-6">

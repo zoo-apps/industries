@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -334,7 +334,7 @@ function SdkIconBadge({ icon }: { icon: string }) {
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
-    <button
+    <Box tag="button"
       onClick={() => {
         navigator.clipboard.writeText(text);
         setCopied(true);
@@ -346,8 +346,8 @@ function CopyButton({ text }: { text: string }) {
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-    </button>
+      {copied ? <Check style={css('w-3.5 h-3.5')} /> : <Copy style={css('w-3.5 h-3.5')} />}
+    </Box>
   );
 }
 
@@ -369,7 +369,7 @@ export default function PageClient() {
           className="mb-20"
         >
           <Box className="flex items-center gap-3 mb-6">
-            <BookOpen className="w-6 h-6 text-muted-foreground" />
+            <BookOpen style={css('w-6 h-6 text-muted-foreground')} />
             <Box tag="span" className="text-sm font-mono text-muted-foreground">docs.zoo.ngo</Box>
           </Box>
           <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
@@ -381,13 +381,13 @@ export default function PageClient() {
           </Box>
           <Box className="flex flex-wrap gap-3 mt-8">
             <Link href="/docs/sdk">
-              <Button variant="primary" className="gap-2">
-                Get Started <ArrowRight className="w-4 h-4" />
+              <Button variant="primary" {...sx('gap-2')}>
+                Get Started <ArrowRight style={css('w-4 h-4')} />
               </Button>
             </Link>
             <Link href="/docs/api">
-              <Button variant="outline" className="gap-2">
-                API Reference <BookOpen className="w-4 h-4" />
+              <Button variant="outline" {...sx('gap-2')}>
+                API Reference <BookOpen style={css('w-4 h-4')} />
               </Button>
             </Link>
           </Box>
@@ -424,7 +424,7 @@ export default function PageClient() {
                   </Box>
                 </Box>
                 <Box className="flex items-center gap-2 mb-4 bg-muted/50 rounded-lg px-4 py-2.5">
-                  <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+                  <Terminal style={css('w-3.5 h-3.5 text-muted-foreground shrink-0')} />
                   <Box tag="code" className="text-sm font-mono flex-1 truncate">{sdk.install}</Box>
                   <CopyButton text={sdk.install} />
                 </Box>
@@ -435,7 +435,7 @@ export default function PageClient() {
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
-                    {sdk.registry} <ExternalLink className="w-3 h-3" />
+                    {sdk.registry} <ExternalLink style={css('w-3 h-3')} />
                   </Box>
                   <Box tag="a"
                     href={sdk.github}
@@ -443,7 +443,7 @@ export default function PageClient() {
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
-                    GitHub <Github className="w-3 h-3" />
+                    GitHub <Github style={css('w-3 h-3')} />
                   </Box>
                   <Box tag="a"
                     href={sdk.docs}
@@ -451,15 +451,17 @@ export default function PageClient() {
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
-                    Docs <BookOpen className="w-3 h-3" />
+                    Docs <BookOpen style={css('w-3 h-3')} />
                   </Box>
                 </Box>
               </M>
             ))}
           </Box>
           <Box className="mt-4 text-center">
-            <Link href="/docs/sdk" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
-              View detailed SDK guides <ArrowRight className="w-3 h-3" />
+            <Link href="/docs/sdk">
+              <Box tag="span" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
+              View detailed SDK guides <ArrowRight style={css('w-3 h-3')} />
+              </Box>
             </Link>
           </Box>
         </M>
@@ -493,7 +495,7 @@ export default function PageClient() {
                   )}
                 >
                   <Box className="flex items-center gap-3 mb-3">
-                    <Icon className="w-5 h-5 text-muted-foreground" />
+                    <Icon style={css('w-5 h-5 text-muted-foreground')} />
                     <Box tag="h3" className="text-lg font-semibold group-hover:underline">{api.title}</Box>
                   </Box>
                   <Box tag="p" className="text-xs font-mono text-muted-foreground mb-2">{api.domain}</Box>
@@ -503,8 +505,10 @@ export default function PageClient() {
             })}
           </Box>
           <Box className="mt-4 text-center">
-            <Link href="/docs/api" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
-              View full API reference <ArrowRight className="w-3 h-3" />
+            <Link href="/docs/api">
+              <Box tag="span" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
+              View full API reference <ArrowRight style={css('w-3 h-3')} />
+              </Box>
             </Link>
           </Box>
         </M>
@@ -523,7 +527,7 @@ export default function PageClient() {
           <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
             <Box className="flex border-b border-border">
               {Object.keys(codeExamples).map((lang) => (
-                <button
+                <Box tag="button"
                   key={lang}
                   onClick={() => setActiveTab(lang)}
                   className={cn(
@@ -534,7 +538,7 @@ export default function PageClient() {
                   )}
                 >
                   {lang}
-                </button>
+                </Box>
               ))}
             </Box>
             <Box className="relative">
@@ -578,14 +582,14 @@ export default function PageClient() {
                 >
                   <Box className="flex items-center justify-between mb-3">
                     <Box className="flex items-center gap-2">
-                      <Icon className="w-4 h-4 text-muted-foreground" />
+                      <Icon style={css('w-4 h-4 text-muted-foreground')} />
                       <Box tag="h3" className="font-semibold group-hover:underline">{project.name}</Box>
                     </Box>
                     <LangBadge lang={project.lang} />
                   </Box>
                   <Box tag="p" className="text-sm text-muted-foreground mb-3">{project.description}</Box>
                   <Box className="flex items-center gap-1 text-xs text-muted-foreground">
-                    <Github className="w-3 h-3" />
+                    <Github style={css('w-3 h-3')} />
                     <Box tag="span" className="font-mono">zooai/{project.repo}</Box>
                   </Box>
                 </M>
@@ -622,7 +626,7 @@ export default function PageClient() {
                     "border-border hover:border-foreground/20"
                   )}
                 >
-                  <Icon className="w-6 h-6 text-muted-foreground mb-3" />
+                  <Icon style={css('w-6 h-6 text-muted-foreground mb-3')} />
                   <Box tag="h3" className="text-lg font-semibold mb-2 group-hover:underline">{item.title}</Box>
                   <Box tag="p" className="text-sm text-muted-foreground">{item.description}</Box>
                 </M>
@@ -647,13 +651,13 @@ export default function PageClient() {
           </Box>
           <Box className="flex flex-wrap justify-center gap-3">
             <a href="https://console.zoo.ngo" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" className="gap-2">
-                Get API Key <ArrowRight className="w-4 h-4" />
+              <Button variant="primary" {...sx('gap-2')}>
+                Get API Key <ArrowRight style={css('w-4 h-4')} />
               </Button>
             </a>
             <a href="https://docs.zoo.ngo" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" className="gap-2">
-                Full Documentation <ExternalLink className="w-4 h-4" />
+              <Button variant="outline" {...sx('gap-2')}>
+                Full Documentation <ExternalLink style={css('w-4 h-4')} />
               </Button>
             </a>
           </Box>

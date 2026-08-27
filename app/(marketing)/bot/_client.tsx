@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -54,13 +54,13 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.bot} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles style={css('w-4 h-4')} />
                   Spin up a workspace
                 </Box>
               </a>
               <Link href="/api">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Brain className="w-4 h-4" />
+                  <Brain style={css('w-4 h-4')} />
                   Built on Zen API
                 </Box>
               </Link>
@@ -89,7 +89,7 @@ export default function PageClient() {
                 >
                   <Box className="flex items-center gap-3 mb-3">
                     <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-cyan">
-                      <Icon className="w-5 h-5 text-black" />
+                      <Icon style={css('w-5 h-5 text-black')} />
                     </Box>
                     <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{r.h}</Box>
                   </Box>
@@ -136,15 +136,15 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.bot} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <Bot className="w-4 h-4" />
+                <Bot style={css('w-4 h-4')} />
                 Open Zoo Bot
               </Box>
             </a>
             <Link href="/engine">
               <Box tag="button" className="btn-brutalist pill-green">
-                <Zap className="w-4 h-4" />
+                <Zap style={css('w-4 h-4')} />
                 On Zoo Engine
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </Link>
           </Box>

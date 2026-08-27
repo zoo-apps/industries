@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -314,7 +314,7 @@ async fn main() -> Result<(), hanzo::Error> {
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
   return (
-    <button
+    <Box tag="button"
       onClick={() => {
         navigator.clipboard.writeText(text);
         setCopied(true);
@@ -326,8 +326,8 @@ function CopyButton({ text }: { text: string }) {
       )}
       title="Copy"
     >
-      {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-    </button>
+      {copied ? <Check style={css('w-3.5 h-3.5')} /> : <Copy style={css('w-3.5 h-3.5')} />}
+    </Box>
   );
 }
 
@@ -364,9 +364,10 @@ export default function PageClient() {
         >
           <Link
             href="/docs"
-            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
           >
-            <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
+            <Box tag="span" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6">
+            <ArrowLeft style={css('w-3.5 h-3.5')} /> Back to Docs
+            </Box>
           </Link>
           <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">SDKs</Box>
           <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
@@ -391,7 +392,7 @@ export default function PageClient() {
             All SDKs authenticate using an API key. Set it as an environment variable:
           </Box>
           <Box className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-2.5">
-            <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
+            <Terminal style={css('w-3.5 h-3.5 text-muted-foreground shrink-0')} />
             <Box tag="code" className="text-sm font-mono flex-1">export ZOO_API_KEY=&quot;your-api-key&quot;</Box>
             <CopyButton text='export ZOO_API_KEY="your-api-key"' />
           </Box>
@@ -434,7 +435,7 @@ export default function PageClient() {
 
             {/* Install */}
             <Box className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-3 mb-6">
-              <Terminal className="w-4 h-4 text-muted-foreground shrink-0" />
+              <Terminal style={css('w-4 h-4 text-muted-foreground shrink-0')} />
               <Box tag="code" className="text-sm font-mono flex-1">{sdk.install}</Box>
               <CopyButton text={sdk.install} />
             </Box>
@@ -446,7 +447,7 @@ export default function PageClient() {
                   key={feature}
                   className="flex items-center gap-2 text-sm text-muted-foreground"
                 >
-                  <Check className="w-3.5 h-3.5 shrink-0" />
+                  <Check style={css('w-3.5 h-3.5 shrink-0')} />
                   {feature}
                 </Box>
               ))}
@@ -466,7 +467,7 @@ export default function PageClient() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
-                {sdk.registry} <ExternalLink className="w-3 h-3" />
+                {sdk.registry} <ExternalLink style={css('w-3 h-3')} />
               </Box>
               <Box tag="a"
                 href={sdk.github}
@@ -474,7 +475,7 @@ export default function PageClient() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
-                GitHub <Github className="w-3 h-3" />
+                GitHub <Github style={css('w-3 h-3')} />
               </Box>
               <Box tag="a"
                 href={sdk.docs}
@@ -482,13 +483,13 @@ export default function PageClient() {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
-                Full Documentation <BookOpen className="w-3 h-3" />
+                Full Documentation <BookOpen style={css('w-3 h-3')} />
               </Box>
             </Box>
 
             {/* Divider (except last) */}
             {sectionIndex < sdkSections.length - 1 && (
-              <div className="border-b border-border mt-16" />
+              <Box className="border-b border-border mt-16" />
             )}
           </M>
         ))}
@@ -508,8 +509,8 @@ export default function PageClient() {
             All SDKs wrap the same REST API. If you prefer raw HTTP, check the API reference.
           </Box>
           <Link href="/docs/api">
-            <Button variant="outline" className="gap-2">
-              API Reference <ArrowRight className="w-4 h-4" />
+            <Button variant="outline" {...sx('gap-2')}>
+              API Reference <ArrowRight style={css('w-4 h-4')} />
             </Button>
           </Link>
         </M>

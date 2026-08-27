@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Globe, Server, Shield, Cpu, Network, Zap, Lock, Database } from "lucide-react";
@@ -167,7 +167,7 @@ export default function PageClient() {
                           "w-12 h-12 rounded-lg flex items-center justify-center",
                           "bg-primary"
                         )}>
-                          <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                          <Icon style={css(cn("w-6 h-6", "text-primary-foreground"))} />
                         </Box>
                       </Box>
                       <Box className="flex-1">
@@ -176,7 +176,7 @@ export default function PageClient() {
                         <Box tag="ul" className="space-y-2">
                           {feature.details.map((detail, idx) => (
                             <Box tag="li" key={idx} className="flex items-start">
-                              <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
+                              <Box className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
                               <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{detail}</Box>
                             </Box>
                           ))}
@@ -199,7 +199,7 @@ export default function PageClient() {
               "bg-foreground/5 border-border"
             )}
           >
-            <Network className={cn("w-24 h-24 mx-auto mb-4", "text-foreground/30")} />
+            <Network style={css(cn("w-24 h-24 mx-auto mb-4", "text-foreground/30"))} />
             <Box tag="h3" className="text-2xl font-semibold mb-4">Decentralized Architecture</Box>
             <Box tag="p" className={cn("max-w-2xl mx-auto", "text-muted-foreground")}>
               Our decentralized AI infrastructure eliminates single points of failure through
@@ -232,7 +232,7 @@ export default function PageClient() {
                       "bg-foreground/5 border-border hover:border-border"
                     )}
                   >
-                    <Icon className="w-12 h-12 mx-auto mb-4" />
+                    <Icon style={css('w-12 h-12 mx-auto mb-4')} />
                     <Box tag="h3" className="text-lg font-semibold mb-2">{useCase.title}</Box>
                     <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{useCase.description}</Box>
                   </M>

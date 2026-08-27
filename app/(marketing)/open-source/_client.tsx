@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -114,7 +114,7 @@ export default function PageClient() {
         {/* Hero */}
         <Box tag="section" className="relative pt-24 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden">
           <Box className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
-            <div
+            <Box
               className="absolute inset-0 opacity-[0.03]"
               style={{
                 backgroundImage:
@@ -122,8 +122,8 @@ export default function PageClient() {
                 backgroundSize: '64px 64px',
               }}
             />
-            <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] bg-foreground/5" />
-            <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] bg-foreground/[0.03]" />
+            <Box className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] bg-foreground/5" />
+            <Box className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] bg-foreground/[0.03]" />
           </Box>
 
           <Box className="max-w-5xl mx-auto relative z-10 text-center">
@@ -133,7 +133,7 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border"
             >
-              <Github className="w-3.5 h-3.5 text-muted-foreground" />
+              <Github style={css('w-3.5 h-3.5 text-muted-foreground')} />
               <Box tag="span" className="text-muted-foreground">Open Core Company</Box>
             </M>
 
@@ -166,9 +166,9 @@ export default function PageClient() {
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                  {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
                 >
-                  <Github className="w-4 h-4 mr-2" />
+                  <Github style={css('w-4 h-4 mr-2')} />
                   Browse GitHub
                 </Button>
               </a>
@@ -176,9 +176,9 @@ export default function PageClient() {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                  {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
                 >
-                  <DollarSign className="w-4 h-4 mr-2" />
+                  <DollarSign style={css('w-4 h-4 mr-2')} />
                   Connect &amp; Start Earning
                 </Button>
               </a>
@@ -197,7 +197,7 @@ export default function PageClient() {
                     key={stat.label}
                     className="rounded-xl border border-border bg-secondary/50 p-5 text-center"
                   >
-                    <Icon className="w-5 h-5 text-muted-foreground mb-2 mx-auto" />
+                    <Icon style={css('w-5 h-5 text-muted-foreground mb-2 mx-auto')} />
                     <Box className="text-3xl font-bold text-foreground">{stat.value}</Box>
                     <Box className="text-xs text-muted-foreground mt-1">{stat.label}</Box>
                   </Box>
@@ -252,7 +252,7 @@ export default function PageClient() {
                         className="text-muted-foreground hover:text-foreground transition-colors"
                         aria-label={`${proj.name} on GitHub`}
                       >
-                        <Github className="w-3.5 h-3.5" />
+                        <Github style={css('w-3.5 h-3.5')} />
                       </Box>
                     </Box>
                   </Box>
@@ -304,14 +304,18 @@ export default function PageClient() {
                     className="group flex items-start gap-4 rounded-xl border border-border bg-secondary/30 p-5 hover:border-foreground/20 hover:bg-secondary/60 transition-all"
                   >
                     <Box className="mt-0.5 flex-shrink-0 rounded-lg border border-border bg-background p-2">
-                      <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                      <Box tag="span" className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors grid">
+                        <Icon style={css('w-full h-full')} />
+                      </Box>
                     </Box>
                     <Box className="flex-1 min-w-0">
                       <Box className="flex items-center gap-1.5 mb-1">
                         <Box tag="span" className="font-mono text-sm font-semibold text-foreground group-hover:text-foreground transition-colors">
                           @{org.handle}
                         </Box>
-                        <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                        <Box tag="span" className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity grid">
+                          <ExternalLink style={css('w-full h-full')} />
+                        </Box>
                       </Box>
                       <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
                         {org.description}
@@ -355,7 +359,7 @@ export default function PageClient() {
                 >
                   <Box className="flex items-start gap-3">
                     <Box className="mt-0.5 flex-shrink-0 rounded-full bg-foreground/10 p-1">
-                      <Check className="w-3.5 h-3.5 text-foreground" />
+                      <Check style={css('w-3.5 h-3.5 text-foreground')} />
                     </Box>
                     <div>
                       <Box tag="h3" className="font-semibold text-foreground text-sm mb-1">{c.title}</Box>
@@ -370,7 +374,7 @@ export default function PageClient() {
 
         {/* Earn from Open Source (Revenue Sharing) */}
         <Box tag="section" className="py-24 px-4 md:px-8 border-t border-border relative overflow-hidden">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[160px] bg-foreground/[0.04] pointer-events-none" />
+          <Box className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[160px] bg-foreground/[0.04] pointer-events-none" />
 
           <Box className="max-w-6xl mx-auto relative z-10">
             <M
@@ -381,7 +385,7 @@ export default function PageClient() {
               className="text-center mb-16"
             >
               <Box className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border">
-                <DollarSign className="w-3.5 h-3.5 text-muted-foreground" />
+                <DollarSign style={css('w-3.5 h-3.5 text-muted-foreground')} />
                 <Box tag="span" className="text-muted-foreground">Revenue Sharing Program</Box>
               </Box>
               <Box tag="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -412,7 +416,7 @@ export default function PageClient() {
                         {step.step}
                       </Box>
                       <Box className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center">
-                        <Icon className="w-4 h-4 text-muted-foreground" />
+                        <Icon style={css('w-4 h-4 text-muted-foreground')} />
                       </Box>
                     </Box>
                     <Box tag="h3" className="font-semibold text-foreground text-sm mb-2">{step.title}</Box>
@@ -420,7 +424,7 @@ export default function PageClient() {
                       {step.description}
                     </Box>
                     {i < REVENUE_STEPS.length - 1 && (
-                      <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
+                      <Box className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
                     )}
                   </M>
                 )
@@ -441,7 +445,7 @@ export default function PageClient() {
                     className="rounded-xl border border-border bg-secondary/20 p-5 text-center"
                   >
                     <Box className="w-10 h-10 rounded-xl bg-foreground/10 flex items-center justify-center mx-auto mb-3">
-                      <Icon className="w-5 h-5 text-muted-foreground" />
+                      <Icon style={css('w-5 h-5 text-muted-foreground')} />
                     </Box>
                     <Box tag="h3" className="font-semibold text-foreground text-sm mb-1">{f.title}</Box>
                     <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
@@ -462,7 +466,7 @@ export default function PageClient() {
             >
               <Box className="flex flex-col md:flex-row items-start md:items-center gap-6">
                 <Box className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
-                  <Users className="w-6 h-6 text-muted-foreground" />
+                  <Users style={css('w-6 h-6 text-muted-foreground')} />
                 </Box>
                 <Box className="flex-1">
                   <Box tag="h3" className="font-semibold text-foreground mb-2">
@@ -501,11 +505,11 @@ export default function PageClient() {
                 >
                   <Button
                     size="lg"
-                    className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                    {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
                   >
-                    <Wallet className="w-4 h-4 mr-2" />
+                    <Wallet style={css('w-4 h-4 mr-2')} />
                     Connect &amp; Start Earning
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <ArrowRight style={css('w-4 h-4 ml-2')} />
                   </Button>
                 </a>
                 <a
@@ -516,9 +520,9 @@ export default function PageClient() {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                    {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
                   >
-                    <BarChart3 className="w-4 h-4 mr-2" />
+                    <BarChart3 style={css('w-4 h-4 mr-2')} />
                     View Payout Dashboard
                   </Button>
                 </a>
@@ -548,9 +552,9 @@ export default function PageClient() {
                 </Box>
               </div>
               <Link href="/research">
-                <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
+                <Button {...sx('rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90')}>
                   Browse Papers
-                  <ArrowRight className="ml-2 w-4 h-4" />
+                  <ArrowRight style={css('ml-2 w-4 h-4')} />
                 </Button>
               </Link>
             </M>
@@ -559,8 +563,8 @@ export default function PageClient() {
 
         {/* CTA */}
         <Box tag="section" className="py-24 px-4 md:px-8 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden border-t border-border">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-foreground/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none" />
+          <Box className="absolute -top-40 -right-40 w-80 h-80 bg-foreground/5 rounded-full blur-3xl pointer-events-none" />
+          <Box className="absolute -bottom-40 -left-40 w-80 h-80 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none" />
 
           <Box className="max-w-4xl mx-auto text-center relative z-10">
             <M tag="h2"
@@ -593,20 +597,20 @@ export default function PageClient() {
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
+                  {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
                 >
-                  <Github className="mr-2 h-5 w-5" />
+                  <Github style={css('mr-2 h-5 w-5')} />
                   View on GitHub
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight style={css('ml-2 h-5 w-5')} />
                 </Button>
               </a>
               <a href="https://zoo.ngo/oss/connect" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
-                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
+                  {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
                 >
-                  <Wallet className="mr-2 h-5 w-5" />
+                  <Wallet style={css('mr-2 h-5 w-5')} />
                   Connect &amp; Earn
                 </Button>
               </a>

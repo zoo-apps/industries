@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -165,7 +165,9 @@ export default function InvestorNarrative() {
                 }}
                 className="relative flex flex-col items-center text-center"
               >
-                <s.icon className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground" strokeWidth={2} />
+                <Box tag="span" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground grid">
+                  <s.icon style={css('w-full h-full')} strokeWidth={2} />
+                </Box>
                 <Box className="mt-3 sm:mt-4 text-xs sm:text-[10px] md:text-xs font-extrabold uppercase tracking-tight leading-tight">
                   {s.title}
                 </Box>
@@ -195,7 +197,9 @@ export default function InvestorNarrative() {
 
           {/* Broad investor access callout */}
           <Box className="mt-8 sm:mt-10 grid grid-cols-[56px_1fr] sm:grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-4 sm:gap-6 items-center border-2 border-black p-5 sm:p-6 md:p-8">
-            <Users className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground mx-auto" strokeWidth={2} />
+            <Box tag="span" className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 text-foreground mx-auto grid">
+              <Users style={css('w-full h-full')} strokeWidth={2} />
+            </Box>
             <div>
               <Box tag="h4" className="text-sm sm:text-base md:text-lg font-extrabold uppercase tracking-tight">
                 Broad investor access
@@ -236,7 +240,9 @@ export default function InvestorNarrative() {
                 className="grid grid-cols-[64px_1fr] sm:grid-cols-[120px_1fr] md:grid-cols-[160px_1fr] gap-4 sm:gap-6 md:gap-8 p-5 sm:p-7 md:p-9 items-start"
               >
                 <Box className="flex items-center justify-center border-r border-black/20 pr-2 sm:pr-4">
-                  <w.icon className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 text-foreground" strokeWidth={2} />
+                  <Box tag="span" className="w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 text-foreground grid">
+                    <w.icon style={css('w-full h-full')} strokeWidth={2} />
+                  </Box>
                 </Box>
                 <div>
                   <Box tag="h4" className="text-sm sm:text-base md:text-lg font-extrabold uppercase tracking-tight leading-tight">

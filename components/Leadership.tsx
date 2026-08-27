@@ -115,7 +115,7 @@ export default function Leadership() {
                   global radius reset because it's explicitly listed in
                   the ``:not(.rounded-full)`` exemption. */}
               <Box className="w-24 h-24 sm:w-28 sm:h-28 mx-auto aspect-square overflow-hidden rounded-full border-2 border-black mb-4">
-                <img
+                <Box tag="img"
                   src={leader.image}
                   alt={leader.name}
                   className="w-full h-full object-cover grayscale rounded-full"

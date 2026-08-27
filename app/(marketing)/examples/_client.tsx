@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -225,7 +225,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                     "bg-foreground/5 border-border hover:border-border"
                   )}
                 >
-                  <Icon className="w-8 h-8 mx-auto mb-2" />
+                  <Icon style={css('w-8 h-8 mx-auto mb-2')} />
                   <Box className="text-sm font-medium">{integration.name}</Box>
                 </Box>
               );
@@ -249,7 +249,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 >
                   <Box className={cn("p-6 border-b", "border-border")}>
                     <Box className="flex items-center space-x-3">
-                      <Icon className="w-6 h-6" />
+                      <Icon style={css('w-6 h-6')} />
                       <Box tag="h3" className="text-xl font-semibold">{example.title}</Box>
                     </Box>
                     <Box tag="p" className={cn("mt-2", "text-muted-foreground")}>{example.description}</Box>
@@ -288,7 +288,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             <Box tag="h2" className="text-3xl font-bold mb-8 text-center">Developer Resources</Box>
             <Box className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <Terminal className="w-12 h-12 mx-auto mb-4" />
+                <Terminal style={css('w-12 h-12 mx-auto mb-4')} />
                 <Box tag="h3" className="text-xl font-semibold mb-2">Interactive Playground</Box>
                 <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Test our APIs in your browser</Box>
                 <Box tag="a" href="https://playground.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>
@@ -296,7 +296,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 </Box>
               </div>
               <div>
-                <BookOpen className="w-12 h-12 mx-auto mb-4" />
+                <BookOpen style={css('w-12 h-12 mx-auto mb-4')} />
                 <Box tag="h3" className="text-xl font-semibold mb-2">API Reference</Box>
                 <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Complete API documentation</Box>
                 <Box tag="a" href="https://docs.zoo.ngo/api" className={cn("text-foreground hover:text-muted-foreground")}>
@@ -304,7 +304,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 </Box>
               </div>
               <div>
-                <Users className="w-12 h-12 mx-auto mb-4" />
+                <Users style={css('w-12 h-12 mx-auto mb-4')} />
                 <Box tag="h3" className="text-xl font-semibold mb-2">Community</Box>
                 <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Join our developer community</Box>
                 <Box tag="a" href="https://community.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>

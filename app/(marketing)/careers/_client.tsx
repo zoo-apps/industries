@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -488,13 +488,13 @@ export default function PageClient() {
       <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
         <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
           <Box className="max-w-4xl mx-auto">
-            <button
+            <Box tag="button"
               onClick={() => setSelectedJob(null)}
               className={cn("flex items-center gap-2 mb-8 transition-colors", "text-muted-foreground hover:text-foreground")}
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft style={css('w-4 h-4')} />
               Back to Careers
-            </button>
+            </Box>
 
             {selectedJob.new && (
               <Box tag="span" className={cn("inline-block px-3 py-1 text-sm font-medium rounded mb-4", "bg-primary text-primary-foreground")}>
@@ -546,35 +546,35 @@ export default function PageClient() {
 
               {selectedJob.salary && (
                 <Box className="flex items-center gap-3 mb-4">
-                  <DollarSign className={cn("w-5 h-5", "text-muted-foreground")} />
+                  <DollarSign style={css(cn("w-5 h-5", "text-muted-foreground"))} />
                   <Box tag="span" className={cn("text-muted-foreground")}>Annual Salary: {selectedJob.salary} USD</Box>
                 </Box>
               )}
 
               <Box className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
                 <Box className="flex items-start gap-3">
-                  <Heart className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                  <Heart style={css(cn("w-5 h-5 mt-0.5", "text-muted-foreground"))} />
                   <div>
                     <Box className="font-medium">Health & Wellness</Box>
                     <Box className={cn("text-sm", "text-muted-foreground")}>Comprehensive medical, dental, and vision</Box>
                   </div>
                 </Box>
                 <Box className="flex items-start gap-3">
-                  <DollarSign className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                  <DollarSign style={css(cn("w-5 h-5 mt-0.5", "text-muted-foreground"))} />
                   <div>
                     <Box className="font-medium">Equity</Box>
                     <Box className={cn("text-sm", "text-muted-foreground")}>Competitive equity package</Box>
                   </div>
                 </Box>
                 <Box className="flex items-start gap-3">
-                  <Laptop className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                  <Laptop style={css(cn("w-5 h-5 mt-0.5", "text-muted-foreground"))} />
                   <div>
                     <Box className="font-medium">Equipment</Box>
                     <Box className={cn("text-sm", "text-muted-foreground")}>Top-tier equipment and setup</Box>
                   </div>
                 </Box>
                 <Box className="flex items-start gap-3">
-                  <BookOpen className={cn("w-5 h-5 mt-0.5", "text-muted-foreground")} />
+                  <BookOpen style={css(cn("w-5 h-5 mt-0.5", "text-muted-foreground"))} />
                   <div>
                     <Box className="font-medium">Learning</Box>
                     <Box className={cn("text-sm", "text-muted-foreground")}>Generous learning budget</Box>
@@ -611,7 +611,7 @@ export default function PageClient() {
                     "bg-background text-foreground hover:bg-background/80"
                   )}
                 >
-                  <Calendar className="w-5 h-5" />
+                  <Calendar style={css('w-5 h-5')} />
                   Schedule a Call
                 </Box>
                 <Box tag="a"
@@ -621,7 +621,7 @@ export default function PageClient() {
                     "bg-secondary text-secondary-foreground hover:bg-accent"
                   )}
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <ExternalLink style={css('w-5 h-5')} />
                   Email Application
                 </Box>
               </Box>
@@ -652,15 +652,15 @@ export default function PageClient() {
             </Box>
             <Box className={cn("flex flex-wrap justify-center gap-6 text-sm", "text-muted-foreground")}>
               <Box tag="span" className="flex items-center gap-2">
-                <Building2 className="w-4 h-4" />
+                <Building2 style={css('w-4 h-4')} />
                 7 Global Offices
               </Box>
               <Box tag="span" className="flex items-center gap-2">
-                <Briefcase className="w-4 h-4" />
+                <Briefcase style={css('w-4 h-4')} />
                 {jobs.length} Open Roles
               </Box>
               <Box tag="span" className="flex items-center gap-2">
-                <Globe className="w-4 h-4" />
+                <Globe style={css('w-4 h-4')} />
                 Remote-Friendly
               </Box>
             </Box>
@@ -701,8 +701,8 @@ export default function PageClient() {
             <Box className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Search */}
               <Box className="md:col-span-2 relative">
-                <Search className={cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
-                <input
+                <Search style={css(cn("absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5", "text-muted-foreground"))} />
+                <Box tag="input"
                   type="text"
                   placeholder="Search roles..."
                   value={searchQuery}
@@ -716,8 +716,8 @@ export default function PageClient() {
 
               {/* Team Filter */}
               <Select value={selectedTeam} onValueChange={setSelectedTeam}>
-                <SelectTrigger className="w-full rounded-lg">
-                  <Building2 className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
+                <SelectTrigger {...sx('w-full rounded-lg')}>
+                  <Building2 style={css('h-4 w-4 shrink-0 text-muted-foreground mr-2')} />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -729,8 +729,8 @@ export default function PageClient() {
 
               {/* Location Filter */}
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                <SelectTrigger className="w-full rounded-lg">
-                  <MapPin className="h-4 w-4 shrink-0 text-muted-foreground mr-2" />
+                <SelectTrigger {...sx('w-full rounded-lg')}>
+                  <MapPin style={css('h-4 w-4 shrink-0 text-muted-foreground mr-2')} />
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -762,7 +762,7 @@ export default function PageClient() {
                 </Box>
                 <Box className={cn("border rounded-lg overflow-hidden", "bg-foreground/5 border-border divide-y divide-white/10")}>
                   {teamJobs.map((job) => (
-                    <button
+                    <Box tag="button"
                       key={job.id}
                       onClick={() => setSelectedJob(job)}
                       className={cn("w-full flex items-center justify-between p-4 transition-colors group text-left", "hover:bg-accent")}
@@ -780,16 +780,16 @@ export default function PageClient() {
                         </Box>
                         <Box className={cn("flex items-center gap-4 text-sm", "text-muted-foreground")}>
                           <Box tag="span" className="flex items-center gap-1">
-                            <MapPin className="w-3.5 h-3.5" />
+                            <MapPin style={css('w-3.5 h-3.5')} />
                             {job.location}
                           </Box>
                         </Box>
                       </Box>
                       <Box className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Box tag="span" className="text-sm">View</Box>
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink style={css('w-4 h-4')} />
                       </Box>
-                    </button>
+                    </Box>
                   ))}
                 </Box>
               </M>
@@ -800,7 +800,7 @@ export default function PageClient() {
           {filteredJobs.length === 0 && (
             <Box className="text-center py-16">
               <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>No roles match your search criteria.</Box>
-              <button
+              <Box tag="button"
                 onClick={() => {
                   setSearchQuery("");
                   setSelectedTeam("All Teams");
@@ -809,7 +809,7 @@ export default function PageClient() {
                 className="underline hover:no-underline"
               >
                 Clear filters
-              </button>
+              </Box>
             </Box>
           )}
 
@@ -834,7 +834,7 @@ export default function PageClient() {
                   "bg-primary text-primary-foreground hover:bg-primary/90"
                 )}
               >
-                <Calendar className="w-5 h-5" />
+                <Calendar style={css('w-5 h-5')} />
                 Schedule a Call
               </Box>
               <Box tag="a"
@@ -859,42 +859,42 @@ export default function PageClient() {
             <Box tag="h2" className="text-2xl font-bold mb-8 text-center">Why Zoo?</Box>
             <Box className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Brain className="w-8 h-8 mb-4" />
+                <Brain style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Frontier Research</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Work on frontier AI models, post-quantum cryptography, and novel consensus protocols alongside world-class researchers.
                 </Box>
               </Box>
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <DollarSign className="w-8 h-8 mb-4" />
+                <DollarSign style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Competitive Compensation</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Competitive salary, equity, comprehensive health benefits, and 401(k) matching.
                 </Box>
               </Box>
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Laptop className="w-8 h-8 mb-4" />
+                <Laptop style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Flexible Work</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Remote-friendly culture with offices in San Francisco, Los Angeles, New York, Kansas City, Vancouver, Marbella, and Paris.
                 </Box>
               </Box>
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <BookOpen className="w-8 h-8 mb-4" />
+                <BookOpen style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Learning & Growth</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Generous learning budget, conference attendance, and opportunities to publish research.
                 </Box>
               </Box>
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Zap className="w-8 h-8 mb-4" />
+                <Zap style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Meaningful Impact</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Your work directly contributes to building safe, beneficial AI systems that will shape the future.
                 </Box>
               </Box>
               <Box className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
-                <Users className="w-8 h-8 mb-4" />
+                <Users style={css('w-8 h-8 mb-4')} />
                 <Box tag="h3" className="font-semibold mb-2">Diverse Team</Box>
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   Join a team of researchers, engineers, and operators from diverse backgrounds united by a shared mission.

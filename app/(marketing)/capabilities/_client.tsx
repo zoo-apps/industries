@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Brain, Shield, Cog, Cloud, Zap, Users, Lock, Cpu, Globe, Database } from "lucide-react";
@@ -141,8 +141,8 @@ export default function PageClient() {
       {/* Hero Section with Gradient Background */}
       <Box tag="section" className="relative py-24 px-4 overflow-hidden">
         {/* Subtle gradient background */}
-        <div
-          className="absolute inset-0 pointer-events-none"
+        <Box
+          className="absolute inset-0 pointer-events-none overflow-hidden"
           style={{
             background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,255,255,0.05), transparent)'
           }}
@@ -185,7 +185,7 @@ export default function PageClient() {
                   <Box className="flex items-start space-x-4 mb-4">
                     <Box className="flex-shrink-0">
                       <Box className={cn("w-12 h-12 rounded-lg flex items-center justify-center", "bg-primary")}>
-                        <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                        <Icon style={css(cn("w-6 h-6", "text-primary-foreground"))} />
                       </Box>
                     </Box>
                     <Box className="flex-1">
@@ -198,7 +198,7 @@ export default function PageClient() {
                   <Box tag="ul" className="space-y-2 mb-6">
                     {capability.features.map((feature, idx) => (
                       <Box tag="li" key={idx} className="flex items-start">
-                        <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
+                        <Box className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
                         <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{feature}</Box>
                       </Box>
                     ))}
@@ -212,7 +212,7 @@ export default function PageClient() {
                       className={cn("inline-flex items-center text-sm font-medium transition-colors", "text-foreground hover:text-muted-foreground")}
                     >
                       Learn more
-                      <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg style={css('w-4 h-4 ml-1')} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </Box>

@@ -46,7 +46,7 @@ export default function TrustedBySection() {
           <Box className="flex flex-wrap justify-center items-center gap-x-8 sm:gap-x-12 gap-y-6 sm:gap-y-8">
             {partnerLogos.map((logo) => (
               <Box key={logo.name} className="flex items-center justify-center">
-                <img
+                <Box tag="img"
                   src={logo.src}
                   alt={`${logo.name} logo`}
                   loading="lazy"

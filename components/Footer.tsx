@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import Link from 'next/link'
 import { Check, Github, FileText, Award, ExternalLink } from 'lucide-react'
 import Logo from './Logo'
@@ -20,12 +20,16 @@ export default function Footer() {
               {site.brand.description}
             </Box>
             <Box className="flex items-center space-x-6">
-              <Link href="/open-source" className="flex items-center space-x-2 group">
-                <Github className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
+              <Link href="/open-source" style={css('flex items-center space-x-2 group')}>
+                <Box tag="span" className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground grid">
+                  <Github style={css('w-full h-full')} />
+                </Box>
                 <Box tag="span" className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">Open Source</Box>
               </Link>
-              <Link href="/research#papers" className="flex items-center space-x-2 group">
-                <FileText className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground" />
+              <Link href="/research#papers" style={css('flex items-center space-x-2 group')}>
+                <Box tag="span" className="h-5 w-5 transition-colors text-muted-foreground group-hover:text-foreground grid">
+                  <FileText style={css('w-full h-full')} />
+                </Box>
                 <Box tag="span" className="text-sm transition-colors text-muted-foreground group-hover:text-foreground">130+ Papers</Box>
               </Link>
             </Box>
@@ -39,14 +43,14 @@ export default function Footer() {
               <li><Box tag="a" href={site.links.dev} target="_blank" rel="noopener noreferrer" className={linkCn}>Zoo Dev</Box></li>
               <li><Box tag="a" href={site.links.team} target="_blank" rel="noopener noreferrer" className={linkCn}>Zoo Team</Box></li>
               <li><Box tag="a" href={site.links.chat} target="_blank" rel="noopener noreferrer" className={linkCn}>Zoo Chat</Box></li>
-              <li><Link href="/models" className={linkCn}>Zen Models</Link></li>
+              <li><Link href="/models" style={css(linkCn)}>Zen Models</Link></li>
             </Box>
           </div>
 
           <div>
             <Box tag="h4" className="font-semibold mb-4">Research</Box>
             <Box tag="ul" className="space-y-3">
-              <li><Link href="/models" className={linkCn}>AI & Machine Learning</Link></li>
+              <li><Link href="/models" style={css(linkCn)}>AI & Machine Learning</Link></li>
               <li><Box tag="a" href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Cryptography</Box></li>
               <li><Box tag="a" href={site.links.network} target="_blank" rel="noopener noreferrer" className={linkCn}>Consensus & Networks</Box></li>
               <li><Box tag="a" href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer" className={linkCn}>Papers</Box></li>
@@ -56,11 +60,11 @@ export default function Footer() {
           <div>
             <Box tag="h4" className="font-semibold mb-4">Company</Box>
             <Box tag="ul" className="space-y-3">
-              <li><Link href="/about" className={linkCn}>About Us</Link></li>
-              <li><Link href="/team" className={linkCn}>Team</Link></li>
-              <li><Link href="/careers" className={linkCn}>Careers</Link></li>
-              <li><Link href="/press" className={linkCn}>Press</Link></li>
-              <li><Link href="/contact" className={linkCn}>Contact</Link></li>
+              <li><Link href="/about" style={css(linkCn)}>About Us</Link></li>
+              <li><Link href="/team" style={css(linkCn)}>Team</Link></li>
+              <li><Link href="/careers" style={css(linkCn)}>Careers</Link></li>
+              <li><Link href="/press" style={css(linkCn)}>Press</Link></li>
+              <li><Link href="/contact" style={css(linkCn)}>Contact</Link></li>
             </Box>
           </div>
         </Box>
@@ -85,19 +89,21 @@ export default function Footer() {
               <Box className="text-sm text-muted-foreground">
                 &copy; {site.brand.foundedYear}-{new Date().getFullYear()} {site.brand.legalName}. All rights reserved.
               </Box>
-              <Link href="/status" className="inline-flex items-center space-x-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
-                <Check className="h-4 w-4 text-muted-foreground" />
+              <Link href="/status">
+                <Box tag="span" className="inline-flex items-center space-x-2 text-sm transition-colors text-muted-foreground hover:text-foreground">
+                <Check style={css('h-4 w-4 text-muted-foreground')} />
                 <span>All systems operational</span>
+                </Box>
               </Link>
             </Box>
             <Box className="flex flex-wrap items-center gap-x-6 gap-y-2">
               <Box className="flex items-center space-x-2">
-                <Award className="h-4 w-4 text-muted-foreground" />
+                <Award style={css('h-4 w-4 text-muted-foreground')} />
                 <Box tag="span" className="text-sm text-muted-foreground">{site.brand.badge}</Box>
               </Box>
-              <Link href="/privacy" className={linkCn}>Privacy Policy</Link>
-              <Link href="/terms" className={linkCn}>Terms of Service</Link>
-              <Link href="/security" className={linkCn}>Security</Link>
+              <Link href="/privacy" style={css(linkCn)}>Privacy Policy</Link>
+              <Link href="/terms" style={css(linkCn)}>Terms of Service</Link>
+              <Link href="/security" style={css(linkCn)}>Security</Link>
             </Box>
           </Box>
         </Box>

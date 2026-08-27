@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Microscope, Building2 } from "lucide-react";
@@ -30,7 +30,7 @@ function ContactRow({ c }: { c: Contact }) {
         href={`mailto:${c.email}`}
         className="mt-3 inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-[var(--brand-yellow)] transition-colors"
       >
-        <Mail className="w-3.5 h-3.5" />
+        <Mail style={css('w-3.5 h-3.5')} />
         {c.email}
       </Box>
     </Box>
@@ -82,7 +82,7 @@ export default function Contact() {
           >
             <Box className="flex items-center gap-3 mb-5 sm:mb-6">
               <Box className="shrink-0 w-11 h-11 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
-                <Microscope className="w-5 h-5 text-black" strokeWidth={2.25} />
+                <Microscope style={css('w-5 h-5 text-black')} strokeWidth={2.25} />
               </Box>
               <Box tag="h4" className="text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight">
                 Research division
@@ -103,7 +103,7 @@ export default function Contact() {
           >
             <Box className="flex items-center gap-3 mb-5 sm:mb-6">
               <Box className="shrink-0 w-11 h-11 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
-                <Building2 className="w-5 h-5 text-black" strokeWidth={2.25} />
+                <Building2 style={css('w-5 h-5 text-black')} strokeWidth={2.25} />
               </Box>
               <Box tag="h4" className="text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight">
                 Commercial division
@@ -126,7 +126,7 @@ export default function Contact() {
           <Box className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-6 sm:p-7">
             <Box className="flex items-center gap-3 mb-4">
               <Box className="shrink-0 w-10 h-10 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
-                <MapPin className="w-4 h-4 text-black" strokeWidth={2.25} />
+                <MapPin style={css('w-4 h-4 text-black')} strokeWidth={2.25} />
               </Box>
               <Box tag="h5" className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em]">
                 Corporate HQ
@@ -142,7 +142,7 @@ export default function Contact() {
           <Box className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-6 sm:p-7">
             <Box className="flex items-center gap-3 mb-4">
               <Box className="shrink-0 w-10 h-10 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
-                <Phone className="w-4 h-4 text-black" strokeWidth={2.25} />
+                <Phone style={css('w-4 h-4 text-black')} strokeWidth={2.25} />
               </Box>
               <Box tag="h5" className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em]">
                 Secure line
@@ -162,7 +162,7 @@ export default function Contact() {
           <Box className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-6 sm:p-7">
             <Box className="flex items-center gap-3 mb-4">
               <Box className="shrink-0 w-10 h-10 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000]">
-                <Mail className="w-4 h-4 text-black" strokeWidth={2.25} />
+                <Mail style={css('w-4 h-4 text-black')} strokeWidth={2.25} />
               </Box>
               <Box tag="h5" className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.2em]">
                 General inquiries

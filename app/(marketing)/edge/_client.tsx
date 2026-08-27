@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -53,19 +53,19 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.edge} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <Download className="w-4 h-4" />
+                  <Download style={css('w-4 h-4')} />
                   Install Zoo Edge
                 </Box>
               </a>
               <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Sparkles className="w-4 h-4" />
+                  <Sparkles style={css('w-4 h-4')} />
                   Grab the weights
                 </Box>
               </a>
               <Link href="/engine">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Cloud className="w-4 h-4" />
+                  <Cloud style={css('w-4 h-4')} />
                   When you need cloud
                 </Box>
               </Link>
@@ -93,7 +93,7 @@ export default function PageClient() {
                   className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-5 md:p-6 text-black"
                 >
                   <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center mb-3 ${t.color}`}>
-                    <Icon className="w-5 h-5 text-black" />
+                    <Icon style={css('w-5 h-5 text-black')} />
                   </Box>
                   <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{t.h}</Box>
                   <Box tag="p" className="text-xs font-mono text-black/60 mb-2">{t.model} · {t.size}</Box>
@@ -141,15 +141,15 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.edge} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <Smartphone className="w-4 h-4" />
+                <Smartphone style={css('w-4 h-4')} />
                 Get Zoo Edge
               </Box>
             </a>
             <Link href="/api">
               <Box tag="button" className="btn-brutalist pill-green">
-                <Brain className="w-4 h-4" />
+                <Brain style={css('w-4 h-4')} />
                 Same SDK, cloud-side
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </Link>
           </Box>

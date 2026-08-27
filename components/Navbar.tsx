@@ -4,12 +4,8 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { M } from '@/components/motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Button } from '@hanzo/ui'
-import {
-  ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare,
-  BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText,
-  Github, Sparkles, Video, Box as BoxIcon, Zap, Server, Smartphone,
-} from 'lucide-react'
+import { Box, Button, css, sx } from '@hanzo/ui'
+import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare, BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText, Github, Sparkles, Video, Box as BoxIcon, Zap, Server, Smartphone, type LucideIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
 import Logo from './Logo'
@@ -55,19 +51,19 @@ function TryZooDropdown() {
   }, [isOpen])
 
   return (
-    <div className="relative" ref={menuRef}
+    <Box className="relative" ref={menuRef}
       onMouseEnter={() => { clearTimeoutRef(); setIsOpen(true) }}
       onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(() => setIsOpen(false), 800) }}
     >
-      <button onClick={() => setIsOpen(!isOpen)}
+      <Box tag="button" onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'btn-brutalist pill-pink text-sm py-2 px-4',
           isOpen && 'translate-x-[2px] translate-y-[2px] shadow-[6px_6px_0_0_#000]'
         )}
       >
         Try Zen
-        <ChevronDown className={cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')} />
-      </button>
+        <ChevronDown style={css(cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180'))} />
+      </Box>
 
       <AnimatePresence>
         {isOpen && (
@@ -78,105 +74,107 @@ function TryZooDropdown() {
             transition={{ duration: 0.12, ease: 'easeOut' }}
             className="absolute right-0 top-full w-[420px] max-w-[calc(100vw-2rem)] z-50"
           >
-            <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
+            <Box aria-hidden className="h-5" />
+            <Box className="backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
               {/* Zen AI Models */}
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2">
-                    <Brain className="w-4 h-4 text-muted-foreground" />
-                    <span className="text-xs font-semibold uppercase tracking-wider text-foreground">Zen AI Models</span>
-                  </div>
-                  <button onClick={() => { setIsOpen(false); router.push('/models') }}
+              <Box className="p-4">
+                <Box className="flex items-center justify-between mb-3">
+                  <Box className="flex items-center gap-2">
+                    <Brain style={css('w-4 h-4 text-muted-foreground')} />
+                    <Box tag="span" className="text-xs font-semibold uppercase tracking-wider text-foreground">Zen AI Models</Box>
+                  </Box>
+                  <Box tag="button" onClick={() => { setIsOpen(false); router.push('/models') }}
                     className="text-xs transition-colors text-muted-foreground hover:text-foreground">
                     View all &rarr;
-                  </button>
-                </div>
-                <div className="grid grid-cols-2 gap-2">
+                  </Box>
+                </Box>
+                <Box className="grid grid-cols-2 gap-2">
                   {zenModels.map((model) => {
                     const ModelIcon = model.icon
                     return (
-                      <a key={model.name} href={model.href} target="_blank" rel="noopener noreferrer"
+                      <Box tag="a" key={model.name} href={model.href} target="_blank" rel="noopener noreferrer"
                         onClick={() => setIsOpen(false)}
                         className="group flex items-start gap-3 p-3 rounded-xl transition-colors bg-foreground/5 hover:bg-accent"
                       >
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-foreground/10">
-                          <ModelIcon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-foreground">{model.name}</span>
-                            <span className="text-[10px] font-mono text-muted-foreground">{model.params}</span>
-                          </div>
-                          <p className="text-xs truncate text-muted-foreground">{model.description}</p>
-                        </div>
-                      </a>
+                        <Box className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 bg-foreground/10">
+                          <Box tag="span" className="w-4 h-4 text-muted-foreground group-hover:text-foreground grid">
+                            <ModelIcon style={css('w-full h-full')} />
+                          </Box>
+                        </Box>
+                        <Box className="min-w-0">
+                          <Box className="flex items-center gap-2">
+                            <Box tag="span" className="text-sm font-medium text-foreground">{model.name}</Box>
+                            <Box tag="span" className="text-[10px] font-mono text-muted-foreground">{model.params}</Box>
+                          </Box>
+                          <Box tag="p" className="text-xs truncate text-muted-foreground">{model.description}</Box>
+                        </Box>
+                      </Box>
                     )
                   })}
-                </div>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="border-t border-border" />
+              <Box className="border-t border-border" />
 
               {/* Quick Access */}
-              <div className="py-2">
-                <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Quick Access</span>
-                </div>
+              <Box className="py-2">
+                <Box className="px-4 py-1.5">
+                  <Box tag="span" className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Quick Access</Box>
+                </Box>
                 {quickAccess.map((item) =>
                   item.external ? (
-                    <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
+                    <Box tag="a" key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                       onClick={() => setIsOpen(false)}
                       className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
                     >
                       <div>
-                        <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
+                        <Box tag="span" className="text-sm">{item.label}</Box>
+                        {item.desc && <Box tag="span" className="text-xs ml-2 text-foreground/30">{item.desc}</Box>}
                       </div>
-                      <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
-                    </a>
+                      <ExternalLink style={css('w-3.5 h-3.5 text-foreground/30')} />
+                    </Box>
                   ) : (
-                    <button key={item.label}
+                    <Box tag="button" key={item.label}
                       onClick={() => { setIsOpen(false); router.push(item.href) }}
                       className="flex items-center justify-between w-full py-2 px-4 text-left transition-colors text-foreground hover:bg-accent"
                     >
                       <div>
-                        <span className="text-sm">{item.label}</span>
-                        {item.desc && <span className="text-xs ml-2 text-foreground/30">{item.desc}</span>}
+                        <Box tag="span" className="text-sm">{item.label}</Box>
+                        {item.desc && <Box tag="span" className="text-xs ml-2 text-foreground/30">{item.desc}</Box>}
                       </div>
-                    </button>
+                    </Box>
                   )
                 )}
-              </div>
+              </Box>
 
-              <div className="border-t border-border" />
+              <Box className="border-t border-border" />
 
               {/* Login */}
-              <div className="py-2">
-                <div className="px-4 py-1.5">
-                  <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Log in</span>
-                </div>
+              <Box className="py-2">
+                <Box className="px-4 py-1.5">
+                  <Box tag="span" className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground">Log in</Box>
+                </Box>
                 {loginItems.map((item) => (
-                  <a key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
+                  <Box tag="a" key={item.label} href={item.href} target="_blank" rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
                     className="flex items-center justify-between w-full py-2 px-4 transition-colors text-foreground hover:bg-accent"
                   >
-                    <span className="text-sm">{item.label}</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />
-                  </a>
+                    <Box tag="span" className="text-sm">{item.label}</Box>
+                    <ExternalLink style={css('w-3.5 h-3.5 text-foreground/30')} />
+                  </Box>
                 ))}
-              </div>
-            </div>
+              </Box>
+            </Box>
           </M>
         )}
       </AnimatePresence>
-    </div>
+    </Box>
   )
 }
 
 interface MenuItem {
   label: string; href: string; description: string
-  icon?: React.ComponentType<{ className?: string }>; external?: boolean
+  icon?: LucideIcon; external?: boolean
 }
 interface MenuConfig { title: string; items: MenuItem[] }
 
@@ -245,19 +243,19 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
   }
 
   return (
-    <div className="relative" ref={menuRef}
+    <Box className="relative" ref={menuRef}
       onMouseEnter={() => { clearTimeoutRef(); onOpen() }}
       onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 800) }}
     >
-      <button onClick={() => isOpen ? onClose() : onOpen()}
+      <Box tag="button" onClick={() => isOpen ? onClose() : onOpen()}
         className={cn(
           'flex items-center gap-1 font-medium transition-all duration-200 text-sm py-2 px-3 rounded-lg',
           isOpen ? 'text-foreground bg-foreground/10' : 'text-muted-foreground hover:text-foreground hover:bg-accent'
         )}
       >
         {menu.title}
-        <ChevronDown className={cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180')} />
-      </button>
+        <ChevronDown style={css(cn('w-4 h-4 transition-transform duration-200', isOpen && 'rotate-180'))} />
+      </Box>
 
       <AnimatePresence>
         {isOpen && (
@@ -270,36 +268,40 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
             onMouseEnter={() => { clearTimeoutRef(); onOpen() }}
             onMouseLeave={() => { clearTimeoutRef(); timeoutRef.current = setTimeout(onClose, 800) }}
           >
-            <div aria-hidden className="h-5" />
-            <div className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
-              <div className="py-2">
+            <Box aria-hidden className="h-5" />
+            <Box className="backdrop-blur-xl border rounded-xl shadow-2xl overflow-hidden bg-white border-border shadow-background/50">
+              <Box className="py-2">
                 {menu.items.map((item) => {
                   const Icon = item.icon
                   return (
-                    <button key={item.label} onClick={() => handleItemClick(item)}
+                    <Box tag="button" key={item.label} onClick={() => handleItemClick(item)}
                       className="w-full text-left px-4 py-3 transition-all duration-150 group flex items-center gap-3 hover:bg-accent"
                     >
                       {Icon && (
-                        <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-foreground/10 group-hover:bg-accent">
-                          <Icon className="w-4 h-4 text-muted-foreground group-hover:text-foreground" />
-                        </div>
+                        <Box className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors bg-foreground/10 group-hover:bg-accent">
+                          <Box tag="span" className="w-4 h-4 text-muted-foreground group-hover:text-foreground grid">
+                            <Icon style={css('w-full h-full')} />
+                          </Box>
+                        </Box>
                       )}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between">
-                          <span className="font-medium text-sm transition-colors duration-150 text-foreground/90 group-hover:text-foreground">{item.label}</span>
-                          {item.external && <ExternalLink className="w-3.5 h-3.5 flex-shrink-0 text-foreground/30 group-hover:text-muted-foreground" />}
-                        </div>
-                        <p className="text-xs mt-0.5 transition-colors duration-150 truncate text-muted-foreground group-hover:text-muted-foreground">{item.description}</p>
-                      </div>
-                    </button>
+                      <Box className="flex-1 min-w-0">
+                        <Box className="flex items-center justify-between">
+                          <Box tag="span" className="font-medium text-sm transition-colors duration-150 text-foreground/90 group-hover:text-foreground">{item.label}</Box>
+                          {item.external && <Box tag="span" className="w-3.5 h-3.5 flex-shrink-0 text-foreground/30 group-hover:text-muted-foreground grid">
+   <ExternalLink style={css('w-full h-full')} />
+ </Box>}
+                        </Box>
+                        <Box tag="p" className="text-xs mt-0.5 transition-colors duration-150 truncate text-muted-foreground group-hover:text-muted-foreground">{item.description}</Box>
+                      </Box>
+                    </Box>
                   )
                 })}
-              </div>
-            </div>
+              </Box>
+            </Box>
           </M>
         )}
       </AnimatePresence>
-    </div>
+    </Box>
   )
 }
 
@@ -319,7 +321,7 @@ export default function Navbar() {
     <NavbarContainer>
       <Logo size="md" showText={true} />
 
-      <div className="hidden md:flex items-center space-x-1">
+      <Box className="hidden md:flex items-center space-x-1">
         {Object.entries(navMenus).map(([key, menu]) => (
           <DropdownMenu key={key} menu={menu}
             isOpen={openMenu === key}
@@ -327,28 +329,28 @@ export default function Navbar() {
             onClose={() => setOpenMenu(null)}
           />
         ))}
-      </div>
+      </Box>
 
-      <div className="hidden md:flex items-center space-x-3">
+      <Box className="hidden md:flex items-center space-x-3">
         <TryZooDropdown />
-      </div>
+      </Box>
 
-      <button
+      <Box tag="button"
         className="md:hidden p-2 rounded-lg transition-all duration-200 text-muted-foreground hover:text-foreground hover:bg-accent"
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
       >
         <AnimatePresence mode="wait">
           {isMobileMenuOpen ? (
             <M key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="w-6 h-6" />
+              <X style={css('w-6 h-6')} />
             </M>
           ) : (
             <M key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <Menu className="w-6 h-6" />
+              <Menu style={css('w-6 h-6')} />
             </M>
           )}
         </AnimatePresence>
-      </button>
+      </Box>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
@@ -359,10 +361,10 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             className="absolute top-full left-0 right-0 md:hidden backdrop-blur-xl border-t rounded-b-2xl overflow-hidden bg-white border-border"
           >
-            <div className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
+            <Box className="py-4 space-y-4 px-4 max-h-[70vh] overflow-y-auto">
               {Object.entries(navMenus).map(([key, menu]) => (
-                <div key={key} className="space-y-2">
-                  <div className="text-xs font-medium uppercase tracking-wider px-2 text-muted-foreground">{menu.title}</div>
+                <Box key={key} className="space-y-2">
+                  <Box className="text-xs font-medium uppercase tracking-wider px-2 text-muted-foreground">{menu.title}</Box>
                   {menu.items.map((item) => (
                     <Link key={item.label}
                       href={item.external ? '#' : item.href}
@@ -370,23 +372,24 @@ export default function Navbar() {
                         if (item.external) { e.preventDefault(); window.open(item.href, '_blank') }
                         setIsMobileMenuOpen(false)
                       }}
-                      className="flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150 text-muted-foreground hover:text-foreground hover:bg-accent"
                     >
+                      <Box tag="span" className="flex items-center justify-between py-2 px-2 rounded-lg transition-all duration-150 text-muted-foreground hover:text-foreground hover:bg-accent">
                       <span>{item.label}</span>
-                      {item.external && <ExternalLink className="w-3.5 h-3.5 text-foreground/30" />}
+                      {item.external && <ExternalLink style={css('w-3.5 h-3.5 text-foreground/30')} />}
+                      </Box>
                     </Link>
                   ))}
-                </div>
+                </Box>
               ))}
-              <div className="pt-4 space-y-2 border-t border-border">
+              <Box className="pt-4 space-y-2 border-t border-border">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">Contact</Button>
+                  <Button variant="outline" {...sx('w-full border-border text-foreground hover:bg-accent')}>Contact</Button>
                 </Link>
                 <a href={site.links.platform} target="_blank" rel="noopener noreferrer">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Try Zen</Button>
+                  <Button {...sx('w-full bg-primary text-primary-foreground hover:bg-primary/90')}>Try Zen</Button>
                 </a>
-              </div>
-            </div>
+              </Box>
+            </Box>
           </M>
         )}
       </AnimatePresence>

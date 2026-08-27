@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { notFound } from 'next/navigation'
 import { productPages } from '@/lib/data/products'
@@ -30,7 +30,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
           >
             <Box className="inline-flex items-center gap-3 mb-8">
               <Box className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
-                <Icon className="w-6 h-6 text-foreground" />
+                <Icon style={css('w-6 h-6 text-foreground')} />
               </Box>
               <Box tag="span" className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Product</Box>
             </Box>
@@ -43,16 +43,16 @@ export default function ProductPageClient({ slug }: { slug: string }) {
             <Box className="flex flex-wrap gap-4">
               {product.documentation && (
                 <a href={product.documentation} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
+                  <Button size="lg" {...sx('rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2')}>
                     Documentation
-                    <ExternalLink className="w-4 h-4" />
+                    <ExternalLink style={css('w-4 h-4')} />
                   </Button>
                 </a>
               )}
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
+                <Button size="lg" variant="outline" {...sx('rounded-full px-8 border-border text-foreground hover:bg-accent')}>
                   Contact Sales
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight style={css('w-4 h-4 ml-2')} />
                 </Button>
               </Link>
             </Box>
@@ -80,7 +80,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className="flex items-start gap-4 p-6 rounded-xl border border-border bg-foreground/[0.02]"
                 >
-                  <Check className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <Check style={css('w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0')} />
                   <Box tag="span" className="text-foreground/80">{feature}</Box>
                 </M>
               ))}
@@ -98,13 +98,13 @@ export default function ProductPageClient({ slug }: { slug: string }) {
           </Box>
           <Box className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button size="lg" {...sx('rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90')}>
                 Contact Us
-                <ArrowRight className="w-4 h-4 ml-2" />
+                <ArrowRight style={css('w-4 h-4 ml-2')} />
               </Button>
             </Link>
             <Link href="/research">
-              <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
+              <Button size="lg" variant="outline" {...sx('rounded-full px-8 border-border text-foreground hover:bg-accent')}>
                 View Research
               </Button>
             </Link>

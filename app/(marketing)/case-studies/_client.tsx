@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
@@ -179,7 +179,7 @@ export default function PageClient() {
                   <Box className="flex items-start space-x-4 mb-6">
                     <Box className="flex-shrink-0">
                       <Box className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-primary group-hover:bg-primary/90")}>
-                        <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                        <Icon style={css(cn("w-6 h-6", "text-primary-foreground"))} />
                       </Box>
                     </Box>
                     <Box className="flex-1">
@@ -195,7 +195,7 @@ export default function PageClient() {
                       <Box tag="ul" className="space-y-2">
                         {study.results.map((result, idx) => (
                           <Box tag="li" key={idx} className="flex items-start">
-                            <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
+                            <Box className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
                             <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{result}</Box>
                           </Box>
                         ))}

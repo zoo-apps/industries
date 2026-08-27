@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -52,13 +52,13 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.engine} target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <KeyRound className="w-4 h-4" />
+                  <KeyRound style={css('w-4 h-4')} />
                   Get capacity
                 </Box>
               </a>
               <Link href="/api">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Brain className="w-4 h-4" />
+                  <Brain style={css('w-4 h-4')} />
                   API spec
                 </Box>
               </Link>
@@ -84,7 +84,7 @@ export default function PageClient() {
                 className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-5 md:p-6 text-black"
               >
                 <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center mb-3 ${f.color}`}>
-                  <Cpu className="w-5 h-5 text-black" />
+                  <Cpu style={css('w-5 h-5 text-black')} />
                 </Box>
                 <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight mb-2">{f.h}</Box>
                 <Box tag="p" className="text-sm md:text-base font-medium text-black/80">{f.p}</Box>
@@ -131,15 +131,15 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.engine} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <Server className="w-4 h-4" />
+                <Server style={css('w-4 h-4')} />
                 Provision capacity
               </Box>
             </a>
             <Link href="/edge">
               <Box tag="button" className="btn-brutalist pill-green">
-                <Network className="w-4 h-4" />
+                <Network style={css('w-4 h-4')} />
                 Or run it on the edge
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </Link>
           </Box>

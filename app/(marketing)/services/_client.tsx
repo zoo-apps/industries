@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -114,7 +114,7 @@ export default function PageClient() {
             </Box>
             <Box className="flex justify-center gap-4">
               <Link href="/contact">
-                <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
+                <Button size="lg" {...sx(cn("bg-primary text-primary-foreground hover:bg-primary/90"))}>
                   Get Started
                 </Button>
               </Link>
@@ -158,7 +158,7 @@ export default function PageClient() {
                   className={cn("p-8 rounded-lg border hover:shadow-lg transition-shadow", "bg-foreground/5 border-border")}
                 >
                   <Box className={cn("w-12 h-12 rounded-lg flex items-center justify-center mb-6", "bg-primary")}>
-                    <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
+                    <Icon style={css(cn("w-6 h-6", "text-primary-foreground"))} />
                   </Box>
                   <Box tag="h3" className="text-xl font-semibold mb-3">{service.title}</Box>
                   <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>{service.description}</Box>
@@ -264,7 +264,7 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-xl mb-8", "text-muted-foreground")}>
               Let's discuss how our services can help you achieve your goals
             </Box>
-            <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
+            <Button size="lg" {...sx(cn("bg-primary text-primary-foreground hover:bg-primary/90"))}>
               Schedule a Consultation
             </Button>
           </M>

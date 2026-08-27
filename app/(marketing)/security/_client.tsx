@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { Shield, Lock, Key, UserCheck, Server, FileCheck } from "lucide-react";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
@@ -65,7 +65,7 @@ export default function PageClient() {
                 >
                   <Box className="flex items-center space-x-4 mb-4">
                     <Box className={cn("p-2 rounded-lg", "bg-foreground/10")}>
-                      <Icon className="h-6 w-6" />
+                      <Icon style={css('h-6 w-6')} />
                     </Box>
                     <Box tag="h3" className="text-lg font-medium">
                       {feature.title}
@@ -93,9 +93,9 @@ export default function PageClient() {
               <a href="/contact">
                 <Button
                   variant="outline"
-                  className={cn(
+                  {...sx(cn(
                     "text-foreground border-primary hover:bg-accent"
-                  )}
+                  ))}
                 >
                   Request Security Documentation
                 </Button>

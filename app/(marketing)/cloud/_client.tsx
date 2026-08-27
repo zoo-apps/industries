@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -55,19 +55,19 @@ export default function PageClient() {
             <Box className="flex flex-wrap gap-4 justify-center">
               <a href="https://zoo.cloud" target="_blank" rel="noopener noreferrer">
                 <Box tag="button" className="btn-brutalist pill-pink">
-                  <Cloud className="w-4 h-4" />
+                  <Cloud style={css('w-4 h-4')} />
                   Open Zoo Cloud
                 </Box>
               </a>
               <Link href="/api">
                 <Box tag="button" className="btn-brutalist pill-blue">
-                  <Brain className="w-4 h-4" />
+                  <Brain style={css('w-4 h-4')} />
                   Model API
                 </Box>
               </Link>
               <Link href="/pricing">
                 <Box tag="button" className="btn-brutalist pill-green">
-                  <Wallet className="w-4 h-4" />
+                  <Wallet style={css('w-4 h-4')} />
                   Pricing
                 </Box>
               </Link>
@@ -95,12 +95,12 @@ export default function PageClient() {
                   className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-5 md:p-6 text-black"
                 >
                   <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center mb-3 ${s.color}`}>
-                    <Icon className="w-5 h-5 text-black" />
+                    <Icon style={css('w-5 h-5 text-black')} />
                   </Box>
                   <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight mb-2">{s.h}</Box>
                   <Box tag="p" className="text-sm md:text-base font-medium text-black/80 mb-3">{s.p}</Box>
-                  <Link href={s.href} className="text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1">
-                    Open <ArrowRight className="w-3 h-3" />
+                  <Link href={s.href} style={css('text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1')}>
+                    Open <ArrowRight style={css('w-3 h-3')} />
                   </Link>
                 </M>
               )
@@ -145,15 +145,15 @@ export default function PageClient() {
           <Box className="flex flex-wrap gap-4 justify-center">
             <a href="https://zoo.cloud" target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-pink">
-                <Sparkles className="w-4 h-4" />
+                <Sparkles style={css('w-4 h-4')} />
                 Start free
               </Box>
             </a>
             <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
               <Box tag="button" className="btn-brutalist pill-green">
-                <KeyRound className="w-4 h-4" />
+                <KeyRound style={css('w-4 h-4')} />
                 Or just the API
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight style={css('w-4 h-4')} />
               </Box>
             </a>
           </Box>

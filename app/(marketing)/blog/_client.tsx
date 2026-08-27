@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
@@ -114,7 +114,7 @@ export default function PageClient() {
               className="text-center mb-16"
             >
               <Box className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 bg-primary/20 text-foreground">
-                <BookOpen className="w-3.5 h-3.5" />Blog
+                <BookOpen style={css('w-3.5 h-3.5')} />Blog
               </Box>
               <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
                 News & Guides
@@ -149,7 +149,7 @@ export default function PageClient() {
                           </Box>
                           {post.date && (
                             <Box tag="span" className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                              <Calendar className="w-3 h-3" />
+                              <Calendar style={css('w-3 h-3')} />
                               {post.date}
                             </Box>
                           )}
@@ -161,7 +161,9 @@ export default function PageClient() {
                           {post.excerpt}
                         </Box>
                       </Box>
-                      <ArrowRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
+                      <Box tag="span" className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground group-hover:translate-x-1 transition-all flex-shrink-0 mt-1 grid">
+                        <ArrowRight style={css('w-full h-full')} />
+                      </Box>
                     </Box>
                   </Box>
                 </M>

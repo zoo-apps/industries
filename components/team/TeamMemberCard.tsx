@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
@@ -33,13 +33,13 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
         "border-border bg-foreground/5"
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
+      <Box className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
       <Box className="block mb-4 relative z-10">
         {image ? (
           // Avatar disc — ``rounded-full`` is mandatory (global brutalist
           // reset squares anything without it).
           <Box className="w-16 h-16 aspect-square overflow-hidden rounded-full border border-black mb-4">
-            <img
+            <Box tag="img"
               src={image}
               alt={name}
               className="w-full h-full object-cover grayscale rounded-full"
@@ -51,7 +51,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
           </Box>
         ) : (
           <Box className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
-            <Icon className="h-6 w-6 text-foreground" />
+            <Icon style={css('h-6 w-6 text-foreground')} />
           </Box>
         )}
         <Box tag="h3" className={cn(
@@ -85,7 +85,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
               "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
-            <Linkedin className="h-4 w-4" />
+            <Linkedin style={css('h-4 w-4')} />
           </Box>
           <Box tag="a"
             href={`https://x.com/${slug}`}
@@ -96,7 +96,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
               "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
-            <Twitter className="h-4 w-4" />
+            <Twitter style={css('h-4 w-4')} />
           </Box>
           <Box tag="a"
             href="https://github.com/zooai"
@@ -107,7 +107,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
               "border-border text-muted-foreground hover:text-foreground hover:bg-accent"
             )}
           >
-            <Github className="h-4 w-4" />
+            <Github style={css('h-4 w-4')} />
           </Box>
         </Box>
       ) : (
@@ -122,7 +122,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
             title="Launch"
           >
-            <Rocket className="h-4 w-4" />
+            <Rocket style={css('h-4 w-4')} />
           </Box>
           <Box tag="a"
             href="https://zoo.chat"
@@ -134,7 +134,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
             title="Chat"
           >
-            <MessageSquare className="h-4 w-4" />
+            <MessageSquare style={css('h-4 w-4')} />
           </Box>
           <Box tag="a"
             href="https://github.com/zooai/bot"
@@ -146,7 +146,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
             title="GitHub"
           >
-            <Github className="h-4 w-4" />
+            <Github style={css('h-4 w-4')} />
           </Box>
         </Box>
       )}

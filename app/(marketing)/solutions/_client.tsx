@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { solutions } from "@/lib/constants/navigation";
 import { ChevronRight } from "lucide-react";
@@ -24,8 +24,8 @@ export default function PageClient() {
       {/* Hero Section with Gradient Background */}
       <Box tag="section" className="relative py-24 px-4 overflow-hidden">
         {/* Subtle gradient background */}
-        <div
-          className="absolute inset-0 pointer-events-none"
+        <Box
+          className="absolute inset-0 pointer-events-none overflow-hidden"
           style={{
             background: 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(255,255,255,0.05), transparent)'
           }}
@@ -81,11 +81,13 @@ export default function PageClient() {
                             "border-border bg-background/50"
                           )}
                         >
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                          <Box className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                           <Box className="relative">
                             <Box className="flex items-center justify-between mb-4">
-                              <Icon className="h-6 w-6 text-muted-foreground" strokeWidth={1.5} />
-                              <ChevronRight className={cn("h-5 w-5 group-hover:text-muted-foreground transition-colors", "text-muted-foreground")} />
+                              <Icon style={css('h-6 w-6 text-muted-foreground')} strokeWidth={1.5} />
+                              <Box tag="span" className={cn('grid', cn("h-5 w-5 group-hover:text-muted-foreground transition-colors", "text-muted-foreground"))}>
+                                <ChevronRight style={css('w-full h-full')} />
+                              </Box>
                             </Box>
                             <Box tag="h3" className="text-xl font-semibold mb-2 group-hover:text-muted-foreground transition-colors">
                               {item}
@@ -106,13 +108,13 @@ export default function PageClient() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <button
+                    <Box tag="button"
                       onClick={() => toggleSection(section.title)}
                       className="inline-flex items-center px-6 py-3 rounded-lg border border-border text-muted-foreground hover:bg-accent transition-colors"
                     >
                       View More {section.title}
-                      <ChevronRight className="ml-2 h-5 w-5" />
-                    </button>
+                      <ChevronRight style={css('ml-2 h-5 w-5')} />
+                    </Box>
                   </M>
                 )}
               </Box>
@@ -130,7 +132,7 @@ export default function PageClient() {
                 className="inline-flex items-center px-6 py-3 rounded-lg bg-foreground/10 hover:bg-accent text-foreground font-medium transition-colors"
               >
                 Get Started
-                <ChevronRight className="ml-2 h-5 w-5" />
+                <ChevronRight style={css('ml-2 h-5 w-5')} />
               </Box>
             </Box>
           </Box>

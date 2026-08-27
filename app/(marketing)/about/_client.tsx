@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -91,7 +91,7 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="mb-20"
           >
-            <img
+            <Box tag="img"
               src="/zoo-logo.svg"
               alt="Zoo"
               className="w-16 h-16 mb-8"
@@ -180,11 +180,11 @@ export default function PageClient() {
                     <Link
                       key={item.name}
                       href={item.link}
-                      className={cn(
+                    >
+                      <Box tag="span" className={cn(
                         "flex items-center justify-between px-5 py-3 rounded-lg border transition-colors group",
                         "border-border hover:bg-accent"
-                      )}
-                    >
+                      )}>
                       <div>
                         <Box className="font-semibold text-sm group-hover:underline">{item.name}</Box>
                         <Box className={cn("text-xs", "text-muted-foreground")}>
@@ -192,6 +192,7 @@ export default function PageClient() {
                         </Box>
                       </div>
                       <Box tag="span" className={cn("text-sm", "text-foreground/20")}>→</Box>
+                      </Box>
                     </Link>
                   ))}
                 </Box>
@@ -302,12 +303,13 @@ export default function PageClient() {
               <Box className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <Link
                   href="/open-source"
-                  className={cn(
+                >
+                  <Box tag="span" className={cn(
                     "px-5 py-2.5 rounded-lg border text-sm font-medium text-center transition-colors",
                     "border-border hover:bg-accent"
-                  )}
-                >
+                  )}>
                   Learn More
+                  </Box>
                 </Link>
                 <Box tag="a"
                   href="https://zoo.ngo/oss/connect"

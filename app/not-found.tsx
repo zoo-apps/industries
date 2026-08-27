@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Bot, Send, XCircle } from "lucide-react";
@@ -67,16 +67,16 @@ const [isOpen, setIsOpen] = useState(false);
             one source of truth for `open`, and no wrapper around a button. */}
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-primary hover:bg-primary/90 text-primary-foreground"
+          {...sx('fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-primary hover:bg-primary/90 text-primary-foreground')}
           size="icon"
         >
-          <Bot className="h-6 w-6" />
+          <Bot style={css('h-6 w-6')} />
         </Button>
-        <DrawerContent className="h-[500px] p-4 bg-background border-border">
+        <DrawerContent {...sx('h-[500px] p-4 bg-background border-border')}>
           <Box className="flex flex-col h-full">
             <Box className="flex items-center justify-between mb-4">
               <Box className="flex items-center space-x-2">
-                <Bot className="h-6 w-6 text-foreground" />
+                <Bot style={css('h-6 w-6 text-foreground')} />
                 <Box tag="h2" className="text-lg font-semibold">AI Assistant</Box>
               </Box>
               <Button
@@ -84,7 +84,7 @@ const [isOpen, setIsOpen] = useState(false);
                 size="icon"
                 onClick={() => setIsOpen(false)}
               >
-                <XCircle className="h-5 w-5" />
+                <XCircle style={css('h-5 w-5')} />
               </Button>
             </Box>
 
@@ -105,7 +105,7 @@ const [isOpen, setIsOpen] = useState(false);
             </Box>
 
             <Box className="flex items-center space-x-2">
-              <input
+              <Box tag="input"
                 type="text"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -114,7 +114,7 @@ const [isOpen, setIsOpen] = useState(false);
                 className="flex-1 p-2 border rounded-md focus:outline-none focus:ring-2 bg-foreground/5 border-border text-foreground placeholder-muted-foreground focus:ring-ring"
               />
               <Button onClick={handleSendMessage} size="icon">
-                <Send className="h-4 w-4" />
+                <Send style={css('h-4 w-4')} />
               </Button>
             </Box>
           </Box>

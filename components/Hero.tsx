@@ -1,6 +1,6 @@
 'use client'
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -54,7 +54,7 @@ export default function Hero() {
                 <Box tag="button"
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
-                  <Download className="w-4 h-4" />
+                  <Download style={css('w-4 h-4')} />
                   Run Zen at home
                 </Box>
               </Link>
@@ -62,16 +62,18 @@ export default function Hero() {
                 <Box tag="button"
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-magenta)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
-                  <Coins className="w-4 h-4" />
+                  <Coins style={css('w-4 h-4')} />
                   Start earning coin
                 </Box>
               </Link>
-              <Link href="/models" className="w-full sm:w-auto">
+              <Link href="/models">
+                <Box tag="span" className="w-full sm:w-auto">
                 <Box tag="button"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-blue)] text-white border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
-                  <BookOpen className="w-4 h-4" />
+                  <BookOpen style={css('w-4 h-4')} />
                   Browse models
+                </Box>
                 </Box>
               </Link>
             </Box>
@@ -85,7 +87,9 @@ export default function Hero() {
         <Box tag="ul" className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
           {features.map((f, i) => (
             <Box tag="li" key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
-              <f.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" strokeWidth={2.25} style={{ color: f.tint }} />
+              <Box tag="span" className="w-4 h-4 sm:w-[18px] sm:h-[18px] grid">
+                <f.icon style={{ ...css('w-full h-full'), color: f.tint }} strokeWidth={2.25} />
+              </Box>
               <span>{f.h}</span>
               {i < features.length - 1 && (
                 <Box tag="span" aria-hidden className="text-muted-foreground/50 select-none ml-3 sm:ml-5">·</Box>

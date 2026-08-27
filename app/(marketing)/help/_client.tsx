@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css, sx } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -151,7 +151,7 @@ export default function PageClient() {
               className="text-center mb-12"
             >
               <Box className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
-                <HelpCircle className="w-4 h-4 text-foreground" />
+                <HelpCircle style={css('w-4 h-4 text-foreground')} />
                 <Box tag="span" className="text-foreground text-sm font-medium">Help Center</Box>
               </Box>
               <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
@@ -163,14 +163,14 @@ export default function PageClient() {
 
               {/* Search */}
               <Box className="max-w-xl mx-auto relative">
-                <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
+                <Search style={css(cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-muted-foreground"))} />
                 <Input
                   type="text"
                   placeholder="Search for help articles..."
-                  className={cn(
+                  {...sx(cn(
                     "w-full pl-12 pr-4 py-6 rounded-xl text-lg",
                     "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground"
-                  )}
+                  ))}
                 />
               </Box>
             </M>
@@ -211,9 +211,11 @@ export default function PageClient() {
                   >
                     <Box className="flex items-start justify-between mb-4">
                       <Box className="w-12 h-12 bg-foreground/10 rounded-lg flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-foreground" />
+                        <Icon style={css('w-6 h-6 text-foreground')} />
                       </Box>
-                      <ExternalLink className={cn("w-4 h-4 group-hover:text-foreground transition-colors", "text-foreground/20")} />
+                      <Box tag="span" className={cn('grid', cn("w-4 h-4 group-hover:text-foreground transition-colors", "text-foreground/20"))}>
+                        <ExternalLink style={css('w-full h-full')} />
+                      </Box>
                     </Box>
                     <Box tag="h3" className="text-xl font-semibold mb-2 group-hover:text-foreground transition-colors">
                       {doc.title}
@@ -254,20 +256,20 @@ export default function PageClient() {
                   )}
                 >
                   <Box tag="h3" className="text-xl font-semibold mb-4 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-primary rounded-full" />
+                    <Box tag="span" className="w-2 h-2 bg-primary rounded-full" />
                     {category.category}
                   </Box>
-                  <Accordion type="single" collapsible className="space-y-2">
+                  <Accordion type="single" collapsible {...sx('space-y-2')}>
                     {category.questions.map((faq, faqIndex) => (
                       <AccordionItem
                         key={faqIndex}
                         value={`${categoryIndex}-${faqIndex}`}
-                        className={cn("border-border")}
+                        {...sx(cn("border-border"))}
                       >
-                        <AccordionTrigger className="text-left hover:text-foreground hover:no-underline py-3">
+                        <AccordionTrigger {...sx('text-left hover:text-foreground hover:no-underline py-3')}>
                           {faq.q}
                         </AccordionTrigger>
-                        <AccordionContent className={cn("pb-4", "text-muted-foreground")}>
+                        <AccordionContent {...sx(cn("pb-4", "text-muted-foreground"))}>
                           {faq.a}
                         </AccordionContent>
                       </AccordionItem>
@@ -305,14 +307,14 @@ export default function PageClient() {
                 )}
               >
                 <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <MessageCircle className="w-8 h-8 text-foreground" />
+                  <MessageCircle style={css('w-8 h-8 text-foreground')} />
                 </Box>
                 <Box tag="h3" className="text-xl font-semibold mb-3">Live Chat</Box>
                 <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Chat with our support team in real-time for immediate assistance.
                 </Box>
                 <a href="https://zoo.bot" target="_blank" rel="noopener noreferrer">
-                  <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
+                  <Button {...sx('bg-primary hover:bg-primary/90 text-foreground w-full')}>
                     Start Chat
                   </Button>
                 </a>
@@ -329,17 +331,17 @@ export default function PageClient() {
                 )}
               >
                 <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Mail className="w-8 h-8 text-foreground" />
+                  <Mail style={css('w-8 h-8 text-foreground')} />
                 </Box>
                 <Box tag="h3" className="text-xl font-semibold mb-3">Email Support</Box>
                 <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Send us a detailed message and we'll respond within 24 hours.
                 </Box>
                 <a href="mailto:support@zoo.ngo">
-                  <Button variant="outline" className={cn(
+                  <Button variant="outline" {...sx(cn(
                     "w-full",
                     "border-border text-foreground hover:bg-accent"
-                  )}>
+                  ))}>
                     support@zoo.ngo
                   </Button>
                 </a>
@@ -356,17 +358,17 @@ export default function PageClient() {
                 )}
               >
                 <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <Book className="w-8 h-8 text-foreground" />
+                  <Book style={css('w-8 h-8 text-foreground')} />
                 </Box>
                 <Box tag="h3" className="text-xl font-semibold mb-3">Community</Box>
                 <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Join our Discord community to connect with other developers.
                 </Box>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" className={cn(
+                  <Button variant="outline" {...sx(cn(
                     "w-full",
                     "border-border text-foreground hover:bg-accent"
-                  )}>
+                  ))}>
                     Join Discord
                   </Button>
                 </a>
@@ -395,31 +397,31 @@ export default function PageClient() {
                   </Box>
                   <Box tag="ul" className={cn("space-y-3 mb-8", "text-muted-foreground")}>
                     <Box tag="li" className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <Box tag="span" className="w-1.5 h-1.5 bg-primary rounded-full" />
                       24/7 priority support
                     </Box>
                     <Box tag="li" className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <Box tag="span" className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Dedicated success manager
                     </Box>
                     <Box tag="li" className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <Box tag="span" className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Custom SLA agreements
                     </Box>
                     <Box tag="li" className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full" />
+                      <Box tag="span" className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Direct engineering support
                     </Box>
                   </Box>
                   <Link href="/contact">
-                    <Button className="bg-primary hover:bg-primary/90 text-foreground">
+                    <Button {...sx('bg-primary hover:bg-primary/90 text-foreground')}>
                       Contact Sales
                     </Button>
                   </Link>
                 </div>
                 <Box className="hidden md:flex justify-center">
                   <Box className="w-48 h-48 bg-foreground/10 rounded-full flex items-center justify-center">
-                    <Shield className="w-24 h-24 text-foreground" />
+                    <Shield style={css('w-24 h-24 text-foreground')} />
                   </Box>
                 </Box>
               </Box>

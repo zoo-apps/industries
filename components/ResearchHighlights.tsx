@@ -1,6 +1,6 @@
 "use client";
 
-import { Box } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -123,14 +123,17 @@ export default function ResearchHighlights() {
             >
               <Box className="flex items-start gap-4 mb-5 sm:mb-6">
                 <Box className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:bg-[var(--brand-yellow)] transition-colors cursor-pointer">
-                  <area.icon className="w-6 h-6 sm:w-7 sm:h-7 text-black" strokeWidth={2.25} />
+                  <Box tag="span" className="w-6 h-6 sm:w-7 sm:h-7 text-black grid">
+                    <area.icon style={css('w-full h-full')} strokeWidth={2.25} />
+                  </Box>
                 </Box>
                 <Box className="min-w-0">
                   <Link
                     href={area.link}
-                    className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] transition-all"
                   >
+                    <Box tag="span" className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] transition-all">
                     <h4>{area.title}</h4>
+                    </Box>
                   </Link>
                   <Box tag="p" className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {area.description}
@@ -160,13 +163,16 @@ export default function ResearchHighlights() {
 
               <Link
                 href={area.link}
-                className="group/link inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] text-foreground underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-black transition-all"
               >
+                <Box tag="span" className="group/link inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] text-foreground underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-black transition-all">
                 <Box tag="span" className="group-hover/link:font-black">View all papers</Box>
-                <ArrowRight
-                  className="w-3.5 h-3.5 group-hover/link:w-4 group-hover/link:h-4 group-hover/link:translate-x-0.5 transition-all"
+                <Box tag="span" className="w-3.5 h-3.5 group-hover/link:w-4 group-hover/link:h-4 group-hover/link:translate-x-0.5 transition-all grid">
+                  <ArrowRight
+                  style={css('w-full h-full')}
                   strokeWidth={2.5}
                 />
+                </Box>
+                </Box>
               </Link>
             </M>
           ))}
@@ -214,10 +220,12 @@ export default function ResearchHighlights() {
                     {p.description}
                   </Box>
                 </Box>
-                <ExternalLink
+                <Box tag="span" className="hidden sm:block w-5 h-5 mt-1 shrink-0 text-foreground opacity-40 group-hover:opacity-100 transition-opacity">
+                  <ExternalLink
                   aria-hidden
-                  className="hidden sm:block w-5 h-5 mt-1 shrink-0 text-foreground opacity-40 group-hover:opacity-100 transition-opacity"
+                  style={css('w-full h-full')}
                 />
+                </Box>
               </M>
             ))}
           </Box>
@@ -228,7 +236,7 @@ export default function ResearchHighlights() {
           <Link href="/research">
             <Box tag="button" className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 md:py-4 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all">
               View all research
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight style={css('w-4 h-4')} />
             </Box>
           </Link>
         </Box>
