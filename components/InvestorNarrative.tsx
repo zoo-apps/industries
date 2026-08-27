@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -58,7 +59,7 @@ export default function InvestorNarrative() {
       <Box className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32 space-y-12 sm:space-y-16 md:space-y-20">
 
         {/* ─── Eyebrow pill (solid brand-blue) ───────────────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -70,10 +71,10 @@ export default function InvestorNarrative() {
           >
             Private equity on chain
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Headline ─────────────────────────────────────────────── */}
-        <motion.h2
+        <M tag="h2"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -84,10 +85,10 @@ export default function InvestorNarrative() {
           <Box tag="span" className="underline decoration-2 sm:decoration-[3px] md:decoration-4 underline-offset-2 sm:underline-offset-4">
             yet to see.
           </Box>
-        </motion.h2>
+        </M>
 
         {/* ─── $113T Total Addressable card ─────────────────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -123,10 +124,10 @@ export default function InvestorNarrative() {
               The private markets opportunity we can bring on chain.
             </Box>
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── THE PATH ZOO UNLOCKS — five-step flow ────────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -135,7 +136,7 @@ export default function InvestorNarrative() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-8 sm:mb-10">
             The path Zoo unlocks
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -148,7 +149,7 @@ export default function InvestorNarrative() {
               Each step starts black and eases to its brand color when it
               scrolls into view (icon + title share the color via
               ``currentColor`` — Lucide strokes inherit it automatically). */}
-          <motion.ol
+          <M tag="ol"
             className="grid grid-cols-1 sm:grid-cols-5 gap-6 sm:gap-3 md:gap-5"
             initial="hidden"
             whileInView="visible"
@@ -156,7 +157,7 @@ export default function InvestorNarrative() {
             variants={{ visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } } }}
           >
             {pathSteps.map((s, i) => (
-              <motion.li
+              <M tag="li"
                 key={s.title}
                 variants={{
                   hidden:  { opacity: 0, y: 24 },
@@ -188,9 +189,9 @@ export default function InvestorNarrative() {
                     ↓
                   </Box>
                 )}
-              </motion.li>
+              </M>
             ))}
-          </motion.ol>
+          </M>
 
           {/* Broad investor access callout */}
           <Box className="mt-8 sm:mt-10 grid grid-cols-[56px_1fr] sm:grid-cols-[80px_1fr] md:grid-cols-[100px_1fr] gap-4 sm:gap-6 items-center border-2 border-black p-5 sm:p-6 md:p-8">
@@ -204,10 +205,10 @@ export default function InvestorNarrative() {
               </Box>
             </div>
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── WHY NOW — three reasons with hairline dividers ───────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -215,7 +216,7 @@ export default function InvestorNarrative() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Why now
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -226,7 +227,7 @@ export default function InvestorNarrative() {
           </Box>
           <Box className="border-2 border-black bg-white/60 divide-y divide-black/30 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
             {whyNow.map((w, i) => (
-              <motion.div
+              <M
                 key={w.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -245,13 +246,13 @@ export default function InvestorNarrative() {
                     {w.body}
                   </Box>
                 </div>
-              </motion.div>
+              </M>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── AI-Native private companies (rainbow table) ──────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -286,10 +287,10 @@ export default function InvestorNarrative() {
               </Box>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Bottom sector tile strip — six brutalist boxes ──────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -316,7 +317,7 @@ export default function InvestorNarrative() {
               Private AI · Public-market scale
             </Box>
           </Box>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

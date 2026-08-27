@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -52,15 +53,15 @@ export default function CaseStudies() {
     )}>
       <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Box className="text-center mb-16">
-          <motion.h2
+          <M tag="h2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl font-bold mb-4"
           >
             Research Impact
-          </motion.h2>
-          <motion.p
+          </M>
+          <M tag="p"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -71,12 +72,12 @@ export default function CaseStudies() {
           >
             Delivering measurable breakthroughs in AI efficiency, cryptography,
             and distributed systems through open research
-          </motion.p>
+          </M>
         </Box>
 
         <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {caseStudies.map((study, index) => (
-            <motion.a
+            <M tag="a"
               key={study.title}
               href={study.link}
               target="_blank"
@@ -124,11 +125,11 @@ export default function CaseStudies() {
                   "text-foreground/30 group-hover:text-foreground"
                 )} />
               </Box>
-            </motion.a>
+            </M>
           ))}
         </Box>
 
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -141,7 +142,7 @@ export default function CaseStudies() {
             View All Research Papers
             <ArrowRight className="w-4 h-4 ml-2" />
           </Box>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

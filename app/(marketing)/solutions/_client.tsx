@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { solutions } from "@/lib/constants/navigation";
 import { ChevronRight } from "lucide-react";
 import { getIcon } from "@/lib/constants/iconMappings";
@@ -31,7 +32,7 @@ export default function PageClient() {
         />
 
         <Box className="relative max-w-7xl mx-auto">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,7 +49,7 @@ export default function PageClient() {
               Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
@@ -68,7 +69,7 @@ export default function PageClient() {
                     {displayItems.map((item, index) => {
                       const Icon = getIcon(item);
                       return (
-                        <motion.div
+                        <M
                           key={item}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -93,13 +94,13 @@ export default function PageClient() {
                               End-to-end {item.toLowerCase()} solutions built on Zoo Industries infrastructure.
                             </Box>
                           </Box>
-                        </motion.div>
+                        </M>
                       );
                     })}
                   </AnimatePresence>
                 </Box>
                 {hasMore && (
-                  <motion.div
+                  <M
                     className="text-center mt-8"
                     initial={false}
                     animate={{ opacity: 1 }}
@@ -112,7 +113,7 @@ export default function PageClient() {
                       View More {section.title}
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </button>
-                  </motion.div>
+                  </M>
                 )}
               </Box>
             );

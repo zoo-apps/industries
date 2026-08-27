@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -84,7 +85,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-5xl mx-auto">
           {/* Logo + Headline */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -105,10 +106,10 @@ export default function PageClient() {
               government, defense, healthcare, and finance without routing data through
               centralized third parties.
             </Box>
-          </motion.div>
+          </M>
 
           {/* Stats */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -123,10 +124,10 @@ export default function PageClient() {
                 <Box className={cn("text-sm", "text-muted-foreground")}>{stat.label}</Box>
               </Box>
             ))}
-          </motion.div>
+          </M>
 
           {/* Core Capabilities */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -149,10 +150,10 @@ export default function PageClient() {
                 </Box>
               ))}
             </Box>
-          </motion.div>
+          </M>
 
           {/* The Stack */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -196,10 +197,10 @@ export default function PageClient() {
                 </Box>
               </Box>
             ))}
-          </motion.div>
+          </M>
 
           {/* Platforms */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.25 }}
@@ -232,10 +233,10 @@ export default function PageClient() {
                 </Box>
               ))}
             </Box>
-          </motion.div>
+          </M>
 
           {/* Open Source */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -277,10 +278,10 @@ export default function PageClient() {
                 </Box>
               ))}
             </Box>
-          </motion.div>
+          </M>
 
           {/* OSS Revenue Sharing */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.35 }}
@@ -321,10 +322,10 @@ export default function PageClient() {
                 </Box>
               </Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Mission */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -342,7 +343,7 @@ export default function PageClient() {
               treat open source as critical infrastructure, and ship production systems that
               teams depend on.
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
   );

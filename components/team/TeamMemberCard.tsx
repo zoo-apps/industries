@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, MessageSquare, Rocket } from "lucide-react";
@@ -25,7 +26,7 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
   const slug = name.toLowerCase().replace(/\s+/g, "-");
 
   return (
-    <motion.div
+    <M
       whileHover={{ y: -5 }}
       className={cn(
         "relative group rounded-2xl border p-8 backdrop-blur-sm overflow-hidden",
@@ -149,6 +150,6 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
           </Box>
         </Box>
       )}
-    </motion.div>
+    </M>
   );
 }

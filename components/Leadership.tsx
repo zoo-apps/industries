@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 
 export default function Leadership() {
@@ -72,7 +73,7 @@ export default function Leadership() {
       <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Header — eyebrow with scroll-draw underline + big title ─── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -81,7 +82,7 @@ export default function Leadership() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Leadership team
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -97,12 +98,12 @@ export default function Leadership() {
             Driving innovation in frontier AI research while staying focused on
             safety and alignment.
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Leader cards — brutalist panels ──────────────────────── */}
         <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
           {leaders.map((leader, i) => (
-            <motion.div
+            <M
               key={leader.name}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -129,12 +130,12 @@ export default function Leadership() {
               <Box tag="p" className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed text-center">
                 {leader.bio}
               </Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
 
         {/* ─── Stats row — three brutalist tiles ────────────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
@@ -158,7 +159,7 @@ export default function Leadership() {
               </Box>
             </Box>
           ))}
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

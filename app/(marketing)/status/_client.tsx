@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -206,7 +207,7 @@ export default function PageClient() {
         {/* Status Banner */}
         <Box tag="section" className="py-16 px-4">
           <Box className="max-w-5xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -252,10 +253,10 @@ export default function PageClient() {
                   </Box>
                 </Box>
               </Box>
-            </motion.div>
+            </M>
 
             {/* Service Status Grid */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -272,7 +273,7 @@ export default function PageClient() {
                   const colors = statusColors[service.status];
 
                   return (
-                    <motion.div
+                    <M
                       key={service.name}
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -311,14 +312,14 @@ export default function PageClient() {
                           </Box>
                         </Box>
                       </Box>
-                    </motion.div>
+                    </M>
                   );
                 })}
               </Box>
-            </motion.div>
+            </M>
 
             {/* 90-Day Uptime */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -361,10 +362,10 @@ export default function PageClient() {
                   <span>Today</span>
                 </Box>
               </Box>
-            </motion.div>
+            </M>
 
             {/* Recent Activity */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -372,7 +373,7 @@ export default function PageClient() {
               <Box tag="h2" className="text-xl font-semibold mb-4">Recent Activity</Box>
               <Box className="space-y-3">
                 {historicalIncidents.map((incident, index) => (
-                  <motion.div
+                  <M
                     key={incident.title}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -401,13 +402,13 @@ export default function PageClient() {
                         <Box className={cn("text-muted-foreground")}>{incident.duration}</Box>
                       </Box>
                     </Box>
-                  </motion.div>
+                  </M>
                 ))}
               </Box>
-            </motion.div>
+            </M>
 
             {/* Subscribe Section */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -431,7 +432,7 @@ export default function PageClient() {
                   </Button>
                 </a>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
       </Box>

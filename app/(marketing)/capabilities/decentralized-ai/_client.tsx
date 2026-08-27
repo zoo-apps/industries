@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Globe, Server, Shield, Cpu, Network, Zap, Lock, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -100,7 +101,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -112,10 +113,10 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Build resilient, distributed AI systems that operate without central points of failure
             </Box>
-          </motion.div>
+          </M>
 
           {/* Key Benefits */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -133,24 +134,24 @@ export default function PageClient() {
                 <Box className={cn("text-sm", "text-muted-foreground")}>{benefit.label}</Box>
               </Box>
             ))}
-          </motion.div>
+          </M>
 
           {/* Core Features */}
           <Box className="mb-20">
-            <motion.h2
+            <M tag="h2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-3xl font-bold text-center mb-12"
             >
               Core Capabilities
-            </motion.h2>
+            </M>
 
             <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <motion.div
+                  <M
                     key={feature.title}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -182,14 +183,14 @@ export default function PageClient() {
                         </Box>
                       </Box>
                     </Box>
-                  </motion.div>
+                  </M>
                 );
               })}
             </Box>
           </Box>
 
           {/* Architecture Diagram Placeholder */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -204,24 +205,24 @@ export default function PageClient() {
               Our decentralized AI infrastructure eliminates single points of failure through
               distributed consensus, redundant nodes, and intelligent failover mechanisms.
             </Box>
-          </motion.div>
+          </M>
 
           {/* Use Cases */}
           <Box className="mb-20">
-            <motion.h2
+            <M tag="h2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-3xl font-bold text-center mb-12"
             >
               Industry Applications
-            </motion.h2>
+            </M>
 
             <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon;
                 return (
-                  <motion.div
+                  <M
                     key={useCase.title}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -234,14 +235,14 @@ export default function PageClient() {
                     <Icon className="w-12 h-12 mx-auto mb-4" />
                     <Box tag="h3" className="text-lg font-semibold mb-2">{useCase.title}</Box>
                     <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{useCase.description}</Box>
-                  </motion.div>
+                  </M>
                 );
               })}
             </Box>
           </Box>
 
           {/* Technical Specifications */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -277,10 +278,10 @@ export default function PageClient() {
                 </Box>
               </div>
             </Box>
-          </motion.div>
+          </M>
 
           {/* CTA Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -314,7 +315,7 @@ export default function PageClient() {
                 View Documentation
               </Box>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

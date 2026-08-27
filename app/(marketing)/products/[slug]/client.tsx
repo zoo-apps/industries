@@ -1,6 +1,7 @@
 'use client'
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { notFound } from 'next/navigation'
 import { productPages } from '@/lib/data/products'
 import { Button } from '@hanzo/ui'
@@ -22,7 +23,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
       {/* Hero */}
       <Box tag="section" className="pt-32 pb-20 px-4">
         <Box className="max-w-5xl mx-auto">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -55,14 +56,14 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                 </Button>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
       {/* Features */}
       <Box tag="section" className="py-20 px-4 border-t border-border">
         <Box className="max-w-5xl mx-auto">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -71,7 +72,7 @@ export default function ProductPageClient({ slug }: { slug: string }) {
             <Box tag="h2" className="text-3xl font-bold mb-12">Key Features</Box>
             <Box className="grid md:grid-cols-2 gap-6">
               {product.features.map((feature, index) => (
-                <motion.div
+                <M
                   key={feature}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -81,10 +82,10 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                 >
                   <Check className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
                   <Box tag="span" className="text-foreground/80">{feature}</Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 

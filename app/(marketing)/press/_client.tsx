@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -137,7 +138,7 @@ export default function PageClient() {
         {/* Hero */}
         <Box tag="section" className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
           <Box className="max-w-5xl mx-auto text-center">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -166,7 +167,7 @@ export default function PageClient() {
                   </Button>
                 </a>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
@@ -328,7 +329,7 @@ export default function PageClient() {
             </Box>
             <Box className="space-y-4">
               {pressReleases.map((release, index) => (
-                <motion.div
+                <M
                   key={release.title}
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -363,7 +364,7 @@ export default function PageClient() {
                       </Box>
                     )}
                   </Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>

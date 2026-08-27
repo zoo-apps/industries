@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Microscope, Building2 } from "lucide-react";
 
@@ -42,7 +43,7 @@ export default function Contact() {
       <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Header ────────────────────────────────────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -51,7 +52,7 @@ export default function Contact() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Research collaboration
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -67,12 +68,12 @@ export default function Contact() {
             From research collaborations to enterprise AI deployments, we partner
             with teams pushing the boundaries of what&apos;s possible.
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Research + Commercial divisions ──────────────────── */}
         <Box className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
           {/* Research */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
@@ -90,10 +91,10 @@ export default function Contact() {
             <Box className="space-y-4">
               {researchDivision.map((c) => <ContactRow key={c.email} c={c} />)}
             </Box>
-          </motion.div>
+          </M>
 
           {/* Commercial */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-10%" }}
@@ -111,11 +112,11 @@ export default function Contact() {
             <Box className="space-y-4">
               {commercialDivision.map((c) => <ContactRow key={c.email} c={c} />)}
             </Box>
-          </motion.div>
+          </M>
         </Box>
 
         {/* ─── HQ + Secure Line + Inquiries — three brutalist tiles ── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
@@ -180,7 +181,7 @@ export default function Contact() {
               ))}
             </Box>
           </Box>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

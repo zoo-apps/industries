@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Shield, Database, Cloud, Brain, ArrowRight } from "lucide-react";
@@ -57,7 +58,7 @@ export default function ServicesOverview() {
     )}>
       <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Box className="text-center mb-16">
-          <motion.h2
+          <M tag="h2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -67,8 +68,8 @@ export default function ServicesOverview() {
             )}
           >
             Building the Future of Safe AI
-          </motion.h2>
-          <motion.p
+          </M>
+          <M tag="p"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -79,14 +80,14 @@ export default function ServicesOverview() {
           >
             From frontier model development to edge deployment, we're advancing AI capabilities
             while prioritizing safety, privacy, and human alignment at every step
-          </motion.p>
+          </M>
         </Box>
 
         <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <M
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +133,7 @@ export default function ServicesOverview() {
                     )}
                   </Box>
                 </Box>
-              </motion.div>
+              </M>
             );
           })}
         </Box>

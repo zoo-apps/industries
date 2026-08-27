@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { partnerLogos } from "@/lib/constants/partner-logos";
 import site from "@/site.config";
@@ -11,7 +12,7 @@ export default function TrustedBySection() {
       <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Header — eyebrow with scroll-draw underline + big title ─── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -20,7 +21,7 @@ export default function TrustedBySection() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Investors &amp; partners
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -32,10 +33,10 @@ export default function TrustedBySection() {
           <Box tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
             Backed by world-class partners.
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Partner logo grid — one brutalist panel ──────────────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
@@ -54,10 +55,10 @@ export default function TrustedBySection() {
               </Box>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Trusted-by marquee — black bar, white text, endless scroll ─ */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
@@ -84,7 +85,7 @@ export default function TrustedBySection() {
               ))}
             </Box>
           </Box>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

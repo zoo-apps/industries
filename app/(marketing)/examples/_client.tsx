@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Code2, Terminal, FileCode, Package, Rocket, BookOpen, Cpu, Lock, Users, Zap, Globe } from "lucide-react";
@@ -190,7 +191,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -202,10 +203,10 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Ready-to-use code examples to accelerate your AI development
             </Box>
-          </motion.div>
+          </M>
 
           {/* Quick Links */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -229,14 +230,14 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 </Box>
               );
             })}
-          </motion.div>
+          </M>
 
           {/* Code Examples */}
           <Box className="space-y-12">
             {examples.map((example, index) => {
               const Icon = example.icon;
               return (
-                <motion.div
+                <M
                   key={example.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -269,13 +270,13 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                       </Box>
                     </Box>
                   </Box>
-                </motion.div>
+                </M>
               );
             })}
           </Box>
 
           {/* Resources Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -311,10 +312,10 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 </Box>
               </div>
             </Box>
-          </motion.div>
+          </M>
 
           {/* CTA Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -348,7 +349,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 View on GitHub
               </Box>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

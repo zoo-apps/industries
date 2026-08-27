@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -119,7 +120,7 @@ export default function PageClient() {
           </Box>
 
           <Box className="max-w-6xl mx-auto text-center relative z-10">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -127,25 +128,25 @@ export default function PageClient() {
             >
               <MessageSquare className={cn("w-4 h-4", "text-muted-foreground")} />
               <Box tag="span" className={cn("text-sm font-medium", "text-muted-foreground")}>Get in Touch</Box>
-            </motion.div>
+            </M>
 
-            <motion.h1
+            <M tag="h1"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
             >
               Contact Us
-            </motion.h1>
+            </M>
 
-            <motion.p
+            <M tag="p"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
               className={cn("text-lg lg:text-xl leading-relaxed max-w-2xl mx-auto", "text-muted-foreground")}
             >
               Ready to transform your operations with frontier AI? Our team is here to help you build the future.
-            </motion.p>
+            </M>
           </Box>
         </Box>
 
@@ -154,7 +155,7 @@ export default function PageClient() {
           <Box className="max-w-6xl mx-auto">
             <Box className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Left Column - Contact Form */}
-              <motion.div
+              <M
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -319,10 +320,10 @@ export default function PageClient() {
                     </Button>
                   </Box>
                 )}
-              </motion.div>
+              </M>
 
               {/* Right Column - Contact Information */}
-              <motion.div
+              <M
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -422,7 +423,7 @@ export default function PageClient() {
                     />
                   </Box>
                 </Box>
-              </motion.div>
+              </M>
             </Box>
           </Box>
         </Box>
@@ -430,7 +431,7 @@ export default function PageClient() {
         {/* Connect With Us */}
         <Box tag="section" className={cn("py-16 px-4 md:px-8 lg:px-12", "border-t border-border")}>
           <Box className="max-w-4xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -443,13 +444,13 @@ export default function PageClient() {
               <Box tag="p" className={cn("text-muted-foreground")}>
                 Follow us on social media to stay updated on the latest developments.
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <motion.a
+                  <M tag="a"
                     key={social.label}
                     href={social.href}
                     target="_blank"
@@ -469,7 +470,7 @@ export default function PageClient() {
                     <Box tag="span" className={cn("text-xs font-medium transition-colors", "text-muted-foreground group-hover:text-foreground")}>
                       {social.label}
                     </Box>
-                  </motion.a>
+                  </M>
                 );
               })}
             </Box>

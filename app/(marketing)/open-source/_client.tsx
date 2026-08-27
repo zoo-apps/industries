@@ -1,6 +1,7 @@
 'use client'
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@hanzo/ui'
@@ -126,7 +127,7 @@ export default function PageClient() {
           </Box>
 
           <Box className="max-w-5xl mx-auto relative z-10 text-center">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
@@ -134,18 +135,18 @@ export default function PageClient() {
             >
               <Github className="w-3.5 h-3.5 text-muted-foreground" />
               <Box tag="span" className="text-muted-foreground">Open Core Company</Box>
-            </motion.div>
+            </M>
 
-            <motion.h1
+            <M tag="h1"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
               className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] mb-6 text-foreground"
             >
               Open Source at Zoo
-            </motion.h1>
+            </M>
 
-            <motion.p
+            <M tag="p"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}
@@ -154,9 +155,9 @@ export default function PageClient() {
               Zoo is built on open source and gives back. 727+ repos across 6 GitHub
               orgs, MIT and Apache licensed. We dedicate 25% of compute revenue to the
               open source projects that power everything we ship.
-            </motion.p>
+            </M>
 
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.15 }}
@@ -181,9 +182,9 @@ export default function PageClient() {
                   Connect &amp; Start Earning
                 </Button>
               </a>
-            </motion.div>
+            </M>
 
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }}
@@ -202,14 +203,14 @@ export default function PageClient() {
                   </Box>
                 )
               })}
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
         {/* Standing on Giants */}
         <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -224,11 +225,11 @@ export default function PageClient() {
                 them, we contribute back, and we fund them through our revenue sharing
                 program.
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {UPSTREAM_PROJECTS.map((proj, i) => (
-                <motion.div
+                <M
                   key={proj.name}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -262,7 +263,7 @@ export default function PageClient() {
                       {proj.license}
                     </Box>
                   </Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>
@@ -271,7 +272,7 @@ export default function PageClient() {
         {/* Our Organizations */}
         <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -285,13 +286,13 @@ export default function PageClient() {
                 Six GitHub organizations spanning AI, blockchain, and developer tooling
                 &mdash; all public, all open.
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {GITHUB_ORGS.map((org, i) => {
                 const Icon = org.icon
                 return (
-                  <motion.a
+                  <M tag="a"
                     key={org.handle}
                     href={org.url}
                     target="_blank"
@@ -316,7 +317,7 @@ export default function PageClient() {
                         {org.description}
                       </Box>
                     </Box>
-                  </motion.a>
+                  </M>
                 )
               })}
             </Box>
@@ -326,7 +327,7 @@ export default function PageClient() {
         {/* Stewardship Commitments */}
         <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -340,11 +341,11 @@ export default function PageClient() {
                 Explicit commitments, not vague promises. We hold ourselves accountable to
                 these publicly.
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {COMMITMENTS.map((c, i) => (
-                <motion.div
+                <M
                   key={c.title}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -361,7 +362,7 @@ export default function PageClient() {
                       <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">{c.body}</Box>
                     </div>
                   </Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>
@@ -372,7 +373,7 @@ export default function PageClient() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[160px] bg-foreground/[0.04] pointer-events-none" />
 
           <Box className="max-w-6xl mx-auto relative z-10">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -391,14 +392,14 @@ export default function PageClient() {
                 transparently based on verified SBOMs. Your code runs in production, you
                 get paid.
               </Box>
-            </motion.div>
+            </M>
 
             {/* How It Works - 4 steps */}
             <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {REVENUE_STEPS.map((step, i) => {
                 const Icon = step.icon
                 return (
-                  <motion.div
+                  <M
                     key={step.step}
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -421,7 +422,7 @@ export default function PageClient() {
                     {i < REVENUE_STEPS.length - 1 && (
                       <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
                     )}
-                  </motion.div>
+                  </M>
                 )
               })}
             </Box>
@@ -431,7 +432,7 @@ export default function PageClient() {
               {REVENUE_FEATURES.map((f, i) => {
                 const Icon = f.icon
                 return (
-                  <motion.div
+                  <M
                     key={f.title}
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -446,13 +447,13 @@ export default function PageClient() {
                     <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
                       {f.description}
                     </Box>
-                  </motion.div>
+                  </M>
                 )
               })}
             </Box>
 
             {/* Community splits callout */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -475,10 +476,10 @@ export default function PageClient() {
                   </Box>
                 </Box>
               </Box>
-            </motion.div>
+            </M>
 
             {/* Payout options + CTAs */}
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -522,14 +523,14 @@ export default function PageClient() {
                   </Button>
                 </a>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
         {/* Research & Papers */}
         <Box tag="section" className="py-16 px-4 md:px-8 border-t border-border">
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -552,7 +553,7 @@ export default function PageClient() {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
@@ -562,16 +563,16 @@ export default function PageClient() {
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none" />
 
           <Box className="max-w-4xl mx-auto text-center relative z-10">
-            <motion.h2
+            <M tag="h2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-3xl md:text-4xl font-bold text-foreground mb-4"
             >
               Contribute &amp; Earn
-            </motion.h2>
+            </M>
 
-            <motion.p
+            <M tag="p"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -580,9 +581,9 @@ export default function PageClient() {
             >
               Star our repos, open a PR, or connect your wallet to earn from the code you
               already contribute. Every contribution matters &mdash; and pays.
-            </motion.p>
+            </M>
 
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -609,7 +610,7 @@ export default function PageClient() {
                   Connect &amp; Earn
                 </Button>
               </a>
-            </motion.div>
+            </M>
           </Box>
         </Box>
       </main>

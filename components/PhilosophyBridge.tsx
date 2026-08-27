@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +19,7 @@ export default function PhilosophyBridge() {
   return (
     <Box tag="section" className="py-24 px-4 border-t border-border/30">
       <Box className="max-w-4xl mx-auto text-center">
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -58,7 +59,7 @@ export default function PhilosophyBridge() {
           >
             The Zen of Zoo <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Brain, Shield, Cog, Cloud, Zap, Users, Lock, Cpu, Globe, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -148,7 +149,7 @@ export default function PageClient() {
         />
 
         <Box className="relative max-w-7xl mx-auto">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -161,7 +162,7 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
               Comprehensive AI solutions from frontier research to production deployment
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
@@ -174,7 +175,7 @@ export default function PageClient() {
               const isExternal = capability.link.startsWith("http");
 
               return (
-                <motion.div
+                <M
                   key={capability.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -216,13 +217,13 @@ export default function PageClient() {
                       </svg>
                     </Box>
                   )}
-                </motion.div>
+                </M>
               );
             })}
           </Box>
 
           {/* CTA Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -240,7 +241,7 @@ export default function PageClient() {
             >
               Contact Us
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

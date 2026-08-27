@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -299,7 +300,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-7xl mx-auto">
           {/* Hero */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -352,7 +353,7 @@ export default function PageClient() {
                 </Box>
               </button>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Plans Grid */}
           {plansLoading ? (
@@ -386,7 +387,7 @@ export default function PageClient() {
                   plan.ctaLink ?? `https://console.zoo.ngo?plan=${plan.id}`;
 
                 return (
-                  <motion.div
+                  <M
                     key={plan.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -481,7 +482,7 @@ export default function PageClient() {
                         </Box>
                       ))}
                     </Box>
-                  </motion.div>
+                  </M>
                 );
               })}
             </Box>
@@ -491,7 +492,7 @@ export default function PageClient() {
           {plansLoading ? (
             <EnterpriseSkeleton />
           ) : enterprisePlan ? (
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -564,14 +565,14 @@ export default function PageClient() {
                   </Box>
                 </div>
               </Box>
-            </motion.div>
+            </M>
           ) : null}
 
           {/* Transparent Pricing / Revenue Sharing Section */}
           {policyLoading ? (
             <PolicySkeleton />
           ) : policy ? (
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -702,11 +703,11 @@ export default function PageClient() {
                   ))}
                 </Box>
               )}
-            </motion.div>
+            </M>
           ) : null}
 
           {/* API Pricing -- Zen Models (live from API) */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -832,11 +833,11 @@ export default function PageClient() {
                 </Box>
               </Box>
             )}
-          </motion.div>
+          </M>
 
           {/* Third-Party Models (live from API) */}
           {thirdPartyModels.length > 0 && (
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -921,11 +922,11 @@ export default function PageClient() {
                 * Third-party model pricing includes a 20% gateway markup.
                 Prices synced daily from upstream providers.
               </Box>
-            </motion.div>
+            </M>
           )}
 
           {/* FAQ Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -977,10 +978,10 @@ export default function PageClient() {
                 </Box>
               </div>
             </Box>
-          </motion.div>
+          </M>
 
           {/* CTA */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -1024,7 +1025,7 @@ export default function PageClient() {
                 </Button>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

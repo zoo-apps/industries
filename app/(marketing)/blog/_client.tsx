@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -106,7 +107,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-24">
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-5xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -121,11 +122,11 @@ export default function PageClient() {
               <Box tag="p" className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Product launches, architecture deep dives, and how-to guides from the team building the AI workforce platform.
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="space-y-4">
               {blogPosts.map((post, index) => (
-                <motion.div
+                <M
                   key={post.slug}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -163,7 +164,7 @@ export default function PageClient() {
                       <ArrowRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
                     </Box>
                   </Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -355,7 +356,7 @@ export default function PageClient() {
     <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
       <Box className="max-w-5xl mx-auto">
         {/* Breadcrumb + Hero */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -373,10 +374,10 @@ export default function PageClient() {
             Rust. Every SDK is open source, fully typed, and supports streaming,
             retries, and all Zoo API endpoints.
           </Box>
-        </motion.div>
+        </M>
 
         {/* Environment Setup */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
@@ -406,11 +407,11 @@ export default function PageClient() {
             </Box>
             . All SDKs default to reading <Box tag="code" className="font-mono">ZOO_API_KEY</Box> from the environment.
           </Box>
-        </motion.div>
+        </M>
 
         {/* SDK Sections */}
         {sdkSections.map((sdk, sectionIndex) => (
-          <motion.div
+          <M
             key={sdk.language}
             id={sdk.icon}
             initial={{ opacity: 0, y: 20 }}
@@ -489,11 +490,11 @@ export default function PageClient() {
             {sectionIndex < sdkSections.length - 1 && (
               <div className="border-b border-border mt-16" />
             )}
-          </motion.div>
+          </M>
         ))}
 
         {/* CTA */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
@@ -511,7 +512,7 @@ export default function PageClient() {
               API Reference <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

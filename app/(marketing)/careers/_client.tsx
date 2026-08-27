@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
@@ -637,7 +638,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-6xl mx-auto">
           {/* Hero Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -663,10 +664,10 @@ export default function PageClient() {
                 Remote-Friendly
               </Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Stats */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -688,10 +689,10 @@ export default function PageClient() {
               <Box className="text-3xl font-bold mb-1">$1B+</Box>
               <Box className={cn("text-sm", "text-muted-foreground")}>Client Revenue</Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Filters */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -739,7 +740,7 @@ export default function PageClient() {
                 </SelectContent>
               </Select>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Results Count */}
           <Box className={cn("mb-6", "text-muted-foreground")}>
@@ -749,7 +750,7 @@ export default function PageClient() {
           {/* Job Listings */}
           <Box className="space-y-8">
             {Object.entries(groupedJobs).map(([team, teamJobs], groupIndex) => (
-              <motion.div
+              <M
                 key={team}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -791,7 +792,7 @@ export default function PageClient() {
                     </button>
                   ))}
                 </Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
 
@@ -813,7 +814,7 @@ export default function PageClient() {
           )}
 
           {/* CTA Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
@@ -846,10 +847,10 @@ export default function PageClient() {
                 Send Resume
               </Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Benefits Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -900,10 +901,10 @@ export default function PageClient() {
                 </Box>
               </Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* How We're Different */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -924,7 +925,7 @@ export default function PageClient() {
                 that matter and who can collaborate effectively across disciplines.
               </Box>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

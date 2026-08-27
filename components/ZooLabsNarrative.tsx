@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 
 // Content lifted from "Zoo Labs 2026 - draft.pdf" (the full pitch deck).
@@ -37,14 +38,14 @@ function SectionHead({
   subtitle?: string;
 }) {
   return (
-    <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
+    <M {...fade} transition={{ duration: 0.5 }} className="mb-8">
       <Box tag="span" className={`pill ${pillClass} text-lg md:text-2xl`}>{title}</Box>
       {subtitle && (
         <Box tag="h3" className="mt-10 md:mt-12 text-xl md:text-2xl font-extrabold underline underline-offset-4">
           {subtitle}
         </Box>
       )}
-    </motion.div>
+    </M>
   );
 }
 
@@ -53,7 +54,7 @@ export default function ZooLabsNarrative() {
     <>
       {/* ── Tagline ─────────────────────────────────────────── */}
       <Section>
-        <motion.div
+        <M
           {...fade}
           transition={{ duration: 0.5 }}
           className="text-center"
@@ -61,7 +62,7 @@ export default function ZooLabsNarrative() {
           <Box tag="p" className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
             Open AI for the future of tomorrow.
           </Box>
-        </motion.div>
+        </M>
       </Section>
 
       {/* ── Conservation activities ─────────────────────────── */}
@@ -94,7 +95,7 @@ export default function ZooLabsNarrative() {
               c: "var(--brand-magenta)",
             },
           ].map((card, i) => (
-            <motion.div
+            <M
               key={card.h}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.06 }}
@@ -105,7 +106,7 @@ export default function ZooLabsNarrative() {
                 {card.h}
               </Box>
               <Box tag="p" className="text-sm md:text-base font-medium">{card.p}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -125,14 +126,14 @@ export default function ZooLabsNarrative() {
             "Autonomous creation and task execution.",
             "Regulated tokenization partners give blockchain investors access to $113 Trillion worth of digital securities.",
           ].map((line, i) => (
-            <motion.div
+            <M
               key={i}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="panel"
             >
               <Box tag="p" className="text-base md:text-lg font-medium">{line}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -172,7 +173,7 @@ export default function ZooLabsNarrative() {
               p: "Private market stocks are shares in private companies, typically restricted to accredited or institutional investors with lower liquidity and limited transparency.",
             },
           ].map((card, i) => (
-            <motion.div
+            <M
               key={card.h}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -182,7 +183,7 @@ export default function ZooLabsNarrative() {
                 {card.h}
               </Box>
               <Box tag="p" className="text-sm md:text-base">{card.p}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -195,7 +196,7 @@ export default function ZooLabsNarrative() {
           subtitle="The biggest redistribution of wealth the world is yet to see."
         />
         <Box className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
+          <M {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
             <Box tag="p" className="text-base md:text-lg font-medium">
               Through our regulated tokenization partner, ZOO gains a compliant path to tokenize and
               distribute GPU-backed AI infrastructure using broker-dealer, ATS,
@@ -209,8 +210,8 @@ export default function ZooLabsNarrative() {
                 — Start Engine
               </Box>
             </Box>
-          </motion.div>
-          <motion.div
+          </M>
+          <M
             {...fade}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="grid grid-cols-2 gap-3 md:gap-4"
@@ -233,7 +234,7 @@ export default function ZooLabsNarrative() {
                 </Box>
               </Box>
             ))}
-          </motion.div>
+          </M>
         </Box>
         <Box tag="p" className="text-xs md:text-sm text-black/60 max-w-3xl">
           Source: Based on World Bank and Preqin data, as cited in McKinsey
@@ -253,7 +254,7 @@ export default function ZooLabsNarrative() {
             "Play, learn, and task your buddy with almost anything. Trade them or sell copies.",
             "Exchange your $AI or $ZOO coins for any other cryptocurrency, and up to 13,000+ digital securities via our regulated ATS partner.",
           ].map((step, i) => (
-            <motion.div
+            <M
               key={i}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.06 }}
@@ -263,7 +264,7 @@ export default function ZooLabsNarrative() {
                 {String(i + 1).padStart(2, "0")}
               </Box>
               <Box tag="p" className="text-sm md:text-base font-medium">{step}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -339,7 +340,7 @@ export default function ZooLabsNarrative() {
               href: "https://zoo.vote",
             },
           ].map((layer, i) => (
-            <motion.a
+            <M tag="a"
               key={layer.h}
               href={layer.href}
               target="_blank"
@@ -356,7 +357,7 @@ export default function ZooLabsNarrative() {
                 {layer.h}
               </Box>
               <Box tag="p" className="text-xs md:text-sm font-medium">{layer.p}</Box>
-            </motion.a>
+            </M>
           ))}
         </Box>
       </Section>
@@ -395,7 +396,7 @@ export default function ZooLabsNarrative() {
               p: "Post-quantum, GPU-native blockchain — EVM, block STM, and consensus all run on GPU. Paired with Zoo's Open AI mining protocol.",
             },
           ].map((a, i) => (
-            <motion.div
+            <M
               key={a.n}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -408,7 +409,7 @@ export default function ZooLabsNarrative() {
                 {a.h}
               </Box>
               <Box tag="p" className="text-sm md:text-base">{a.p}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -438,7 +439,7 @@ export default function ZooLabsNarrative() {
               c: "var(--brand-cyan)",
             },
           ].map((m, i) => (
-            <motion.div
+            <M
               key={m.h}
               {...fade}
               transition={{ duration: 0.4, delay: i * 0.06 }}
@@ -449,7 +450,7 @@ export default function ZooLabsNarrative() {
                 {m.h}
               </Box>
               <Box tag="p" className="text-sm md:text-base font-medium">{m.p}</Box>
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
@@ -491,7 +492,7 @@ export default function ZooLabsNarrative() {
 
         <Box tag="h4" className="relative inline-block text-lg md:text-xl font-extrabold uppercase mb-6 md:mb-7 tracking-tight">
           Compatible devices
-          <motion.span
+          <M tag="span"
             aria-hidden
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -509,7 +510,7 @@ export default function ZooLabsNarrative() {
             "Volumetric 3D",
             "Tablets · Phones",
           ].map((d, i) => (
-            <motion.div
+            <M
               key={d}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -518,14 +519,14 @@ export default function ZooLabsNarrative() {
               className="p-3 md:p-4 border-2 border-black bg-white text-center font-extrabold uppercase tracking-tight text-xs md:text-sm shadow-[4px_4px_0_0_#000] md:shadow-[6px_6px_0_0_#000]"
             >
               {d}
-            </motion.div>
+            </M>
           ))}
         </Box>
       </Section>
 
       {/* ── Closing CTA ─────────────────────────────────────── */}
       <Section id="invest">
-        <motion.div
+        <M
           {...fade}
           transition={{ duration: 0.5 }}
           className="p-8 md:p-12 border-2 border-black bg-[var(--brand-magenta)] text-black shadow-[6px_6px_0_0_#000] md:shadow-[12px_12px_0_0_#000] text-center"
@@ -546,7 +547,7 @@ export default function ZooLabsNarrative() {
           >
             Get in touch
           </Box>
-        </motion.div>
+        </M>
       </Section>
     </>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@hanzo/ui";
@@ -100,7 +101,7 @@ export default function PageClient() {
       {/* Hero Section */}
       <Box tag="section" className={cn("pt-24 pb-16 bg-gradient-to-b", "from-white/5 to-transparent")}>
         <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -123,14 +124,14 @@ export default function PageClient() {
                 </Button>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
       {/* Services Grid */}
       <Box tag="section" className="py-20">
         <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -143,13 +144,13 @@ export default function PageClient() {
               Expert services across the entire technology stack, delivered by our team
               of specialists
             </Box>
-          </motion.div>
+          </M>
 
           <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
-                <motion.div
+                <M
                   key={service.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -169,7 +170,7 @@ export default function PageClient() {
                       </Box>
                     ))}
                   </Box>
-                </motion.div>
+                </M>
               );
             })}
           </Box>
@@ -179,7 +180,7 @@ export default function PageClient() {
       {/* Engagement Models */}
       <Box tag="section" className={cn("py-20", "bg-foreground/5")}>
         <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -189,11 +190,11 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Choose the engagement model that best fits your needs and budget
             </Box>
-          </motion.div>
+          </M>
 
           <Box className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {engagementModels.map((model, index) => (
-              <motion.div
+              <M
                 key={model.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -205,7 +206,7 @@ export default function PageClient() {
                 <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                   <strong>Ideal for:</strong> {model.ideal}
                 </Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
         </Box>
@@ -214,7 +215,7 @@ export default function PageClient() {
       {/* Process Section */}
       <Box tag="section" className={cn("py-20", "bg-foreground/5")}>
         <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -224,7 +225,7 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-xl max-w-3xl mx-auto", "text-muted-foreground")}>
               A proven methodology that ensures successful outcomes
             </Box>
-          </motion.div>
+          </M>
 
           <Box className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
@@ -233,7 +234,7 @@ export default function PageClient() {
               { step: "03", title: "Implementation", desc: "Build and deploy with excellence" },
               { step: "04", title: "Support", desc: "Ensure long-term success" }
             ].map((phase, index) => (
-              <motion.div
+              <M
                 key={phase.step}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -243,7 +244,7 @@ export default function PageClient() {
                 <Box className={cn("text-5xl font-bold mb-4", "text-foreground/30")}>{phase.step}</Box>
                 <Box tag="h3" className={cn("text-xl font-semibold mb-2", "text-foreground")}>{phase.title}</Box>
                 <Box tag="p" className={cn("text-muted-foreground")}>{phase.desc}</Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
         </Box>
@@ -252,7 +253,7 @@ export default function PageClient() {
       {/* CTA Section */}
       <Box tag="section" className="py-20">
         <Box className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -266,7 +267,7 @@ export default function PageClient() {
             <Button size="lg" className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}>
               Schedule a Consultation
             </Button>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

@@ -1,6 +1,7 @@
 'use client'
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -38,7 +39,7 @@ export default function PageClient() {
     <Box tag="main" className="bg-background text-foreground">
       <Box tag="section" className="py-24 px-4">
         <Box className="max-w-5xl mx-auto text-center">
-          <motion.div {...fade} transition={{ duration: 0.5 }}>
+          <M {...fade} transition={{ duration: 0.5 }}>
             <Box tag="span" className="inline-block mt-6 mb-6 text-sm md:text-base font-extrabold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-2">
               Zoo Cloud
             </Box>
@@ -71,23 +72,23 @@ export default function PageClient() {
                 </Box>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
       <Box tag="section" className="py-16 px-4 md:px-8">
         <Box className="max-w-7xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-yellow text-lg md:text-2xl">The stack</Box>
             <Box tag="h2" className="mt-10 md:mt-12 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Six products. One brain.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {stack.map((s, i) => {
               const Icon = s.icon
               return (
-                <motion.div
+                <M
                   key={s.h}
                   {...fade}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -101,7 +102,7 @@ export default function PageClient() {
                   <Link href={s.href} className="text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1">
                     Open <ArrowRight className="w-3 h-3" />
                   </Link>
-                </motion.div>
+                </M>
               )
             })}
           </Box>
@@ -110,15 +111,15 @@ export default function PageClient() {
 
       <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
         <Box className="max-w-7xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-cyan text-lg md:text-2xl">Underneath</Box>
             <Box tag="h2" className="mt-10 md:mt-12 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Identity, storage, billing, audit — without the integration tax.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {platform.map((f, i) => (
-              <motion.div
+              <M
                 key={f.h}
                 {...fade}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -126,7 +127,7 @@ export default function PageClient() {
               >
                 <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">{f.h}</Box>
                 <Box tag="p" className="text-sm md:text-base font-medium text-black/80">{f.p}</Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
         </Box>

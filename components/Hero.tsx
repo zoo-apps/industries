@@ -1,6 +1,7 @@
 'use client'
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
@@ -32,7 +33,7 @@ export default function Hero() {
       <Box tag="section" className="relative pt-48 md:pt-56 lg:pt-60 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
         <Box className="max-w-7xl mx-auto relative">
           {/* Copy — centered on the page. */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -74,7 +75,7 @@ export default function Hero() {
                 </Box>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -745,7 +746,7 @@ export default function GlobalChatWidget() {
       {/* Floating chat button */}
       <AnimatePresence>
         {!isOpen && (
-          <motion.button
+          <M tag="button"
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
@@ -755,14 +756,14 @@ export default function GlobalChatWidget() {
             className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center bg-black border border-white/10"
           >
             <img src="/zoo-logo.svg" alt="Zoo" className="w-8 h-8" />
-          </motion.button>
+          </M>
         )}
       </AnimatePresence>
 
       {/* Chat window */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
@@ -817,7 +818,7 @@ export default function GlobalChatWidget() {
                   {/* Model dropdown */}
                   <AnimatePresence>
                     {isModelDropdownOpen && (
-                      <motion.div
+                      <M
                         initial={{ opacity: 0, y: -4 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -4 }}
@@ -869,7 +870,7 @@ export default function GlobalChatWidget() {
                             View all 41+ models
                           </Box>
                         </Box>
-                      </motion.div>
+                      </M>
                     )}
                   </AnimatePresence>
                 </Box>
@@ -967,13 +968,13 @@ export default function GlobalChatWidget() {
               {/* Login gate overlay */}
               <AnimatePresence>
                 {showLoginGate && (
-                  <motion.div
+                  <M
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 backdrop-blur-sm"
                   >
-                    <motion.div
+                    <M
                       initial={{ scale: 0.9, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       exit={{ scale: 0.9, opacity: 0 }}
@@ -1001,8 +1002,8 @@ export default function GlobalChatWidget() {
                       >
                         Dismiss
                       </button>
-                    </motion.div>
-                  </motion.div>
+                    </M>
+                  </M>
                 )}
               </AnimatePresence>
             </Box>
@@ -1070,7 +1071,7 @@ export default function GlobalChatWidget() {
                 </Box>
               </Box>
             </Box>
-          </motion.div>
+          </M>
         )}
       </AnimatePresence>
     </>

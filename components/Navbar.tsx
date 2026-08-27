@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { M } from '@/components/motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Button } from '@hanzo/ui'
@@ -70,7 +71,7 @@ function TryZooDropdown() {
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <M
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -166,7 +167,7 @@ function TryZooDropdown() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </M>
         )}
       </AnimatePresence>
     </div>
@@ -260,7 +261,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
 
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <M
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -295,7 +296,7 @@ function DropdownMenu({ menu, isOpen, onOpen, onClose }: { menu: MenuConfig; isO
                 })}
               </div>
             </div>
-          </motion.div>
+          </M>
         )}
       </AnimatePresence>
     </div>
@@ -338,20 +339,20 @@ export default function Navbar() {
       >
         <AnimatePresence mode="wait">
           {isMobileMenuOpen ? (
-            <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
+            <M key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
               <X className="w-6 h-6" />
-            </motion.div>
+            </M>
           ) : (
-            <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
+            <M key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
               <Menu className="w-6 h-6" />
-            </motion.div>
+            </M>
           )}
         </AnimatePresence>
       </button>
 
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <M
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -386,7 +387,7 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </M>
         )}
       </AnimatePresence>
     </NavbarContainer>

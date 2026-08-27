@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -361,7 +362,7 @@ export default function PageClient() {
     <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
       <Box className="max-w-6xl mx-auto">
         {/* Hero */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -390,10 +391,10 @@ export default function PageClient() {
               </Button>
             </Link>
           </Box>
-        </motion.div>
+        </M>
 
         {/* SDKs */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
@@ -405,7 +406,7 @@ export default function PageClient() {
           </Box>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {sdks.map((sdk, i) => (
-              <motion.div
+              <M
                 key={sdk.language}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -453,7 +454,7 @@ export default function PageClient() {
                     Docs <BookOpen className="w-3 h-3" />
                   </Box>
                 </Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
           <Box className="mt-4 text-center">
@@ -461,10 +462,10 @@ export default function PageClient() {
               View detailed SDK guides <ArrowRight className="w-3 h-3" />
             </Link>
           </Box>
-        </motion.div>
+        </M>
 
         {/* API Reference */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -478,7 +479,7 @@ export default function PageClient() {
             {apis.map((api, i) => {
               const Icon = api.icon;
               return (
-                <motion.a
+                <M tag="a"
                   key={api.title}
                   href={api.docs}
                   target="_blank"
@@ -497,7 +498,7 @@ export default function PageClient() {
                   </Box>
                   <Box tag="p" className="text-xs font-mono text-muted-foreground mb-2">{api.domain}</Box>
                   <Box tag="p" className="text-sm text-muted-foreground">{api.description}</Box>
-                </motion.a>
+                </M>
               );
             })}
           </Box>
@@ -506,10 +507,10 @@ export default function PageClient() {
               View full API reference <ArrowRight className="w-3 h-3" />
             </Link>
           </Box>
-        </motion.div>
+        </M>
 
         {/* Quick Start */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -545,10 +546,10 @@ export default function PageClient() {
               </Box>
             </Box>
           </Box>
-        </motion.div>
+        </M>
 
         {/* Projects */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -562,7 +563,7 @@ export default function PageClient() {
             {projects.map((project, i) => {
               const Icon = project.icon;
               return (
-                <motion.a
+                <M tag="a"
                   key={project.name}
                   href={`https://github.com/zooai/${project.repo}`}
                   target="_blank"
@@ -587,14 +588,14 @@ export default function PageClient() {
                     <Github className="w-3 h-3" />
                     <Box tag="span" className="font-mono">zooai/{project.repo}</Box>
                   </Box>
-                </motion.a>
+                </M>
               );
             })}
           </Box>
-        </motion.div>
+        </M>
 
         {/* Infrastructure */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
@@ -608,7 +609,7 @@ export default function PageClient() {
             {infrastructure.map((item, i) => {
               const Icon = item.icon;
               return (
-                <motion.a
+                <M tag="a"
                   key={item.title}
                   href={item.href}
                   target="_blank"
@@ -624,14 +625,14 @@ export default function PageClient() {
                   <Icon className="w-6 h-6 text-muted-foreground mb-3" />
                   <Box tag="h3" className="text-lg font-semibold mb-2 group-hover:underline">{item.title}</Box>
                   <Box tag="p" className="text-sm text-muted-foreground">{item.description}</Box>
-                </motion.a>
+                </M>
               );
             })}
           </Box>
-        </motion.div>
+        </M>
 
         {/* CTA */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -656,7 +657,7 @@ export default function PageClient() {
               </Button>
             </a>
           </Box>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

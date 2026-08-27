@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -237,7 +238,7 @@ export default function PageClient() {
     <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
       <Box className="max-w-5xl mx-auto">
         {/* Breadcrumb + Hero */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -255,10 +256,10 @@ export default function PageClient() {
             KMS. All LLM endpoints are OpenAI-compatible — switch your base URL
             and use your existing code.
           </Box>
-        </motion.div>
+        </M>
 
         {/* OpenAI Compatibility Note */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.05 }}
@@ -283,10 +284,10 @@ client = OpenAI(
 # All OpenAI SDK methods work as-is`}
             label="Drop-in replacement"
           />
-        </motion.div>
+        </M>
 
         {/* Base URLs */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
@@ -316,10 +317,10 @@ client = OpenAI(
               </Box>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* Authentication */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.15 }}
@@ -341,10 +342,10 @@ client = OpenAI(
               </div>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* Endpoints */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -385,10 +386,10 @@ client = OpenAI(
               </div>
             ))}
           </Box>
-        </motion.div>
+        </M>
 
         {/* Rate Limits */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.25 }}
@@ -428,10 +429,10 @@ client = OpenAI(
               <Box tag="code" className="font-mono">x-ratelimit-reset-requests</Box>
             </Box>
           </Box>
-        </motion.div>
+        </M>
 
         {/* Error Codes */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -474,10 +475,10 @@ client = OpenAI(
               label="Error response body"
             />
           </Box>
-        </motion.div>
+        </M>
 
         {/* CTA */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.35 }}
@@ -495,7 +496,7 @@ client = OpenAI(
               View SDKs <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
-        </motion.div>
+        </M>
       </Box>
     </Box>
   );

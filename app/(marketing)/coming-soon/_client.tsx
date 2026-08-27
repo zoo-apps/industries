@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -12,7 +13,7 @@ export default function PageClient() {
     <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -40,7 +41,7 @@ export default function PageClient() {
                 Contact Us
               </Button>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

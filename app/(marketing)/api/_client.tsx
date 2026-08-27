@@ -1,6 +1,7 @@
 'use client'
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
@@ -108,7 +109,7 @@ export default function PageClient() {
       {/* Hero */}
       <Box tag="section" className="py-24 px-4">
         <Box className="max-w-5xl mx-auto text-center">
-          <motion.div {...fade} transition={{ duration: 0.5 }}>
+          <M {...fade} transition={{ duration: 0.5 }}>
             <Box tag="span" className="inline-block mt-6 mb-6 text-sm md:text-base font-extrabold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-2">
               Zen Model API
             </Box>
@@ -140,24 +141,24 @@ export default function PageClient() {
                 </Box>
               </Link>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
 
       {/* Modalities */}
       <Box tag="section" className="py-16 px-4 md:px-8">
         <Box className="max-w-7xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-yellow text-lg md:text-2xl">Modalities</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               One SDK across eight modalities — pick the model, keep the contract.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {modalities.map((m, i) => {
               const Icon = m.icon
               return (
-                <motion.div
+                <M
                   key={m.label}
                   {...fade}
                   transition={{ duration: 0.4, delay: i * 0.04 }}
@@ -170,7 +171,7 @@ export default function PageClient() {
                     <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{m.label}</Box>
                   </Box>
                   <Box tag="p" className="text-sm md:text-base font-medium text-black/80">{m.desc}</Box>
-                </motion.div>
+                </M>
               )
             })}
           </Box>
@@ -180,7 +181,7 @@ export default function PageClient() {
       {/* Ecosystem */}
       <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
         <Box className="max-w-7xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-blue text-lg md:text-2xl">How it works</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               The API is the surface. The ecosystem is the leverage.
@@ -191,10 +192,10 @@ export default function PageClient() {
               attribution, and a revenue split designed so the people who built the
               models actually get paid.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {ecosystemPoints.map((card, i) => (
-              <motion.div
+              <M
                 key={card.h}
                 {...fade}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
@@ -203,7 +204,7 @@ export default function PageClient() {
               >
                 <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">{card.h}</Box>
                 <Box tag="p" className="text-sm md:text-base font-medium">{card.p}</Box>
-              </motion.div>
+              </M>
             ))}
           </Box>
         </Box>
@@ -212,12 +213,12 @@ export default function PageClient() {
       {/* Endpoints */}
       <Box tag="section" className="py-16 px-4 md:px-8">
         <Box className="max-w-6xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-green text-lg md:text-2xl">Endpoints</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               REST + streaming. OpenAI-compatible where it matters.
             </Box>
-          </motion.div>
+          </M>
           <Box className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] overflow-hidden">
             <Box tag="table" className="w-full text-left text-sm md:text-base">
               <Box tag="thead" className="bg-black text-white">
@@ -248,12 +249,12 @@ export default function PageClient() {
       {/* Quick start */}
       <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
         <Box className="max-w-5xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-8">
             <Box tag="span" className="pill pill-cyan text-lg md:text-2xl">Quick start</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Three lines and the OpenAI SDK you already have.
             </Box>
-          </motion.div>
+          </M>
           <Box className="bg-black border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-6 overflow-x-auto">
             <Box tag="pre" className="text-sm md:text-base text-[var(--brand-green)] font-mono">{codeExample}</Box>
           </Box>
@@ -263,12 +264,12 @@ export default function PageClient() {
       {/* Authentication & identity */}
       <Box tag="section" className="py-16 px-4 md:px-8">
         <Box className="max-w-7xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-red text-lg md:text-2xl">Authentication</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Two ways to prove you are you.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
             <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
               <Box className="flex items-center gap-3 mb-3">
@@ -303,12 +304,12 @@ export default function PageClient() {
       {/* Pricing */}
       <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
         <Box className="max-w-6xl mx-auto">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+          <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
             <Box tag="span" className="pill pill-yellow text-lg md:text-2xl">Pricing</Box>
             <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Pay for tokens. 25% of that pays the people who built the model.
             </Box>
-          </motion.div>
+          </M>
           <Box className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
             <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
               <Box className="text-3xl md:text-4xl font-extrabold mb-2">$0</Box>

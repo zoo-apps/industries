@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useMemo } from "react";
@@ -1030,7 +1031,7 @@ const [searchQuery, setSearchQuery] = useState("");
             }}
           />
           <Box className="max-w-5xl mx-auto text-center relative z-10">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -1045,7 +1046,7 @@ const [searchQuery, setSearchQuery] = useState("");
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
                 All papers are CC BY 4.0 licensed and available on GitHub.
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
@@ -1057,7 +1058,7 @@ const [searchQuery, setSearchQuery] = useState("");
               {researchAreas.map((area, index) => {
                 const Icon = area.icon;
                 return (
-                  <motion.div
+                  <M
                     key={area.title}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -1072,7 +1073,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     >
                       Learn more <ArrowRight className="w-3 h-3" />
                     </Link>
-                  </motion.div>
+                  </M>
                 );
               })}
             </Box>
@@ -1103,7 +1104,7 @@ const [searchQuery, setSearchQuery] = useState("");
 
             <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {openSourceProjects.map((project, index) => (
-                <motion.a
+                <M tag="a"
                   key={project.name}
                   href={project.href}
                   target="_blank"
@@ -1130,7 +1131,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     </Box>
                     <span>⭐ {project.stars}</span>
                   </Box>
-                </motion.a>
+                </M>
               ))}
             </Box>
           </Box>
@@ -1270,7 +1271,7 @@ const [searchQuery, setSearchQuery] = useState("");
 
             <Box className="space-y-4">
               {filteredPapers.map((paper, index) => (
-                <motion.a
+                <M tag="a"
                   key={`${paper.title}-${index}`}
                   href={paper.link}
                   target="_blank"
@@ -1318,7 +1319,7 @@ const [searchQuery, setSearchQuery] = useState("");
                     </Box>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 text-black/60" />
                   </Box>
-                </motion.a>
+                </M>
               ))}
             </Box>
 

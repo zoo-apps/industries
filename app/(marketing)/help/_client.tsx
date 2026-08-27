@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -143,7 +144,7 @@ export default function PageClient() {
         {/* Hero Section */}
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -172,14 +173,14 @@ export default function PageClient() {
                   )}
                 />
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
         {/* Documentation Links */}
         <Box tag="section" className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -188,13 +189,13 @@ export default function PageClient() {
             >
               <Box tag="h2" className="text-3xl font-bold mb-4">Documentation</Box>
               <Box tag="p" className={cn("text-muted-foreground")}>Explore our comprehensive documentation and guides</Box>
-            </motion.div>
+            </M>
 
             <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {documentationLinks.map((doc, index) => {
                 const Icon = doc.icon;
                 return (
-                  <motion.a
+                  <M tag="a"
                     key={doc.title}
                     href={doc.href}
                     target="_blank"
@@ -218,7 +219,7 @@ export default function PageClient() {
                       {doc.title}
                     </Box>
                     <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{doc.description}</Box>
-                  </motion.a>
+                  </M>
                 );
               })}
             </Box>
@@ -228,7 +229,7 @@ export default function PageClient() {
         {/* FAQ Section */}
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -237,11 +238,11 @@ export default function PageClient() {
             >
               <Box tag="h2" className="text-3xl font-bold mb-4">Frequently Asked Questions</Box>
               <Box tag="p" className={cn("text-muted-foreground")}>Quick answers to common questions</Box>
-            </motion.div>
+            </M>
 
             <Box className="grid lg:grid-cols-2 gap-8">
               {faqs.map((category, categoryIndex) => (
-                <motion.div
+                <M
                   key={category.category}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -272,7 +273,7 @@ export default function PageClient() {
                       </AccordionItem>
                     ))}
                   </Accordion>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>
@@ -281,7 +282,7 @@ export default function PageClient() {
         {/* Contact Support Section */}
         <Box tag="section" className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -290,10 +291,10 @@ export default function PageClient() {
             >
               <Box tag="h2" className="text-3xl font-bold mb-4">Need More Help?</Box>
               <Box tag="p" className={cn("text-muted-foreground")}>Our support team is here to assist you</Box>
-            </motion.div>
+            </M>
 
             <Box className="grid md:grid-cols-3 gap-6">
-              <motion.div
+              <M
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
@@ -315,9 +316,9 @@ export default function PageClient() {
                     Start Chat
                   </Button>
                 </a>
-              </motion.div>
+              </M>
 
-              <motion.div
+              <M
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -342,9 +343,9 @@ export default function PageClient() {
                     support@zoo.ngo
                   </Button>
                 </a>
-              </motion.div>
+              </M>
 
-              <motion.div
+              <M
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
@@ -369,7 +370,7 @@ export default function PageClient() {
                     Join Discord
                   </Button>
                 </a>
-              </motion.div>
+              </M>
             </Box>
           </Box>
         </Box>
@@ -377,7 +378,7 @@ export default function PageClient() {
         {/* Enterprise Support */}
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -422,7 +423,7 @@ export default function PageClient() {
                   </Box>
                 </Box>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
       </Box>

@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -481,7 +482,7 @@ export default function PageClient({
         {/* Hero Section */}
         <Box tag="section" className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
           <Box className="max-w-5xl mx-auto text-center">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -507,7 +508,7 @@ export default function PageClient({
                   </Box>
                 </a>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
@@ -545,7 +546,7 @@ export default function PageClient({
               className={cn("py-20 px-4 scroll-mt-24", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
             >
               <Box className="max-w-6xl mx-auto">
-                <motion.div
+                <M
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -557,11 +558,11 @@ export default function PageClient({
                     <Box tag="h2" className="text-3xl font-bold">{family.title}</Box>
                   </Box>
                   <Box tag="p" className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</Box>
-                </motion.div>
+                </M>
 
                 <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {family.models.map((model, index) => (
-                    <motion.a
+                    <M tag="a"
                       key={model.name}
                       href={model.href}
                       target={(model as any).requestAccess ? undefined : "_blank"}
@@ -606,7 +607,7 @@ export default function PageClient({
                           {model.memory}
                         </Box>
                       </Box>
-                    </motion.a>
+                    </M>
                   ))}
                 </Box>
               </Box>
@@ -617,7 +618,7 @@ export default function PageClient({
         {/* Capabilities Matrix */}
         <Box tag="section" className={cn("py-20 px-4", "bg-foreground/5")}>
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -628,7 +629,7 @@ export default function PageClient({
               <Box tag="p" className="text-muted-foreground">
                 Each model specializes in different modalities and tasks
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="overflow-x-auto">
               <Box tag="table" className="w-full text-sm">
@@ -666,7 +667,7 @@ export default function PageClient({
         {/* Infrastructure */}
         <Box tag="section" className="py-20 px-4">
           <Box className="max-w-6xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -677,13 +678,13 @@ export default function PageClient({
               <Box tag="p" className={cn("text-muted-foreground")}>
                 Production-ready tools for training and deploying Zen models
               </Box>
-            </motion.div>
+            </M>
 
             <Box className="grid md:grid-cols-3 gap-8">
               {infrastructure.map((tool, index) => {
                 const ToolIcon = tool.icon;
                 return (
-                  <motion.a
+                  <M tag="a"
                     key={tool.name}
                     href={tool.href}
                     target="_blank"
@@ -701,7 +702,7 @@ export default function PageClient({
                       {tool.name}
                     </Box>
                     <Box tag="p" className="text-sm text-black/70">{tool.description}</Box>
-                  </motion.a>
+                  </M>
                 );
               })}
             </Box>
@@ -711,7 +712,7 @@ export default function PageClient({
         {/* Code Example */}
         <Box tag="section" className={cn("py-20 px-4", "bg-foreground/5")}>
           <Box className="max-w-4xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -720,9 +721,9 @@ export default function PageClient({
             >
               <Box tag="h2" className="text-3xl font-bold mb-4">Quick Start</Box>
               <Box tag="p" className={cn("text-muted-foreground")}>Get started with any Zen model in seconds</Box>
-            </motion.div>
+            </M>
 
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -748,7 +749,7 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Hello!"}]
 )`}
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 

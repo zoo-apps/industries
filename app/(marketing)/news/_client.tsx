@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
@@ -179,7 +180,7 @@ export default function PageClient() {
         {/* Hero Section */}
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -195,14 +196,14 @@ export default function PageClient() {
               <Box tag="p" className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Stay up to date with product launches, company milestones, partnerships, and research breakthroughs.
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
 
         {/* Timeline Section */}
         <Box tag="section" className={cn("py-24 px-4", "bg-foreground/5")}>
           <Box className="max-w-7xl mx-auto">
-            <motion.h2
+            <M tag="h2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -210,7 +211,7 @@ export default function PageClient() {
               className="text-3xl font-bold mb-12"
             >
               Timeline
-            </motion.h2>
+            </M>
 
             <Box className="relative">
               {/* Timeline line */}
@@ -218,7 +219,7 @@ export default function PageClient() {
 
               {announcements.map((month, monthIndex) => (
                 <Box key={month.date} className="mb-16">
-                  <motion.div
+                  <M
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: monthIndex * 0.1 }}
@@ -229,11 +230,11 @@ export default function PageClient() {
                     <Box className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
                       <Box tag="span" className="text-xl font-bold">{month.date}</Box>
                     </Box>
-                  </motion.div>
+                  </M>
 
                   <Box className="space-y-6 ml-8 md:ml-0">
                     {month.items.map((item, itemIndex) => (
-                      <motion.div
+                      <M
                         key={item.title}
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -269,7 +270,7 @@ export default function PageClient() {
                             <ExternalLink className="w-3 h-3" />
                           </Box>
                         </Box>
-                      </motion.div>
+                      </M>
                     ))}
                   </Box>
                 </Box>
@@ -281,7 +282,7 @@ export default function PageClient() {
         {/* Press Releases Section */}
         <Box tag="section" className="py-24 px-4">
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -295,11 +296,11 @@ export default function PageClient() {
               <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                 View All
               </Button>
-            </motion.div>
+            </M>
 
             <Box className="grid gap-6">
               {pressReleases.map((release, index) => (
-                <motion.div
+                <M
                   key={release.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -326,7 +327,7 @@ export default function PageClient() {
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>
                   </Box>
-                </motion.div>
+                </M>
               ))}
             </Box>
           </Box>
@@ -335,7 +336,7 @@ export default function PageClient() {
         {/* Media Contact */}
         <Box tag="section" className={cn("py-24 px-4", "bg-foreground/5")}>
           <Box className="max-w-7xl mx-auto">
-            <motion.div
+            <M
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -358,7 +359,7 @@ export default function PageClient() {
                   Download Press Kit
                 </Button>
               </Box>
-            </motion.div>
+            </M>
           </Box>
         </Box>
       </Box>

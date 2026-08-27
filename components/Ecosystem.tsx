@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 
 const fade = {
@@ -25,13 +26,13 @@ export default function Ecosystem() {
     <Box tag="section" className="py-20 px-4 md:px-8">
       <Box className="max-w-7xl mx-auto">
         {/* ── Foundation header ───────────────────────────── */}
-        <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
+        <M {...fade} transition={{ duration: 0.5 }} className="mb-10">
           <Box tag="span" className="pill pill-rainbow text-2xl md:text-4xl">
             FOUNDATION
           </Box>
-        </motion.div>
+        </M>
 
-        <motion.div
+        <M
           {...fade}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-12"
@@ -68,10 +69,10 @@ export default function Ecosystem() {
               </p>
             </Box>
           </Box>
-        </motion.div>
+        </M>
 
         {/* ── Image strip ─────────────────────────────────── */}
-        <motion.div
+        <M
           {...fade}
           transition={{ duration: 0.5, delay: 0.12 }}
           className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 mb-14"
@@ -89,12 +90,12 @@ export default function Ecosystem() {
               />
             </Box>
           ))}
-        </motion.div>
+        </M>
 
         {/* ── Three category blocks ───────────────────────── */}
         <Box className="grid md:grid-cols-3 gap-10">
           {/* $ZOO Network */}
-          <motion.div {...fade} transition={{ duration: 0.5, delay: 0.15 }}>
+          <M {...fade} transition={{ duration: 0.5, delay: 0.15 }}>
             <Box className="mb-6 flex items-center gap-2">
               <Box tag="span" className="pill pill-green text-lg md:text-xl">
                 $ZOO NETWORK
@@ -120,10 +121,10 @@ export default function Ecosystem() {
                 beyond crypto-native investors.
               </p>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Zoo Industries */}
-          <motion.div {...fade} transition={{ duration: 0.5, delay: 0.25 }}>
+          <M {...fade} transition={{ duration: 0.5, delay: 0.25 }}>
             <Box className="mb-6">
               <Box tag="span" className="pill pill-pink text-lg md:text-xl">
                 ZOO INDUSTRIES
@@ -148,10 +149,10 @@ export default function Ecosystem() {
                 reduce plutocratic influence.
               </p>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Zoo Labs */}
-          <motion.div {...fade} transition={{ duration: 0.5, delay: 0.35 }}>
+          <M {...fade} transition={{ duration: 0.5, delay: 0.35 }}>
             <Box className="mb-6">
               <Box tag="span" className="pill pill-blue text-lg md:text-xl text-white">
                 ZOO LABS
@@ -171,7 +172,7 @@ export default function Ecosystem() {
                 ultimately enhance your live cognition and memory.
               </p>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>

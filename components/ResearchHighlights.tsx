@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Brain, Shield, Network, Sparkles } from "lucide-react";
@@ -82,7 +83,7 @@ export default function ResearchHighlights() {
       <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Section header — brutalist eyebrow + big title ────── */}
-        <motion.div
+        <M
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -91,7 +92,7 @@ export default function ResearchHighlights() {
         >
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Research at the frontier
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -107,12 +108,12 @@ export default function ResearchHighlights() {
             Our research teams investigate the safety, efficiency, and societal
             impacts of AI.
           </Box>
-        </motion.div>
+        </M>
 
         {/* ─── Research areas — 4 brutalist panels ────────────── */}
         <Box className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
           {researchAreas.map((area, i) => (
-            <motion.div
+            <M
               key={area.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -167,7 +168,7 @@ export default function ResearchHighlights() {
                   strokeWidth={2.5}
                 />
               </Link>
-            </motion.div>
+            </M>
           ))}
         </Box>
 
@@ -175,7 +176,7 @@ export default function ResearchHighlights() {
         <div>
           <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Latest publications
-            <motion.span
+            <M tag="span"
               aria-hidden
               initial={{ scaleX: 0 }}
               whileInView={{ scaleX: 1 }}
@@ -186,7 +187,7 @@ export default function ResearchHighlights() {
           </Box>
           <Box className="border-2 border-black bg-white/60 divide-y-2 divide-black shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
             {featuredPapers.map((p, i) => (
-              <motion.a
+              <M tag="a"
                 key={p.title}
                 href={p.href}
                 target="_blank"
@@ -217,7 +218,7 @@ export default function ResearchHighlights() {
                   aria-hidden
                   className="hidden sm:block w-5 h-5 mt-1 shrink-0 text-foreground opacity-40 group-hover:opacity-100 transition-opacity"
                 />
-              </motion.a>
+              </M>
             ))}
           </Box>
         </div>

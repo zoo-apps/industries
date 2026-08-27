@@ -1,6 +1,7 @@
 "use client";
 
 import { Box } from '@hanzo/ui'
+import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -119,7 +120,7 @@ export default function PageClient() {
       <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -131,10 +132,10 @@ export default function PageClient() {
             <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
             </Box>
-          </motion.div>
+          </M>
 
           {/* Success Metrics */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -157,14 +158,14 @@ export default function PageClient() {
               <Box className="text-3xl font-bold mb-2">4</Box>
               <Box className={cn("text-sm", "text-muted-foreground")}>Research Organizations</Box>
             </Box>
-          </motion.div>
+          </M>
 
           {/* Case Studies Grid */}
           <Box className="space-y-12">
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               return (
-                <motion.a
+                <M tag="a"
                   key={study.title}
                   href={study.link}
                   target="_blank"
@@ -217,13 +218,13 @@ export default function PageClient() {
                       </Box>
                     </div>
                   </Box>
-                </motion.a>
+                </M>
               );
             })}
           </Box>
 
           {/* CTA Section */}
-          <motion.div
+          <M
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.1 }}
@@ -252,7 +253,7 @@ export default function PageClient() {
                 Open Source
               </Box>
             </Box>
-          </motion.div>
+          </M>
         </Box>
       </Box>
     </Box>
