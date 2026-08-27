@@ -12,8 +12,8 @@ importers:
         specifier: ^0.5.21
         version: 0.5.21
       '@hanzo/ui':
-        specifier: ^8.15.0
-        version: 8.15.0(5311953087f8f76675afbf629fc9353c)
+        specifier: ^8.17.1
+        version: 8.17.1(5311953087f8f76675afbf629fc9353c)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.76.0(react@19.2.6))
@@ -524,8 +524,8 @@ packages:
       react:
         optional: true
 
-  '@hanzo/ui@8.15.0':
-    resolution: {integrity: sha512-ddU/H4UlO19WXVZJq1hTy+McHFasi2WjCQUuhTIlSLEY3OGmTm+Ce1M8LwUlrU1O8sBSVl9UylohjhqrrfdcpQ==}
+  '@hanzo/ui@8.17.1':
+    resolution: {integrity: sha512-WDw37DkMlFDcpG6ThomZGTi5m51V1cObxl+lmk31EqoiJz8zXx+3GA/XMVttIyBkqYBnASb+ClwLEdQ/pU8FhQ==}
     peerDependencies:
       '@hanzo/canvas': '>=0.1.0'
       '@hanzo/cd': '>=0.1.0'
@@ -3581,7 +3581,7 @@ snapshots:
       '@hanzogui/lucide-icons-2': 8.2.1(react-dom@19.2.6(react@19.2.6))(react-native-svg@15.15.5(react-native@0.87.1(@babel/core@7.29.7)(@react-native/metro-config@0.87.1(@babel/core@7.29.7))(@types/react@19.2.14)(react@19.2.6))(react@19.2.6))(react@19.2.6)
       react: 19.2.6
 
-  '@hanzo/ui@8.15.0(5311953087f8f76675afbf629fc9353c)':
+  '@hanzo/ui@8.17.1(5311953087f8f76675afbf629fc9353c)':
     dependencies:
       '@hanzo/appearance': 0.2.2(react@19.2.6)
       '@hanzo/brand': 1.4.7(react@19.2.6)
