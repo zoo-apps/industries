@@ -109,14 +109,20 @@ test('Command palette opens with Cmd+K', async ({ page }) => {
   await expect(page.getByPlaceholder('Search pages, products, docs...')).not.toBeVisible();
 });
 
-test('Fonts load correctly (Geist family)', async ({ page }) => {
+test('Zen is the family the body actually renders in', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
 
-  // Check that body uses Geist font
-  const fontFamily = await page.evaluate(() => {
-    return window.getComputedStyle(document.body).fontFamily;
+  // Naming the family is half of it; the assertion that matters is that the face
+  // ARRIVED. `sans-serif` alone used to satisfy this test, so it passed just as
+  // happily when nothing loaded and the page fell back to the platform's own sans.
+  const { fontFamily, loaded } = await page.evaluate(async () => {
+    await document.fonts.ready;
+    return {
+      fontFamily: window.getComputedStyle(document.body).fontFamily,
+      loaded: document.fonts.check('1rem Zen'),
+    };
   });
 
-  // Should contain Geist or system fonts (fallback)
-  expect(fontFamily.toLowerCase()).toMatch(/geist|system-ui|sans-serif/);
+  expect(fontFamily.toLowerCase()).toContain('zen');
+  expect(loaded).toBe(true);
 });

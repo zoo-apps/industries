@@ -11,7 +11,7 @@ import {
 import { cn } from "@/lib/utils";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue
-} from "@/components/ui/select";
+} from '@hanzo/ui';
 
 interface Job {
   id: string;

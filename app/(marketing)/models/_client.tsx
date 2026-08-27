@@ -25,7 +25,6 @@ import type { FamilyData } from "./page";
 
 // Icon lookup by family ID — icons are client-only (React components)
 const FAMILY_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
-  zen5:       Zap,
   zen5:       Sparkles,
   code:       Code,
   zen3:       Brain,
@@ -42,63 +41,10 @@ const FAMILY_ICONS: Record<string, React.ComponentType<{ className?: string }>> 
 // All model data is now served server-side from @zenlm/models via page.tsx.
 // This block is intentionally unreachable. --------------------------------
 const _unused_modelFamilies = {
-  zen5: {
-    title: "Zen 5 — Next Generation",
-    icon: Zap,
-    description: "Fifth-generation agentic models with MoDE (Mixture of Diverse Experts) and native chain-of-thought reasoning",
-    models: [
-      {
-        name: "zen5",
-        params: "TBA",
-        description: "Agentic frontier model with native chain-of-thought",
-        performance: "1M+ context",
-        memory: "MoDE + CoT",
-        capabilities: ["Text", "Code", "Reasoning", "Agents", "CoT"],
-        href: "https://zoo.ngo/research-access",
-        requestAccess: true,
-      },
-      {
-        name: "zen5-pro",
-        params: "TBA",
-        description: "High-throughput agentic model for production",
-        performance: "512K context",
-        memory: "MoDE + CoT",
-        capabilities: ["Text", "Code", "Reasoning", "Production"],
-        href: "https://zoo.ngo/research-access",
-        requestAccess: true,
-      },
-      {
-        name: "zen5-max",
-        params: "TBA",
-        description: "Maximum context for document-scale analysis",
-        performance: "2M context",
-        memory: "MoDE + CoT",
-        capabilities: ["Text", "Long Context", "Analysis", "Reasoning"],
-        href: "https://zoo.ngo/research-access",
-        requestAccess: true,
-      },
-      {
-        name: "zen5-ultra",
-        params: "TBA",
-        description: "Deepest reasoning with self-verification",
-        performance: "1M context",
-        memory: "MoDE + Deep CoT",
-        capabilities: ["Text", "Code", "Deep Reasoning", "Verification"],
-        href: "https://zoo.ngo/research-access",
-        requestAccess: true,
-      },
-      {
-        name: "zen5-mini",
-        params: "TBA",
-        description: "Efficient agentic model, zen5-class intelligence",
-        performance: "256K context",
-        memory: "MoDE + CoT",
-        capabilities: ["Text", "Code", "Agents", "Efficient"],
-        href: "https://zoo.ngo/research-access",
-        requestAccess: true,
-      },
-    ],
-  },
+    // NOTE: a second `zen5` key further down shadowed the block that was
+    // here — "Zen 5 — Next Generation" (MoDE, chain-of-thought). A later key
+    // wins, so that copy never rendered. Removed as unreachable; it is in
+    // git history if it was the one meant to show.
   zen5: {
     title: "Zen 5 — Flagship",
     icon: Sparkles,

@@ -70,8 +70,11 @@
 }
 
 @theme {
-  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  /* Zen. The faces come from @hanzo/design (imported in layout.tsx); this is the
+     one place the family is named, and Tailwind builds `font-sans`/`font-mono`
+     from it. */
+  --font-sans: 'Zen', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Zen Mono', ui-monospace, monospace;
   --radius: 0.25rem;
 
   --color-background: var(--background);
