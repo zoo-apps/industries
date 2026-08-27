@@ -1,14 +1,3 @@
-@import "tailwindcss";
-@plugin "tailwindcss-animate";
-
-/* Tailwind v4 defaults the ``dark:`` variant to ``@media (prefers-color-
-   scheme: dark)``, which means OS-level dark mode triggers it regardless
-   of what next-themes sets on <html>. Rebind it to a class-based variant
-   so ``forcedTheme="light"`` in the layout actually wins — without this,
-   the navbar's ``dark:bg-black/70`` activated whenever the visitor's OS
-   was in dark mode and the bar rendered as a dark overlay on production. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
   /* Iridescent pastel gradient — applied via body background-image. The
      token is transparent so sections using bg-background let the gradient
@@ -69,33 +58,15 @@
   --ring: #ffffff;
 }
 
-@theme {
-  /* Zen. The faces come from @hanzo/design (imported in layout.tsx); this is the
-     one place the family is named, and Tailwind builds `font-sans`/`font-mono`
-     from it. */
+/* The family and the corner. These sat inside `@theme`, which existed only so
+   Tailwind could build `font-sans`/`font-mono` from them — the values are the
+   same, and `tw()` reads these names directly. The nineteen
+   `--color-x: var(--x)` aliases beside them went with the engine: the real
+   tokens are declared in :root above. */
+:root {
   --font-sans: 'Zen', system-ui, -apple-system, sans-serif;
   --font-mono: 'Zen Mono', ui-monospace, monospace;
   --radius: 0.25rem;
-
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
 }
 
 html {
@@ -110,7 +81,25 @@ html:not(.dark) {
   color-scheme: light;
 }
 
+/* ── Base ────────────────────────────────────────────────────────────────
+   The utility engine shipped a reset; removing it hands the document back to
+   browser defaults — list markers, heading margins, button chrome, link blue.
+   These are those defaults, stated. */
+*, *::before, *::after { box-sizing: border-box }
+h1, h2, h3, h4, h5, h6, p, figure, blockquote { margin: 0 }
+ol, ul { list-style: none; margin: 0; padding: 0 }
+button { background: transparent; color: inherit; border: 0; padding: 0; font: inherit; cursor: pointer }
+a { color: inherit; text-decoration: none }
+img, svg, video, canvas { display: block; max-width: 100% }
+input, textarea, select { font: inherit; color: inherit }
+
 body {
+  /* One column, floored at 0 so long content wraps rather than widening the
+     page, and one 1fr row so a short page still fills the viewport. */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  min-height: 100dvh;
   color: var(--foreground);
   font-family: var(--font-sans);
   background-color: var(--background-fallback, #f5e8c8);
