@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Code2, Terminal, FileCode, Package, Rocket, BookOpen, Cpu, Lock, Users, Zap, Globe } from "lucide-react";
@@ -185,9 +186,9 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -195,12 +196,12 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
               Code Examples
-            </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Ready-to-use code examples to accelerate your AI development
-            </p>
+            </Box>
           </motion.div>
 
           {/* Quick Links */}
@@ -213,7 +214,7 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             {integrations.map((integration, index) => {
               const Icon = integration.icon;
               return (
-                <a
+                <Box tag="a"
                   key={integration.name}
                   href={integration.link}
                   target="_blank"
@@ -224,14 +225,14 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                   )}
                 >
                   <Icon className="w-8 h-8 mx-auto mb-2" />
-                  <div className="text-sm font-medium">{integration.name}</div>
-                </a>
+                  <Box className="text-sm font-medium">{integration.name}</Box>
+                </Box>
               );
             })}
           </motion.div>
 
           {/* Code Examples */}
-          <div className="space-y-12">
+          <Box className="space-y-12">
             {examples.map((example, index) => {
               const Icon = example.icon;
               return (
@@ -245,33 +246,33 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                     "bg-foreground/5 border-border"
                   )}
                 >
-                  <div className={cn("p-6 border-b", "border-border")}>
-                    <div className="flex items-center space-x-3">
+                  <Box className={cn("p-6 border-b", "border-border")}>
+                    <Box className="flex items-center space-x-3">
                       <Icon className="w-6 h-6" />
-                      <h3 className="text-xl font-semibold">{example.title}</h3>
-                    </div>
-                    <p className={cn("mt-2", "text-muted-foreground")}>{example.description}</p>
-                  </div>
+                      <Box tag="h3" className="text-xl font-semibold">{example.title}</Box>
+                    </Box>
+                    <Box tag="p" className={cn("mt-2", "text-muted-foreground")}>{example.description}</Box>
+                  </Box>
 
-                  <div className="relative">
-                    <div className="absolute top-4 right-4">
-                      <span className={cn(
+                  <Box className="relative">
+                    <Box className="absolute top-4 right-4">
+                      <Box tag="span" className={cn(
                         "text-xs px-2 py-1 rounded",
                         "text-muted-foreground bg-foreground/10"
                       )}>
                         {example.language}
-                      </span>
-                    </div>
-                    <pre className="p-6 overflow-x-auto">
-                      <code className={cn("text-sm whitespace-pre", "text-muted-foreground")}>
+                      </Box>
+                    </Box>
+                    <Box tag="pre" className="p-6 overflow-x-auto">
+                      <Box tag="code" className={cn("text-sm whitespace-pre", "text-muted-foreground")}>
                         {example.code}
-                      </code>
-                    </pre>
-                  </div>
+                      </Box>
+                    </Box>
+                  </Box>
                 </motion.div>
               );
             })}
-          </div>
+          </Box>
 
           {/* Resources Section */}
           <motion.div
@@ -283,33 +284,33 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
               "bg-gradient-to-r from-white/5 to-transparent border-border"
             )}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Developer Resources</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <Box tag="h2" className="text-3xl font-bold mb-8 text-center">Developer Resources</Box>
+            <Box className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <Terminal className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Interactive Playground</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Test our APIs in your browser</p>
-                <a href="https://playground.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>
+                <Box tag="h3" className="text-xl font-semibold mb-2">Interactive Playground</Box>
+                <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Test our APIs in your browser</Box>
+                <Box tag="a" href="https://playground.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>
                   Try Playground →
-                </a>
+                </Box>
               </div>
               <div>
                 <BookOpen className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">API Reference</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Complete API documentation</p>
-                <a href="https://docs.zoo.ngo/api" className={cn("text-foreground hover:text-muted-foreground")}>
+                <Box tag="h3" className="text-xl font-semibold mb-2">API Reference</Box>
+                <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Complete API documentation</Box>
+                <Box tag="a" href="https://docs.zoo.ngo/api" className={cn("text-foreground hover:text-muted-foreground")}>
                   View Docs →
-                </a>
+                </Box>
               </div>
               <div>
                 <Users className="w-12 h-12 mx-auto mb-4" />
-                <h3 className="text-xl font-semibold mb-2">Community</h3>
-                <p className={cn("mb-4", "text-muted-foreground")}>Join our developer community</p>
-                <a href="https://community.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>
+                <Box tag="h3" className="text-xl font-semibold mb-2">Community</Box>
+                <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>Join our developer community</Box>
+                <Box tag="a" href="https://community.zoo.ngo" className={cn("text-foreground hover:text-muted-foreground")}>
                   Join Discord →
-                </a>
+                </Box>
               </div>
-            </div>
+            </Box>
           </motion.div>
 
           {/* CTA Section */}
@@ -319,14 +320,14 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
             transition={{ duration: 0.5 }}
             className="mt-20 text-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <Box tag="h2" className="text-3xl font-bold mb-6">
               Ready to Build?
-            </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Start building with Zoo Industries today
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+            </Box>
+            <Box className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Box tag="a"
                 href="https://console.zoo.ngo/signup"
                 className={cn(
                   "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
@@ -334,8 +335,8 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 )}
               >
                 Get API Key
-              </a>
-              <a
+              </Box>
+              <Box tag="a"
                 href="https://github.com/zooai"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -345,11 +346,11 @@ print(tokenizer.decode(outputs[0], skip_special_tokens=True))
                 )}
               >
                 View on GitHub
-              </a>
-            </div>
+              </Box>
+            </Box>
           </motion.div>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -152,11 +153,11 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
             transition={{ duration: 0.15 }}
             className="fixed top-[10%] left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] sm:w-[calc(100%-4rem)] max-w-xl z-[101]"
           >
-            <div className={cn(
+            <Box className={cn(
               "border rounded-xl shadow-2xl overflow-hidden",
               "bg-secondary border-border"
             )}>
-              <div className={cn(
+              <Box className={cn(
                 "flex items-center gap-3 px-4 py-3 border-b",
                 "border-border"
               )}>
@@ -173,31 +174,31 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                     "text-foreground placeholder-muted-foreground"
                   )}
                 />
-                <kbd className={cn(
+                <Box tag="kbd" className={cn(
                   "px-2 py-1 text-[10px] font-mono rounded",
                   "bg-foreground/10 text-muted-foreground"
                 )}>
                   ESC
-                </kbd>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="max-h-[400px] overflow-y-auto py-2">
+              <Box className="max-h-[400px] overflow-y-auto py-2">
                 {Object.keys(groupedCommands).length === 0 ? (
-                  <div className={cn(
+                  <Box className={cn(
                     "px-4 py-8 text-center text-sm",
                     "text-muted-foreground"
                   )}>
                     No results found for "{search}"
-                  </div>
+                  </Box>
                 ) : (
                   Object.entries(groupedCommands).map(([category, items]) => (
                     <div key={category}>
-                      <div className={cn(
+                      <Box className={cn(
                         "px-4 py-2 text-[10px] font-semibold uppercase tracking-wider",
                         "text-muted-foreground"
                       )}>
                         {category}
-                      </div>
+                      </Box>
                       {items.map((cmd) => {
                         const Icon = cmd.icon;
                         const index = flatCommands.findIndex((c) => c.id === cmd.id);
@@ -215,7 +216,7 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                                 : "text-muted-foreground hover:bg-accent"
                             )}
                           >
-                            <div className={cn(
+                            <Box className={cn(
                               "w-8 h-8 rounded-lg flex items-center justify-center",
                               isSelected
                                 ? "bg-foreground/15"
@@ -227,26 +228,26 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                                   ? "text-foreground"
                                   : "text-muted-foreground"
                               )} />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2">
-                                <span className="text-sm font-medium truncate">{cmd.title}</span>
+                            </Box>
+                            <Box className="flex-1 min-w-0">
+                              <Box className="flex items-center gap-2">
+                                <Box tag="span" className="text-sm font-medium truncate">{cmd.title}</Box>
                                 {cmd.external && (
                                   <ExternalLink className={cn(
                                     "w-3 h-3",
                                     "text-muted-foreground"
                                   )} />
                                 )}
-                              </div>
+                              </Box>
                               {cmd.description && (
-                                <div className={cn(
+                                <Box className={cn(
                                   "text-xs truncate",
                                   "text-muted-foreground"
                                 )}>
                                   {cmd.description}
-                                </div>
+                                </Box>
                               )}
-                            </div>
+                            </Box>
                             {isSelected && (
                               <ArrowRight className={cn(
                                 "w-4 h-4",
@@ -259,35 +260,35 @@ const CommandPalette: React.FC<CommandPaletteProps> = ({ isOpen, onClose }) => {
                     </div>
                   ))
                 )}
-              </div>
+              </Box>
 
-              <div className={cn(
+              <Box className={cn(
                 "px-4 py-2 border-t flex items-center justify-between",
                 "border-border"
               )}>
-                <div className={cn(
+                <Box className={cn(
                   "flex items-center gap-4 text-[10px]",
                   "text-muted-foreground"
                 )}>
-                  <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>up</kbd>
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>down</kbd>
+                  <Box tag="span" className="flex items-center gap-1">
+                    <Box tag="kbd" className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>up</Box>
+                    <Box tag="kbd" className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>down</Box>
                     Navigate
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <kbd className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>enter</kbd>
+                  </Box>
+                  <Box tag="span" className="flex items-center gap-1">
+                    <Box tag="kbd" className={cn("px-1.5 py-0.5 rounded", "bg-foreground/10")}>enter</Box>
                     Select
-                  </span>
-                </div>
-                <div className={cn(
+                  </Box>
+                </Box>
+                <Box className={cn(
                   "flex items-center gap-1 text-[10px]",
                   "text-muted-foreground"
                 )}>
                   <Command className="w-3 h-3" />
                   <span>K to toggle</span>
-                </div>
-              </div>
-            </div>
+                </Box>
+              </Box>
+            </Box>
           </motion.div>
         </>
       )}

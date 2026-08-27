@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { Globe, Server, Shield, Cpu, Network, Zap, Lock, Database } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -95,9 +96,9 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -105,12 +106,12 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
               Decentralized AI Infrastructure
-            </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Build resilient, distributed AI systems that operate without central points of failure
-            </p>
+            </Box>
           </motion.div>
 
           {/* Key Benefits */}
@@ -121,21 +122,21 @@ export default function PageClient() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
             {benefits.map((benefit, index) => (
-              <div
+              <Box
                 key={index}
                 className={cn(
                   "p-6 rounded-lg text-center border",
                   "bg-foreground/5 border-border"
                 )}
               >
-                <div className="text-3xl font-bold mb-2">{benefit.metric}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>{benefit.label}</div>
-              </div>
+                <Box className="text-3xl font-bold mb-2">{benefit.metric}</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>{benefit.label}</Box>
+              </Box>
             ))}
           </motion.div>
 
           {/* Core Features */}
-          <div className="mb-20">
+          <Box className="mb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -145,7 +146,7 @@ export default function PageClient() {
               Core Capabilities
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
@@ -159,33 +160,33 @@ export default function PageClient() {
                       "bg-foreground/5 border-border"
                     )}
                   >
-                    <div className="flex items-start space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className={cn(
+                    <Box className="flex items-start space-x-4">
+                      <Box className="flex-shrink-0">
+                        <Box className={cn(
                           "w-12 h-12 rounded-lg flex items-center justify-center",
                           "bg-primary"
                         )}>
                           <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                        <p className={cn("mb-4", "text-muted-foreground")}>{feature.description}</p>
-                        <ul className="space-y-2">
+                        </Box>
+                      </Box>
+                      <Box className="flex-1">
+                        <Box tag="h3" className="text-xl font-semibold mb-3">{feature.title}</Box>
+                        <Box tag="p" className={cn("mb-4", "text-muted-foreground")}>{feature.description}</Box>
+                        <Box tag="ul" className="space-y-2">
                           {feature.details.map((detail, idx) => (
-                            <li key={idx} className="flex items-start">
+                            <Box tag="li" key={idx} className="flex items-start">
                               <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
-                              <span className={cn("text-sm", "text-muted-foreground")}>{detail}</span>
-                            </li>
+                              <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{detail}</Box>
+                            </Box>
                           ))}
-                        </ul>
-                      </div>
-                    </div>
+                        </Box>
+                      </Box>
+                    </Box>
                   </motion.div>
                 );
               })}
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* Architecture Diagram Placeholder */}
           <motion.div
@@ -198,15 +199,15 @@ export default function PageClient() {
             )}
           >
             <Network className={cn("w-24 h-24 mx-auto mb-4", "text-foreground/30")} />
-            <h3 className="text-2xl font-semibold mb-4">Decentralized Architecture</h3>
-            <p className={cn("max-w-2xl mx-auto", "text-muted-foreground")}>
+            <Box tag="h3" className="text-2xl font-semibold mb-4">Decentralized Architecture</Box>
+            <Box tag="p" className={cn("max-w-2xl mx-auto", "text-muted-foreground")}>
               Our decentralized AI infrastructure eliminates single points of failure through
               distributed consensus, redundant nodes, and intelligent failover mechanisms.
-            </p>
+            </Box>
           </motion.div>
 
           {/* Use Cases */}
-          <div className="mb-20">
+          <Box className="mb-20">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -216,7 +217,7 @@ export default function PageClient() {
               Industry Applications
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {useCases.map((useCase, index) => {
                 const Icon = useCase.icon;
                 return (
@@ -231,13 +232,13 @@ export default function PageClient() {
                     )}
                   >
                     <Icon className="w-12 h-12 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold mb-2">{useCase.title}</h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{useCase.description}</p>
+                    <Box tag="h3" className="text-lg font-semibold mb-2">{useCase.title}</Box>
+                    <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{useCase.description}</Box>
                   </motion.div>
                 );
               })}
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* Technical Specifications */}
           <motion.div
@@ -249,33 +250,33 @@ export default function PageClient() {
               "bg-gradient-to-r from-white/5 to-transparent border-border"
             )}
           >
-            <h2 className="text-3xl font-bold mb-8 text-center">Technical Specifications</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Box tag="h2" className="text-3xl font-bold mb-8 text-center">Technical Specifications</Box>
+            <Box className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div>
-                <h3 className="text-xl font-semibold mb-4">Consensus Protocol</h3>
-                <ul className="space-y-2">
+                <Box tag="h3" className="text-xl font-semibold mb-4">Consensus Protocol</Box>
+                <Box tag="ul" className="space-y-2">
                   {["Byzantine Fault Tolerant (BFT)", "Practical Byzantine Fault Tolerance", "Raft consensus for coordination", "Custom AI workload consensus"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <Box tag="li" key={item} className={cn("text-muted-foreground")}>• {item}</Box>
                   ))}
-                </ul>
+                </Box>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Network Architecture</h3>
-                <ul className="space-y-2">
+                <Box tag="h3" className="text-xl font-semibold mb-4">Network Architecture</Box>
+                <Box tag="ul" className="space-y-2">
                   {["Peer-to-peer mesh network", "Encrypted communication channels", "Dynamic node discovery", "Load balancing algorithms"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <Box tag="li" key={item} className={cn("text-muted-foreground")}>• {item}</Box>
                   ))}
-                </ul>
+                </Box>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-4">Security Features</h3>
-                <ul className="space-y-2">
+                <Box tag="h3" className="text-xl font-semibold mb-4">Security Features</Box>
+                <Box tag="ul" className="space-y-2">
                   {["End-to-end encryption", "Zero-knowledge proofs", "Secure multi-party computation", "Homomorphic encryption support"].map((item) => (
-                    <li key={item} className={cn("text-muted-foreground")}>• {item}</li>
+                    <Box tag="li" key={item} className={cn("text-muted-foreground")}>• {item}</Box>
                   ))}
-                </ul>
+                </Box>
               </div>
-            </div>
+            </Box>
           </motion.div>
 
           {/* CTA Section */}
@@ -285,14 +286,14 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="text-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <Box tag="h2" className="text-3xl font-bold mb-6">
               Ready to Decentralize Your AI Infrastructure?
-            </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Join the future of resilient, distributed AI systems
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+            </Box>
+            <Box className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Box tag="a"
                 href="/#contact"
                 className={cn(
                   "inline-block px-8 py-4 rounded-lg font-semibold transition-colors",
@@ -300,8 +301,8 @@ export default function PageClient() {
                 )}
               >
                 Get Started
-              </a>
-              <a
+              </Box>
+              <Box tag="a"
                 href="https://docs.google.com/document/d/1mWC6mo9Wd4s3KaWPTF_4QhLqh5lRmzED12wRnLq71Sk/edit?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -311,11 +312,11 @@ export default function PageClient() {
                 )}
               >
                 View Documentation
-              </a>
-            </div>
+              </Box>
+            </Box>
           </motion.div>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }

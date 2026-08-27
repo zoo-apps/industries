@@ -1,15 +1,16 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { cn } from "@/lib/utils";
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
-          <h1 className={cn("text-4xl font-bold mb-8", "text-foreground")}>Privacy Policy</h1>
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background")}>
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className={cn("max-w-4xl mx-auto prose", "prose-invert")}>
+          <Box tag="h1" className={cn("text-4xl font-bold mb-8", "text-foreground")}>Privacy Policy</Box>
 
-          <div className="space-y-8">
+          <Box className="space-y-8">
             <section>
               <h2>Data Controller</h2>
               <p>Zoo Industries, Inc. ("Zoo", "we", "us", or "our") is the data controller for the personal information we process under this policy.</p>
@@ -111,9 +112,9 @@ export default function PageClient() {
                 <li>Address: 131 Continental Dr, Suite 305, Newark, DE 19713 US</li>
               </ul>
             </section>
-          </div>
-        </div>
-      </main>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

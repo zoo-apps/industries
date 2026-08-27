@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Shield, Database, Cloud, Brain, ArrowRight } from "lucide-react";
@@ -50,12 +51,12 @@ export default function ServicesOverview() {
   ];
 
   return (
-    <section id="capabilities" className={cn(
+    <Box tag="section" id="capabilities" className={cn(
       "py-20 transition-colors duration-300",
       "bg-secondary"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Box className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,9 +80,9 @@ export default function ServicesOverview() {
             From frontier model development to edge deployment, we're advancing AI capabilities
             while prioritizing safety, privacy, and human alignment at every step
           </motion.p>
-        </div>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -92,36 +93,36 @@ export default function ServicesOverview() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="card-rainbow-hover p-8 border-2 border-black bg-white text-black shadow-[10px_10px_0_0_#000]"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 flex items-center justify-center bg-black">
+                <Box className="flex items-start space-x-4">
+                  <Box className="flex-shrink-0">
+                    <Box className="w-12 h-12 flex items-center justify-center bg-black">
                       <Icon className="w-6 h-6 text-white" />
-                    </div>
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-extrabold mb-3 text-black uppercase tracking-tight">
+                    </Box>
+                  </Box>
+                  <Box className="flex-1">
+                    <Box tag="h3" className="text-2xl font-extrabold mb-3 text-black uppercase tracking-tight">
                       {service.title}
-                    </h3>
-                    <p className="mb-4 text-black/80 font-medium">
+                    </Box>
+                    <Box tag="p" className="mb-4 text-black/80 font-medium">
                       {service.description}
-                    </p>
-                    <div className="space-y-2 mb-4">
+                    </Box>
+                    <Box className="space-y-2 mb-4">
                       {service.capabilities.map((capability) => (
-                        <div key={capability} className="flex items-center text-sm text-black/90 font-medium">
+                        <Box key={capability} className="flex items-center text-sm text-black/90 font-medium">
                           <div className="w-2 h-2 mr-2 bg-black" />
                           {capability}
-                        </div>
+                        </Box>
                       ))}
-                    </div>
+                    </Box>
                     {service.external ? (
-                      <a
+                      <Box tag="a"
                         href={service.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-black underline underline-offset-2 hover:no-underline"
                       >
                         {service.cta} <ArrowRight className="w-3.5 h-3.5" />
-                      </a>
+                      </Box>
                     ) : (
                       <Link href={service.link}
                         className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wide text-black underline underline-offset-2 hover:no-underline"
@@ -129,13 +130,13 @@ export default function ServicesOverview() {
                         {service.cta} <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     )}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </motion.div>
             );
           })}
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 }

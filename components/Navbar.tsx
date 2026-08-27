@@ -7,7 +7,7 @@ import { Button } from '@hanzo/ui'
 import {
   ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare,
   BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText,
-  Github, Sparkles, Video, Box, Zap, Server, Smartphone,
+  Github, Sparkles, Video, Box as BoxIcon, Zap, Server, Smartphone,
 } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
@@ -19,7 +19,7 @@ const zenModels = [
   { name: 'zen-eco', params: '4B', description: 'Fast general-purpose LLM', icon: Brain, href: 'https://huggingface.co/zenlm/zen-eco-4b-instruct' },
   { name: 'zen-omni', params: '8B', description: 'Multimodal vision + audio', icon: Sparkles, href: 'https://huggingface.co/zenlm/zen-omni-8b' },
   { name: 'zen-director', params: '5B', description: 'Text-to-video generation', icon: Video, href: 'https://huggingface.co/zenlm/zen-director-5b' },
-  { name: 'zen-3d', params: '3.3B', description: '3D asset generation', icon: Box, href: 'https://huggingface.co/zenlm/zen-3d' },
+  { name: 'zen-3d', params: '3.3B', description: '3D asset generation', icon: BoxIcon, href: 'https://huggingface.co/zenlm/zen-3d' },
 ]
 
 const quickAccess = [

@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -15,8 +16,8 @@ const activeSet = new Set([0, 33, 56, 57, 58, 59, 60, 61, 62, 63]);
 
 export default function PhilosophyBridge() {
   return (
-    <section className="py-24 px-4 border-t border-border/30">
-      <div className="max-w-4xl mx-auto text-center">
+    <Box tag="section" className="py-24 px-4 border-t border-border/30">
+      <Box className="max-w-4xl mx-auto text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -24,9 +25,9 @@ export default function PhilosophyBridge() {
           transition={{ duration: 0.7 }}
         >
           {/* All 64 hexagram grid */}
-          <div className="grid grid-cols-8 gap-1 max-w-xs mx-auto mb-10">
+          <Box className="grid grid-cols-8 gap-1 max-w-xs mx-auto mb-10">
             {ALL_64.map((g, i) => (
-              <div
+              <Box
                 key={i}
                 className={`flex items-center justify-center w-9 h-9 text-xl rounded transition-colors ${
                   activeSet.has(i)
@@ -35,21 +36,21 @@ export default function PhilosophyBridge() {
                 }`}
               >
                 {g}
-              </div>
+              </Box>
             ))}
-          </div>
+          </Box>
 
-          <h2 className="text-2xl md:text-3xl font-bold mb-3">
+          <Box tag="h2" className="text-2xl md:text-3xl font-bold mb-3">
             易經 · The Engineering Philosophy
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto text-sm mb-2">
+          </Box>
+          <Box tag="p" className="text-muted-foreground max-w-xl mx-auto text-sm mb-2">
             Ten principles drawn from the 64 hexagrams of the I-Ching.
             Orthogonality. Smallness. Completeness. Clarity. Composability.
-          </p>
-          <p className="text-muted-foreground/60 max-w-xl mx-auto text-xs mb-8 font-mono">
+          </Box>
+          <Box tag="p" className="text-muted-foreground/60 max-w-xl mx-auto text-xs mb-8 font-mono">
             Ancient pattern language for systems that last.
             The same framework behind every model, protocol, and line of code we ship.
-          </p>
+          </Box>
 
           <Link
             href="https://zoo.ngo/philosophy"
@@ -58,7 +59,7 @@ export default function PhilosophyBridge() {
             The Zen of Zoo <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 }

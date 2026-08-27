@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
@@ -200,11 +201,11 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-24">
         {/* Status Banner */}
-        <section className="py-16 px-4">
-          <div className="max-w-5xl mx-auto">
+        <Box tag="section" className="py-16 px-4">
+          <Box className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -216,25 +217,25 @@ export default function PageClient() {
                   : "bg-foreground/10 border border-border"
               )}
             >
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-4">
+              <Box className="flex items-center justify-between flex-wrap gap-4">
+                <Box className="flex items-center gap-4">
                   {allOperational ? (
                     <CheckCircle className="w-12 h-12 text-muted-foreground" />
                   ) : (
                     <AlertCircle className="w-12 h-12 text-muted-foreground" />
                   )}
                   <div>
-                    <h1 className="text-3xl md:text-4xl font-bold">
+                    <Box tag="h1" className="text-3xl md:text-4xl font-bold">
                       {allOperational ? "All Systems Operational" : "Partial System Outage"}
-                    </h1>
-                    <p className={cn("mt-1", "text-muted-foreground")}>
+                    </Box>
+                    <Box tag="p" className={cn("mt-1", "text-muted-foreground")}>
                       {allOperational
                         ? "All Zoo services are running smoothly."
                         : "Some services are experiencing issues."}
-                    </p>
+                    </Box>
                   </div>
-                </div>
-                <div className="flex items-center gap-4">
+                </Box>
+                <Box className="flex items-center gap-4">
                   <Button
                     variant="ghost"
                     size="sm"
@@ -245,12 +246,12 @@ export default function PageClient() {
                     <RefreshCw className={cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : "")} />
                     Refresh
                   </Button>
-                  <div className={cn("flex items-center gap-2 text-sm", "text-muted-foreground")}>
+                  <Box className={cn("flex items-center gap-2 text-sm", "text-muted-foreground")}>
                     <Clock className="w-4 h-4" />
                     <span>Updated {formatTime(lastUpdated)}</span>
-                  </div>
-                </div>
-              </div>
+                  </Box>
+                </Box>
+              </Box>
             </motion.div>
 
             {/* Service Status Grid */}
@@ -260,12 +261,12 @@ export default function PageClient() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-12"
             >
-              <div className="flex items-center gap-3 mb-6">
+              <Box className="flex items-center gap-3 mb-6">
                 <Activity className="w-5 h-5" />
-                <h2 className="text-xl font-semibold">Services</h2>
-              </div>
+                <Box tag="h2" className="text-xl font-semibold">Services</Box>
+              </Box>
 
-              <div className="grid gap-3">
+              <Box className="grid gap-3">
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   const colors = statusColors[service.status];
@@ -281,39 +282,39 @@ export default function PageClient() {
                         "bg-foreground/5 border-border hover:border-border"
                       )}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-foreground/10")}>
+                      <Box className="flex items-center justify-between">
+                        <Box className="flex items-center gap-3">
+                          <Box className={cn("w-10 h-10 rounded-lg flex items-center justify-center", "bg-foreground/10")}>
                             <Icon className={cn("w-5 h-5", "text-muted-foreground")} />
-                          </div>
+                          </Box>
                           <div>
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-medium">{service.name}</h3>
+                            <Box className="flex items-center gap-2">
+                              <Box tag="h3" className="font-medium">{service.name}</Box>
                               {service.url && (
-                                <a
+                                <Box tag="a"
                                   href={service.url}
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   className={cn("text-muted-foreground hover:text-muted-foreground")}
                                 >
                                   <ExternalLink className="w-3 h-3" />
-                                </a>
+                                </Box>
                               )}
-                            </div>
-                            <p className={cn("text-sm", "text-muted-foreground")}>{service.description}</p>
+                            </Box>
+                            <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{service.description}</Box>
                           </div>
-                        </div>
-                        <div className={cn("flex items-center gap-2 px-3 py-1 rounded-full", colors.bgLight)}>
+                        </Box>
+                        <Box className={cn("flex items-center gap-2 px-3 py-1 rounded-full", colors.bgLight)}>
                           <div className={cn("w-2 h-2 rounded-full", colors.bg)} />
-                          <span className={cn("text-xs font-medium capitalize", colors.text)}>
+                          <Box tag="span" className={cn("text-xs font-medium capitalize", colors.text)}>
                             {service.status}
-                          </span>
-                        </div>
-                      </div>
+                          </Box>
+                        </Box>
+                      </Box>
                     </motion.div>
                   );
                 })}
-              </div>
+              </Box>
             </motion.div>
 
             {/* 90-Day Uptime */}
@@ -323,15 +324,15 @@ export default function PageClient() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="mb-12"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold">90-Day Uptime</h2>
-                <span className="text-muted-foreground font-medium">99.99%</span>
-              </div>
-              <div className={cn(
+              <Box className="flex items-center justify-between mb-4">
+                <Box tag="h2" className="text-xl font-semibold">90-Day Uptime</Box>
+                <Box tag="span" className="text-muted-foreground font-medium">99.99%</Box>
+              </Box>
+              <Box className={cn(
                 "border rounded-lg p-4",
                 "bg-foreground/5 border-border"
               )}>
-                <div className="flex gap-0.5">
+                <Box className="flex gap-0.5">
                   {Array.from({ length: 90 }).map((_, i) => {
                     // Real uptime data - mark actual maintenance windows
                     const isMaintenance = i === 25 || i === 45 || i === 70 || i === 85;
@@ -346,20 +347,20 @@ export default function PageClient() {
                       />
                     );
                   })}
-                </div>
-                <div className={cn("flex justify-between mt-3 text-xs", "text-muted-foreground")}>
+                </Box>
+                <Box className={cn("flex justify-between mt-3 text-xs", "text-muted-foreground")}>
                   <span>90 days ago</span>
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1">
+                  <Box className="flex items-center gap-4">
+                    <Box tag="span" className="flex items-center gap-1">
                       <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Operational
-                    </span>
-                    <span className="flex items-center gap-1">
+                    </Box>
+                    <Box tag="span" className="flex items-center gap-1">
                       <div className="w-2 h-2 rounded-sm bg-foreground/20" /> Maintenance
-                    </span>
-                  </div>
+                    </Box>
+                  </Box>
                   <span>Today</span>
-                </div>
-              </div>
+                </Box>
+              </Box>
             </motion.div>
 
             {/* Recent Activity */}
@@ -368,8 +369,8 @@ export default function PageClient() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-              <div className="space-y-3">
+              <Box tag="h2" className="text-xl font-semibold mb-4">Recent Activity</Box>
+              <Box className="space-y-3">
                 {historicalIncidents.map((incident, index) => (
                   <motion.div
                     key={incident.title}
@@ -381,28 +382,28 @@ export default function PageClient() {
                       "bg-foreground/5 border-border"
                     )}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-medium">{incident.title}</h3>
-                          <span className={cn("px-2 py-0.5 text-xs rounded-full",
+                    <Box className="flex items-start justify-between gap-4">
+                      <Box className="flex-1">
+                        <Box className="flex items-center gap-2 mb-1">
+                          <Box tag="h3" className="font-medium">{incident.title}</Box>
+                          <Box tag="span" className={cn("px-2 py-0.5 text-xs rounded-full",
                             incident.type === "maintenance"
                               ? "bg-foreground/10 text-muted-foreground"
                               : "bg-foreground/10 text-muted-foreground"
                           )}>
                             {incident.status}
-                          </span>
-                        </div>
-                        <p className={cn("text-sm", "text-muted-foreground")}>{incident.description}</p>
-                      </div>
-                      <div className="text-right text-sm">
-                        <div className={cn("text-muted-foreground")}>{incident.date}</div>
-                        <div className={cn("text-muted-foreground")}>{incident.duration}</div>
-                      </div>
-                    </div>
+                          </Box>
+                        </Box>
+                        <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{incident.description}</Box>
+                      </Box>
+                      <Box className="text-right text-sm">
+                        <Box className={cn("text-muted-foreground")}>{incident.date}</Box>
+                        <Box className={cn("text-muted-foreground")}>{incident.duration}</Box>
+                      </Box>
+                    </Box>
                   </motion.div>
                 ))}
-              </div>
+              </Box>
             </motion.div>
 
             {/* Subscribe Section */}
@@ -412,13 +413,13 @@ export default function PageClient() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className={cn("mt-12 text-center py-12 border-t", "border-border")}
             >
-              <h2 className="text-2xl font-bold mb-3">
+              <Box tag="h2" className="text-2xl font-bold mb-3">
                 Get Status Updates
-              </h2>
-              <p className={cn("mb-6 max-w-md mx-auto", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("mb-6 max-w-md mx-auto", "text-muted-foreground")}>
                 Subscribe to receive notifications about system status and scheduled maintenance.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              </Box>
+              <Box className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://x.com/zoo_labs" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Follow @zoo_labs
@@ -429,11 +430,11 @@ export default function PageClient() {
                     Join Discord
                   </Button>
                 </a>
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
-      </main>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

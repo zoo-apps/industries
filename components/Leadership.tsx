@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 
 export default function Leadership() {
@@ -67,8 +68,8 @@ export default function Leadership() {
   ];
 
   return (
-    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+    <Box tag="section" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Header — eyebrow with scroll-draw underline + big title ─── */}
         <motion.div
@@ -78,7 +79,7 @@ export default function Leadership() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl"
         >
-          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+          <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Leadership team
             <motion.span
               aria-hidden
@@ -88,18 +89,18 @@ export default function Leadership() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
               className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
             />
-          </h3>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+          </Box>
+          <Box tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
             Deep AI expertise, operational excellence.
-          </h2>
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          </Box>
+          <Box tag="p" className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
             Driving innovation in frontier AI research while staying focused on
             safety and alignment.
-          </p>
+          </Box>
         </motion.div>
 
         {/* ─── Leader cards — brutalist panels ──────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
+        <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6 md:gap-8">
           {leaders.map((leader, i) => (
             <motion.div
               key={leader.name}
@@ -112,25 +113,25 @@ export default function Leadership() {
               {/* Avatar disc. ``rounded-full`` survives the brutalist
                   global radius reset because it's explicitly listed in
                   the ``:not(.rounded-full)`` exemption. */}
-              <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto aspect-square overflow-hidden rounded-full border-2 border-black mb-4">
+              <Box className="w-24 h-24 sm:w-28 sm:h-28 mx-auto aspect-square overflow-hidden rounded-full border-2 border-black mb-4">
                 <img
                   src={leader.image}
                   alt={leader.name}
                   className="w-full h-full object-cover grayscale rounded-full"
                 />
-              </div>
-              <h4 className="text-sm sm:text-base font-extrabold uppercase tracking-tight text-foreground text-center leading-tight">
+              </Box>
+              <Box tag="h4" className="text-sm sm:text-base font-extrabold uppercase tracking-tight text-foreground text-center leading-tight">
                 {leader.name}
-              </h4>
-              <p className="mt-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.15em] text-muted-foreground text-center">
+              </Box>
+              <Box tag="p" className="mt-1 text-[10px] sm:text-xs font-extrabold uppercase tracking-[0.15em] text-muted-foreground text-center">
                 {leader.title}
-              </p>
-              <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed text-center">
+              </Box>
+              <Box tag="p" className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed text-center">
                 {leader.bio}
-              </p>
+              </Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
 
         {/* ─── Stats row — three brutalist tiles ────────────────────── */}
         <motion.div
@@ -145,20 +146,20 @@ export default function Leadership() {
             { v: "130+",   l: "Research Papers" },
             { v: "100+",   l: "AI Model Weights" },
           ].map((s) => (
-            <div
+            <Box
               key={s.l}
               className="border-2 border-black bg-white/60 shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] p-6 sm:p-7 md:p-8 text-center"
             >
-              <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-none">
+              <Box className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-foreground leading-none">
                 {s.v}
-              </div>
-              <div className="mt-3 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-muted-foreground">
+              </Box>
+              <Box className="mt-3 text-xs sm:text-sm font-extrabold uppercase tracking-[0.25em] text-muted-foreground">
                 {s.l}
-              </div>
-            </div>
+              </Box>
+            </Box>
           ))}
         </motion.div>
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -8,7 +9,7 @@ import { cn } from "@/lib/utils";
 import {
   ArrowRight,
   BookOpen,
-  Box,
+  Box as BoxIcon,
   Brain,
   Code,
   Copy,
@@ -184,7 +185,7 @@ const projects = [
     description: "Rust ML framework — tensors, neural nets, GPU acceleration.",
     lang: "Rust",
     repo: "candle",
-    icon: Box,
+    icon: BoxIcon,
   },
   {
     name: "Jin",
@@ -310,22 +311,22 @@ const langBadgeColor: Record<string, string> = {
 
 function LangBadge({ lang }: { lang: string }) {
   return (
-    <span
+    <Box tag="span"
       className={cn(
         "text-[10px] font-mono font-medium px-2 py-0.5 rounded-full",
         langBadgeColor[lang] ?? "bg-foreground/10 text-foreground"
       )}
     >
       {lang}
-    </span>
+    </Box>
   );
 }
 
 function SdkIconBadge({ icon }: { icon: string }) {
   return (
-    <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-foreground/5 font-mono text-sm font-bold">
+    <Box tag="span" className="flex items-center justify-center w-10 h-10 rounded-lg bg-foreground/5 font-mono text-sm font-bold">
       {icon}
-    </span>
+    </Box>
   );
 }
 
@@ -357,8 +358,8 @@ export default function PageClient() {
   const [activeTab, setActiveTab] = useState("Python");
 
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <Box className="max-w-6xl mx-auto">
         {/* Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -366,18 +367,18 @@ export default function PageClient() {
           transition={{ duration: 0.5 }}
           className="mb-20"
         >
-          <div className="flex items-center gap-3 mb-6">
+          <Box className="flex items-center gap-3 mb-6">
             <BookOpen className="w-6 h-6 text-muted-foreground" />
-            <span className="text-sm font-mono text-muted-foreground">docs.zoo.ngo</span>
-          </div>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <Box tag="span" className="text-sm font-mono text-muted-foreground">docs.zoo.ngo</Box>
+          </Box>
+          <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
             Developer Documentation
-          </h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          </Box>
+          <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
             Everything you need to build with Zoo — SDKs, APIs, guides, and
             reference documentation for every language and framework.
-          </p>
-          <div className="flex flex-wrap gap-3 mt-8">
+          </Box>
+          <Box className="flex flex-wrap gap-3 mt-8">
             <Link href="/docs/sdk">
               <Button variant="primary" className="gap-2">
                 Get Started <ArrowRight className="w-4 h-4" />
@@ -388,7 +389,7 @@ export default function PageClient() {
                 API Reference <BookOpen className="w-4 h-4" />
               </Button>
             </Link>
-          </div>
+          </Box>
         </motion.div>
 
         {/* SDKs */}
@@ -398,11 +399,11 @@ export default function PageClient() {
           transition={{ duration: 0.5, delay: 0.05 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-2">SDKs</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">SDKs</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             First-class client libraries for every major language.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          </Box>
+          <Box className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {sdks.map((sdk, i) => (
               <motion.div
                 key={sdk.language}
@@ -414,52 +415,52 @@ export default function PageClient() {
                   "border-border hover:border-foreground/20"
                 )}
               >
-                <div className="flex items-start gap-4 mb-4">
+                <Box className="flex items-start gap-4 mb-4">
                   <SdkIconBadge icon={sdk.icon} />
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold">{sdk.language}</h3>
-                    <p className="text-sm text-muted-foreground font-mono">{sdk.pkg}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 mb-4 bg-muted/50 rounded-lg px-4 py-2.5">
+                  <Box className="flex-1 min-w-0">
+                    <Box tag="h3" className="text-lg font-semibold">{sdk.language}</Box>
+                    <Box tag="p" className="text-sm text-muted-foreground font-mono">{sdk.pkg}</Box>
+                  </Box>
+                </Box>
+                <Box className="flex items-center gap-2 mb-4 bg-muted/50 rounded-lg px-4 py-2.5">
                   <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-                  <code className="text-sm font-mono flex-1 truncate">{sdk.install}</code>
+                  <Box tag="code" className="text-sm font-mono flex-1 truncate">{sdk.install}</Box>
                   <CopyButton text={sdk.install} />
-                </div>
-                <div className="flex flex-wrap gap-3 text-sm">
-                  <a
+                </Box>
+                <Box className="flex flex-wrap gap-3 text-sm">
+                  <Box tag="a"
                     href={sdk.registryUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
                     {sdk.registry} <ExternalLink className="w-3 h-3" />
-                  </a>
-                  <a
+                  </Box>
+                  <Box tag="a"
                     href={sdk.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
                     GitHub <Github className="w-3 h-3" />
-                  </a>
-                  <a
+                  </Box>
+                  <Box tag="a"
                     href={sdk.docs}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
                   >
                     Docs <BookOpen className="w-3 h-3" />
-                  </a>
-                </div>
+                  </Box>
+                </Box>
               </motion.div>
             ))}
-          </div>
-          <div className="mt-4 text-center">
+          </Box>
+          <Box className="mt-4 text-center">
             <Link href="/docs/sdk" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
               View detailed SDK guides <ArrowRight className="w-3 h-3" />
             </Link>
-          </div>
+          </Box>
         </motion.div>
 
         {/* API Reference */}
@@ -469,11 +470,11 @@ export default function PageClient() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-2">API Reference</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">API Reference</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             RESTful APIs with OpenAI-compatible endpoints.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          </Box>
+          <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {apis.map((api, i) => {
               const Icon = api.icon;
               return (
@@ -490,21 +491,21 @@ export default function PageClient() {
                     "border-border hover:border-foreground/20"
                   )}
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <Box className="flex items-center gap-3 mb-3">
                     <Icon className="w-5 h-5 text-muted-foreground" />
-                    <h3 className="text-lg font-semibold group-hover:underline">{api.title}</h3>
-                  </div>
-                  <p className="text-xs font-mono text-muted-foreground mb-2">{api.domain}</p>
-                  <p className="text-sm text-muted-foreground">{api.description}</p>
+                    <Box tag="h3" className="text-lg font-semibold group-hover:underline">{api.title}</Box>
+                  </Box>
+                  <Box tag="p" className="text-xs font-mono text-muted-foreground mb-2">{api.domain}</Box>
+                  <Box tag="p" className="text-sm text-muted-foreground">{api.description}</Box>
                 </motion.a>
               );
             })}
-          </div>
-          <div className="mt-4 text-center">
+          </Box>
+          <Box className="mt-4 text-center">
             <Link href="/docs/api" className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1">
               View full API reference <ArrowRight className="w-3 h-3" />
             </Link>
-          </div>
+          </Box>
         </motion.div>
 
         {/* Quick Start */}
@@ -514,12 +515,12 @@ export default function PageClient() {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-2">Quick Start</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Quick Start</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Make your first API call in any language.
-          </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <div className="flex border-b border-border">
+          </Box>
+          <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
+            <Box className="flex border-b border-border">
               {Object.keys(codeExamples).map((lang) => (
                 <button
                   key={lang}
@@ -534,16 +535,16 @@ export default function PageClient() {
                   {lang}
                 </button>
               ))}
-            </div>
-            <div className="relative">
-              <pre className="p-6 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+            </Box>
+            <Box className="relative">
+              <Box tag="pre" className="p-6 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
                 <code>{codeExamples[activeTab]}</code>
-              </pre>
-              <div className="absolute top-3 right-3">
+              </Box>
+              <Box className="absolute top-3 right-3">
                 <CopyButton text={codeExamples[activeTab]} />
-              </div>
-            </div>
-          </div>
+              </Box>
+            </Box>
+          </Box>
         </motion.div>
 
         {/* Projects */}
@@ -553,11 +554,11 @@ export default function PageClient() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-2">Projects</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Projects</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Open source infrastructure powering the Zoo ecosystem.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          </Box>
+          <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {projects.map((project, i) => {
               const Icon = project.icon;
               return (
@@ -574,22 +575,22 @@ export default function PageClient() {
                     "border-border hover:border-foreground/20"
                   )}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <div className="flex items-center gap-2">
+                  <Box className="flex items-center justify-between mb-3">
+                    <Box className="flex items-center gap-2">
                       <Icon className="w-4 h-4 text-muted-foreground" />
-                      <h3 className="font-semibold group-hover:underline">{project.name}</h3>
-                    </div>
+                      <Box tag="h3" className="font-semibold group-hover:underline">{project.name}</Box>
+                    </Box>
                     <LangBadge lang={project.lang} />
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-3">{project.description}</p>
-                  <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                  </Box>
+                  <Box tag="p" className="text-sm text-muted-foreground mb-3">{project.description}</Box>
+                  <Box className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Github className="w-3 h-3" />
-                    <span className="font-mono">zooai/{project.repo}</span>
-                  </div>
+                    <Box tag="span" className="font-mono">zooai/{project.repo}</Box>
+                  </Box>
                 </motion.a>
               );
             })}
-          </div>
+          </Box>
         </motion.div>
 
         {/* Infrastructure */}
@@ -599,11 +600,11 @@ export default function PageClient() {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="mb-20"
         >
-          <h2 className="text-3xl font-bold mb-2">Infrastructure</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Infrastructure</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             The platforms and networks that power Zoo.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          </Box>
+          <Box className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {infrastructure.map((item, i) => {
               const Icon = item.icon;
               return (
@@ -621,12 +622,12 @@ export default function PageClient() {
                   )}
                 >
                   <Icon className="w-6 h-6 text-muted-foreground mb-3" />
-                  <h3 className="text-lg font-semibold mb-2 group-hover:underline">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <Box tag="h3" className="text-lg font-semibold mb-2 group-hover:underline">{item.title}</Box>
+                  <Box tag="p" className="text-sm text-muted-foreground">{item.description}</Box>
                 </motion.a>
               );
             })}
-          </div>
+          </Box>
         </motion.div>
 
         {/* CTA */}
@@ -639,11 +640,11 @@ export default function PageClient() {
             "border-border bg-foreground/[0.02]"
           )}
         >
-          <h2 className="text-3xl font-bold mb-4">Start Building</h2>
-          <p className={cn("text-lg mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-4">Start Building</Box>
+          <Box tag="p" className={cn("text-lg mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
             Create an account, grab your API key, and make your first call in under a minute.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
+          </Box>
+          <Box className="flex flex-wrap justify-center gap-3">
             <a href="https://console.zoo.ngo" target="_blank" rel="noopener noreferrer">
               <Button variant="primary" className="gap-2">
                 Get API Key <ArrowRight className="w-4 h-4" />
@@ -654,9 +655,9 @@ export default function PageClient() {
                 Full Documentation <ExternalLink className="w-4 h-4" />
               </Button>
             </a>
-          </div>
+          </Box>
         </motion.div>
-      </div>
-    </main>
+      </Box>
+    </Box>
   );
 }

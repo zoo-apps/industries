@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useEffect } from "react";
 import { Button } from "@hanzo/ui";
 import { ExternalLink } from "lucide-react";
@@ -14,16 +15,16 @@ export default function PageClient() {
   }, []);
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 bg-background">
-      <div className="max-w-md w-full space-y-8 text-center">
+    <Box className="min-h-screen flex items-center justify-center px-4 bg-background">
+      <Box className="max-w-md w-full space-y-8 text-center">
         <div>
-          <h2 className="mt-6 text-3xl font-extrabold text-foreground">
+          <Box tag="h2" className="mt-6 text-3xl font-extrabold text-foreground">
             Sign in to Zoo
-          </h2>
-          <p className="mt-4 text-muted-foreground">
+          </Box>
+          <Box tag="p" className="mt-4 text-muted-foreground">
             Authentication is handled securely through Zoo ID.
             You will be redirected automatically.
-          </p>
+          </Box>
         </div>
         <div>
           <a href="https://zoo.id">
@@ -32,7 +33,7 @@ export default function PageClient() {
             </Button>
           </a>
         </div>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

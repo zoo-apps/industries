@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import { useState, useEffect, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
 
@@ -24,7 +25,7 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
   // hairline border + tiny shadow gives the slab depth without going
   // grey. Dark-mode mirrors the same recipe over black.
   return (
-    <nav
+    <Box tag="nav"
       className={cn(
         'fixed left-0 right-0 z-50 top-[38px] transition-all duration-300',
         scrolled
@@ -32,9 +33,9 @@ export default function NavbarContainer({ children }: { children: ReactNode }) {
           : 'bg-transparent border-b border-transparent backdrop-blur-0'
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
+      <Box className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 md:py-4">
         {children}
-      </div>
-    </nav>
+      </Box>
+    </Box>
   )
 }

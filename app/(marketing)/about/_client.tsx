@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -80,8 +81,8 @@ const capabilities = [
 
 export default function PageClient() {
   return (
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="max-w-5xl mx-auto">
           {/* Logo + Headline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,16 +95,16 @@ export default function PageClient() {
               alt="Zoo"
               className="w-16 h-16 mb-8"
             />
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
               Full-Stack Private AI
-            </h1>
-            <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
               Zoo is an AI company building a vertically integrated
               stack — from frontier models to confidential compute to developer tools.
               We make powerful AI private by default, enabling sensitive workloads in
               government, defense, healthcare, and finance without routing data through
               centralized third parties.
-            </p>
+            </Box>
           </motion.div>
 
           {/* Stats */}
@@ -117,10 +118,10 @@ export default function PageClient() {
             )}
           >
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-2xl font-bold mb-1">{stat.value}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>{stat.label}</div>
-              </div>
+              <Box key={stat.label} className="text-center">
+                <Box className="text-2xl font-bold mb-1">{stat.value}</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>{stat.label}</Box>
+              </Box>
             ))}
           </motion.div>
 
@@ -131,23 +132,23 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.15 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Why Zoo</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Box tag="h2" className="text-3xl font-bold mb-8">Why Zoo</Box>
+            <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {capabilities.map((cap) => (
-                <div
+                <Box
                   key={cap.title}
                   className={cn(
                     "p-6 rounded-lg border",
                     "border-border"
                   )}
                 >
-                  <h3 className="text-lg font-semibold mb-2">{cap.title}</h3>
-                  <p className={cn("text-sm", "text-muted-foreground")}>
+                  <Box tag="h3" className="text-lg font-semibold mb-2">{cap.title}</Box>
+                  <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                     {cap.description}
-                  </p>
-                </div>
+                  </Box>
+                </Box>
               ))}
-            </div>
+            </Box>
           </motion.div>
 
           {/* The Stack */}
@@ -157,23 +158,23 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-2">The Stack</h2>
-            <p className={cn("text-lg mb-10", "text-muted-foreground")}>
+            <Box tag="h2" className="text-3xl font-bold mb-2">The Stack</Box>
+            <Box tag="p" className={cn("text-lg mb-10", "text-muted-foreground")}>
               Vertically integrated from models to cloud — every layer built to work together.
-            </p>
+            </Box>
 
             {stackLayers.map((layer, layerIndex) => (
-              <div key={layer.label} className="mb-10 last:mb-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className={cn(
+              <Box key={layer.label} className="mb-10 last:mb-0">
+                <Box className="flex items-center gap-3 mb-4">
+                  <Box tag="span" className={cn(
                     "text-xs font-mono font-medium px-2 py-1 rounded",
                     "bg-foreground/10 text-muted-foreground"
                   )}>
                     {String(layerIndex + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-xl font-semibold">{layer.label}</h3>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-10">
+                  </Box>
+                  <Box tag="h3" className="text-xl font-semibold">{layer.label}</Box>
+                </Box>
+                <Box className="grid grid-cols-1 sm:grid-cols-2 gap-3 ml-10">
                   {layer.items.map((item) => (
                     <Link
                       key={item.name}
@@ -184,16 +185,16 @@ export default function PageClient() {
                       )}
                     >
                       <div>
-                        <div className="font-semibold text-sm group-hover:underline">{item.name}</div>
-                        <div className={cn("text-xs", "text-muted-foreground")}>
+                        <Box className="font-semibold text-sm group-hover:underline">{item.name}</Box>
+                        <Box className={cn("text-xs", "text-muted-foreground")}>
                           {item.description}
-                        </div>
+                        </Box>
                       </div>
-                      <span className={cn("text-sm", "text-foreground/20")}>→</span>
+                      <Box tag="span" className={cn("text-sm", "text-foreground/20")}>→</Box>
                     </Link>
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
             ))}
           </motion.div>
 
@@ -204,8 +205,8 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.25 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Platforms</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <Box tag="h2" className="text-3xl font-bold mb-8">Platforms</Box>
+            <Box className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {[
                 { name: "zoo.ngo", description: "AI platform", href: "https://zoo.ngo" },
                 { name: "zoo.industries", description: "Enterprise & defense", href: "https://zoo.industries" },
@@ -214,7 +215,7 @@ export default function PageClient() {
                 { name: "llm.zoo.ngo", description: "LLM gateway (100+ models)", href: "https://llm.zoo.ngo" },
                 { name: "docs.zoo.ngo", description: "API documentation", href: "https://docs.zoo.ngo" },
               ].map((platform) => (
-                <a
+                <Box tag="a"
                   key={platform.name}
                   href={platform.href}
                   target="_blank"
@@ -224,13 +225,13 @@ export default function PageClient() {
                     "border-border hover:bg-accent"
                   )}
                 >
-                  <div className="font-medium font-mono text-sm group-hover:underline">{platform.name}</div>
-                  <div className={cn("text-sm", "text-muted-foreground")}>
+                  <Box className="font-medium font-mono text-sm group-hover:underline">{platform.name}</Box>
+                  <Box className={cn("text-sm", "text-muted-foreground")}>
                     {platform.description}
-                  </div>
-                </a>
+                  </Box>
+                </Box>
               ))}
-            </div>
+            </Box>
           </motion.div>
 
           {/* Open Source */}
@@ -240,8 +241,8 @@ export default function PageClient() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mb-20"
           >
-            <h2 className="text-3xl font-bold mb-8">Open Source</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Box tag="h2" className="text-3xl font-bold mb-8">Open Source</Box>
+            <Box className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   name: "Zoo Industries",
@@ -256,7 +257,7 @@ export default function PageClient() {
                   href: "https://github.com/zenlm",
                 },
               ].map((org) => (
-                <a
+                <Box tag="a"
                   key={org.name}
                   href={org.href}
                   target="_blank"
@@ -266,16 +267,16 @@ export default function PageClient() {
                     "border-border hover:border-border"
                   )}
                 >
-                  <h3 className="text-xl font-semibold mb-1 group-hover:underline">{org.name}</h3>
-                  <p className={cn("text-sm font-medium mb-2", "text-muted-foreground")}>
+                  <Box tag="h3" className="text-xl font-semibold mb-1 group-hover:underline">{org.name}</Box>
+                  <Box tag="p" className={cn("text-sm font-medium mb-2", "text-muted-foreground")}>
                     {org.role}
-                  </p>
-                  <p className={cn("text-sm", "text-muted-foreground")}>
+                  </Box>
+                  <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                     {org.detail}
-                  </p>
-                </a>
+                  </Box>
+                </Box>
               ))}
-            </div>
+            </Box>
           </motion.div>
 
           {/* OSS Revenue Sharing */}
@@ -288,16 +289,16 @@ export default function PageClient() {
               "border-border bg-foreground/[0.03]"
             )}
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold mb-2">OSS Revenue Sharing</h3>
-                <p className={cn("text-sm leading-relaxed", "text-muted-foreground")}>
+            <Box className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <Box className="flex-1">
+                <Box tag="h3" className="text-xl font-semibold mb-2">OSS Revenue Sharing</Box>
+                <Box tag="p" className={cn("text-sm leading-relaxed", "text-muted-foreground")}>
                   We dedicate 25% of all compute costs to open source contributors
                   — distributed transparently based on verified SBOMs. Connect your
                   GitHub and wallet to earn.
-                </p>
-              </div>
-              <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                </Box>
+              </Box>
+              <Box className="flex flex-col sm:flex-row gap-3 shrink-0">
                 <Link
                   href="/open-source"
                   className={cn(
@@ -307,7 +308,7 @@ export default function PageClient() {
                 >
                   Learn More
                 </Link>
-                <a
+                <Box tag="a"
                   href="https://zoo.ngo/oss/connect"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -317,9 +318,9 @@ export default function PageClient() {
                   )}
                 >
                   Connect & Earn
-                </a>
-              </div>
-            </div>
+                </Box>
+              </Box>
+            </Box>
           </motion.div>
 
           {/* Mission */}
@@ -332,17 +333,17 @@ export default function PageClient() {
               "border-border bg-foreground/[0.02]"
             )}
           >
-            <h2 className="text-3xl font-bold mb-4">Mission</h2>
-            <p className={cn("text-lg", "text-muted-foreground")}>
+            <Box tag="h2" className="text-3xl font-bold mb-4">Mission</Box>
+            <Box tag="p" className={cn("text-lg", "text-muted-foreground")}>
               Make powerful AI private by default. We build full-stack AI infrastructure
               that converts compute into operational advantage — enabling sensitive workloads
               in healthcare, finance, defense, and government without requiring organizations
               to route data through centralized third parties. We publish our research openly,
               treat open source as critical infrastructure, and ship production systems that
               teams depend on.
-            </p>
+            </Box>
           </motion.div>
-        </div>
-      </main>
+        </Box>
+      </Box>
   );
 }

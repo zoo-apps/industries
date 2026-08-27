@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -108,16 +109,16 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       <main>
         {/* Hero Section */}
-        <section className="relative pt-32 pb-16 px-4 md:px-8 lg:px-12">
+        <Box tag="section" className="relative pt-32 pb-16 px-4 md:px-8 lg:px-12">
           {/* Background decoration */}
-          <div className="absolute inset-0 pointer-events-none">
+          <Box className="absolute inset-0 pointer-events-none">
             <div className={cn("absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full blur-3xl", "bg-foreground/[0.02]")} />
-          </div>
+          </Box>
 
-          <div className="max-w-6xl mx-auto text-center relative z-10">
+          <Box className="max-w-6xl mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -125,7 +126,7 @@ export default function PageClient() {
               className={cn("inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6", "bg-foreground/5 border border-border")}
             >
               <MessageSquare className={cn("w-4 h-4", "text-muted-foreground")} />
-              <span className={cn("text-sm font-medium", "text-muted-foreground")}>Get in Touch</span>
+              <Box tag="span" className={cn("text-sm font-medium", "text-muted-foreground")}>Get in Touch</Box>
             </motion.div>
 
             <motion.h1
@@ -145,51 +146,51 @@ export default function PageClient() {
             >
               Ready to transform your operations with frontier AI? Our team is here to help you build the future.
             </motion.p>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Main Content - Two Column Layout */}
-        <section className="pb-20 px-4 md:px-8 lg:px-12">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+        <Box tag="section" className="pb-20 px-4 md:px-8 lg:px-12">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
               {/* Left Column - Contact Form */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <h2 className="text-xl font-semibold mb-6">
+                <Box tag="h2" className="text-xl font-semibold mb-6">
                   Send Us a Message
-                </h2>
+                </Box>
 
                 {submitted ? (
-                  <div className="p-8 rounded-2xl border border-border bg-foreground/10 text-center">
-                    <div className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
+                  <Box className="p-8 rounded-2xl border border-border bg-foreground/10 text-center">
+                    <Box className="w-12 h-12 rounded-full bg-foreground/10 flex items-center justify-center mx-auto mb-4">
                       <Send className="w-6 h-6 text-muted-foreground" />
-                    </div>
-                    <h3 className="text-lg font-semibold mb-2">
+                    </Box>
+                    <Box tag="h3" className="text-lg font-semibold mb-2">
                       Message Sent!
-                    </h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>
+                    </Box>
+                    <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                       Thank you for reaching out. We'll get back to you within 24 hours.
-                    </p>
+                    </Box>
                     <Button
                       onClick={() => setSubmitted(false)}
                       className={cn("mt-4", "bg-foreground/10 hover:bg-accent text-foreground")}
                     >
                       Send Another Message
                     </Button>
-                  </div>
+                  </Box>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Box tag="form" onSubmit={handleSubmit} className="space-y-5">
+                    <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label
+                        <Box tag="label"
                           htmlFor="name"
                           className="block text-sm font-medium mb-2"
                         >
                           Name
-                        </label>
+                        </Box>
                         <input
                           type="text"
                           id="name"
@@ -202,12 +203,12 @@ export default function PageClient() {
                         />
                       </div>
                       <div>
-                        <label
+                        <Box tag="label"
                           htmlFor="email"
                           className="block text-sm font-medium mb-2"
                         >
                           Email
-                        </label>
+                        </Box>
                         <input
                           type="email"
                           id="email"
@@ -219,16 +220,16 @@ export default function PageClient() {
                           className={cn("w-full rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 transition-all", "bg-foreground/5 border border-border text-foreground placeholder-muted-foreground focus:ring-ring focus:border-border")}
                         />
                       </div>
-                    </div>
+                    </Box>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label
+                        <Box tag="label"
                           htmlFor="company"
                           className="block text-sm font-medium mb-2"
                         >
                           Company
-                        </label>
+                        </Box>
                         <input
                           type="text"
                           id="company"
@@ -240,12 +241,12 @@ export default function PageClient() {
                         />
                       </div>
                       <div>
-                        <label
+                        <Box tag="label"
                           htmlFor="inquiryType"
                           className="block text-sm font-medium mb-2"
                         >
                           Inquiry Type
-                        </label>
+                        </Box>
                         <Select
                           value={formData.inquiryType}
                           onValueChange={(value) => setFormData({ ...formData, inquiryType: value })}
@@ -262,15 +263,15 @@ export default function PageClient() {
                           </SelectContent>
                         </Select>
                       </div>
-                    </div>
+                    </Box>
 
                     <div>
-                      <label
+                      <Box tag="label"
                         htmlFor="subject"
                         className="block text-sm font-medium mb-2"
                       >
                         Subject
-                      </label>
+                      </Box>
                       <input
                         type="text"
                         id="subject"
@@ -284,12 +285,12 @@ export default function PageClient() {
                     </div>
 
                     <div>
-                      <label
+                      <Box tag="label"
                         htmlFor="message"
                         className="block text-sm font-medium mb-2"
                       >
                         Message
-                      </label>
+                      </Box>
                       <textarea
                         id="message"
                         name="message"
@@ -316,7 +317,7 @@ export default function PageClient() {
                         </>
                       )}
                     </Button>
-                  </form>
+                  </Box>
                 )}
               </motion.div>
 
@@ -328,107 +329,107 @@ export default function PageClient() {
                 className="space-y-8"
               >
                 <div>
-                  <h2 className="text-xl font-semibold mb-6">
+                  <Box tag="h2" className="text-xl font-semibold mb-6">
                     Contact Information
-                  </h2>
+                  </Box>
 
-                  <div className="space-y-4">
+                  <Box className="space-y-4">
                     {/* Email */}
-                    <a
+                    <Box tag="a"
                       href="mailto:info@zoo.ngo"
                       className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:border-border hover:bg-accent")}
                     >
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
+                      <Box className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
                         <Mail className={cn("w-5 h-5 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
-                      </div>
+                      </Box>
                       <div>
-                        <p className="font-medium">Email</p>
-                        <p className={cn("text-sm", "text-muted-foreground")}>info@zoo.ngo</p>
+                        <Box tag="p" className="font-medium">Email</Box>
+                        <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>info@zoo.ngo</Box>
                       </div>
-                    </a>
+                    </Box>
 
                     {/* Phone */}
-                    <a
+                    <Box tag="a"
                       href="tel:+19137774443"
                       className={cn("flex items-start gap-4 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:border-border hover:bg-accent")}
                     >
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
+                      <Box className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors", "bg-foreground/5 group-hover:bg-accent")}>
                         <Phone className={cn("w-5 h-5 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
-                      </div>
+                      </Box>
                       <div>
-                        <p className="font-medium">Phone</p>
-                        <p className={cn("text-sm", "text-muted-foreground")}>+1 (913) 777-4443</p>
+                        <Box tag="p" className="font-medium">Phone</Box>
+                        <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>+1 (913) 777-4443</Box>
                       </div>
-                    </a>
+                    </Box>
 
                     {/* Location */}
-                    <div className={cn("flex items-start gap-4 p-4 rounded-xl", "border border-border bg-foreground/5")}>
-                      <div className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0", "bg-foreground/5")}>
+                    <Box className={cn("flex items-start gap-4 p-4 rounded-xl", "border border-border bg-foreground/5")}>
+                      <Box className={cn("w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0", "bg-foreground/5")}>
                         <MapPin className={cn("w-5 h-5", "text-muted-foreground")} />
-                      </div>
+                      </Box>
                       <div>
-                        <p className="font-medium">Headquarters</p>
-                        <p className={cn("text-sm", "text-muted-foreground")}>
+                        <Box tag="p" className="font-medium">Headquarters</Box>
+                        <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                           1824 S. Fairfax Ave<br />
                           Los Angeles, CA 90019
-                        </p>
+                        </Box>
                       </div>
-                    </div>
-                  </div>
+                    </Box>
+                  </Box>
                 </div>
 
                 {/* Division Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
-                    <div className="flex items-center gap-2 mb-3">
+                <Box className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <Box className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
+                    <Box className="flex items-center gap-2 mb-3">
                       <Shield className={cn("w-4 h-4", "text-muted-foreground")} />
-                      <h3 className="font-medium text-sm">Research Division</h3>
-                    </div>
-                    <p className={cn("text-xs mb-2", "text-muted-foreground")}>Academic & industry collaboration</p>
-                    <a href="mailto:research@zoo.ngo" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
+                      <Box tag="h3" className="font-medium text-sm">Research Division</Box>
+                    </Box>
+                    <Box tag="p" className={cn("text-xs mb-2", "text-muted-foreground")}>Academic & industry collaboration</Box>
+                    <Box tag="a" href="mailto:research@zoo.ngo" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
                       research@zoo.ngo
-                    </a>
-                  </div>
-                  <div className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
-                    <div className="flex items-center gap-2 mb-3">
+                    </Box>
+                  </Box>
+                  <Box className={cn("p-5 rounded-xl", "border border-border bg-foreground/5")}>
+                    <Box className="flex items-center gap-2 mb-3">
                       <Building2 className={cn("w-4 h-4", "text-muted-foreground")} />
-                      <h3 className="font-medium text-sm">Commercial</h3>
-                    </div>
-                    <p className={cn("text-xs mb-2", "text-muted-foreground")}>Enterprise AI solutions</p>
-                    <a href="mailto:sales@zoo.ngo" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
+                      <Box tag="h3" className="font-medium text-sm">Commercial</Box>
+                    </Box>
+                    <Box tag="p" className={cn("text-xs mb-2", "text-muted-foreground")}>Enterprise AI solutions</Box>
+                    <Box tag="a" href="mailto:sales@zoo.ngo" className={cn("text-xs transition-colors", "text-foreground/80 hover:text-foreground")}>
                       sales@zoo.ngo
-                    </a>
-                  </div>
-                </div>
+                    </Box>
+                  </Box>
+                </Box>
 
                 {/* Cal.com Booking */}
-                <div className={cn("rounded-xl overflow-hidden", "border border-border bg-foreground/5")}>
-                  <div className={cn("p-4", "border-b border-border")}>
-                    <div className="flex items-center gap-3">
+                <Box className={cn("rounded-xl overflow-hidden", "border border-border bg-foreground/5")}>
+                  <Box className={cn("p-4", "border-b border-border")}>
+                    <Box className="flex items-center gap-3">
                       <Calendar className="w-5 h-5" />
-                      <h3 className="font-semibold">Schedule a Call</h3>
-                    </div>
-                    <p className={cn("text-sm mt-1", "text-muted-foreground")}>
+                      <Box tag="h3" className="font-semibold">Schedule a Call</Box>
+                    </Box>
+                    <Box tag="p" className={cn("text-sm mt-1", "text-muted-foreground")}>
                       Book a meeting with our team
-                    </p>
-                  </div>
-                  <div className="aspect-[4/3] min-h-[300px]">
+                    </Box>
+                  </Box>
+                  <Box className="aspect-[4/3] min-h-[300px]">
                     <iframe
                       src="https://cal.com/hanzo/30min?embed=true&theme=dark"
                       className="w-full h-full border-0"
                       allow="payment"
                       title="Schedule a call with Zoo"
                     />
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               </motion.div>
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Connect With Us */}
-        <section className={cn("py-16 px-4 md:px-8 lg:px-12", "border-t border-border")}>
-          <div className="max-w-4xl mx-auto">
+        <Box tag="section" className={cn("py-16 px-4 md:px-8 lg:px-12", "border-t border-border")}>
+          <Box className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -436,15 +437,15 @@ export default function PageClient() {
               transition={{ duration: 0.5 }}
               className="text-center mb-10"
             >
-              <h2 className="text-2xl font-semibold mb-2">
+              <Box tag="h2" className="text-2xl font-semibold mb-2">
                 Connect With Us
-              </h2>
-              <p className={cn("text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>
                 Follow us on social media to stay updated on the latest developments.
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <Box className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
@@ -459,22 +460,22 @@ export default function PageClient() {
                     transition={{ duration: 0.3, delay: index * 0.05 }}
                     className={cn("flex flex-col items-center gap-3 p-4 rounded-xl transition-all group", "border border-border bg-foreground/5 hover:bg-accent hover:border-border")}
                   >
-                    <div
+                    <Box
                       className="w-10 h-10 rounded-lg flex items-center justify-center transition-colors"
                       style={{ backgroundColor: `${social.color}15` }}
                     >
                       <Icon />
-                    </div>
-                    <span className={cn("text-xs font-medium transition-colors", "text-muted-foreground group-hover:text-foreground")}>
+                    </Box>
+                    <Box tag="span" className={cn("text-xs font-medium transition-colors", "text-muted-foreground group-hover:text-foreground")}>
                       {social.label}
-                    </span>
+                    </Box>
                   </motion.a>
                 );
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
       </main>
-    </div>
+    </Box>
   );
 }

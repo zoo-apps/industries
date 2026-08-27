@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -475,75 +476,75 @@ export default function PageClient({
   totalModels: number
 }) {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-16">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-16">
         {/* Hero Section */}
-        <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
-          <div className="max-w-5xl mx-auto text-center">
+        <Box tag="section" className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
+          <Box className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="pill pill-pink mb-6">Zen AI Model Family</span>
-              <h1 className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
+              <Box tag="span" className="pill pill-pink mb-6">Zen AI Model Family</Box>
+              <Box tag="h1" className="mt-6 text-5xl md:text-6xl font-extrabold tracking-tight mb-6">
                 Hypermodal AI
-              </h1>
-              <p className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-3xl mx-auto mb-8", "text-muted-foreground")}>
                 {totalModels}+ models across {familyData.length} families. Open-weight AI covering text, vision, image, audio, code, embeddings, and reranking — from edge to frontier.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              </Box>
+              <Box className="flex flex-wrap gap-4 justify-center">
                 <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                  <button className="btn-brutalist pill-pink">
+                  <Box tag="button" className="btn-brutalist pill-pink">
                     <Sparkles className="w-4 h-4" />
                     Browse Models
-                  </button>
+                  </Box>
                 </a>
                 <a href="https://github.com/zenlm" target="_blank" rel="noopener noreferrer">
-                  <button className="btn-brutalist pill-green">
+                  <Box tag="button" className="btn-brutalist pill-green">
                     <Github className="w-4 h-4" />
                     GitHub
-                  </button>
+                  </Box>
                 </a>
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Stats */}
-        <section className={cn("py-12 px-4 border-y", "border-border")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <Box tag="section" className={cn("py-12 px-4 border-y", "border-border")}>
+          <Box className="max-w-6xl mx-auto">
+            <Box className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold mb-1">{totalModels}+</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>AI Models</div>
+                <Box className="text-4xl font-bold mb-1">{totalModels}+</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>AI Models</Box>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">{familyData.length}</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Model Families</div>
+                <Box className="text-4xl font-bold mb-1">{familyData.length}</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>Model Families</Box>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">7</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>Modalities</div>
+                <Box className="text-4xl font-bold mb-1">7</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>Modalities</Box>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-1">Apache 2.0</div>
-                <div className={cn("text-sm", "text-muted-foreground")}>License</div>
+                <Box className="text-4xl font-bold mb-1">Apache 2.0</Box>
+                <Box className={cn("text-sm", "text-muted-foreground")}>License</Box>
               </div>
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Model Families — data served server-side from @zenlm/models */}
         {familyData.map((family, familyIndex) => {
           const FamilyIcon = FAMILY_ICONS[family.id] ?? Brain;
           return (
-            <section
+            <Box tag="section"
               key={family.id}
               id={family.id}
               className={cn("py-20 px-4 scroll-mt-24", familyIndex % 2 === 0 ? "" : "bg-foreground/5")}
             >
-              <div className="max-w-6xl mx-auto">
+              <Box className="max-w-6xl mx-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -551,14 +552,14 @@ export default function PageClient({
                   viewport={{ once: true }}
                   className="mb-12"
                 >
-                  <div className="flex items-center gap-3 mb-4">
+                  <Box className="flex items-center gap-3 mb-4">
                     <FamilyIcon className={cn("w-8 h-8", "text-muted-foreground")} />
-                    <h2 className="text-3xl font-bold">{family.title}</h2>
-                  </div>
-                  <p className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</p>
+                    <Box tag="h2" className="text-3xl font-bold">{family.title}</Box>
+                  </Box>
+                  <Box tag="p" className={cn("max-w-2xl", "text-muted-foreground")}>{family.description}</Box>
                 </motion.div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {family.models.map((model, index) => (
                     <motion.a
                       key={model.name}
@@ -571,51 +572,51 @@ export default function PageClient({
                       viewport={{ once: true }}
                       className="block p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000] transition-all group text-black"
                     >
-                      <div className="flex items-start justify-between mb-4">
+                      <Box className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-lg font-extrabold uppercase tracking-tight group-hover:underline">
+                          <Box tag="h3" className="text-lg font-extrabold uppercase tracking-tight group-hover:underline">
                             {model.name}
-                          </h3>
-                          <span className="text-sm font-mono text-black/60">{model.params}</span>
+                          </Box>
+                          <Box tag="span" className="text-sm font-mono text-black/60">{model.params}</Box>
                         </div>
                         {(model as any).requestAccess ? (
-                          <span className="text-[10px] px-2 py-1 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">Research Preview</span>
+                          <Box tag="span" className="text-[10px] px-2 py-1 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">Research Preview</Box>
                         ) : (
                           <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
                         )}
-                      </div>
-                      <p className="text-sm mb-4 text-black/70">{model.description}</p>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      </Box>
+                      <Box tag="p" className="text-sm mb-4 text-black/70">{model.description}</Box>
+                      <Box className="flex flex-wrap gap-2 mb-4">
                         {model.capabilities.map((cap) => (
-                          <span
+                          <Box tag="span"
                             key={cap}
                             className="px-2 py-0.5 text-xs font-semibold uppercase tracking-wider bg-black text-white border-2 border-black"
                           >
                             {cap}
-                          </span>
+                          </Box>
                         ))}
-                      </div>
-                      <div className="flex items-center justify-between text-xs pt-4 border-t-2 border-black text-black/70">
-                        <span className="flex items-center gap-1">
+                      </Box>
+                      <Box className="flex items-center justify-between text-xs pt-4 border-t-2 border-black text-black/70">
+                        <Box tag="span" className="flex items-center gap-1">
                           <Zap className="w-3 h-3" />
                           {model.performance}
-                        </span>
-                        <span className="flex items-center gap-1">
+                        </Box>
+                        <Box tag="span" className="flex items-center gap-1">
                           <Cpu className="w-3 h-3" />
                           {model.memory}
-                        </span>
-                      </div>
+                        </Box>
+                      </Box>
                     </motion.a>
                   ))}
-                </div>
-              </div>
-            </section>
+                </Box>
+              </Box>
+            </Box>
           );
         })}
 
         {/* Capabilities Matrix */}
-        <section className={cn("py-20 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className={cn("py-20 px-4", "bg-foreground/5")}>
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -623,48 +624,48 @@ export default function PageClient({
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4 text-foreground">Capabilities Matrix</h2>
-              <p className="text-muted-foreground">
+              <Box tag="h2" className="text-3xl font-bold mb-4 text-foreground">Capabilities Matrix</Box>
+              <Box tag="p" className="text-muted-foreground">
                 Each model specializes in different modalities and tasks
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+            <Box className="overflow-x-auto">
+              <Box tag="table" className="w-full text-sm">
                 <thead>
-                  <tr className={cn("border-b", "border-border")}>
-                    <th className="text-left py-4 px-4 font-semibold">Model</th>
-                    <th className="text-center py-4 px-4 font-semibold">Text</th>
-                    <th className="text-center py-4 px-4 font-semibold">Image</th>
-                    <th className="text-center py-4 px-4 font-semibold">Video</th>
-                    <th className="text-center py-4 px-4 font-semibold">Audio</th>
-                    <th className="text-center py-4 px-4 font-semibold">3D</th>
-                    <th className="text-center py-4 px-4 font-semibold">Code</th>
-                    <th className="text-center py-4 px-4 font-semibold">Agents</th>
-                  </tr>
+                  <Box tag="tr" className={cn("border-b", "border-border")}>
+                    <Box tag="th" className="text-left py-4 px-4 font-semibold">Model</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Text</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Image</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Video</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Audio</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">3D</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Code</Box>
+                    <Box tag="th" className="text-center py-4 px-4 font-semibold">Agents</Box>
+                  </Box>
                 </thead>
                 <tbody>
                   {capabilitiesMatrix.map((row) => (
-                    <tr key={row.model} className={cn("border-b", "border-border hover:bg-accent")}>
-                      <td className="py-3 px-4 font-mono text-foreground">{row.model}</td>
-                      <td className="text-center py-3 px-4">{row.text ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.image ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.video ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.audio ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.threeD ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.code ? "\u2713" : "\u2014"}</td>
-                      <td className="text-center py-3 px-4">{row.agents ? "\u2713" : "\u2014"}</td>
-                    </tr>
+                    <Box tag="tr" key={row.model} className={cn("border-b", "border-border hover:bg-accent")}>
+                      <Box tag="td" className="py-3 px-4 font-mono text-foreground">{row.model}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.text ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.image ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.video ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.audio ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.threeD ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.code ? "\u2713" : "\u2014"}</Box>
+                      <Box tag="td" className="text-center py-3 px-4">{row.agents ? "\u2713" : "\u2014"}</Box>
+                    </Box>
                   ))}
                 </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Infrastructure */}
-        <section className="py-20 px-4">
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className="py-20 px-4">
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -672,13 +673,13 @@ export default function PageClient({
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Infrastructure</h2>
-              <p className={cn("text-muted-foreground")}>
+              <Box tag="h2" className="text-3xl font-bold mb-4">Infrastructure</Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>
                 Production-ready tools for training and deploying Zen models
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-8">
+            <Box className="grid md:grid-cols-3 gap-8">
               {infrastructure.map((tool, index) => {
                 const ToolIcon = tool.icon;
                 return (
@@ -693,23 +694,23 @@ export default function PageClient({
                     viewport={{ once: true }}
                     className="block p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-center text-black"
                   >
-                    <div className="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-[var(--brand-magenta)] border-2 border-black">
+                    <Box className="w-12 h-12 flex items-center justify-center mx-auto mb-4 bg-[var(--brand-magenta)] border-2 border-black">
                       <ToolIcon className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-extrabold uppercase tracking-tight mb-2 group-hover:underline">
+                    </Box>
+                    <Box tag="h3" className="text-xl font-extrabold uppercase tracking-tight mb-2 group-hover:underline">
                       {tool.name}
-                    </h3>
-                    <p className="text-sm text-black/70">{tool.description}</p>
+                    </Box>
+                    <Box tag="p" className="text-sm text-black/70">{tool.description}</Box>
                   </motion.a>
                 );
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Code Example */}
-        <section className={cn("py-20 px-4", "bg-foreground/5")}>
-          <div className="max-w-4xl mx-auto">
+        <Box tag="section" className={cn("py-20 px-4", "bg-foreground/5")}>
+          <Box className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -717,8 +718,8 @@ export default function PageClient({
               viewport={{ once: true }}
               className="text-center mb-8"
             >
-              <h2 className="text-3xl font-bold mb-4">Quick Start</h2>
-              <p className={cn("text-muted-foreground")}>Get started with any Zen model in seconds</p>
+              <Box tag="h2" className="text-3xl font-bold mb-4">Quick Start</Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>Get started with any Zen model in seconds</Box>
             </motion.div>
 
             <motion.div
@@ -728,7 +729,7 @@ export default function PageClient({
               viewport={{ once: true }}
               className="bg-black border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-6 overflow-x-auto"
             >
-              <pre className="text-sm text-[var(--brand-green)] font-mono">
+              <Box tag="pre" className="text-sm text-[var(--brand-green)] font-mono">
 {`# Install and run any model
 pip install transformers torch
 
@@ -746,36 +747,36 @@ response = client.chat.completions.create(
     model="zen-eco-4b-instruct",
     messages=[{"role": "user", "content": "Hello!"}]
 )`}
-              </pre>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* CTA */}
-        <section className="py-24 px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-4xl mx-auto text-center">
+            <Box tag="h2" className="text-3xl font-bold mb-4">
               Build with Zen AI
-            </h2>
-            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl mb-8", "text-muted-foreground")}>
               Open-weight models, Apache 2.0 licensed. Free to use for research and commercial applications.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            </Box>
+            <Box className="flex flex-wrap gap-4 justify-center">
               <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer">
-                <button className="btn-brutalist pill-pink">
+                <Box tag="button" className="btn-brutalist pill-pink">
                   Get Started
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Box>
               </a>
               <Link href="/research">
-                <button className="btn-brutalist pill-green">
+                <Box tag="button" className="btn-brutalist pill-green">
                   Research Papers
-                </button>
+                </Box>
               </Link>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

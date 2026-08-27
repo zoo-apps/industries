@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { solutions } from "@/lib/constants/navigation";
 import { ChevronRight } from "lucide-react";
 import { getIcon } from "@/lib/constants/iconMappings";
@@ -18,9 +19,9 @@ export default function PageClient() {
   };
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
       {/* Hero Section with Gradient Background */}
-      <section className="relative py-24 px-4 overflow-hidden">
+      <Box tag="section" className="relative py-24 px-4 overflow-hidden">
         {/* Subtle gradient background */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -29,7 +30,7 @@ export default function PageClient() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto">
+        <Box className="relative max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,22 +38,22 @@ export default function PageClient() {
             transition={{ duration: 0.6 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h1 className={cn(
+            <Box tag="h1" className={cn(
               "text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent",
               "bg-gradient-to-b from-white to-white/70"
             )}>
               Solutions for Every Industry
-            </h1>
-            <p className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-lg md:text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
               Explore our comprehensive suite of solutions designed to transform businesses
               across industries and capabilities.
-            </p>
+            </Box>
           </motion.div>
-        </div>
-      </section>
+        </Box>
+      </Box>
 
-      <main className="pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <Box tag="main" className="pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="max-w-7xl mx-auto">
 
           {solutions.map((section) => {
             const displayCount = expandedSections[section.title] || 6;
@@ -60,9 +61,9 @@ export default function PageClient() {
             const displayItems = section.items.slice(0, displayCount);
 
             return (
-              <div key={section.title} className="mb-20">
-                <h2 className="text-3xl font-bold mb-8 text-center">{section.title}</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <Box key={section.title} className="mb-20">
+                <Box tag="h2" className="text-3xl font-bold mb-8 text-center">{section.title}</Box>
+                <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <AnimatePresence initial={false}>
                     {displayItems.map((item, index) => {
                       const Icon = getIcon(item);
@@ -80,23 +81,23 @@ export default function PageClient() {
                           )}
                         >
                           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                          <div className="relative">
-                            <div className="flex items-center justify-between mb-4">
+                          <Box className="relative">
+                            <Box className="flex items-center justify-between mb-4">
                               <Icon className="h-6 w-6 text-muted-foreground" strokeWidth={1.5} />
                               <ChevronRight className={cn("h-5 w-5 group-hover:text-muted-foreground transition-colors", "text-muted-foreground")} />
-                            </div>
-                            <h3 className="text-xl font-semibold mb-2 group-hover:text-muted-foreground transition-colors">
+                            </Box>
+                            <Box tag="h3" className="text-xl font-semibold mb-2 group-hover:text-muted-foreground transition-colors">
                               {item}
-                            </h3>
-                            <p className={cn("text-sm", "text-muted-foreground")}>
+                            </Box>
+                            <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>
                               End-to-end {item.toLowerCase()} solutions built on Zoo Industries infrastructure.
-                            </p>
-                          </div>
+                            </Box>
+                          </Box>
                         </motion.div>
                       );
                     })}
                   </AnimatePresence>
-                </div>
+                </Box>
                 {hasMore && (
                   <motion.div
                     className="text-center mt-8"
@@ -113,27 +114,27 @@ export default function PageClient() {
                     </button>
                   </motion.div>
                 )}
-              </div>
+              </Box>
             );
           })}
 
-          <div className="mt-20 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className={cn("mb-8", "text-muted-foreground")}>
+          <Box className="mt-20 text-center">
+            <Box className="max-w-3xl mx-auto">
+              <Box tag="h2" className="text-3xl font-bold mb-6">Ready to Transform Your Business?</Box>
+              <Box tag="p" className={cn("mb-8", "text-muted-foreground")}>
                 Connect with our team to learn how our solutions can help you achieve your goals.
-              </p>
-              <a
+              </Box>
+              <Box tag="a"
                 href="/contact"
                 className="inline-flex items-center px-6 py-3 rounded-lg bg-foreground/10 hover:bg-accent text-foreground font-medium transition-colors"
               >
                 Get Started
                 <ChevronRight className="ml-2 h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

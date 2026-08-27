@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, BookOpen } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -101,28 +102,28 @@ const BLOG_BASE = "https://blog.zoo.ngo/blog";
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
-        <section className="py-24 px-4">
-          <div className="max-w-5xl mx-auto">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-24">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 bg-primary/20 text-foreground">
+              <Box className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 bg-primary/20 text-foreground">
                 <BookOpen className="w-3.5 h-3.5" />Blog
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              </Box>
+              <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
                 News & Guides
-              </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Product launches, architecture deep dives, and how-to guides from the team building the AI workforce platform.
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="space-y-4">
+            <Box className="space-y-4">
               {blogPosts.map((post, index) => (
                 <motion.div
                   key={post.slug}
@@ -130,7 +131,7 @@ export default function PageClient() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
                 >
-                  <a
+                  <Box tag="a"
                     href={`${BLOG_BASE}/${post.slug}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -139,35 +140,35 @@ export default function PageClient() {
                       "bg-foreground/5 border border-border hover:border-foreground/20"
                     )}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-foreground/80">
+                    <Box className="flex items-start justify-between gap-4">
+                      <Box className="min-w-0">
+                        <Box className="flex items-center gap-3 mb-2">
+                          <Box tag="span" className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-foreground/80">
                             {post.category}
-                          </span>
+                          </Box>
                           {post.date && (
-                            <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                            <Box tag="span" className="flex items-center gap-1.5 text-xs text-muted-foreground">
                               <Calendar className="w-3 h-3" />
                               {post.date}
-                            </span>
+                            </Box>
                           )}
-                        </div>
-                        <h2 className="font-semibold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
+                        </Box>
+                        <Box tag="h2" className="font-semibold text-foreground mb-2 group-hover:text-foreground/80 transition-colors">
                           {post.title}
-                        </h2>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
+                        </Box>
+                        <Box tag="p" className="text-sm text-muted-foreground leading-relaxed">
                           {post.excerpt}
-                        </p>
-                      </div>
+                        </Box>
+                      </Box>
                       <ArrowRight className="w-5 h-5 text-muted-foreground/60 group-hover:text-foreground group-hover:translate-x-1 transition-all flex-shrink-0 mt-1" />
-                    </div>
-                  </a>
+                    </Box>
+                  </Box>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -331,17 +332,17 @@ function CopyButton({ text }: { text: string }) {
 
 function CodeBlock({ code, label }: { code: string; label?: string }) {
   return (
-    <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
+    <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
       {label && (
-        <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
-          <span className="text-xs font-mono text-muted-foreground">{label}</span>
+        <Box className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
+          <Box tag="span" className="text-xs font-mono text-muted-foreground">{label}</Box>
           <CopyButton text={code} />
-        </div>
+        </Box>
       )}
-      <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+      <Box tag="pre" className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
         <code>{code}</code>
-      </pre>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -351,8 +352,8 @@ function CodeBlock({ code, label }: { code: string; label?: string }) {
 
 export default function PageClient() {
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <Box className="max-w-5xl mx-auto">
         {/* Breadcrumb + Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -366,12 +367,12 @@ export default function PageClient() {
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
           </Link>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">SDKs</h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">SDKs</Box>
+          <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
             Install and configure Zoo SDKs for Python, TypeScript, Go, and
             Rust. Every SDK is open source, fully typed, and supports streaming,
             retries, and all Zoo API endpoints.
-          </p>
+          </Box>
         </motion.div>
 
         {/* Environment Setup */}
@@ -384,27 +385,27 @@ export default function PageClient() {
             "border-border bg-foreground/[0.02]"
           )}
         >
-          <h2 className="text-lg font-semibold mb-3">Prerequisites</h2>
-          <p className="text-sm text-muted-foreground mb-4">
+          <Box tag="h2" className="text-lg font-semibold mb-3">Prerequisites</Box>
+          <Box tag="p" className="text-sm text-muted-foreground mb-4">
             All SDKs authenticate using an API key. Set it as an environment variable:
-          </p>
-          <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-2.5">
+          </Box>
+          <Box className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-2.5">
             <Terminal className="w-3.5 h-3.5 text-muted-foreground shrink-0" />
-            <code className="text-sm font-mono flex-1">export ZOO_API_KEY=&quot;your-api-key&quot;</code>
+            <Box tag="code" className="text-sm font-mono flex-1">export ZOO_API_KEY=&quot;your-api-key&quot;</Box>
             <CopyButton text='export ZOO_API_KEY="your-api-key"' />
-          </div>
-          <p className="text-xs text-muted-foreground mt-3">
+          </Box>
+          <Box tag="p" className="text-xs text-muted-foreground mt-3">
             Get your API key from{" "}
-            <a
+            <Box tag="a"
               href="https://console.zoo.ngo"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-foreground transition-colors"
             >
               console.zoo.ngo
-            </a>
-            . All SDKs default to reading <code className="font-mono">ZOO_API_KEY</code> from the environment.
-          </p>
+            </Box>
+            . All SDKs default to reading <Box tag="code" className="font-mono">ZOO_API_KEY</Box> from the environment.
+          </Box>
         </motion.div>
 
         {/* SDK Sections */}
@@ -418,71 +419,71 @@ export default function PageClient() {
             className="mb-20"
           >
             {/* Header */}
-            <div className="flex items-center gap-4 mb-6">
-              <span className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/5 font-mono text-base font-bold">
+            <Box className="flex items-center gap-4 mb-6">
+              <Box tag="span" className="flex items-center justify-center w-12 h-12 rounded-lg bg-foreground/5 font-mono text-base font-bold">
                 {sdk.icon}
-              </span>
+              </Box>
               <div>
-                <h2 className="text-3xl font-bold">{sdk.language}</h2>
-                <p className="text-sm font-mono text-muted-foreground">{sdk.pkg}</p>
+                <Box tag="h2" className="text-3xl font-bold">{sdk.language}</Box>
+                <Box tag="p" className="text-sm font-mono text-muted-foreground">{sdk.pkg}</Box>
               </div>
-            </div>
+            </Box>
 
-            <p className="text-muted-foreground mb-6">{sdk.description}</p>
+            <Box tag="p" className="text-muted-foreground mb-6">{sdk.description}</Box>
 
             {/* Install */}
-            <div className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-3 mb-6">
+            <Box className="flex items-center gap-2 bg-muted/50 rounded-lg px-4 py-3 mb-6">
               <Terminal className="w-4 h-4 text-muted-foreground shrink-0" />
-              <code className="text-sm font-mono flex-1">{sdk.install}</code>
+              <Box tag="code" className="text-sm font-mono flex-1">{sdk.install}</Box>
               <CopyButton text={sdk.install} />
-            </div>
+            </Box>
 
             {/* Features */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
+            <Box className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8">
               {sdk.features.map((feature) => (
-                <div
+                <Box
                   key={feature}
                   className="flex items-center gap-2 text-sm text-muted-foreground"
                 >
                   <Check className="w-3.5 h-3.5 shrink-0" />
                   {feature}
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
 
             {/* Quick Start */}
-            <div className="space-y-4 mb-6">
+            <Box className="space-y-4 mb-6">
               <CodeBlock code={sdk.quickStart} label="Quick Start" />
               <CodeBlock code={sdk.asyncExample} label={sdk.asyncLabel} />
-            </div>
+            </Box>
 
             {/* Links */}
-            <div className="flex flex-wrap gap-4 text-sm">
-              <a
+            <Box className="flex flex-wrap gap-4 text-sm">
+              <Box tag="a"
                 href={sdk.registryUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
                 {sdk.registry} <ExternalLink className="w-3 h-3" />
-              </a>
-              <a
+              </Box>
+              <Box tag="a"
                 href={sdk.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
                 GitHub <Github className="w-3 h-3" />
-              </a>
-              <a
+              </Box>
+              <Box tag="a"
                 href={sdk.docs}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
               >
                 Full Documentation <BookOpen className="w-3 h-3" />
-              </a>
-            </div>
+              </Box>
+            </Box>
 
             {/* Divider (except last) */}
             {sectionIndex < sdkSections.length - 1 && (
@@ -501,17 +502,17 @@ export default function PageClient() {
             "border-border bg-foreground/[0.02]"
           )}
         >
-          <h2 className="text-2xl font-bold mb-4">Need the API directly?</h2>
-          <p className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <Box tag="h2" className="text-2xl font-bold mb-4">Need the API directly?</Box>
+          <Box tag="p" className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
             All SDKs wrap the same REST API. If you prefer raw HTTP, check the API reference.
-          </p>
+          </Box>
           <Link href="/docs/api">
             <Button variant="outline" className="gap-2">
               API Reference <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </motion.div>
-      </div>
-    </main>
+      </Box>
+    </Box>
   );
 }

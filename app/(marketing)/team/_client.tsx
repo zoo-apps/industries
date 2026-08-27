@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import {
   Code2, Paintbrush, Settings, Lightbulb, Bot,
   MessagesSquare, ChartBar, Shield, Users
@@ -152,70 +153,70 @@ export default function PageClient() {
   }));
 
   return (
-    <div className={cn(
+    <Box className={cn(
       "min-h-screen transition-colors duration-300",
       "bg-background text-foreground"
     )}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="text-center max-w-3xl mx-auto mb-16">
+          <Box tag="h1" className="text-4xl sm:text-5xl font-bold mb-6">
             People + AI, Building Together
-          </h1>
-          <p className={cn("text-lg", "text-muted-foreground")}>
+          </Box>
+          <Box tag="p" className={cn("text-lg", "text-muted-foreground")}>
             World-class leadership paired with an autonomous AI workforce that ships around the clock.
-          </p>
-        </div>
+          </Box>
+        </Box>
 
-        <div className="max-w-7xl mx-auto">
+        <Box className="max-w-7xl mx-auto">
           {/* Human Leadership Section */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-4 text-center">Leadership</h2>
-            <p className={cn(
+          <Box className="mb-20">
+            <Box tag="h2" className="text-3xl font-bold mb-4 text-center">Leadership</Box>
+            <Box tag="p" className={cn(
               "text-center mb-10 max-w-2xl mx-auto",
               "text-muted-foreground"
             )}>
               Decades of combined expertise in AI, distributed systems, and scaling technology companies.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            </Box>
+            <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {humanLeadership.map((member) => (
                 <TeamMemberCard key={member.name} {...member} />
               ))}
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* AI Team Section — 4x4 Grid */}
-          <div className="mb-20">
-            <h2 className="text-3xl font-bold mb-4 text-center">AI Workforce</h2>
-            <p className={cn(
+          <Box className="mb-20">
+            <Box tag="h2" className="text-3xl font-bold mb-4 text-center">AI Workforce</Box>
+            <Box tag="p" className={cn(
               "text-center mb-12 max-w-2xl mx-auto",
               "text-muted-foreground"
             )}>
               16 autonomous agents organized across four departments — Build, Create, Ship, Run.
-            </p>
+            </Box>
 
             {aiTeamByDept.map((dept) => (
-              <div key={dept.key} className="mb-12 last:mb-0">
-                <div className="flex items-center gap-3 mb-6">
-                  <h3 className="text-2xl font-bold">{dept.label}</h3>
-                  <span className={cn(
+              <Box key={dept.key} className="mb-12 last:mb-0">
+                <Box className="flex items-center gap-3 mb-6">
+                  <Box tag="h3" className="text-2xl font-bold">{dept.label}</Box>
+                  <Box tag="span" className={cn(
                     "text-xs font-mono px-2 py-1 rounded",
                     "bg-foreground/10 text-muted-foreground"
                   )}>
                     {dept.description}
-                  </span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  </Box>
+                </Box>
+                <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   {dept.members.map((member) => (
                     <TeamMemberCard key={member.name} {...member} />
                   ))}
-                </div>
-              </div>
+                </Box>
+              </Box>
             ))}
-          </div>
+          </Box>
 
           <CallToAction />
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }

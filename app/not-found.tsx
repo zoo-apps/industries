@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Bot, Send, XCircle } from "lucide-react";
@@ -52,14 +53,14 @@ const [isOpen, setIsOpen] = useState(false);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl mb-4 text-muted-foreground">Oops! Page not found</p>
-        <a href="/" className="underline text-foreground hover:text-muted-foreground">
+    <Box className="min-h-screen flex items-center justify-center bg-background text-foreground">
+      <Box className="text-center">
+        <Box tag="h1" className="text-4xl font-bold mb-4">404</Box>
+        <Box tag="p" className="text-xl mb-4 text-muted-foreground">Oops! Page not found</Box>
+        <Box tag="a" href="/" className="underline text-foreground hover:text-muted-foreground">
           Return to Home
-        </a>
-      </div>
+        </Box>
+      </Box>
 
       <Drawer open={isOpen} onOpenChange={setIsOpen}>
         {/* The sheet is controlled here, so the button opens it directly —
@@ -72,12 +73,12 @@ const [isOpen, setIsOpen] = useState(false);
           <Bot className="h-6 w-6" />
         </Button>
         <DrawerContent className="h-[500px] p-4 bg-background border-border">
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center space-x-2">
+          <Box className="flex flex-col h-full">
+            <Box className="flex items-center justify-between mb-4">
+              <Box className="flex items-center space-x-2">
                 <Bot className="h-6 w-6 text-foreground" />
-                <h2 className="text-lg font-semibold">AI Assistant</h2>
-              </div>
+                <Box tag="h2" className="text-lg font-semibold">AI Assistant</Box>
+              </Box>
               <Button
                 variant="ghost"
                 size="icon"
@@ -85,11 +86,11 @@ const [isOpen, setIsOpen] = useState(false);
               >
                 <XCircle className="h-5 w-5" />
               </Button>
-            </div>
+            </Box>
 
-            <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+            <Box className="flex-1 overflow-y-auto space-y-4 mb-4">
               {messages.map((msg, index) => (
-                <div
+                <Box
                   key={index}
                   className={cn(
                     "p-3 rounded-lg max-w-[80%]",
@@ -99,11 +100,11 @@ const [isOpen, setIsOpen] = useState(false);
                   )}
                 >
                   {msg.content}
-                </div>
+                </Box>
               ))}
-            </div>
+            </Box>
 
-            <div className="flex items-center space-x-2">
+            <Box className="flex items-center space-x-2">
               <input
                 type="text"
                 value={message}
@@ -115,10 +116,10 @@ const [isOpen, setIsOpen] = useState(false);
               <Button onClick={handleSendMessage} size="icon">
                 <Send className="h-4 w-4" />
               </Button>
-            </div>
-          </div>
+            </Box>
+          </Box>
         </DrawerContent>
       </Drawer>
-    </div>
+    </Box>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -131,27 +132,27 @@ const LogoPreview = () => (
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-16">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-16">
         {/* Hero */}
-        <section className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
-          <div className="max-w-5xl mx-auto text-center">
+        <Box tag="section" className={cn("py-24 px-4 bg-gradient-to-b", "from-white/5 to-transparent")}>
+          <Box className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
+              <Box className={cn("inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium mb-6", "bg-primary text-primary-foreground")}>
                 <FileText className="w-4 h-4" />
                 Press Room
-              </div>
-              <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              </Box>
+              <Box tag="h1" className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
                 Press & Media
-              </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
                 Download brand assets, access press releases, and find everything you need to write about Zoo Industries.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              </Box>
+              <Box className="flex flex-wrap gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
                   <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Mail className="w-4 h-4" />
@@ -164,124 +165,124 @@ export default function PageClient() {
                     Download Press Kit
                   </Button>
                 </a>
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Company Overview */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-6">
+        <Box tag="section" className="py-16 px-4">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-6">
               <Building2 className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">About Zoo Industries</h2>
-            </div>
-            <div className="max-w-3xl">
-              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
+              <Box tag="h2" className="text-2xl font-bold">About Zoo Industries</Box>
+            </Box>
+            <Box className="max-w-3xl">
+              <Box tag="p" className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
                 <strong>Zoo Industries Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Zoo develops large language models, AI training frameworks, and enterprise AI platforms.
-              </p>
-              <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
-              </p>
-              <p className={cn("text-lg leading-relaxed", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-lg leading-relaxed", "text-muted-foreground")}>
                 Zoo operates alongside partner organizations: <strong>Zoo Labs Foundation</strong> (501c3 open AI research), <strong>Zen LM</strong> (frontier models), and <strong>Lux Network</strong> (blockchain infrastructure).
-              </p>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Press Contact */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
+        <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-8">
               <Mail className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Press Contact</h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Media Inquiries</h3>
-                <div className="space-y-3">
-                  <a
+              <Box tag="h2" className="text-2xl font-bold">Press Contact</Box>
+            </Box>
+            <Box className="grid md:grid-cols-3 gap-6">
+              <Box className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
+                <Box tag="h3" className="font-semibold mb-4">Media Inquiries</Box>
+                <Box className="space-y-3">
+                  <Box tag="a"
                     href="mailto:press@zoo.ngo"
                     className={cn("flex items-center gap-2 transition-colors", "text-muted-foreground hover:text-foreground")}
                   >
                     <Mail className="w-4 h-4" />
                     press@zoo.ngo
-                  </a>
-                  <div className={cn("flex items-center gap-2", "text-muted-foreground")}>
+                  </Box>
+                  <Box className={cn("flex items-center gap-2", "text-muted-foreground")}>
                     <Phone className="w-4 h-4" />
                     +1 (913) 777-4443
-                  </div>
-                </div>
-              </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Headquarters</h3>
-                <div className={cn("space-y-1", "text-muted-foreground")}>
-                  <p className={cn("font-medium", "text-muted-foreground")}>Zoo Industries Inc</p>
+                  </Box>
+                </Box>
+              </Box>
+              <Box className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
+                <Box tag="h3" className="font-semibold mb-4">Headquarters</Box>
+                <Box className={cn("space-y-1", "text-muted-foreground")}>
+                  <Box tag="p" className={cn("font-medium", "text-muted-foreground")}>Zoo Industries Inc</Box>
                   <p>Los Angeles, California</p>
                   <p>United States</p>
-                </div>
-              </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-4">Schedule Interview</h3>
-                <p className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</p>
+                </Box>
+              </Box>
+              <Box className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
+                <Box tag="h3" className="font-semibold mb-4">Schedule Interview</Box>
+                <Box tag="p" className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</Box>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button size="sm" variant="outline" className="w-full gap-2">
                     <Calendar className="w-4 h-4" />
                     Schedule via Cal.com
                   </Button>
                 </a>
-              </div>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Brand Assets */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-8">
-              <div className="flex items-center gap-3">
+        <Box tag="section" className="py-16 px-4">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center justify-between mb-8">
+              <Box className="flex items-center gap-3">
                 <Palette className={cn("w-6 h-6", "text-muted-foreground")} />
-                <h2 className="text-2xl font-bold">Brand Assets</h2>
-              </div>
+                <Box tag="h2" className="text-2xl font-bold">Brand Assets</Box>
+              </Box>
               <a href="https://github.com/zooai/brand" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" size="sm" className="gap-2">
                   <Github className="w-4 h-4" />
                   View on GitHub
                 </Button>
               </a>
-            </div>
+            </Box>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <Box className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Dark Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className="h-32 bg-background flex items-center justify-center">
+              <Box className={cn("rounded-xl border overflow-hidden", "border-border")}>
+                <Box className="h-32 bg-background flex items-center justify-center">
                   <LogoPreview />
-                </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Logo - Dark Background</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>White logo for dark backgrounds</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
-                </div>
-              </div>
+                </Box>
+                <Box className={cn("p-4", "bg-foreground/5")}>
+                  <Box tag="h3" className="font-semibold mb-1">Logo - Dark Background</Box>
+                  <Box tag="p" className={cn("text-sm mb-2", "text-muted-foreground")}>White logo for dark backgrounds</Box>
+                  <Box tag="p" className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</Box>
+                </Box>
+              </Box>
 
               {/* Light Background Logo */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className={cn("h-32 flex items-center justify-center border-b", "bg-primary border-border")}>
+              <Box className={cn("rounded-xl border overflow-hidden", "border-border")}>
+                <Box className={cn("h-32 flex items-center justify-center border-b", "bg-primary border-border")}>
                   <LogoPreview />
-                </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Logo - Light Background</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Black logo for light backgrounds</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</p>
-                </div>
-              </div>
+                </Box>
+                <Box className={cn("p-4", "bg-foreground/5")}>
+                  <Box tag="h3" className="font-semibold mb-1">Logo - Light Background</Box>
+                  <Box tag="p" className={cn("text-sm mb-2", "text-muted-foreground")}>Black logo for light backgrounds</Box>
+                  <Box tag="p" className={cn("text-xs", "text-foreground/30")}>SVG, PNG available</Box>
+                </Box>
+              </Box>
 
               {/* Brand Colors */}
-              <div className={cn("rounded-xl border overflow-hidden", "border-border")}>
-                <div className="h-32 grid grid-cols-2 grid-rows-2">
+              <Box className={cn("rounded-xl border overflow-hidden", "border-border")}>
+                <Box className="h-32 grid grid-cols-2 grid-rows-2">
                   {brandColors.map((color) => (
-                    <div
+                    <Box
                       key={color.name}
                       className="flex items-center justify-center text-xs font-medium"
                       style={{
@@ -290,18 +291,18 @@ export default function PageClient() {
                       }}
                     >
                       {color.hex}
-                    </div>
+                    </Box>
                   ))}
-                </div>
-                <div className={cn("p-4", "bg-foreground/5")}>
-                  <h3 className="font-semibold mb-1">Brand Colors</h3>
-                  <p className={cn("text-sm mb-2", "text-muted-foreground")}>Primary color palette</p>
-                  <p className={cn("text-xs", "text-foreground/30")}>Black, White, Grays</p>
-                </div>
-              </div>
-            </div>
+                </Box>
+                <Box className={cn("p-4", "bg-foreground/5")}>
+                  <Box tag="h3" className="font-semibold mb-1">Brand Colors</Box>
+                  <Box tag="p" className={cn("text-sm mb-2", "text-muted-foreground")}>Primary color palette</Box>
+                  <Box tag="p" className={cn("text-xs", "text-foreground/30")}>Black, White, Grays</Box>
+                </Box>
+              </Box>
+            </Box>
 
-            <div className="flex flex-wrap gap-4">
+            <Box className="flex flex-wrap gap-4">
               <a href="https://github.com/zooai/brand/archive/refs/heads/main.zip">
                 <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                   <Download className="w-4 h-4" />
@@ -314,18 +315,18 @@ export default function PageClient() {
                   Brand Guidelines
                 </Button>
               </a>
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Press Releases Timeline */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
+        <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-8">
               <Calendar className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Press Releases & Announcements</h2>
-            </div>
-            <div className="space-y-4">
+              <Box tag="h2" className="text-2xl font-bold">Press Releases & Announcements</Box>
+            </Box>
+            <Box className="space-y-4">
               {pressReleases.map((release, index) => (
                 <motion.div
                   key={release.title}
@@ -335,21 +336,21 @@ export default function PageClient() {
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   className={cn("p-6 rounded-xl border transition-colors group", "bg-foreground/5 border-border hover:border-border")}
                 >
-                  <div className="flex flex-col md:flex-row md:items-start gap-4">
-                    <div className="flex-shrink-0 w-24">
-                      <div className={cn("text-sm font-medium", "text-foreground/90")}>{release.date}</div>
+                  <Box className="flex flex-col md:flex-row md:items-start gap-4">
+                    <Box className="flex-shrink-0 w-24">
+                      <Box className={cn("text-sm font-medium", "text-foreground/90")}>{release.date}</Box>
                       {release.type && (
-                        <span className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || ("bg-foreground/10 text-muted-foreground border-border"))}>
+                        <Box tag="span" className={cn("inline-block mt-1 px-2 py-0.5 text-xs rounded-full border", typeColors[release.type] || ("bg-foreground/10 text-muted-foreground border-border"))}>
                           {release.type}
-                        </span>
+                        </Box>
                       )}
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold mb-2 group-hover:underline">{release.title}</h3>
-                      <p className={cn("text-sm", "text-muted-foreground")}>{release.description}</p>
-                    </div>
+                    </Box>
+                    <Box className="flex-1">
+                      <Box tag="h3" className="font-semibold mb-2 group-hover:underline">{release.title}</Box>
+                      <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{release.description}</Box>
+                    </Box>
                     {release.link && (
-                      <a
+                      <Box tag="a"
                         href={release.link}
                         target={release.link.startsWith("http") ? "_blank" : undefined}
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
@@ -359,27 +360,27 @@ export default function PageClient() {
                           Learn more
                           <ExternalLink className="w-3 h-3" />
                         </Button>
-                      </a>
+                      </Box>
                     )}
-                  </div>
+                  </Box>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Social Media */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
+        <Box tag="section" className="py-16 px-4">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-8">
               <Globe className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Connect With Us</h2>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <Box tag="h2" className="text-2xl font-bold">Connect With Us</Box>
+            </Box>
+            <Box className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                  <Box tag="a"
                     key={social.name}
                     href={social.href}
                     target="_blank"
@@ -387,28 +388,28 @@ export default function PageClient() {
                     className={cn("p-4 rounded-xl border transition-colors text-center group", "bg-foreground/5 border-border hover:border-border")}
                   >
                     <Icon className={cn("w-5 h-5 mx-auto mb-2 transition-colors", "text-muted-foreground group-hover:text-foreground")} />
-                    <div className="font-semibold mb-1">{social.name}</div>
-                    <div className={cn("text-sm", "text-muted-foreground")}>{social.handle}</div>
-                  </a>
+                    <Box className="font-semibold mb-1">{social.name}</Box>
+                    <Box className={cn("text-sm", "text-muted-foreground")}>{social.handle}</Box>
+                  </Box>
                 );
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Leadership */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
+        <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-8">
               <Users className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Leadership & Executive Bios</h2>
-            </div>
-            <div className={cn("p-8 rounded-xl border text-center", "bg-foreground/5 border-border")}>
+              <Box tag="h2" className="text-2xl font-bold">Leadership & Executive Bios</Box>
+            </Box>
+            <Box className={cn("p-8 rounded-xl border text-center", "bg-foreground/5 border-border")}>
               <Award className={cn("w-12 h-12 mx-auto mb-4", "text-muted-foreground")} />
-              <p className={cn("mb-6", "text-muted-foreground")}>
+              <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                 For executive bios, headshots, and interview requests, please contact our press team directly.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              </Box>
+              <Box className="flex flex-wrap gap-4 justify-center">
                 <Link href="/team">
                   <Button variant="outline" className="gap-2">
                     <Users className="w-4 h-4" />
@@ -421,40 +422,40 @@ export default function PageClient() {
                     Request Executive Bios
                   </Button>
                 </a>
-              </div>
-            </div>
-          </div>
-        </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Coverage Guidelines */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
+        <Box tag="section" className="py-16 px-4">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center gap-3 mb-8">
               <BookOpen className={cn("w-6 h-6", "text-muted-foreground")} />
-              <h2 className="text-2xl font-bold">Coverage Guidelines</h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-3">Preferred Terminology</h3>
-                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
+              <Box tag="h2" className="text-2xl font-bold">Coverage Guidelines</Box>
+            </Box>
+            <Box className="grid md:grid-cols-2 gap-6">
+              <Box className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
+                <Box tag="h3" className="font-semibold mb-3">Preferred Terminology</Box>
+                <Box tag="ul" className={cn("space-y-2 text-sm", "text-muted-foreground")}>
                   <li><strong>Company Name:</strong> Zoo Industries or Zoo Industries Inc</li>
                   <li><strong>Not:</strong> ZOO, Zoo, or Zoo.ngo</li>
                   <li><strong>Products:</strong> Zen, KOAN, Zoo Dev, Zoo Cloud</li>
                   <li><strong>Partners:</strong> Zoo Labs Foundation, Lux Network, Zen LM</li>
-                </ul>
-              </div>
-              <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
-                <h3 className="font-semibold mb-3">Key Facts</h3>
-                <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
+                </Box>
+              </Box>
+              <Box className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
+                <Box tag="h3" className="font-semibold mb-3">Key Facts</Box>
+                <Box tag="ul" className={cn("space-y-2 text-sm", "text-muted-foreground")}>
                   <li><strong>Founded:</strong> 2016 in Los Angeles</li>
-                  <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:opacity-80">Published papers</a></li>
-                  <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Zen LM family</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
+                  <li><strong>Research:</strong> <Box tag="a" href="/research#papers" className="underline hover:opacity-80">Published papers</Box></li>
+                  <li><strong>Models:</strong> <Box tag="a" href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Zen LM family</Box></li>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

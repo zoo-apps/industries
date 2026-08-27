@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Button } from '@hanzo/ui'
@@ -9,7 +10,7 @@ import {
   ExternalLink,
   Check,
   Layers,
-  Box,
+  Box as BoxIcon,
   Cpu,
   Code2,
   Globe,
@@ -55,7 +56,7 @@ const GITHUB_ORGS = [
   { handle: 'zooai', url: 'https://github.com/zooai', description: 'Zoo Network apps, libraries, contracts (canonical)', icon: Cpu },
   { handle: 'zoofoundation', url: 'https://github.com/zoofoundation', description: 'Foundation papers, ZIPs, governance', icon: Star },
   { handle: 'zoo-labs', url: 'https://github.com/zoo-labs', description: 'Decentralized AI and DeSci research (Zoo Labs Foundation)', icon: Layers },
-  { handle: 'zenlm', url: 'https://github.com/zenlm', description: 'Zen model family — weights and configs', icon: Box },
+  { handle: 'zenlm', url: 'https://github.com/zenlm', description: 'Zen model family — weights and configs', icon: BoxIcon },
   { handle: 'luxfi', url: 'https://github.com/luxfi', description: 'Settlement layer (partner)', icon: Globe },
   { handle: 'hanzoai', url: 'https://github.com/hanzoai', description: 'Infrastructure partner — AI gateway, agent frameworks', icon: Code2 },
 ]
@@ -107,11 +108,11 @@ const REVENUE_FEATURES = [
 
 export default function PageClient() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <Box className="min-h-screen bg-background text-foreground">
       <main>
         {/* Hero */}
-        <section className="relative pt-24 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+        <Box tag="section" className="relative pt-24 pb-20 px-4 md:px-8 lg:px-12 overflow-hidden">
+          <Box className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
             <div
               className="absolute inset-0 opacity-[0.03]"
               style={{
@@ -122,9 +123,9 @@ export default function PageClient() {
             />
             <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full blur-[120px] bg-foreground/5" />
             <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full blur-[100px] bg-foreground/[0.03]" />
-          </div>
+          </Box>
 
-          <div className="max-w-5xl mx-auto relative z-10 text-center">
+          <Box className="max-w-5xl mx-auto relative z-10 text-center">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -132,7 +133,7 @@ export default function PageClient() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border"
             >
               <Github className="w-3.5 h-3.5 text-muted-foreground" />
-              <span className="text-muted-foreground">Open Core Company</span>
+              <Box tag="span" className="text-muted-foreground">Open Core Company</Box>
             </motion.div>
 
             <motion.h1
@@ -191,23 +192,23 @@ export default function PageClient() {
               {HERO_STATS.map((stat) => {
                 const Icon = stat.icon
                 return (
-                  <div
+                  <Box
                     key={stat.label}
                     className="rounded-xl border border-border bg-secondary/50 p-5 text-center"
                   >
                     <Icon className="w-5 h-5 text-muted-foreground mb-2 mx-auto" />
-                    <div className="text-3xl font-bold text-foreground">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
-                  </div>
+                    <Box className="text-3xl font-bold text-foreground">{stat.value}</Box>
+                    <Box className="text-xs text-muted-foreground mt-1">{stat.label}</Box>
+                  </Box>
                 )
               })}
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Standing on Giants */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -215,17 +216,17 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="mb-10"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <Box tag="h2" className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Standing on Giants
-              </h2>
-              <p className="text-muted-foreground max-w-2xl">
+              </Box>
+              <Box tag="p" className="text-muted-foreground max-w-2xl">
                 The upstream open source projects that power Zoo. We use them, we credit
                 them, we contribute back, and we fund them through our revenue sharing
                 program.
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
               {UPSTREAM_PROJECTS.map((proj, i) => (
                 <motion.div
                   key={proj.name}
@@ -235,15 +236,15 @@ export default function PageClient() {
                   transition={{ duration: 0.3, delay: i * 0.04 }}
                   className="group rounded-xl border border-border bg-secondary/30 p-5 hover:border-foreground/20 hover:bg-secondary/60 transition-all"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-semibold text-foreground text-sm">{proj.name}</h3>
-                    <div className="flex items-center gap-1.5">
+                  <Box className="flex items-center justify-between mb-3">
+                    <Box tag="h3" className="font-semibold text-foreground text-sm">{proj.name}</Box>
+                    <Box className="flex items-center gap-1.5">
                       {proj.stars && (
-                        <span className="text-[10px] font-mono text-muted-foreground">
+                        <Box tag="span" className="text-[10px] font-mono text-muted-foreground">
                           {proj.stars}
-                        </span>
+                        </Box>
                       )}
-                      <a
+                      <Box tag="a"
                         href={proj.github}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -251,25 +252,25 @@ export default function PageClient() {
                         aria-label={`${proj.name} on GitHub`}
                       >
                         <Github className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mb-2">{proj.role}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] text-muted-foreground/70">{proj.creator}</span>
-                    <span className="text-[10px] font-mono text-muted-foreground/70">
+                      </Box>
+                    </Box>
+                  </Box>
+                  <Box tag="p" className="text-xs text-muted-foreground mb-2">{proj.role}</Box>
+                  <Box className="flex items-center justify-between">
+                    <Box tag="span" className="text-[10px] text-muted-foreground/70">{proj.creator}</Box>
+                    <Box tag="span" className="text-[10px] font-mono text-muted-foreground/70">
                       {proj.license}
-                    </span>
-                  </div>
+                    </Box>
+                  </Box>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Our Organizations */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -277,16 +278,16 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="mb-10"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <Box tag="h2" className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Our Organizations
-              </h2>
-              <p className="text-muted-foreground max-w-xl">
+              </Box>
+              <Box tag="p" className="text-muted-foreground max-w-xl">
                 Six GitHub organizations spanning AI, blockchain, and developer tooling
                 &mdash; all public, all open.
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {GITHUB_ORGS.map((org, i) => {
                 const Icon = org.icon
                 return (
@@ -301,30 +302,30 @@ export default function PageClient() {
                     transition={{ duration: 0.3, delay: i * 0.06 }}
                     className="group flex items-start gap-4 rounded-xl border border-border bg-secondary/30 p-5 hover:border-foreground/20 hover:bg-secondary/60 transition-all"
                   >
-                    <div className="mt-0.5 flex-shrink-0 rounded-lg border border-border bg-background p-2">
+                    <Box className="mt-0.5 flex-shrink-0 rounded-lg border border-border bg-background p-2">
                       <Icon className="w-5 h-5 text-muted-foreground group-hover:text-foreground transition-colors" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-1.5 mb-1">
-                        <span className="font-mono text-sm font-semibold text-foreground group-hover:text-foreground transition-colors">
+                    </Box>
+                    <Box className="flex-1 min-w-0">
+                      <Box className="flex items-center gap-1.5 mb-1">
+                        <Box tag="span" className="font-mono text-sm font-semibold text-foreground group-hover:text-foreground transition-colors">
                           @{org.handle}
-                        </span>
+                        </Box>
                         <ExternalLink className="w-3 h-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </div>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
+                      </Box>
+                      <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
                         {org.description}
-                      </p>
-                    </div>
+                      </Box>
+                    </Box>
                   </motion.a>
                 )
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Stewardship Commitments */}
-        <section className="py-20 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className="py-20 px-4 md:px-8 border-t border-border">
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -332,16 +333,16 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="mb-10"
             >
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              <Box tag="h2" className="text-2xl md:text-3xl font-bold text-foreground mb-3">
                 Our Stewardship Commitments
-              </h2>
-              <p className="text-muted-foreground max-w-xl">
+              </Box>
+              <Box tag="p" className="text-muted-foreground max-w-xl">
                 Explicit commitments, not vague promises. We hold ourselves accountable to
                 these publicly.
-              </p>
+              </Box>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {COMMITMENTS.map((c, i) => (
                 <motion.div
                   key={c.title}
@@ -351,26 +352,26 @@ export default function PageClient() {
                   transition={{ duration: 0.3, delay: i * 0.06 }}
                   className="rounded-xl border border-border bg-secondary/30 p-5"
                 >
-                  <div className="flex items-start gap-3">
-                    <div className="mt-0.5 flex-shrink-0 rounded-full bg-foreground/10 p-1">
+                  <Box className="flex items-start gap-3">
+                    <Box className="mt-0.5 flex-shrink-0 rounded-full bg-foreground/10 p-1">
                       <Check className="w-3.5 h-3.5 text-foreground" />
-                    </div>
+                    </Box>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm mb-1">{c.title}</h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">{c.body}</p>
+                      <Box tag="h3" className="font-semibold text-foreground text-sm mb-1">{c.title}</Box>
+                      <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">{c.body}</Box>
                     </div>
-                  </div>
+                  </Box>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Earn from Open Source (Revenue Sharing) */}
-        <section className="py-24 px-4 md:px-8 border-t border-border relative overflow-hidden">
+        <Box tag="section" className="py-24 px-4 md:px-8 border-t border-border relative overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full blur-[160px] bg-foreground/[0.04] pointer-events-none" />
 
-          <div className="max-w-6xl mx-auto relative z-10">
+          <Box className="max-w-6xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -378,22 +379,22 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border">
+              <Box className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium mb-6 border bg-foreground/5 border-border">
                 <DollarSign className="w-3.5 h-3.5 text-muted-foreground" />
-                <span className="text-muted-foreground">Revenue Sharing Program</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+                <Box tag="span" className="text-muted-foreground">Revenue Sharing Program</Box>
+              </Box>
+              <Box tag="h2" className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
                 Earn from Open Source
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              </Box>
+              <Box tag="p" className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 We dedicate 25% of all compute costs to open source &mdash; distributed
                 transparently based on verified SBOMs. Your code runs in production, you
                 get paid.
-              </p>
+              </Box>
             </motion.div>
 
             {/* How It Works - 4 steps */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {REVENUE_STEPS.map((step, i) => {
                 const Icon = step.icon
                 return (
@@ -405,28 +406,28 @@ export default function PageClient() {
                     transition={{ duration: 0.3, delay: i * 0.08 }}
                     className="relative rounded-xl border border-border bg-secondary/30 p-6"
                   >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-8 rounded-full border border-border bg-background flex items-center justify-center text-xs font-bold text-foreground">
+                    <Box className="flex items-center gap-3 mb-4">
+                      <Box className="w-8 h-8 rounded-full border border-border bg-background flex items-center justify-center text-xs font-bold text-foreground">
                         {step.step}
-                      </div>
-                      <div className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center">
+                      </Box>
+                      <Box className="w-8 h-8 rounded-lg bg-foreground/10 flex items-center justify-center">
                         <Icon className="w-4 h-4 text-muted-foreground" />
-                      </div>
-                    </div>
-                    <h3 className="font-semibold text-foreground text-sm mb-2">{step.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      </Box>
+                    </Box>
+                    <Box tag="h3" className="font-semibold text-foreground text-sm mb-2">{step.title}</Box>
+                    <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
                       {step.description}
-                    </p>
+                    </Box>
                     {i < REVENUE_STEPS.length - 1 && (
                       <div className="hidden lg:block absolute top-1/2 -right-3 w-6 h-px bg-border" />
                     )}
                   </motion.div>
                 )
               })}
-            </div>
+            </Box>
 
             {/* Feature cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
               {REVENUE_FEATURES.map((f, i) => {
                 const Icon = f.icon
                 return (
@@ -438,17 +439,17 @@ export default function PageClient() {
                     transition={{ duration: 0.3, delay: i * 0.06 }}
                     className="rounded-xl border border-border bg-secondary/20 p-5 text-center"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-foreground/10 flex items-center justify-center mx-auto mb-3">
+                    <Box className="w-10 h-10 rounded-xl bg-foreground/10 flex items-center justify-center mx-auto mb-3">
                       <Icon className="w-5 h-5 text-muted-foreground" />
-                    </div>
-                    <h3 className="font-semibold text-foreground text-sm mb-1">{f.title}</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    </Box>
+                    <Box tag="h3" className="font-semibold text-foreground text-sm mb-1">{f.title}</Box>
+                    <Box tag="p" className="text-xs text-muted-foreground leading-relaxed">
                       {f.description}
-                    </p>
+                    </Box>
                   </motion.div>
                 )
               })}
-            </div>
+            </Box>
 
             {/* Community splits callout */}
             <motion.div
@@ -458,22 +459,22 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="rounded-xl border border-border bg-secondary/30 p-6 md:p-8 mb-16"
             >
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
+              <Box className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                <Box className="flex-shrink-0 w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
                   <Users className="w-6 h-6 text-muted-foreground" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-foreground mb-2">
+                </Box>
+                <Box className="flex-1">
+                  <Box tag="h3" className="font-semibold text-foreground mb-2">
                     Communities Customize Their Splits
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
+                  </Box>
+                  <Box tag="p" className="text-sm text-muted-foreground leading-relaxed">
                     Each project controls how revenue is distributed. For example: 10% to
                     the founder, 40% to top contributors, 50% to a community fund. We
                     actively reach out to every contributor whose code we run in production
                     to connect wallets and verify their git identity.
-                  </p>
-                </div>
-              </div>
+                  </Box>
+                </Box>
+              </Box>
             </motion.div>
 
             {/* Payout options + CTAs */}
@@ -484,14 +485,14 @@ export default function PageClient() {
               transition={{ duration: 0.4 }}
               className="text-center mb-10"
             >
-              <p className="text-sm text-muted-foreground mb-6">
+              <Box tag="p" className="text-sm text-muted-foreground mb-6">
                 Payout options:{' '}
-                <span className="text-foreground font-medium">USD (direct deposit)</span>,{' '}
-                <span className="text-foreground font-medium">Zoo Network tokens</span>,
-                or <span className="text-foreground font-medium">AI coin</span> &mdash; on
+                <Box tag="span" className="text-foreground font-medium">USD (direct deposit)</Box>,{' '}
+                <Box tag="span" className="text-foreground font-medium">Zoo Network tokens</Box>,
+                or <Box tag="span" className="text-foreground font-medium">AI coin</Box> &mdash; on
                 any major chain.
-              </p>
-              <div className="flex flex-wrap items-center justify-center gap-4">
+              </Box>
+              <Box className="flex flex-wrap items-center justify-center gap-4">
                 <a
                   href="https://zoo.ngo/oss/connect"
                   target="_blank"
@@ -520,14 +521,14 @@ export default function PageClient() {
                     View Payout Dashboard
                   </Button>
                 </a>
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Research & Papers */}
-        <section className="py-16 px-4 md:px-8 border-t border-border">
-          <div className="max-w-6xl mx-auto">
+        <Box tag="section" className="py-16 px-4 md:px-8 border-t border-border">
+          <Box className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -536,14 +537,14 @@ export default function PageClient() {
               className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 rounded-xl border border-border bg-secondary/30 p-6"
             >
               <div>
-                <h2 className="text-xl font-bold text-foreground mb-1">
+                <Box tag="h2" className="text-xl font-bold text-foreground mb-1">
                   Research &amp; Papers
-                </h2>
-                <p className="text-sm text-muted-foreground max-w-lg">
+                </Box>
+                <Box tag="p" className="text-sm text-muted-foreground max-w-lg">
                   130+ technical papers across AI alignment, consensus protocols,
                   post-quantum cryptography, decentralized AI, and more. Open-access and
                   free forever.
-                </p>
+                </Box>
               </div>
               <Link href="/research">
                 <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
@@ -552,15 +553,15 @@ export default function PageClient() {
                 </Button>
               </Link>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* CTA */}
-        <section className="py-24 px-4 md:px-8 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden border-t border-border">
+        <Box tag="section" className="py-24 px-4 md:px-8 bg-gradient-to-b from-secondary/20 to-background relative overflow-hidden border-t border-border">
           <div className="absolute -top-40 -right-40 w-80 h-80 bg-foreground/5 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-foreground/[0.03] rounded-full blur-3xl pointer-events-none" />
 
-          <div className="max-w-4xl mx-auto text-center relative z-10">
+          <Box className="max-w-4xl mx-auto text-center relative z-10">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -609,9 +610,9 @@ export default function PageClient() {
                 </Button>
               </a>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
       </main>
-    </div>
+    </Box>
   )
 }

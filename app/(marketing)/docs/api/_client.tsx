@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -200,30 +201,30 @@ function CopyButton({ text }: { text: string }) {
 
 function MethodBadge({ method }: { method: string }) {
   return (
-    <span
+    <Box tag="span"
       className={cn(
         "text-[11px] font-mono font-bold px-2 py-0.5 rounded",
         "bg-foreground/10 text-foreground"
       )}
     >
       {method}
-    </span>
+    </Box>
   );
 }
 
 function CodeBlock({ code, label }: { code: string; label?: string }) {
   return (
-    <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
+    <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
       {label && (
-        <div className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
-          <span className="text-xs font-mono text-muted-foreground">{label}</span>
+        <Box className="flex items-center justify-between px-4 py-2 border-b border-border bg-foreground/[0.02]">
+          <Box tag="span" className="text-xs font-mono text-muted-foreground">{label}</Box>
           <CopyButton text={code} />
-        </div>
+        </Box>
       )}
-      <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
+      <Box tag="pre" className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50">
         <code>{code}</code>
-      </pre>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
@@ -233,8 +234,8 @@ function CodeBlock({ code, label }: { code: string; label?: string }) {
 
 export default function PageClient() {
   return (
-    <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+      <Box className="max-w-5xl mx-auto">
         {/* Breadcrumb + Hero */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -248,12 +249,12 @@ export default function PageClient() {
           >
             <ArrowLeft className="w-3.5 h-3.5" /> Back to Docs
           </Link>
-          <h1 className="text-5xl sm:text-6xl font-bold mb-6">API Reference</h1>
-          <p className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
+          <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">API Reference</Box>
+          <Box tag="p" className={cn("text-xl max-w-3xl", "text-muted-foreground")}>
             Complete REST API reference for Zoo Cloud, LLM Gateway, IAM, and
             KMS. All LLM endpoints are OpenAI-compatible — switch your base URL
             and use your existing code.
-          </p>
+          </Box>
         </motion.div>
 
         {/* OpenAI Compatibility Note */}
@@ -266,11 +267,11 @@ export default function PageClient() {
             "border-border bg-foreground/[0.02]"
           )}
         >
-          <h3 className="font-semibold mb-2">OpenAI Compatible</h3>
-          <p className="text-sm text-muted-foreground mb-3">
+          <Box tag="h3" className="font-semibold mb-2">OpenAI Compatible</Box>
+          <Box tag="p" className="text-sm text-muted-foreground mb-3">
             The LLM Gateway implements the OpenAI API specification. If you already use the OpenAI
             SDK, point it at Zoo with zero code changes:
-          </p>
+          </Box>
           <CodeBlock
             code={`from openai import OpenAI
 
@@ -291,30 +292,30 @@ client = OpenAI(
           transition={{ duration: 0.5, delay: 0.1 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold mb-2">Base URLs</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Base URLs</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Each service has a dedicated base URL.
-          </p>
-          <div className="space-y-3">
+          </Box>
+          <Box className="space-y-3">
             {baseUrls.map((item) => (
-              <div
+              <Box
                 key={item.service}
                 className={cn(
                   "flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-4 rounded-lg border",
                   "border-border"
                 )}
               >
-                <div className="flex items-center gap-3 min-w-[180px]">
+                <Box className="flex items-center gap-3 min-w-[180px]">
                   <Globe className="w-4 h-4 text-muted-foreground shrink-0" />
-                  <span className="font-semibold text-sm">{item.service}</span>
-                </div>
-                <code className="text-sm font-mono text-muted-foreground">{item.url}</code>
-                <p className="text-xs text-muted-foreground sm:ml-auto max-w-md text-right hidden lg:block">
+                  <Box tag="span" className="font-semibold text-sm">{item.service}</Box>
+                </Box>
+                <Box tag="code" className="text-sm font-mono text-muted-foreground">{item.url}</Box>
+                <Box tag="p" className="text-xs text-muted-foreground sm:ml-auto max-w-md text-right hidden lg:block">
                   {item.description}
-                </p>
-              </div>
+                </Box>
+              </Box>
             ))}
-          </div>
+          </Box>
         </motion.div>
 
         {/* Authentication */}
@@ -324,22 +325,22 @@ client = OpenAI(
           transition={{ duration: 0.5, delay: 0.15 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold mb-2">Authentication</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Authentication</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Two authentication methods are supported.
-          </p>
-          <div className="space-y-6">
+          </Box>
+          <Box className="space-y-6">
             {authMethods.map((auth) => (
               <div key={auth.method}>
-                <div className="flex items-center gap-2 mb-2">
+                <Box className="flex items-center gap-2 mb-2">
                   <Lock className="w-4 h-4 text-muted-foreground" />
-                  <h3 className="text-lg font-semibold">{auth.method}</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">{auth.description}</p>
+                  <Box tag="h3" className="text-lg font-semibold">{auth.method}</Box>
+                </Box>
+                <Box tag="p" className="text-sm text-muted-foreground mb-4">{auth.description}</Box>
                 <CodeBlock code={auth.example} label={auth.method} />
               </div>
             ))}
-          </div>
+          </Box>
         </motion.div>
 
         {/* Endpoints */}
@@ -349,41 +350,41 @@ client = OpenAI(
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold mb-2">Core Endpoints</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
-            Primary endpoints on the LLM Gateway (<code className="font-mono text-sm">llm.zoo.ngo</code>).
-          </p>
-          <div className="space-y-10">
+          <Box tag="h2" className="text-3xl font-bold mb-2">Core Endpoints</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
+            Primary endpoints on the LLM Gateway (<Box tag="code" className="font-mono text-sm">llm.zoo.ngo</Box>).
+          </Box>
+          <Box className="space-y-10">
             {endpoints.map((section) => (
               <div key={section.category}>
-                <h3 className="text-xl font-semibold mb-4">{section.category}</h3>
-                <div className="space-y-6">
+                <Box tag="h3" className="text-xl font-semibold mb-4">{section.category}</Box>
+                <Box className="space-y-6">
                   {section.items.map((endpoint) => (
-                    <div
+                    <Box
                       key={endpoint.path}
                       className={cn(
                         "rounded-lg border overflow-hidden",
                         "border-border"
                       )}
                     >
-                      <div className="flex items-center gap-3 px-4 py-3 border-b border-border bg-foreground/[0.02]">
+                      <Box className="flex items-center gap-3 px-4 py-3 border-b border-border bg-foreground/[0.02]">
                         <MethodBadge method={endpoint.method} />
-                        <code className="text-sm font-mono">{endpoint.path}</code>
-                      </div>
-                      <div className="p-4">
-                        <p className="text-sm text-muted-foreground mb-4">
+                        <Box tag="code" className="text-sm font-mono">{endpoint.path}</Box>
+                      </Box>
+                      <Box className="p-4">
+                        <Box tag="p" className="text-sm text-muted-foreground mb-4">
                           {endpoint.description}
-                        </p>
-                        <pre className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50 rounded-lg">
+                        </Box>
+                        <Box tag="pre" className="p-4 overflow-x-auto text-sm font-mono leading-relaxed bg-muted/50 rounded-lg">
                           <code>{endpoint.example}</code>
-                        </pre>
-                      </div>
-                    </div>
+                        </Box>
+                      </Box>
+                    </Box>
                   ))}
-                </div>
+                </Box>
               </div>
             ))}
-          </div>
+          </Box>
         </motion.div>
 
         {/* Rate Limits */}
@@ -393,40 +394,40 @@ client = OpenAI(
           transition={{ duration: 0.5, delay: 0.25 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold mb-2">Rate Limits</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Rate Limits</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Limits vary by plan. Check response headers for current usage.
-          </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <table className="w-full text-sm">
+          </Box>
+          <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
+            <Box tag="table" className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border bg-foreground/[0.02]">
-                  <th className="text-left px-4 py-3 font-semibold">Tier</th>
-                  <th className="text-left px-4 py-3 font-semibold">Requests / min</th>
-                  <th className="text-left px-4 py-3 font-semibold">Tokens / min</th>
-                  <th className="text-left px-4 py-3 font-semibold">Requests / day</th>
-                </tr>
+                <Box tag="tr" className="border-b border-border bg-foreground/[0.02]">
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold">Tier</Box>
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold">Requests / min</Box>
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold">Tokens / min</Box>
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold">Requests / day</Box>
+                </Box>
               </thead>
               <tbody>
                 {rateLimits.map((limit) => (
-                  <tr key={limit.tier} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-3 font-medium">{limit.tier}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.rpm}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.tpm}</td>
-                    <td className="px-4 py-3 font-mono text-muted-foreground">{limit.rpd}</td>
-                  </tr>
+                  <Box tag="tr" key={limit.tier} className="border-b border-border last:border-b-0">
+                    <Box tag="td" className="px-4 py-3 font-medium">{limit.tier}</Box>
+                    <Box tag="td" className="px-4 py-3 font-mono text-muted-foreground">{limit.rpm}</Box>
+                    <Box tag="td" className="px-4 py-3 font-mono text-muted-foreground">{limit.tpm}</Box>
+                    <Box tag="td" className="px-4 py-3 font-mono text-muted-foreground">{limit.rpd}</Box>
+                  </Box>
                 ))}
               </tbody>
-            </table>
-          </div>
-          <div className="mt-4">
-            <p className="text-xs text-muted-foreground">
+            </Box>
+          </Box>
+          <Box className="mt-4">
+            <Box tag="p" className="text-xs text-muted-foreground">
               Rate limit headers:{" "}
-              <code className="font-mono">x-ratelimit-limit-requests</code>,{" "}
-              <code className="font-mono">x-ratelimit-remaining-requests</code>,{" "}
-              <code className="font-mono">x-ratelimit-reset-requests</code>
-            </p>
-          </div>
+              <Box tag="code" className="font-mono">x-ratelimit-limit-requests</Box>,{" "}
+              <Box tag="code" className="font-mono">x-ratelimit-remaining-requests</Box>,{" "}
+              <Box tag="code" className="font-mono">x-ratelimit-reset-requests</Box>
+            </Box>
+          </Box>
         </motion.div>
 
         {/* Error Codes */}
@@ -436,31 +437,31 @@ client = OpenAI(
           transition={{ duration: 0.5, delay: 0.3 }}
           className="mb-16"
         >
-          <h2 className="text-3xl font-bold mb-2">Error Codes</h2>
-          <p className={cn("text-lg mb-8", "text-muted-foreground")}>
+          <Box tag="h2" className="text-3xl font-bold mb-2">Error Codes</Box>
+          <Box tag="p" className={cn("text-lg mb-8", "text-muted-foreground")}>
             Standard HTTP status codes with JSON error bodies.
-          </p>
-          <div className={cn("rounded-lg border overflow-hidden", "border-border")}>
-            <table className="w-full text-sm">
+          </Box>
+          <Box className={cn("rounded-lg border overflow-hidden", "border-border")}>
+            <Box tag="table" className="w-full text-sm">
               <thead>
-                <tr className="border-b border-border bg-foreground/[0.02]">
-                  <th className="text-left px-4 py-3 font-semibold w-20">Code</th>
-                  <th className="text-left px-4 py-3 font-semibold w-40">Name</th>
-                  <th className="text-left px-4 py-3 font-semibold">Description</th>
-                </tr>
+                <Box tag="tr" className="border-b border-border bg-foreground/[0.02]">
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold w-20">Code</Box>
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold w-40">Name</Box>
+                  <Box tag="th" className="text-left px-4 py-3 font-semibold">Description</Box>
+                </Box>
               </thead>
               <tbody>
                 {errorCodes.map((err) => (
-                  <tr key={err.code} className="border-b border-border last:border-b-0">
-                    <td className="px-4 py-3 font-mono font-medium">{err.code}</td>
-                    <td className="px-4 py-3 font-medium">{err.name}</td>
-                    <td className="px-4 py-3 text-muted-foreground">{err.description}</td>
-                  </tr>
+                  <Box tag="tr" key={err.code} className="border-b border-border last:border-b-0">
+                    <Box tag="td" className="px-4 py-3 font-mono font-medium">{err.code}</Box>
+                    <Box tag="td" className="px-4 py-3 font-medium">{err.name}</Box>
+                    <Box tag="td" className="px-4 py-3 text-muted-foreground">{err.description}</Box>
+                  </Box>
                 ))}
               </tbody>
-            </table>
-          </div>
-          <div className="mt-4">
+            </Box>
+          </Box>
+          <Box className="mt-4">
             <CodeBlock
               code={`// Error response format
 {
@@ -472,7 +473,7 @@ client = OpenAI(
 }`}
               label="Error response body"
             />
-          </div>
+          </Box>
         </motion.div>
 
         {/* CTA */}
@@ -485,17 +486,17 @@ client = OpenAI(
             "border-border bg-foreground/[0.02]"
           )}
         >
-          <h2 className="text-2xl font-bold mb-4">Prefer a client library?</h2>
-          <p className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
+          <Box tag="h2" className="text-2xl font-bold mb-4">Prefer a client library?</Box>
+          <Box tag="p" className={cn("text-lg mb-6 max-w-2xl mx-auto", "text-muted-foreground")}>
             Our SDKs handle authentication, retries, streaming, and typed responses out of the box.
-          </p>
+          </Box>
           <Link href="/docs/sdk">
             <Button variant="outline" className="gap-2">
               View SDKs <ArrowRight className="w-4 h-4" />
             </Button>
           </Link>
         </motion.div>
-      </div>
-    </main>
+      </Box>
+    </Box>
   );
 }

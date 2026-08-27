@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -45,12 +46,12 @@ export default function CaseStudies() {
   ];
 
   return (
-    <section className={cn(
+    <Box tag="section" className={cn(
       "py-20 transition-colors duration-300",
       "bg-foreground/[0.03]"
     )}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+      <Box className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Box className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,9 +72,9 @@ export default function CaseStudies() {
             Delivering measurable breakthroughs in AI efficiency, cryptography,
             and distributed systems through open research
           </motion.p>
-        </div>
+        </Box>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {caseStudies.map((study, index) => (
             <motion.a
               key={study.title}
@@ -88,44 +89,44 @@ export default function CaseStudies() {
                 "bg-background/50 border-border hover:border-border"
               )}
             >
-              <div className="flex justify-between items-start mb-4">
-                <span className={cn(
+              <Box className="flex justify-between items-start mb-4">
+                <Box tag="span" className={cn(
                   "text-sm font-medium uppercase tracking-wider",
                   "text-muted-foreground"
                 )}>
                   {study.category}
-                </span>
-                <span className={cn(
+                </Box>
+                <Box tag="span" className={cn(
                   "text-sm",
                   "text-muted-foreground"
-                )}>{study.year}</span>
-              </div>
+                )}>{study.year}</Box>
+              </Box>
 
-              <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
-              <p className={cn(
+              <Box tag="h3" className="text-xl font-semibold mb-2">{study.title}</Box>
+              <Box tag="p" className={cn(
                 "text-sm mb-4 font-medium",
                 "text-muted-foreground"
-              )}>{study.client}</p>
-              <p className={cn(
+              )}>{study.client}</Box>
+              <Box tag="p" className={cn(
                 "mb-6",
                 "text-muted-foreground"
-              )}>{study.description}</p>
+              )}>{study.description}</Box>
 
-              <div className="flex items-center justify-between">
-                <div className={cn(
+              <Box className="flex items-center justify-between">
+                <Box className={cn(
                   "px-4 py-2 rounded-md",
                   "bg-foreground/10"
                 )}>
-                  <span className="text-sm font-semibold">{study.impact}</span>
-                </div>
+                  <Box tag="span" className="text-sm font-semibold">{study.impact}</Box>
+                </Box>
                 <ExternalLink className={cn(
                   "w-5 h-5 transition-colors",
                   "text-foreground/30 group-hover:text-foreground"
                 )} />
-              </div>
+              </Box>
             </motion.a>
           ))}
-        </div>
+        </Box>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -133,15 +134,15 @@ export default function CaseStudies() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-12 text-center"
         >
-          <a
+          <Box tag="a"
             href="/research#papers"
             className="inline-flex items-center font-semibold hover:underline"
           >
             View All Research Papers
             <ArrowRight className="w-4 h-4 ml-2" />
-          </a>
+          </Box>
         </motion.div>
-      </div>
-    </section>
+      </Box>
+    </Box>
   );
 }

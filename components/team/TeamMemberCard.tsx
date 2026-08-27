@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { LucideIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter, MessageSquare, Rocket } from "lucide-react";
@@ -32,49 +33,49 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
       )}
     >
       <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-500 ease-in-out -z-10" />
-      <div className="block mb-4 relative z-10">
+      <Box className="block mb-4 relative z-10">
         {image ? (
           // Avatar disc — ``rounded-full`` is mandatory (global brutalist
           // reset squares anything without it).
-          <div className="w-16 h-16 aspect-square overflow-hidden rounded-full border border-black mb-4">
+          <Box className="w-16 h-16 aspect-square overflow-hidden rounded-full border border-black mb-4">
             <img
               src={image}
               alt={name}
               className="w-full h-full object-cover grayscale rounded-full"
             />
-          </div>
+          </Box>
         ) : emoji ? (
-          <div className="mb-4 text-5xl leading-none">
+          <Box className="mb-4 text-5xl leading-none">
             {emoji}
-          </div>
+          </Box>
         ) : (
-          <div className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
+          <Box className={cn("inline-flex p-3 rounded-xl bg-gradient-to-br mb-4", gradient)}>
             <Icon className="h-6 w-6 text-foreground" />
-          </div>
+          </Box>
         )}
-        <h3 className={cn(
+        <Box tag="h3" className={cn(
           "text-xl font-semibold mb-2 transition-colors",
           "text-foreground"
         )}>
           {name}
-        </h3>
-        <p className={cn(
+        </Box>
+        <Box tag="p" className={cn(
           "font-medium mb-3 text-sm",
           "text-muted-foreground"
         )}>
           {role}
-        </p>
-        <p className={cn(
+        </Box>
+        <Box tag="p" className={cn(
           "mb-4 text-sm",
           "text-muted-foreground"
         )}>
           {description}
-        </p>
-      </div>
+        </Box>
+      </Box>
 
       {isHuman ? (
-        <div className="flex items-center gap-3 relative z-10">
-          <a
+        <Box className="flex items-center gap-3 relative z-10">
+          <Box tag="a"
             href={`https://linkedin.com/in/${slug}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -84,8 +85,8 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
           >
             <Linkedin className="h-4 w-4" />
-          </a>
-          <a
+          </Box>
+          <Box tag="a"
             href={`https://x.com/${slug}`}
             target="_blank"
             rel="noopener noreferrer"
@@ -95,8 +96,8 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
           >
             <Twitter className="h-4 w-4" />
-          </a>
-          <a
+          </Box>
+          <Box tag="a"
             href="https://github.com/zooai"
             target="_blank"
             rel="noopener noreferrer"
@@ -106,11 +107,11 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             )}
           >
             <Github className="h-4 w-4" />
-          </a>
-        </div>
+          </Box>
+        </Box>
       ) : (
-        <div className="flex items-center gap-3 relative z-10">
-          <a
+        <Box className="flex items-center gap-3 relative z-10">
+          <Box tag="a"
             href={botId ? `https://app.zoo.bot/${botId}` : "https://app.zoo.bot"}
             target="_blank"
             rel="noopener noreferrer"
@@ -121,8 +122,8 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             title="Launch"
           >
             <Rocket className="h-4 w-4" />
-          </a>
-          <a
+          </Box>
+          <Box tag="a"
             href="https://zoo.chat"
             target="_blank"
             rel="noopener noreferrer"
@@ -133,8 +134,8 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             title="Chat"
           >
             <MessageSquare className="h-4 w-4" />
-          </a>
-          <a
+          </Box>
+          <Box tag="a"
             href="https://github.com/zooai/bot"
             target="_blank"
             rel="noopener noreferrer"
@@ -145,8 +146,8 @@ export default function TeamMemberCard({ name, role, description, icon: Icon, gr
             title="GitHub"
           >
             <Github className="h-4 w-4" />
-          </a>
-        </div>
+          </Box>
+        </Box>
       )}
     </motion.div>
   );

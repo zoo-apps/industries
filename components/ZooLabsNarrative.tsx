@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 
 // Content lifted from "Zoo Labs 2026 - draft.pdf" (the full pitch deck).
@@ -20,9 +21,9 @@ function Section({
   id?: string;
 }) {
   return (
-    <section id={id} className="py-12 md:py-16 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">{children}</div>
-    </section>
+    <Box tag="section" id={id} className="py-12 md:py-16 px-4 md:px-8">
+      <Box className="max-w-7xl mx-auto">{children}</Box>
+    </Box>
   );
 }
 
@@ -37,11 +38,11 @@ function SectionHead({
 }) {
   return (
     <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
-      <span className={`pill ${pillClass} text-lg md:text-2xl`}>{title}</span>
+      <Box tag="span" className={`pill ${pillClass} text-lg md:text-2xl`}>{title}</Box>
       {subtitle && (
-        <h3 className="mt-10 md:mt-12 text-xl md:text-2xl font-extrabold underline underline-offset-4">
+        <Box tag="h3" className="mt-10 md:mt-12 text-xl md:text-2xl font-extrabold underline underline-offset-4">
           {subtitle}
-        </h3>
+        </Box>
       )}
     </motion.div>
   );
@@ -57,9 +58,9 @@ export default function ZooLabsNarrative() {
           transition={{ duration: 0.5 }}
           className="text-center"
         >
-          <p className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+          <Box tag="p" className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
             Open AI for the future of tomorrow.
-          </p>
+          </Box>
         </motion.div>
       </Section>
 
@@ -70,7 +71,7 @@ export default function ZooLabsNarrative() {
           title="Conservation"
           subtitle="Our non-profit supports Open AI research and charities aligned with ending extinction."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+        <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {[
             {
               h: "Habitat & Health",
@@ -100,13 +101,13 @@ export default function ZooLabsNarrative() {
               className="p-5 md:p-6 border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black"
               style={{ backgroundColor: card.c }}
             >
-              <h4 className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">
+              <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">
                 {card.h}
-              </h4>
-              <p className="text-sm md:text-base font-medium">{card.p}</p>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base font-medium">{card.p}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Zoo Bots ────────────────────────────────────────── */}
@@ -116,7 +117,7 @@ export default function ZooLabsNarrative() {
           title="Zoo Bots"
           subtitle="Agentic AI for all ages."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
           {[
             "Private local AI that runs on your computer for free, or in Zoo Cloud.",
             "Intelligent animal agents with a gamified economy and marketplace.",
@@ -130,21 +131,21 @@ export default function ZooLabsNarrative() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="panel"
             >
-              <p className="text-base md:text-lg font-medium">{line}</p>
+              <Box tag="p" className="text-base md:text-lg font-medium">{line}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Problem ─────────────────────────────────────────── */}
       <Section id="problem">
         <SectionHead pillClass="pill-red" title="Problem?" />
-        <p className="text-lg md:text-2xl font-bold mb-6 md:mb-8 max-w-4xl">
+        <Box tag="p" className="text-lg md:text-2xl font-bold mb-6 md:mb-8 max-w-4xl">
           AI is controlled by just a few monopolies world-wide, while emerging
           technology has been bombarded with nefarious actors time and time
           again.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        </Box>
+        <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {[
             {
               h: "AI as a safety risk",
@@ -177,13 +178,13 @@ export default function ZooLabsNarrative() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="panel"
             >
-              <h4 className="text-base md:text-lg font-extrabold uppercase mb-2 tracking-tight">
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase mb-2 tracking-tight">
                 {card.h}
-              </h4>
-              <p className="text-sm md:text-base">{card.p}</p>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base">{card.p}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Private Equity on Chain ────────────────────────── */}
@@ -193,21 +194,21 @@ export default function ZooLabsNarrative() {
           title="Private Equity on Chain"
           subtitle="The biggest redistribution of wealth the world is yet to see."
         />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
+        <Box className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
-            <p className="text-base md:text-lg font-medium">
+            <Box tag="p" className="text-base md:text-lg font-medium">
               Through our regulated tokenization partner, ZOO gains a compliant path to tokenize and
               distribute GPU-backed AI infrastructure using broker-dealer, ATS,
               transfer agency, and blockchain settlement rails.
-            </p>
-            <blockquote className="border-l-4 border-black pl-4 italic text-sm md:text-base">
+            </Box>
+            <Box tag="blockquote" className="border-l-4 border-black pl-4 italic text-sm md:text-base">
               "While smaller, private equity has historically generated higher
               long-term net returns, often outpacing the S&amp;P 500 over 10-
               and 20-year periods."
-              <span className="block not-italic mt-2 text-xs md:text-sm font-semibold">
+              <Box tag="span" className="block not-italic mt-2 text-xs md:text-sm font-semibold">
                 — Start Engine
-              </span>
-            </blockquote>
+              </Box>
+            </Box>
           </motion.div>
           <motion.div
             {...fade}
@@ -222,29 +223,29 @@ export default function ZooLabsNarrative() {
               { v: "$159B", l: "Infrastructure" },
               { v: "$113T", l: "Total addressable" },
             ].map((s) => (
-              <div
+              <Box
                 key={s.l}
                 className="p-3 md:p-4 border-2 border-black bg-white text-center"
               >
-                <div className="text-lg md:text-2xl font-extrabold">{s.v}</div>
-                <div className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70">
+                <Box className="text-lg md:text-2xl font-extrabold">{s.v}</Box>
+                <Box className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70">
                   {s.l}
-                </div>
-              </div>
+                </Box>
+              </Box>
             ))}
           </motion.div>
-        </div>
-        <p className="text-xs md:text-sm text-black/60 max-w-3xl">
+        </Box>
+        <Box tag="p" className="text-xs md:text-sm text-black/60 max-w-3xl">
           Source: Based on World Bank and Preqin data, as cited in McKinsey
           &amp; Company's "Global Private Markets Review 2020." Data as of year
           end 2019. Growth rates indexed to 2000 values.
-        </p>
+        </Box>
       </Section>
 
       {/* ── How Zoo Works ───────────────────────────────────── */}
       <Section id="how">
         <SectionHead pillClass="pill-yellow" title="How does Zoo work?" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+        <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
           {[
             "Collect and trade different Zoo Bots — each AI is an emotionally intelligent 3D replica of an endangered species, with direct charitable donations to wildlife charities.",
             "Choose your display. Your experience is unique and tailored to whichever compatible device you use.",
@@ -258,13 +259,13 @@ export default function ZooLabsNarrative() {
               transition={{ duration: 0.4, delay: i * 0.06 }}
               className="p-4 md:p-5 border-2 border-black bg-white shadow-[6px_6px_0_0_#000]"
             >
-              <div className="text-2xl md:text-3xl font-extrabold mb-2 text-[var(--brand-magenta)]">
+              <Box className="text-2xl md:text-3xl font-extrabold mb-2 text-[var(--brand-magenta)]">
                 {String(i + 1).padStart(2, "0")}
-              </div>
-              <p className="text-sm md:text-base font-medium">{step}</p>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base font-medium">{step}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Mine AI / Foundation mission ────────────────────── */}
@@ -274,17 +275,17 @@ export default function ZooLabsNarrative() {
           title="Mine AI · Save the Species"
           subtitle="The Zoo Labs Foundation, a 501(c)(3) tax-exempt non-profit committed to preserving life on Earth."
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <Box className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {[
             "Uniquely connecting donors to local private AI and funding wildlife in need.",
             "Fun immersive experiences that incentivize large donations.",
             "Inclusive of all economic backgrounds — volunteer or visit the sanctuaries in style.",
           ].map((line, i) => (
-            <div key={i} className="panel">
-              <p className="text-base md:text-lg font-medium">{line}</p>
-            </div>
+            <Box key={i} className="panel">
+              <Box tag="p" className="text-base md:text-lg font-medium">{line}</Box>
+            </Box>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Five-Layer Stack ────────────────────────────────── */}
@@ -294,13 +295,13 @@ export default function ZooLabsNarrative() {
           title="The Open AI Infrastructure Stack"
           subtitle="zenlm.org · zoo.cloud · zoo.network · zoo.fund · zoo.vote"
         />
-        <p className="text-base md:text-lg max-w-4xl mb-6 md:mb-8 font-medium">
+        <Box tag="p" className="text-base md:text-lg max-w-4xl mb-6 md:mb-8 font-medium">
           Zoo is building the foundational layer for open AI — from openly
           trained models to decentralized compute to governance. Competing
           directly with closed ecosystems by making AI accessible, transparent,
           and locally deployable.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+        </Box>
+        <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
           {[
             {
               h: "zenlm.org",
@@ -348,16 +349,16 @@ export default function ZooLabsNarrative() {
               className="block p-4 md:p-5 border-2 border-black shadow-[6px_6px_0_0_#000] text-black hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-transform"
               style={{ backgroundColor: layer.c }}
             >
-              <div className="text-[10px] md:text-xs uppercase tracking-widest font-bold mb-1 opacity-70">
+              <Box className="text-[10px] md:text-xs uppercase tracking-widest font-bold mb-1 opacity-70">
                 {layer.s}
-              </div>
-              <div className="text-lg md:text-xl font-extrabold mb-2 break-all">
+              </Box>
+              <Box className="text-lg md:text-xl font-extrabold mb-2 break-all">
                 {layer.h}
-              </div>
-              <p className="text-xs md:text-sm font-medium">{layer.p}</p>
+              </Box>
+              <Box tag="p" className="text-xs md:text-sm font-medium">{layer.p}</Box>
             </motion.a>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Five Competitive Advantages ─────────────────────── */}
@@ -366,7 +367,7 @@ export default function ZooLabsNarrative() {
           pillClass="pill-green"
           title="Five Competitive Advantages"
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
+        <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-5">
           {[
             {
               n: "01",
@@ -400,16 +401,16 @@ export default function ZooLabsNarrative() {
               transition={{ duration: 0.4, delay: i * 0.05 }}
               className="panel"
             >
-              <div className="text-2xl md:text-3xl font-extrabold text-[var(--brand-green)] mb-2">
+              <Box className="text-2xl md:text-3xl font-extrabold text-[var(--brand-green)] mb-2">
                 {a.n}
-              </div>
-              <h4 className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">
+              </Box>
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">
                 {a.h}
-              </h4>
-              <p className="text-sm md:text-base">{a.p}</p>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base">{a.p}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Three Markets ────────────────────────────────────── */}
@@ -419,7 +420,7 @@ export default function ZooLabsNarrative() {
           title="Three Markets"
           subtitle="Three customer segments served by one open stack."
         />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+        <Box className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {[
             {
               h: "AI Researchers & Developers",
@@ -444,13 +445,13 @@ export default function ZooLabsNarrative() {
               className="p-5 md:p-6 border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black"
               style={{ backgroundColor: m.c }}
             >
-              <h4 className="text-lg md:text-2xl font-extrabold uppercase mb-3 tracking-tight">
+              <Box tag="h4" className="text-lg md:text-2xl font-extrabold uppercase mb-3 tracking-tight">
                 {m.h}
-              </h4>
-              <p className="text-sm md:text-base font-medium">{m.p}</p>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base font-medium">{m.p}</Box>
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Multisensory AI ─────────────────────────────────── */}
@@ -460,15 +461,15 @@ export default function ZooLabsNarrative() {
           title="Beyond ChatGPT · Multisensory AI"
           subtitle="Multi-sensory evocation across devices boosts learning and retention."
         />
-        <p className="text-base md:text-lg max-w-4xl mb-8 md:mb-10 font-medium">
+        <Box tag="p" className="text-base md:text-lg max-w-4xl mb-8 md:mb-10 font-medium">
           Interacting with an animal agent through compatible platforms (VR
           headsets, projection mapping, LED panels, desktops, tablets/phones)
           that incorporates multisensory cues — visual, spatial audio, scent,
           and optional gentle haptics — produces greater immediate learning
           gains, stronger delayed recall, and improved transfer compared to
           visual-only conditions.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-8 md:mb-10">
+        </Box>
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 mb-8 md:mb-10">
           {[
             {
               h: "Playful endangered agents",
@@ -479,16 +480,16 @@ export default function ZooLabsNarrative() {
               p: "Interacting with a projection-mapped animal agent that uses multisensory cues will produce higher immediate learning, better delayed recall, and stronger transfer than the same lesson delivered visual-only.",
             },
           ].map((c) => (
-            <div key={c.h} className="panel">
-              <h4 className="text-base md:text-lg font-extrabold uppercase mb-2 tracking-tight">
+            <Box key={c.h} className="panel">
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase mb-2 tracking-tight">
                 {c.h}
-              </h4>
-              <p className="text-sm md:text-base">{c.p}</p>
-            </div>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base">{c.p}</Box>
+            </Box>
           ))}
-        </div>
+        </Box>
 
-        <h4 className="relative inline-block text-lg md:text-xl font-extrabold uppercase mb-6 md:mb-7 tracking-tight">
+        <Box tag="h4" className="relative inline-block text-lg md:text-xl font-extrabold uppercase mb-6 md:mb-7 tracking-tight">
           Compatible devices
           <motion.span
             aria-hidden
@@ -498,8 +499,8 @@ export default function ZooLabsNarrative() {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
             className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
           />
-        </h4>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
+        </Box>
+        <Box className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
           {[
             "VR Headsets",
             "Projection Mapping",
@@ -519,7 +520,7 @@ export default function ZooLabsNarrative() {
               {d}
             </motion.div>
           ))}
-        </div>
+        </Box>
       </Section>
 
       {/* ── Closing CTA ─────────────────────────────────────── */}
@@ -529,22 +530,22 @@ export default function ZooLabsNarrative() {
           transition={{ duration: 0.5 }}
           className="p-8 md:p-12 border-2 border-black bg-[var(--brand-magenta)] text-black shadow-[6px_6px_0_0_#000] md:shadow-[12px_12px_0_0_#000] text-center"
         >
-          <h3 className="text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
+          <Box tag="h3" className="text-2xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight mb-4">
             Welcome to the ZOO!
-          </h3>
-          <p className="text-base md:text-lg font-medium mb-6 md:mb-8 max-w-2xl mx-auto">
+          </Box>
+          <Box tag="p" className="text-base md:text-lg font-medium mb-6 md:mb-8 max-w-2xl mx-auto">
             Contact{" "}
-            <a href="mailto:a@zoo.ngo" className="underline font-extrabold">
+            <Box tag="a" href="mailto:a@zoo.ngo" className="underline font-extrabold">
               a@zoo.ngo
-            </a>{" "}
+            </Box>{" "}
             to invest, or for unique sponsorship and partnership opportunities.
-          </p>
-          <a
+          </Box>
+          <Box tag="a"
             href="mailto:a@zoo.ngo"
             className="btn-brutalist bg-white text-base md:text-lg"
           >
             Get in touch
-          </a>
+          </Box>
         </motion.div>
       </Section>
     </>

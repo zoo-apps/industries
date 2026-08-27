@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { usePathname } from "next/navigation";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -156,12 +157,12 @@ function renderMarkdown(text: string): React.ReactNode[] {
       }
       i++; // skip closing ```
       result.push(
-        <pre
+        <Box tag="pre"
           key={key++}
           className="my-2 rounded-lg bg-white/5 border border-white/10 p-3 overflow-x-auto text-xs font-mono leading-relaxed"
         >
           <code>{codeLines.join("\n")}</code>
-        </pre>
+        </Box>
       );
       continue;
     }
@@ -179,16 +180,16 @@ function renderMarkdown(text: string): React.ReactNode[] {
       while (i < lines.length && /^\s*[-*]\s+/.test(lines[i])) {
         const content = lines[i].replace(/^\s*[-*]\s+/, "");
         items.push(
-          <li key={key++} className="ml-4 list-disc">
+          <Box tag="li" key={key++} className="ml-4 list-disc">
             {renderInline(content)}
-          </li>
+          </Box>
         );
         i++;
       }
       result.push(
-        <ul key={key++} className="my-1 space-y-0.5">
+        <Box tag="ul" key={key++} className="my-1 space-y-0.5">
           {items}
-        </ul>
+        </Box>
       );
       continue;
     }
@@ -199,16 +200,16 @@ function renderMarkdown(text: string): React.ReactNode[] {
       while (i < lines.length && /^\s*\d+\.\s+/.test(lines[i])) {
         const content = lines[i].replace(/^\s*\d+\.\s+/, "");
         items.push(
-          <li key={key++} className="ml-4 list-decimal">
+          <Box tag="li" key={key++} className="ml-4 list-decimal">
             {renderInline(content)}
-          </li>
+          </Box>
         );
         i++;
       }
       result.push(
-        <ol key={key++} className="my-1 space-y-0.5">
+        <Box tag="ol" key={key++} className="my-1 space-y-0.5">
           {items}
-        </ol>
+        </Box>
       );
       continue;
     }
@@ -225,9 +226,9 @@ function renderMarkdown(text: string): React.ReactNode[] {
           ? "text-sm font-semibold mt-2 mb-1"
           : "text-sm font-medium mt-2 mb-0.5";
       result.push(
-        <div key={key++} className={cls}>
+        <Box key={key++} className={cls}>
           {renderInline(text)}
-        </div>
+        </Box>
       );
       i++;
       continue;
@@ -235,9 +236,9 @@ function renderMarkdown(text: string): React.ReactNode[] {
 
     // Regular paragraph
     result.push(
-      <p key={key++} className="my-0.5 leading-relaxed">
+      <Box tag="p" key={key++} className="my-0.5 leading-relaxed">
         {renderInline(line)}
-      </p>
+      </Box>
     );
     i++;
   }
@@ -263,31 +264,31 @@ function renderInline(text: string): React.ReactNode[] {
     if (match[1]) {
       // Bold
       parts.push(
-        <strong key={key++} className="font-semibold text-white">
+        <Box tag="strong" key={key++} className="font-semibold text-white">
           {match[2]}
-        </strong>
+        </Box>
       );
     } else if (match[3]) {
       // Italic
       parts.push(
-        <em key={key++} className="italic">
+        <Box tag="em" key={key++} className="italic">
           {match[4]}
-        </em>
+        </Box>
       );
     } else if (match[5]) {
       // Inline code
       parts.push(
-        <code
+        <Box tag="code"
           key={key++}
           className="px-1 py-0.5 rounded bg-white/10 text-white/90 text-xs font-mono"
         >
           {match[6]}
-        </code>
+        </Box>
       );
     } else if (match[7]) {
       // Link
       parts.push(
-        <a
+        <Box tag="a"
           key={key++}
           href={match[9]}
           className="underline underline-offset-2 text-white/80 hover:text-white transition-colors"
@@ -295,7 +296,7 @@ function renderInline(text: string): React.ReactNode[] {
           rel={match[9]?.startsWith("http") ? "noopener noreferrer" : undefined}
         >
           {match[8]}
-        </a>
+        </Box>
       );
     }
 
@@ -775,25 +776,25 @@ export default function GlobalChatWidget() {
             )}
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/50">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/10 overflow-hidden">
+            <Box className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-black/50">
+              <Box className="flex items-center gap-3">
+                <Box className="w-8 h-8 rounded-full flex items-center justify-center bg-black border border-white/10 overflow-hidden">
                   <img src="/zoo-logo.svg" alt="Zoo" className="w-5 h-5" />
-                </div>
+                </Box>
 
                 {/* Model selector */}
-                <div className="relative" ref={modelDropdownRef}>
+                <Box className="relative" ref={modelDropdownRef}>
                   <button
                     onClick={() => setIsModelDropdownOpen(!isModelDropdownOpen)}
                     className="flex items-center gap-1.5 rounded-md px-2 py-1 transition-colors hover:bg-white/5"
                   >
-                    <div className="text-left">
-                      <div className="text-sm font-medium flex items-center gap-1.5 text-white">
+                    <Box className="text-left">
+                      <Box className="text-sm font-medium flex items-center gap-1.5 text-white">
                         Zen AI
-                        <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-neutral-400">
+                        <Box tag="span" className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-white/10 text-neutral-400">
                           {selectedModel.name}
-                        </span>
-                        <span
+                        </Box>
+                        <Box tag="span"
                           className={cn(
                             "text-[9px] font-medium uppercase tracking-wider px-1 py-0.5 rounded",
                             selectedModel.tier === "free"
@@ -802,9 +803,9 @@ export default function GlobalChatWidget() {
                           )}
                         >
                           {selectedModel.tier === "free" ? "Free" : "Pro"}
-                        </span>
-                      </div>
-                    </div>
+                        </Box>
+                      </Box>
+                    </Box>
                     <ChevronDown
                       className={cn(
                         "w-3.5 h-3.5 transition-transform text-neutral-500",
@@ -835,12 +836,12 @@ export default function GlobalChatWidget() {
                             )}
                           >
                             <div>
-                              <div className="text-sm flex items-center gap-2 text-white">
+                              <Box className="text-sm flex items-center gap-2 text-white">
                                 {model.name}
-                                <span className="text-[10px] font-mono text-neutral-500">
+                                <Box tag="span" className="text-[10px] font-mono text-neutral-500">
                                   {model.params}
-                                </span>
-                                <span
+                                </Box>
+                                <Box tag="span"
                                   className={cn(
                                     "text-[9px] font-medium uppercase tracking-wider px-1 py-0.5 rounded",
                                     model.tier === "free"
@@ -849,32 +850,32 @@ export default function GlobalChatWidget() {
                                   )}
                                 >
                                   {model.tier === "free" ? "Free" : "Pro"}
-                                </span>
-                              </div>
-                              <div className="text-[10px] text-neutral-500 mt-0.5">
+                                </Box>
+                              </Box>
+                              <Box className="text-[10px] text-neutral-500 mt-0.5">
                                 {model.description}
-                              </div>
+                              </Box>
                             </div>
                             {selectedModel.id === model.id && (
                               <Check className="w-4 h-4 text-neutral-400 shrink-0" />
                             )}
                           </button>
                         ))}
-                        <div className="border-t border-white/10 px-3 py-2">
-                          <a
+                        <Box className="border-t border-white/10 px-3 py-2">
+                          <Box tag="a"
                             href="/models"
                             className="text-xs text-neutral-500 hover:text-white transition-colors"
                           >
                             View all 41+ models
-                          </a>
-                        </div>
+                          </Box>
+                        </Box>
                       </motion.div>
                     )}
                   </AnimatePresence>
-                </div>
-              </div>
+                </Box>
+              </Box>
 
-              <div className="flex items-center gap-1">
+              <Box className="flex items-center gap-1">
                 <button
                   onClick={() => setIsExpanded(!isExpanded)}
                   className="p-1.5 rounded-md transition-colors text-neutral-500 hover:text-white hover:bg-white/5"
@@ -894,29 +895,29 @@ export default function GlobalChatWidget() {
                 >
                   <X className="w-4 h-4" />
                 </button>
-              </div>
-            </div>
+              </Box>
+            </Box>
 
             {/* Demo mode banner */}
             {isDemoMode && (
-              <div className="px-4 py-1.5 bg-white/5 border-b border-white/5 text-center">
-                <span className="text-[10px] text-neutral-500">
+              <Box className="px-4 py-1.5 bg-white/5 border-b border-white/5 text-center">
+                <Box tag="span" className="text-[10px] text-neutral-500">
                   Demo mode -- AI responses coming soon
-                </span>
-              </div>
+                </Box>
+              </Box>
             )}
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-4 relative">
+            <Box className="flex-1 overflow-y-auto p-4 space-y-4 relative">
               {messages.map((message) => (
-                <div
+                <Box
                   key={message.id}
                   className={cn(
                     "flex",
                     message.role === "user" ? "justify-end" : "justify-start"
                   )}
                 >
-                  <div
+                  <Box
                     className={cn(
                       "max-w-[85%] px-3 py-2 rounded-2xl text-sm",
                       message.role === "user"
@@ -925,25 +926,25 @@ export default function GlobalChatWidget() {
                     )}
                   >
                     {message.role === "assistant" ? (
-                      <div className="space-y-0">
+                      <Box className="space-y-0">
                         {renderMarkdown(message.content)}
                         {message.isStreaming && (
                           <span className="inline-block w-1.5 h-4 ml-0.5 bg-neutral-400 animate-pulse" />
                         )}
-                      </div>
+                      </Box>
                     ) : (
                       message.content
                     )}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               ))}
 
               {/* Loading indicator (only when no streaming message is visible) */}
               {isLoading &&
                 !messages.some((m) => m.isStreaming) && (
-                  <div className="flex justify-start">
-                    <div className="px-4 py-2 rounded-2xl rounded-bl-md bg-white/5">
-                      <div className="flex gap-1">
+                  <Box className="flex justify-start">
+                    <Box className="px-4 py-2 rounded-2xl rounded-bl-md bg-white/5">
+                      <Box className="flex gap-1">
                         <span
                           className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-bounce"
                           style={{ animationDelay: "0ms" }}
@@ -956,9 +957,9 @@ export default function GlobalChatWidget() {
                           className="w-1.5 h-1.5 rounded-full bg-neutral-500 animate-bounce"
                           style={{ animationDelay: "300ms" }}
                         />
-                      </div>
-                    </div>
-                  </div>
+                      </Box>
+                    </Box>
+                  </Box>
                 )}
 
               <div ref={messagesEndRef} />
@@ -978,22 +979,22 @@ export default function GlobalChatWidget() {
                       exit={{ scale: 0.9, opacity: 0 }}
                       className="mx-6 p-6 rounded-xl bg-neutral-900 border border-white/10 text-center max-w-[300px]"
                     >
-                      <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
+                      <Box className="w-12 h-12 mx-auto mb-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
                         <Lock className="w-5 h-5 text-neutral-400" />
-                      </div>
-                      <h3 className="text-base font-semibold text-white mb-2">
+                      </Box>
+                      <Box tag="h3" className="text-base font-semibold text-white mb-2">
                         Sign in to continue
-                      </h3>
-                      <p className="text-xs text-neutral-400 mb-5 leading-relaxed">
+                      </Box>
+                      <Box tag="p" className="text-xs text-neutral-400 mb-5 leading-relaxed">
                         You have used your free message. Sign in to unlock
                         unlimited chat and access premium Zen models.
-                      </p>
-                      <a
+                      </Box>
+                      <Box tag="a"
                         href={buildLoginUrl()}
                         className="inline-block w-full px-4 py-2.5 rounded-lg bg-white text-black text-sm font-medium hover:bg-neutral-200 transition-colors"
                       >
                         Sign in with Zoo
-                      </a>
+                      </Box>
                       <button
                         onClick={() => setShowLoginGate(false)}
                         className="mt-3 text-xs text-neutral-500 hover:text-neutral-300 transition-colors"
@@ -1004,12 +1005,12 @@ export default function GlobalChatWidget() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </Box>
 
             {/* Preset buttons */}
             {messages.length <= 1 && !showLoginGate && (
-              <div className="px-4 pb-2">
-                <div className="flex flex-wrap gap-2">
+              <Box className="px-4 pb-2">
+                <Box className="flex flex-wrap gap-2">
                   {chatPresets.map((preset) => {
                     const Icon = preset.icon;
                     return (
@@ -1023,13 +1024,13 @@ export default function GlobalChatWidget() {
                       </button>
                     );
                   })}
-                </div>
-              </div>
+                </Box>
+              </Box>
             )}
 
             {/* Input */}
-            <div className="p-3 border-t border-white/10">
-              <div className="relative">
+            <Box className="p-3 border-t border-white/10">
+              <Box className="relative">
                 <input
                   ref={inputRef}
                   type="text"
@@ -1045,7 +1046,7 @@ export default function GlobalChatWidget() {
                     showLoginGate && "opacity-50 cursor-not-allowed"
                   )}
                 />
-                <button
+                <Box tag="button"
                   onClick={handleSend}
                   disabled={!input.trim() || isLoading || showLoginGate}
                   className={cn(
@@ -1059,16 +1060,16 @@ export default function GlobalChatWidget() {
                       input.trim() ? "text-black" : "text-neutral-500"
                     )}
                   />
-                </button>
-              </div>
-              <div className="mt-2 text-center">
-                <span className="text-[10px] text-neutral-600">
+                </Box>
+              </Box>
+              <Box className="mt-2 text-center">
+                <Box tag="span" className="text-[10px] text-neutral-600">
                   {authed
                     ? "Press Enter to send"
                     : `${Math.max(0, FREE_MESSAGE_LIMIT - getChatCount())} free message${FREE_MESSAGE_LIMIT - getChatCount() !== 1 ? "s" : ""} remaining`}
-                </span>
-              </div>
-            </div>
+                </Box>
+              </Box>
+            </Box>
           </motion.div>
         )}
       </AnimatePresence>

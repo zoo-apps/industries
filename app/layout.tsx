@@ -41,7 +41,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased bg-background text-foreground">
+      {/* A host element, not a Box. `<Hanzo>` sits INSIDE the body, so a body
+          that renders through gui asks for a theme that is not in context yet
+          and the prerender dies on "Missing theme." The body's ground is set in
+          globals.css, where it does not need a provider. */}
+      <body className="antialiased">
         {/* Light-only — the brutalist iridescent palette isn't designed
             for dark backgrounds; ``enableSystem`` was flipping anyone
             whose OS is in dark mode to ``--background: #0a0a0a``, which

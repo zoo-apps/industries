@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
@@ -173,34 +174,34 @@ const typeColors: Record<string, string> = {
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-24">
         {/* Hero Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-center mb-16"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
+              <Box className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
                 <Megaphone className="w-4 h-4 text-foreground" />
-                <span className="text-foreground text-sm font-medium">News & Announcements</span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <Box tag="span" className="text-foreground text-sm font-medium">News & Announcements</Box>
+              </Box>
+              <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
                 Latest from Zoo
-              </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Stay up to date with product launches, company milestones, partnerships, and research breakthroughs.
-              </p>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Timeline Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")}>
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className={cn("py-24 px-4", "bg-foreground/5")}>
+          <Box className="max-w-7xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -211,12 +212,12 @@ export default function PageClient() {
               Timeline
             </motion.h2>
 
-            <div className="relative">
+            <Box className="relative">
               {/* Timeline line */}
               <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5", "bg-foreground/10")} />
 
               {announcements.map((month, monthIndex) => (
-                <div key={month.date} className="mb-16">
+                <Box key={month.date} className="mb-16">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -225,12 +226,12 @@ export default function PageClient() {
                     className="relative flex items-center mb-8"
                   >
                     <div className={cn("absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary rounded-full border-4", "border-background")} />
-                    <div className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
-                      <span className="text-xl font-bold">{month.date}</span>
-                    </div>
+                    <Box className="ml-8 md:ml-0 md:absolute md:left-1/2 md:transform md:translate-x-6">
+                      <Box tag="span" className="text-xl font-bold">{month.date}</Box>
+                    </Box>
                   </motion.div>
 
-                  <div className="space-y-6 ml-8 md:ml-0">
+                  <Box className="space-y-6 ml-8 md:ml-0">
                     {month.items.map((item, itemIndex) => (
                       <motion.div
                         key={item.title}
@@ -243,43 +244,43 @@ export default function PageClient() {
                           itemIndex % 2 === 0 ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"
                         )}
                       >
-                        <div className={cn(
+                        <Box className={cn(
                           "border rounded-xl p-6 transition-colors group hover:border-border",
                           "bg-foreground/5 border-border"
                         )}>
-                          <div className="flex items-center gap-3 mb-3">
-                            <span className={cn("px-2 py-1 text-xs font-medium text-foreground rounded", typeColors[item.type] || "bg-background/50")}>
+                          <Box className="flex items-center gap-3 mb-3">
+                            <Box tag="span" className={cn("px-2 py-1 text-xs font-medium text-foreground rounded", typeColors[item.type] || "bg-background/50")}>
                               {item.type}
-                            </span>
-                            <span className={cn("text-sm flex items-center gap-1", "text-muted-foreground")}>
+                            </Box>
+                            <Box tag="span" className={cn("text-sm flex items-center gap-1", "text-muted-foreground")}>
                               <Calendar className="w-3 h-3" />
                               {month.date.split(" ")[0]} {item.day}
-                            </span>
-                          </div>
-                          <h3 className="text-xl font-bold mb-2 group-hover:text-foreground transition-colors">
+                            </Box>
+                          </Box>
+                          <Box tag="h3" className="text-xl font-bold mb-2 group-hover:text-foreground transition-colors">
                             {item.title}
-                          </h3>
-                          <p className={cn("text-sm mb-4", "text-muted-foreground")}>{item.description}</p>
-                          <a
+                          </Box>
+                          <Box tag="p" className={cn("text-sm mb-4", "text-muted-foreground")}>{item.description}</Box>
+                          <Box tag="a"
                             href={item.link}
                             className="text-foreground text-sm font-medium flex items-center gap-1 hover:underline"
                           >
                             Read more
                             <ExternalLink className="w-3 h-3" />
-                          </a>
-                        </div>
+                          </Box>
+                        </Box>
                       </motion.div>
                     ))}
-                  </div>
-                </div>
+                  </Box>
+                </Box>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Press Releases Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -287,16 +288,16 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="flex items-center justify-between mb-12"
             >
-              <div className="flex items-center gap-3">
+              <Box className="flex items-center gap-3">
                 <FileText className="w-6 h-6 text-foreground" />
-                <h2 className="text-3xl font-bold">Press Releases</h2>
-              </div>
+                <Box tag="h2" className="text-3xl font-bold">Press Releases</Box>
+              </Box>
               <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                 View All
               </Button>
             </motion.div>
 
-            <div className="grid gap-6">
+            <Box className="grid gap-6">
               {pressReleases.map((release, index) => (
                 <motion.div
                   key={release.title}
@@ -309,14 +310,14 @@ export default function PageClient() {
                     "bg-foreground/5 border-border"
                   )}
                 >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex-1">
-                      <span className={cn("text-sm", "text-muted-foreground")}>{release.date}</span>
-                      <h3 className="text-xl font-bold mt-1 mb-2 group-hover:text-foreground transition-colors">
+                  <Box className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <Box className="flex-1">
+                      <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{release.date}</Box>
+                      <Box tag="h3" className="text-xl font-bold mt-1 mb-2 group-hover:text-foreground transition-colors">
                         {release.title}
-                      </h3>
-                      <p className={cn("text-sm", "text-muted-foreground")}>{release.summary}</p>
-                    </div>
+                      </Box>
+                      <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{release.summary}</Box>
+                    </Box>
                     <Button
                       variant="ghost"
                       className="text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap"
@@ -324,16 +325,16 @@ export default function PageClient() {
                       Read Release
                       <ExternalLink className="w-4 h-4 ml-2" />
                     </Button>
-                  </div>
+                  </Box>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Media Contact */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")}>
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className={cn("py-24 px-4", "bg-foreground/5")}>
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -341,13 +342,13 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <Box tag="h2" className="text-4xl md:text-5xl font-bold mb-6">
                 Media Inquiries
-              </h2>
-              <p className={cn("mb-8 max-w-xl mx-auto", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("mb-8 max-w-xl mx-auto", "text-muted-foreground")}>
                 For press inquiries, interviews, or additional information, please contact our media relations team.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              </Box>
+              <Box className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
                   <Button className="bg-primary hover:bg-primary/90 text-foreground">
                     Contact Press Team
@@ -356,11 +357,11 @@ export default function PageClient() {
                 <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                   Download Press Kit
                 </Button>
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
-      </main>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }

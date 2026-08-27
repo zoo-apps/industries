@@ -1,9 +1,10 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import {
-  Brain, Sparkles, Code2, Eye, Image as ImageIcon, Video, Music, Box,
+  Brain, Sparkles, Code2, Eye, Image as ImageIcon, Video, Music, Box as BoxIcon,
   Bot, Cpu, Network, Shield, Zap, ArrowRight, Github, FileText, KeyRound,
 } from 'lucide-react'
 import site from '@/site.config'
@@ -21,7 +22,7 @@ const modalities = [
   { label: 'Video', desc: 'Text-to-video, image-to-video, world models. zen-director and zen-voyager.', icon: Video, color: 'pill-blue' },
   { label: 'Audio', desc: 'Speech, music, foley, live translation. zen-scribe, zen-dub, zen-musician.', icon: Music, color: 'pill-green' },
   { label: 'Code', desc: 'Completion, refactoring, agentic coding. zen-coder and zen5-coder-pro.', icon: Code2, color: 'pill-red' },
-  { label: '3D & Spatial', desc: 'Mesh, scene, and asset generation. zen-3d and zen-world.', icon: Box, color: 'pill-cyan' },
+  { label: '3D & Spatial', desc: 'Mesh, scene, and asset generation. zen-3d and zen-world.', icon: BoxIcon, color: 'pill-cyan' },
   { label: 'Agents', desc: 'Tool-using autonomous loops with planner + executor. zen-agent.', icon: Bot, color: 'pill-pink' },
 ]
 
@@ -103,56 +104,56 @@ client.embeddings.create(model="zen-embedding", input=["..."])
 
 export default function PageClient() {
   return (
-    <main className="bg-background text-foreground">
+    <Box tag="main" className="bg-background text-foreground">
       {/* Hero */}
-      <section className="py-24 px-4">
-        <div className="max-w-5xl mx-auto text-center">
+      <Box tag="section" className="py-24 px-4">
+        <Box className="max-w-5xl mx-auto text-center">
           <motion.div {...fade} transition={{ duration: 0.5 }}>
-            <span className="inline-block mt-6 mb-6 text-sm md:text-base font-extrabold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-2">
+            <Box tag="span" className="inline-block mt-6 mb-6 text-sm md:text-base font-extrabold uppercase tracking-[0.2em] underline underline-offset-[6px] decoration-2">
               Zen Model API
-            </span>
-            <h1 className="mt-6 text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+            </Box>
+            <Box tag="h1" className="mt-6 text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
               One endpoint.<br />Every modality.
-            </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-muted-foreground">
+            </Box>
+            <Box tag="p" className="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-muted-foreground">
               OpenAI-compatible API for 45+ open-weight Zen models — edge to frontier,
               0.6B to 1T+ parameters — across text, vision, image, video, audio, code,
               3D, and agents. Same SDK, same JSON, your choice of model.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
+            </Box>
+            <Box className="flex flex-wrap gap-4 justify-center">
               <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
-                <button className="btn-brutalist pill-pink">
+                <Box tag="button" className="btn-brutalist pill-pink">
                   <KeyRound className="w-4 h-4" />
                   Get an API key
-                </button>
+                </Box>
               </a>
               <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
-                <button className="btn-brutalist pill-green">
+                <Box tag="button" className="btn-brutalist pill-green">
                   <Sparkles className="w-4 h-4" />
                   Browse weights
-                </button>
+                </Box>
               </a>
               <Link href="/models">
-                <button className="btn-brutalist pill-cyan">
+                <Box tag="button" className="btn-brutalist pill-cyan">
                   Model catalog
                   <ArrowRight className="w-4 h-4" />
-                </button>
+                </Box>
               </Link>
-            </div>
+            </Box>
           </motion.div>
-        </div>
-      </section>
+        </Box>
+      </Box>
 
       {/* Modalities */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8">
+        <Box className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
-            <span className="pill pill-yellow text-lg md:text-2xl">Modalities</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-yellow text-lg md:text-2xl">Modalities</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               One SDK across eight modalities — pick the model, keep the contract.
-            </h2>
+            </Box>
           </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+          <Box className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {modalities.map((m, i) => {
               const Icon = m.icon
               return (
@@ -162,36 +163,36 @@ export default function PageClient() {
                   transition={{ duration: 0.4, delay: i * 0.04 }}
                   className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-5 md:p-6 text-black"
                 >
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className={`w-10 h-10 border-2 border-black flex items-center justify-center ${m.color}`}>
+                  <Box className="flex items-center gap-3 mb-3">
+                    <Box className={`w-10 h-10 border-2 border-black flex items-center justify-center ${m.color}`}>
                       <Icon className="w-5 h-5 text-black" />
-                    </div>
-                    <h4 className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{m.label}</h4>
-                  </div>
-                  <p className="text-sm md:text-base font-medium text-black/80">{m.desc}</p>
+                    </Box>
+                    <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">{m.label}</Box>
+                  </Box>
+                  <Box tag="p" className="text-sm md:text-base font-medium text-black/80">{m.desc}</Box>
                 </motion.div>
               )
             })}
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Ecosystem */}
-      <section className="py-16 px-4 md:px-8 bg-foreground/5">
-        <div className="max-w-7xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
+        <Box className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
-            <span className="pill pill-blue text-lg md:text-2xl">How it works</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-blue text-lg md:text-2xl">How it works</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               The API is the surface. The ecosystem is the leverage.
-            </h2>
-            <p className="mt-4 max-w-3xl text-base md:text-lg text-muted-foreground">
+            </Box>
+            <Box tag="p" className="mt-4 max-w-3xl text-base md:text-lg text-muted-foreground">
               Most LLM APIs charge you per token and keep all the margin. Zoo's API
               is a thin gateway over an open model network: open weights, on-chain
               attribution, and a revenue split designed so the people who built the
               models actually get paid.
-            </p>
+            </Box>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+          <Box className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {ecosystemPoints.map((card, i) => (
               <motion.div
                 key={card.h}
@@ -200,176 +201,176 @@ export default function PageClient() {
                 className="p-5 md:p-6 border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black"
                 style={{ backgroundColor: card.color }}
               >
-                <h4 className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">{card.h}</h4>
-                <p className="text-sm md:text-base font-medium">{card.p}</p>
+                <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase mb-2 tracking-tight">{card.h}</Box>
+                <Box tag="p" className="text-sm md:text-base font-medium">{card.p}</Box>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Endpoints */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-6xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8">
+        <Box className="max-w-6xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
-            <span className="pill pill-green text-lg md:text-2xl">Endpoints</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-green text-lg md:text-2xl">Endpoints</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               REST + streaming. OpenAI-compatible where it matters.
-            </h2>
+            </Box>
           </motion.div>
-          <div className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] overflow-hidden">
-            <table className="w-full text-left text-sm md:text-base">
-              <thead className="bg-black text-white">
+          <Box className="bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] overflow-hidden">
+            <Box tag="table" className="w-full text-left text-sm md:text-base">
+              <Box tag="thead" className="bg-black text-white">
                 <tr>
-                  <th className="px-4 py-3 font-extrabold uppercase tracking-wider w-20">Verb</th>
-                  <th className="px-4 py-3 font-extrabold uppercase tracking-wider">Path</th>
-                  <th className="px-4 py-3 font-extrabold uppercase tracking-wider hidden md:table-cell">What it does</th>
+                  <Box tag="th" className="px-4 py-3 font-extrabold uppercase tracking-wider w-20">Verb</Box>
+                  <Box tag="th" className="px-4 py-3 font-extrabold uppercase tracking-wider">Path</Box>
+                  <Box tag="th" className="px-4 py-3 font-extrabold uppercase tracking-wider hidden md:table-cell">What it does</Box>
                 </tr>
-              </thead>
-              <tbody className="text-black">
+              </Box>
+              <Box tag="tbody" className="text-black">
                 {endpoints.map((e, i) => (
-                  <tr key={e.path} className={i % 2 === 1 ? 'bg-black/5' : ''}>
-                    <td className="px-4 py-3 font-mono font-bold">{e.method}</td>
-                    <td className="px-4 py-3 font-mono">{e.path}</td>
-                    <td className="px-4 py-3 text-black/80 hidden md:table-cell">{e.desc}</td>
-                  </tr>
+                  <Box tag="tr" key={e.path} className={i % 2 === 1 ? 'bg-black/5' : ''}>
+                    <Box tag="td" className="px-4 py-3 font-mono font-bold">{e.method}</Box>
+                    <Box tag="td" className="px-4 py-3 font-mono">{e.path}</Box>
+                    <Box tag="td" className="px-4 py-3 text-black/80 hidden md:table-cell">{e.desc}</Box>
+                  </Box>
                 ))}
-              </tbody>
-            </table>
-          </div>
-          <p className="mt-4 text-sm text-muted-foreground">
-            Base URL: <code className="font-mono">{site.links.modelApi}/v1</code>. Auth via
-            <code className="font-mono"> Authorization: Bearer zk-...</code> header — same as OpenAI.
-          </p>
-        </div>
-      </section>
+              </Box>
+            </Box>
+          </Box>
+          <Box tag="p" className="mt-4 text-sm text-muted-foreground">
+            Base URL: <Box tag="code" className="font-mono">{site.links.modelApi}/v1</Box>. Auth via
+            <Box tag="code" className="font-mono"> Authorization: Bearer zk-...</Box> header — same as OpenAI.
+          </Box>
+        </Box>
+      </Box>
 
       {/* Quick start */}
-      <section className="py-16 px-4 md:px-8 bg-foreground/5">
-        <div className="max-w-5xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
+        <Box className="max-w-5xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-8">
-            <span className="pill pill-cyan text-lg md:text-2xl">Quick start</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-cyan text-lg md:text-2xl">Quick start</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Three lines and the OpenAI SDK you already have.
-            </h2>
+            </Box>
           </motion.div>
-          <div className="bg-black border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-6 overflow-x-auto">
-            <pre className="text-sm md:text-base text-[var(--brand-green)] font-mono">{codeExample}</pre>
-          </div>
-        </div>
-      </section>
+          <Box className="bg-black border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] p-6 overflow-x-auto">
+            <Box tag="pre" className="text-sm md:text-base text-[var(--brand-green)] font-mono">{codeExample}</Box>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Authentication & identity */}
-      <section className="py-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8">
+        <Box className="max-w-7xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
-            <span className="pill pill-red text-lg md:text-2xl">Authentication</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-red text-lg md:text-2xl">Authentication</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Two ways to prove you are you.
-            </h2>
+            </Box>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-            <div className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 border-2 border-black flex items-center justify-center pill-yellow">
+          <Box className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+            <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
+              <Box className="flex items-center gap-3 mb-3">
+                <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-yellow">
                   <KeyRound className="w-5 h-5 text-black" />
-                </div>
-                <h4 className="text-lg md:text-xl font-extrabold uppercase tracking-tight">API key</h4>
-              </div>
-              <p className="text-sm md:text-base text-black/80">
-                Issue a key from your Zoo Industries account. Format <code className="font-mono">zk-...</code>.
+                </Box>
+                <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">API key</Box>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base text-black/80">
+                Issue a key from your Zoo Industries account. Format <Box tag="code" className="font-mono">zk-...</Box>.
                 Scoped to a workspace, rotatable, with per-key spend limits and audit log. Drop-in
                 replacement for an OPENAI_API_KEY env var.
-              </p>
-            </div>
-            <div className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 border-2 border-black flex items-center justify-center pill-cyan">
+              </Box>
+            </Box>
+            <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
+              <Box className="flex items-center gap-3 mb-3">
+                <Box className="w-10 h-10 border-2 border-black flex items-center justify-center pill-cyan">
                   <Shield className="w-5 h-5 text-black" />
-                </div>
-                <h4 className="text-lg md:text-xl font-extrabold uppercase tracking-tight">Zoo ID (DID)</h4>
-              </div>
-              <p className="text-sm md:text-base text-black/80">
+                </Box>
+                <Box tag="h4" className="text-lg md:text-xl font-extrabold uppercase tracking-tight">Zoo ID (DID)</Box>
+              </Box>
+              <Box tag="p" className="text-sm md:text-base text-black/80">
                 For agents, devices, and self-sovereign workflows: sign requests with a Zoo ID
                 decentralized identifier. No key to leak — capabilities are scoped on-chain and
                 revocable per-counterparty.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
 
       {/* Pricing */}
-      <section className="py-16 px-4 md:px-8 bg-foreground/5">
-        <div className="max-w-6xl mx-auto">
+      <Box tag="section" className="py-16 px-4 md:px-8 bg-foreground/5">
+        <Box className="max-w-6xl mx-auto">
           <motion.div {...fade} transition={{ duration: 0.5 }} className="mb-10">
-            <span className="pill pill-yellow text-lg md:text-2xl">Pricing</span>
-            <h2 className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
+            <Box tag="span" className="pill pill-yellow text-lg md:text-2xl">Pricing</Box>
+            <Box tag="h2" className="mt-10 text-2xl md:text-3xl font-extrabold underline underline-offset-4">
               Pay for tokens. 25% of that pays the people who built the model.
-            </h2>
+            </Box>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-            <div className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
-              <div className="text-3xl md:text-4xl font-extrabold mb-2">$0</div>
-              <h4 className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">Open weights</h4>
-              <p className="text-sm md:text-base text-black/80">
+          <Box className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+            <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
+              <Box className="text-3xl md:text-4xl font-extrabold mb-2">$0</Box>
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">Open weights</Box>
+              <Box tag="p" className="text-sm md:text-base text-black/80">
                 Pull the model from Hugging Face under Apache 2.0 and run it yourself.
                 No license fee, no rate limit, no phone-home.
-              </p>
-            </div>
-            <div className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
-              <div className="text-3xl md:text-4xl font-extrabold mb-2">$ / 1M tok</div>
-              <h4 className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">Hosted API</h4>
-              <p className="text-sm md:text-base text-black/80">
+              </Box>
+            </Box>
+            <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
+              <Box className="text-3xl md:text-4xl font-extrabold mb-2">$ / 1M tok</Box>
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">Hosted API</Box>
+              <Box tag="p" className="text-sm md:text-base text-black/80">
                 Per-token metering on Zoo Cloud GPUs. Live prices on
-                <code className="font-mono"> GET /v1/models</code>. Volume tiers and committed-use
+                <Box tag="code" className="font-mono"> GET /v1/models</Box>. Volume tiers and committed-use
                 discounts for production traffic.
-              </p>
-            </div>
-            <div className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
-              <div className="text-3xl md:text-4xl font-extrabold mb-2">25%</div>
-              <h4 className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">→ OSS</h4>
-              <p className="text-sm md:text-base text-black/80">
+              </Box>
+            </Box>
+            <Box className="p-5 md:p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] text-black">
+              <Box className="text-3xl md:text-4xl font-extrabold mb-2">25%</Box>
+              <Box tag="h4" className="text-base md:text-lg font-extrabold uppercase tracking-tight mb-2">→ OSS</Box>
+              <Box tag="p" className="text-sm md:text-base text-black/80">
                 A quarter of every API dollar is split back to the contributors whose
                 repos served the request — automatic, on-chain, no application form.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
 
       {/* CTA */}
-      <section className="py-24 px-4 md:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
+      <Box tag="section" className="py-24 px-4 md:px-8">
+        <Box className="max-w-4xl mx-auto text-center">
+          <Box tag="h2" className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
             Build something open.
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          </Box>
+          <Box tag="p" className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             45+ models, Apache 2.0 weights, one API surface, and a revenue model that
             actually pays the people who made the models possible.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          </Box>
+          <Box className="flex flex-wrap gap-4 justify-center">
             <a href={site.links.modelApi} target="_blank" rel="noopener noreferrer">
-              <button className="btn-brutalist pill-pink">
+              <Box tag="button" className="btn-brutalist pill-pink">
                 <KeyRound className="w-4 h-4" />
                 Get an API key
-              </button>
+              </Box>
             </a>
             <a href={site.links.huggingFace} target="_blank" rel="noopener noreferrer">
-              <button className="btn-brutalist pill-green">
+              <Box tag="button" className="btn-brutalist pill-green">
                 <Github className="w-4 h-4" />
                 Zen on Hugging Face
-              </button>
+              </Box>
             </a>
             <a href="https://papers.zoo.ngo" target="_blank" rel="noopener noreferrer">
-              <button className="btn-brutalist pill-cyan">
+              <Box tag="button" className="btn-brutalist pill-cyan">
                 <FileText className="w-4 h-4" />
                 Read the papers
-              </button>
+              </Box>
             </a>
-          </div>
-        </div>
-      </section>
-    </main>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   )
 }

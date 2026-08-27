@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import { notFound } from 'next/navigation'
 import { productPages } from '@/lib/data/products'
 import { Button } from '@hanzo/ui'
@@ -17,28 +18,28 @@ export default function ProductPageClient({ slug }: { slug: string }) {
   const Icon = product.icon
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <Box className="min-h-screen bg-background text-foreground">
       {/* Hero */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-5xl mx-auto">
+      <Box tag="section" className="pt-32 pb-20 px-4">
+        <Box className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
+            <Box className="inline-flex items-center gap-3 mb-8">
+              <Box className="w-12 h-12 rounded-xl bg-foreground/10 flex items-center justify-center">
                 <Icon className="w-6 h-6 text-foreground" />
-              </div>
-              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Product</span>
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
+              </Box>
+              <Box tag="span" className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Product</Box>
+            </Box>
+            <Box tag="h1" className="text-5xl md:text-6xl font-bold tracking-tight mb-6">
               {product.title}
-            </h1>
-            <p className="text-xl text-muted-foreground max-w-3xl mb-10">
+            </Box>
+            <Box tag="p" className="text-xl text-muted-foreground max-w-3xl mb-10">
               {product.description}
-            </p>
-            <div className="flex flex-wrap gap-4">
+            </Box>
+            <Box className="flex flex-wrap gap-4">
               {product.documentation && (
                 <a href={product.documentation} target="_blank" rel="noopener noreferrer">
                   <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
@@ -53,22 +54,22 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </Link>
-            </div>
+            </Box>
           </motion.div>
-        </div>
-      </section>
+        </Box>
+      </Box>
 
       {/* Features */}
-      <section className="py-20 px-4 border-t border-border">
-        <div className="max-w-5xl mx-auto">
+      <Box tag="section" className="py-20 px-4 border-t border-border">
+        <Box className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl font-bold mb-12">Key Features</h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <Box tag="h2" className="text-3xl font-bold mb-12">Key Features</Box>
+            <Box className="grid md:grid-cols-2 gap-6">
               {product.features.map((feature, index) => (
                 <motion.div
                   key={feature}
@@ -79,22 +80,22 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                   className="flex items-start gap-4 p-6 rounded-xl border border-border bg-foreground/[0.02]"
                 >
                   <Check className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
-                  <span className="text-foreground/80">{feature}</span>
+                  <Box tag="span" className="text-foreground/80">{feature}</Box>
                 </motion.div>
               ))}
-            </div>
+            </Box>
           </motion.div>
-        </div>
-      </section>
+        </Box>
+      </Box>
 
       {/* CTA */}
-      <section className="py-24 px-4 border-t border-border">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-4">Get Started with {product.title}</h2>
-          <p className="text-lg text-muted-foreground mb-8">
+      <Box tag="section" className="py-24 px-4 border-t border-border">
+        <Box className="max-w-3xl mx-auto text-center">
+          <Box tag="h2" className="text-3xl font-bold mb-4">Get Started with {product.title}</Box>
+          <Box tag="p" className="text-lg text-muted-foreground mb-8">
             Ready to integrate {product.title} into your workflow? Get in touch with our team.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
+          </Box>
+          <Box className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
               <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
                 Contact Us
@@ -106,9 +107,9 @@ export default function ProductPageClient({ slug }: { slug: string }) {
                 View Research
               </Button>
             </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   )
 }

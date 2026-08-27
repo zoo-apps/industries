@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import dynamic from 'next/dynamic'
 import { Toaster } from '@hanzo/ui'
 import { TooltipProvider } from '@hanzo/ui'
@@ -17,13 +18,13 @@ export default function MarketingShell({
   return (
     <TooltipProvider delay={300}>
       <Toaster />
-      <div className="min-h-screen bg-background text-foreground">
+      <Box className="min-h-screen bg-background text-foreground">
         <TopBanner />
         <Navbar />
         <main>{children}</main>
         <Footer />
         <GlobalChatWidget />
-      </div>
+      </Box>
     </TooltipProvider>
   )
 }

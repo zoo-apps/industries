@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Brain, Shield, Network, Sparkles } from "lucide-react";
@@ -77,8 +78,8 @@ const featuredPapers = [
 
 export default function ResearchHighlights() {
   return (
-    <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
+    <Box tag="section" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8">
+      <Box className="max-w-6xl mx-auto space-y-12 sm:space-y-16">
 
         {/* ─── Section header — brutalist eyebrow + big title ────── */}
         <motion.div
@@ -88,7 +89,7 @@ export default function ResearchHighlights() {
           transition={{ duration: 0.5 }}
           className="max-w-4xl"
         >
-          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+          <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Research at the frontier
             <motion.span
               aria-hidden
@@ -98,18 +99,18 @@ export default function ResearchHighlights() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
               className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
             />
-          </h3>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+          </Box>
+          <Box tag="h2" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.05] text-foreground">
             58 papers across AI, cryptography, consensus, and distributed systems.
-          </h2>
-          <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
+          </Box>
+          <Box tag="p" className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl">
             Our research teams investigate the safety, efficiency, and societal
             impacts of AI.
-          </p>
+          </Box>
         </motion.div>
 
         {/* ─── Research areas — 4 brutalist panels ────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
+        <Box className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10">
           {researchAreas.map((area, i) => (
             <motion.div
               key={area.title}
@@ -119,48 +120,48 @@ export default function ResearchHighlights() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.08 }}
               className="border-2 border-black bg-white/60 shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000] p-6 sm:p-8 md:p-10"
             >
-              <div className="flex items-start gap-4 mb-5 sm:mb-6">
-                <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:bg-[var(--brand-yellow)] transition-colors cursor-pointer">
+              <Box className="flex items-start gap-4 mb-5 sm:mb-6">
+                <Box className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center border-2 border-black bg-white shadow-[3px_3px_0_0_#000] hover:bg-[var(--brand-yellow)] transition-colors cursor-pointer">
                   <area.icon className="w-6 h-6 sm:w-7 sm:h-7 text-black" strokeWidth={2.25} />
-                </div>
-                <div className="min-w-0">
+                </Box>
+                <Box className="min-w-0">
                   <Link
                     href={area.link}
                     className="inline-block text-base sm:text-lg md:text-xl font-extrabold uppercase tracking-tight text-foreground leading-tight underline underline-offset-4 decoration-2 hover:decoration-[5px] transition-all"
                   >
                     <h4>{area.title}</h4>
                   </Link>
-                  <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  <Box tag="p" className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {area.description}
-                  </p>
-                </div>
-              </div>
+                  </Box>
+                </Box>
+              </Box>
 
-              <ul className="border-2 border-black divide-y-2 divide-black mb-6 bg-white/40">
+              <Box tag="ul" className="border-2 border-black divide-y-2 divide-black mb-6 bg-white/40">
                 {area.papers.map((p) => (
                   <li key={p.title}>
-                    <a
+                    <Box tag="a"
                       href={p.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-between gap-3 px-3 sm:px-4 py-2.5 sm:py-3 hover:bg-[var(--brand-yellow)] hover:text-black transition-colors"
                     >
-                      <span className="text-xs sm:text-sm font-extrabold uppercase tracking-tight">
+                      <Box tag="span" className="text-xs sm:text-sm font-extrabold uppercase tracking-tight">
                         {p.title}
-                      </span>
-                      <span className="shrink-0 text-[10px] sm:text-xs font-bold tabular-nums whitespace-nowrap">
+                      </Box>
+                      <Box tag="span" className="shrink-0 text-[10px] sm:text-xs font-bold tabular-nums whitespace-nowrap">
                         {p.result}
-                      </span>
-                    </a>
+                      </Box>
+                    </Box>
                   </li>
                 ))}
-              </ul>
+              </Box>
 
               <Link
                 href={area.link}
                 className="group/link inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em] text-foreground underline underline-offset-4 decoration-2 hover:decoration-[5px] hover:text-black transition-all"
               >
-                <span className="group-hover/link:font-black">View all papers</span>
+                <Box tag="span" className="group-hover/link:font-black">View all papers</Box>
                 <ArrowRight
                   className="w-3.5 h-3.5 group-hover/link:w-4 group-hover/link:h-4 group-hover/link:translate-x-0.5 transition-all"
                   strokeWidth={2.5}
@@ -168,11 +169,11 @@ export default function ResearchHighlights() {
               </Link>
             </motion.div>
           ))}
-        </div>
+        </Box>
 
         {/* ─── Latest Publications — three brutalist rows ─────── */}
         <div>
-          <h3 className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
+          <Box tag="h3" className="relative inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground mb-6 sm:mb-8">
             Latest publications
             <motion.span
               aria-hidden
@@ -182,8 +183,8 @@ export default function ResearchHighlights() {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
               className="absolute left-0 right-0 -bottom-2 h-[3px] bg-black origin-left"
             />
-          </h3>
-          <div className="border-2 border-black bg-white/60 divide-y-2 divide-black shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
+          </Box>
+          <Box className="border-2 border-black bg-white/60 divide-y-2 divide-black shadow-[8px_8px_0_0_#000] md:shadow-[12px_12px_0_0_#000]">
             {featuredPapers.map((p, i) => (
               <motion.a
                 key={p.title}
@@ -196,41 +197,41 @@ export default function ResearchHighlights() {
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.05 + i * 0.1 }}
                 className="group grid grid-cols-1 sm:grid-cols-[120px_1fr_auto] gap-3 sm:gap-6 items-start px-5 sm:px-7 md:px-9 py-5 sm:py-6 md:py-7 hover:bg-foreground/[0.04] transition-colors"
               >
-                <div className="flex flex-col gap-1">
-                  <span className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">
+                <Box className="flex flex-col gap-1">
+                  <Box tag="span" className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-foreground">
                     {p.date}
-                  </span>
-                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  </Box>
+                  <Box tag="span" className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-muted-foreground">
                     {p.category}
-                  </span>
-                </div>
-                <div className="min-w-0">
-                  <h4 className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight leading-tight text-foreground group-hover:underline underline-offset-4">
+                  </Box>
+                </Box>
+                <Box className="min-w-0">
+                  <Box tag="h4" className="text-base sm:text-lg md:text-xl font-extrabold tracking-tight leading-tight text-foreground group-hover:underline underline-offset-4">
                     {p.title}
-                  </h4>
-                  <p className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  </Box>
+                  <Box tag="p" className="mt-2 text-sm sm:text-base text-muted-foreground leading-relaxed">
                     {p.description}
-                  </p>
-                </div>
+                  </Box>
+                </Box>
                 <ExternalLink
                   aria-hidden
                   className="hidden sm:block w-5 h-5 mt-1 shrink-0 text-foreground opacity-40 group-hover:opacity-100 transition-opacity"
                 />
               </motion.a>
             ))}
-          </div>
+          </Box>
         </div>
 
         {/* ─── CTA — brutalist button ──────────────────────────── */}
-        <div className="text-center">
+        <Box className="text-center">
           <Link href="/research">
-            <button className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 md:py-4 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all">
+            <Box tag="button" className="inline-flex items-center gap-2 px-6 md:px-7 py-3.5 md:py-4 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all">
               View all research
               <ArrowRight className="w-4 h-4" />
-            </button>
+            </Box>
           </Link>
-        </div>
-      </div>
-    </section>
+        </Box>
+      </Box>
+    </Box>
   );
 }

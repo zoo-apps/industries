@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import Link from 'next/link'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
@@ -31,13 +32,13 @@ export default function Logo({ className = '', showText = true, size = 'md' }: L
         priority
       />
       {showText && (
-        <span className={cn(
+        <Box tag="span" className={cn(
           'font-extrabold uppercase tracking-tight transition-colors duration-300',
           sizes[size].text,
           'text-foreground group-hover:text-foreground/90'
         )}>
-          ZOO&nbsp;<span className="font-light">INDUSTRIES</span>
-        </span>
+          ZOO&nbsp;<Box tag="span" className="font-light">INDUSTRIES</Box>
+        </Box>
       )}
     </Link>
   )

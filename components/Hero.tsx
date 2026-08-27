@@ -1,5 +1,6 @@
 'use client'
 
+import { Box } from '@hanzo/ui'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import {
@@ -28,8 +29,8 @@ export default function Hero() {
       {/* Hero. Top padding clears the fixed stack — TopBanner (~38 px,
           ``top-0``) + Navbar (~50 px, ``top-[38px]``) = ~88 px — and
           then leaves a healthy 2x air gap above the headline. */}
-      <section className="relative pt-48 md:pt-56 lg:pt-60 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
-        <div className="max-w-7xl mx-auto relative">
+      <Box tag="section" className="relative pt-48 md:pt-56 lg:pt-60 pb-12 md:pb-16 px-4 md:px-8 overflow-hidden bg-background">
+        <Box className="max-w-7xl mx-auto relative">
           {/* Copy — centered on the page. */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -37,61 +38,61 @@ export default function Hero() {
             transition={{ duration: 0.5 }}
             className="relative z-10 text-center flex flex-col items-center"
           >
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
+            <Box tag="h1" className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-[-0.02em] leading-[0.95] text-foreground">
               Your AI.<br />Your Work.<br />Your Profit.
-            </h1>
-            <p className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+            </Box>
+            <Box tag="p" className="mt-6 md:mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
               Stop renting AI from giants. Run powerful open Zen models on
               your own laptop — chat, images, voice, code — with nothing leaving
               your machine. Share your spare GPU and data, and earn AI coin in
               return. Yours to keep. Yours to spend.
-            </p>
+            </Box>
 
-            <div className="mt-8 md:mt-10 w-full max-w-xl sm:max-w-none sm:w-auto flex flex-wrap sm:flex-nowrap justify-center gap-4">
+            <Box className="mt-8 md:mt-10 w-full max-w-xl sm:max-w-none sm:w-auto flex flex-wrap sm:flex-nowrap justify-center gap-4">
               <Link href="/install">
-                <button
+                <Box tag="button"
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
                   <Download className="w-4 h-4" />
                   Run Zen at home
-                </button>
+                </Box>
               </Link>
               <Link href="/cloud">
-                <button
+                <Box tag="button"
                   className="inline-flex items-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-magenta)] text-black border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
                   <Coins className="w-4 h-4" />
                   Start earning coin
-                </button>
+                </Box>
               </Link>
               <Link href="/models" className="w-full sm:w-auto">
-                <button
+                <Box tag="button"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 md:px-6 py-3 md:py-3.5 text-sm md:text-base font-extrabold uppercase tracking-wider bg-[var(--brand-blue)] text-white border-2 border-black shadow-[6px_6px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] transition-all"
                 >
                   <BookOpen className="w-4 h-4" />
                   Browse models
-                </button>
+                </Box>
               </Link>
-            </div>
+            </Box>
           </motion.div>
-        </div>
-      </section>
+        </Box>
+      </Box>
 
       {/* Feature strip — minimal inline row. Tiny icon + label per
           item, hairline ``·`` separators, no panel chrome at all. */}
-      <section className="px-4 md:px-8 pb-12 md:pb-16">
-        <ul className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
+      <Box tag="section" className="px-4 md:px-8 pb-12 md:pb-16">
+        <Box tag="ul" className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-8 gap-y-3 text-foreground">
           {features.map((f, i) => (
-            <li key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
+            <Box tag="li" key={f.h} className="flex items-center gap-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-[0.15em]">
               <f.icon className="w-4 h-4 sm:w-[18px] sm:h-[18px]" strokeWidth={2.25} style={{ color: f.tint }} />
               <span>{f.h}</span>
               {i < features.length - 1 && (
-                <span aria-hidden className="text-muted-foreground/50 select-none ml-3 sm:ml-5">·</span>
+                <Box tag="span" aria-hidden className="text-muted-foreground/50 select-none ml-3 sm:ml-5">·</Box>
               )}
-            </li>
+            </Box>
           ))}
-        </ul>
-      </section>
+        </Box>
+      </Box>
     </>
   )
 }

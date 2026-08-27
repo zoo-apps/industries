@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useMemo } from "react";
@@ -1018,9 +1019,9 @@ const [searchQuery, setSearchQuery] = useState("");
   };
 
   return (
-      <main className="pt-16">
+      <Box tag="main" className="pt-16">
         {/* Hero Section */}
-        <section className="relative py-24 px-4 overflow-hidden">
+        <Box tag="section" className="relative py-24 px-4 overflow-hidden">
           {/* Background gradient */}
           <div
             className="absolute inset-0 pointer-events-none"
@@ -1028,31 +1029,31 @@ const [searchQuery, setSearchQuery] = useState("");
               background: 'radial-gradient(ellipse 800px 800px at 50% 0%, rgba(255, 255, 255, 0.05), transparent)',
             }}
           />
-          <div className="max-w-5xl mx-auto text-center relative z-10">
+          <Box className="max-w-5xl mx-auto text-center relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground underline underline-offset-4 decoration-2">
+              <Box tag="span" className="inline-block text-xs sm:text-sm md:text-base font-extrabold uppercase tracking-[0.25em] text-foreground underline underline-offset-4 decoration-2">
                 130+ Research Papers
-              </span>
-              <h1 className={cn("mt-10 md:mt-12 text-5xl md:text-7xl font-extrabold tracking-tight mb-6", "text-foreground")}>
+              </Box>
+              <Box tag="h1" className={cn("mt-10 md:mt-12 text-5xl md:text-7xl font-extrabold tracking-tight mb-6", "text-foreground")}>
                 Research &amp; Publications
-              </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-2xl mx-auto", "text-muted-foreground")}>
                 Pioneering research in AI infrastructure, decentralized systems, and frontier models.
                 All papers are CC BY 4.0 licensed and available on GitHub.
-              </p>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Research Areas */}
-        <section className={cn("py-16 px-4", "bg-foreground/5")}>
-          <div className="max-w-6xl mx-auto">
-            <h2 className={cn("text-3xl font-bold mb-12", "text-foreground")}>Research Areas</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+        <Box tag="section" className={cn("py-16 px-4", "bg-foreground/5")}>
+          <Box className="max-w-6xl mx-auto">
+            <Box tag="h2" className={cn("text-3xl font-bold mb-12", "text-foreground")}>Research Areas</Box>
+            <Box className="grid md:grid-cols-2 gap-8">
               {researchAreas.map((area, index) => {
                 const Icon = area.icon;
                 return (
@@ -1064,8 +1065,8 @@ const [searchQuery, setSearchQuery] = useState("");
                     className="p-8 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[10px_10px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[8px_8px_0_0_#000] transition-all group text-black"
                   >
                     <Icon className="w-10 h-10 mb-4 text-black" />
-                    <h3 className="text-xl font-extrabold uppercase tracking-tight mb-3 text-black">{area.title}</h3>
-                    <p className="mb-4 text-black/70">{area.description}</p>
+                    <Box tag="h3" className="text-xl font-extrabold uppercase tracking-tight mb-3 text-black">{area.title}</Box>
+                    <Box tag="p" className="mb-4 text-black/70">{area.description}</Box>
                     <Link href={area.link}
                       className="text-sm font-extrabold uppercase tracking-wider underline underline-offset-4 inline-flex items-center gap-1 text-black"
                     >
@@ -1074,33 +1075,33 @@ const [searchQuery, setSearchQuery] = useState("");
                   </motion.div>
                 );
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Open Source Section */}
-        <section className="py-24 px-4" id="open-source">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center justify-between mb-12">
+        <Box tag="section" className="py-24 px-4" id="open-source">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex items-center justify-between mb-12">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Open Source</h2>
-                <p className={"text-muted-foreground"}>
+                <Box tag="h2" className={cn("text-3xl font-bold mb-2", "text-foreground")}>Open Source</Box>
+                <Box tag="p" className={"text-muted-foreground"}>
                   We believe in open research and share our tools with the community.
-                </p>
+                </Box>
               </div>
               <a
                 href="https://github.com/zooai"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="btn-brutalist pill-green">
+                <Box tag="button" className="btn-brutalist pill-green">
                   <Github className="w-4 h-4" />
                   View all on GitHub
-                </button>
+                </Box>
               </a>
-            </div>
+            </Box>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {openSourceProjects.map((project, index) => (
                 <motion.a
                   key={project.name}
@@ -1112,54 +1113,54 @@ const [searchQuery, setSearchQuery] = useState("");
                   transition={{ duration: 0.5, delay: index * 0.05 }}
                   className="block p-6 bg-white border-2 border-black shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000] transition-all group text-black"
                 >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center gap-2">
+                  <Box className="flex items-start justify-between mb-3">
+                    <Box className="flex items-center gap-2">
                       <Github className="w-5 h-5 text-black" />
-                      <span className="font-extrabold uppercase tracking-tight group-hover:underline text-black">
+                      <Box tag="span" className="font-extrabold uppercase tracking-tight group-hover:underline text-black">
                         {project.name}
-                      </span>
-                    </div>
+                      </Box>
+                    </Box>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-black/60" />
-                  </div>
-                  <p className="text-sm mb-4 text-black/70">{project.description}</p>
-                  <div className="flex items-center gap-4 text-xs text-black/70">
-                    <span className="flex items-center gap-1">
-                      <span className="w-2 h-2 bg-black"></span>
+                  </Box>
+                  <Box tag="p" className="text-sm mb-4 text-black/70">{project.description}</Box>
+                  <Box className="flex items-center gap-4 text-xs text-black/70">
+                    <Box tag="span" className="flex items-center gap-1">
+                      <Box tag="span" className="w-2 h-2 bg-black"></Box>
                       {project.language}
-                    </span>
+                    </Box>
                     <span>⭐ {project.stars}</span>
-                  </div>
+                  </Box>
                 </motion.a>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Papers Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/5")} id="papers">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+        <Box tag="section" className={cn("py-24 px-4", "bg-foreground/5")} id="papers">
+          <Box className="max-w-6xl mx-auto">
+            <Box className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
               <div>
-                <h2 className={cn("text-3xl font-bold mb-2", "text-foreground")}>Research Papers</h2>
-                <p className={"text-muted-foreground"}>
+                <Box tag="h2" className={cn("text-3xl font-bold mb-2", "text-foreground")}>Research Papers</Box>
+                <Box tag="p" className={"text-muted-foreground"}>
                   {filteredPapers.length} papers from Zoo Industries, Lux Network, Zoo Labs, and Zen LM.
-                </p>
+                </Box>
               </div>
               <a
                 href="https://github.com/zooai/papers"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button className="btn-brutalist pill-green">
+                <Box tag="button" className="btn-brutalist pill-green">
                   <Github className="w-4 h-4" />
                   View on GitHub
-                </button>
+                </Box>
               </a>
-            </div>
+            </Box>
 
             {/* Search Bar */}
-            <div className="mb-6">
-              <div className={cn("relative flex items-center rounded-lg", "bg-foreground/10")}>
+            <Box className="mb-6">
+              <Box className={cn("relative flex items-center rounded-lg", "bg-foreground/10")}>
                 <Search className={cn("absolute left-4 w-5 h-5", "text-muted-foreground")} />
                 <input
                   type="text"
@@ -1169,22 +1170,22 @@ const [searchQuery, setSearchQuery] = useState("");
                   className={cn("w-full pl-12 pr-4 py-3 bg-transparent rounded-lg outline-none", "text-foreground placeholder-muted-foreground")}
                 />
                 {(searchQuery || activeOrg !== "all" || activeTopic !== "all") && (
-                  <button
+                  <Box tag="button"
                     onClick={clearFilters}
                     className={cn("absolute right-4 p-1 rounded-full", "hover:bg-accent")}
                   >
                     <X className={cn("w-4 h-4", "text-muted-foreground")} />
-                  </button>
+                  </Box>
                 )}
-              </div>
-            </div>
+              </Box>
+            </Box>
 
             {/* Organization Filter */}
-            <div className="mb-4">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
+            <Box className="mb-4">
+              <Box className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
                 Organization
-              </div>
-              <div className="flex flex-wrap gap-2">
+              </Box>
+              <Box className="flex flex-wrap gap-2">
                 {(["all", "hanzo", "lux", "zoo", "zen"] as const).map((org) => (
                   <button
                     key={org}
@@ -1202,19 +1203,19 @@ const [searchQuery, setSearchQuery] = useState("");
                   >
                     {orgMeta[org].label}
                     {org !== "all" && (
-                      <span className="ml-1.5 opacity-70">({orgCounts[org] || 0})</span>
+                      <Box tag="span" className="ml-1.5 opacity-70">({orgCounts[org] || 0})</Box>
                     )}
                   </button>
                 ))}
-              </div>
-            </div>
+              </Box>
+            </Box>
 
             {/* Topic Filter */}
-            <div className="mb-8">
-              <div className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
+            <Box className="mb-8">
+              <Box className={cn("text-xs font-semibold uppercase tracking-wider mb-2", "text-muted-foreground")}>
                 Topic
-              </div>
-              <div className="flex flex-wrap gap-2">
+              </Box>
+              <Box className="flex flex-wrap gap-2">
                 {(["all", "consensus", "ai", "models", "agents", "fhe", "mpc", "zkp", "pqc", "defi", "identity", "infrastructure"] as const).map((topic) => (
                   <button
                     key={topic}
@@ -1228,20 +1229,20 @@ const [searchQuery, setSearchQuery] = useState("");
                   >
                     {topicMeta[topic].label}
                     {topic !== "all" && topicCounts[topic] && (
-                      <span className="ml-1.5 opacity-70">({topicCounts[topic]})</span>
+                      <Box tag="span" className="ml-1.5 opacity-70">({topicCounts[topic]})</Box>
                     )}
                   </button>
                 ))}
-              </div>
-            </div>
+              </Box>
+            </Box>
 
             {/* Sort Controls */}
-            <div className="flex items-center justify-between mb-6">
-              <div className={cn("text-sm", "text-muted-foreground")}>
+            <Box className="flex items-center justify-between mb-6">
+              <Box className={cn("text-sm", "text-muted-foreground")}>
                 Showing {filteredPapers.length} of {papers.length} papers
-              </div>
-              <div className="flex items-center gap-2">
-                <span className={cn("text-sm", "text-muted-foreground")}>Sort:</span>
+              </Box>
+              <Box className="flex items-center gap-2">
+                <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>Sort:</Box>
                 <button
                   onClick={() => setSortBy("date")}
                   className={cn(
@@ -1264,10 +1265,10 @@ const [searchQuery, setSearchQuery] = useState("");
                 >
                   Title
                 </button>
-              </div>
-            </div>
+              </Box>
+            </Box>
 
-            <div className="space-y-4">
+            <Box className="space-y-4">
               {filteredPapers.map((paper, index) => (
                 <motion.a
                   key={`${paper.title}-${index}`}
@@ -1284,84 +1285,84 @@ const [searchQuery, setSearchQuery] = useState("");
                       : "shadow-[6px_6px_0_0_#000] md:shadow-[8px_8px_0_0_#000] hover:shadow-[4px_4px_0_0_#000] md:hover:shadow-[6px_6px_0_0_#000]"
                   )}
                 >
-                  <div className="flex items-start justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2 flex-wrap">
+                  <Box className="flex items-start justify-between">
+                    <Box className="flex-1">
+                      <Box className="flex items-center gap-3 mb-2 flex-wrap">
                         <FileText className="w-5 h-5 text-black" />
-                        <span className="text-sm text-black/70">{paper.date}</span>
+                        <Box tag="span" className="text-sm text-black/70">{paper.date}</Box>
                         {paper.featured && (
-                          <span className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">
+                          <Box tag="span" className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-[var(--brand-yellow)] border-2 border-black">
                             Featured
-                          </span>
+                          </Box>
                         )}
-                        <span className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-black text-white border-2 border-black">
+                        <Box tag="span" className="text-[10px] px-2 py-0.5 font-extrabold uppercase tracking-wider bg-black text-white border-2 border-black">
                           {orgMeta[paper.org].label}
-                        </span>
-                      </div>
-                      <h3 className="text-lg font-extrabold uppercase tracking-tight mb-2 group-hover:underline text-black">
+                        </Box>
+                      </Box>
+                      <Box tag="h3" className="text-lg font-extrabold uppercase tracking-tight mb-2 group-hover:underline text-black">
                         {paper.title}
-                      </h3>
-                      <p className="text-sm mb-2 text-black/70">{paper.authors}</p>
-                      <p className="mb-3 text-black/70">{paper.abstract}</p>
+                      </Box>
+                      <Box tag="p" className="text-sm mb-2 text-black/70">{paper.authors}</Box>
+                      <Box tag="p" className="mb-3 text-black/70">{paper.abstract}</Box>
                       {/* Topic tags */}
-                      <div className="flex flex-wrap gap-1.5">
+                      <Box className="flex flex-wrap gap-1.5">
                         {paper.topics.map(topic => (
-                          <span
+                          <Box tag="span"
                             key={topic}
                             className="text-xs px-2 py-0.5 font-semibold uppercase tracking-wider bg-black text-white border-2 border-black"
                           >
                             {topicMeta[topic].label}
-                          </span>
+                          </Box>
                         ))}
-                      </div>
-                    </div>
+                      </Box>
+                    </Box>
                     <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity ml-4 flex-shrink-0 text-black/60" />
-                  </div>
+                  </Box>
                 </motion.a>
               ))}
-            </div>
+            </Box>
 
             {filteredPapers.length === 0 && (
-              <div className={cn("text-center py-12", "text-muted-foreground")}>
+              <Box className={cn("text-center py-12", "text-muted-foreground")}>
                 No papers found matching your search.
-                <button
+                <Box tag="button"
                   onClick={clearFilters}
                   className="block mx-auto mt-4 text-foreground hover:underline"
                 >
                   Clear filters
-                </button>
-              </div>
+                </Box>
+              </Box>
             )}
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* CTA Section */}
-        <section className="relative py-24 px-4 overflow-hidden">
+        <Box tag="section" className="relative py-24 px-4 overflow-hidden">
           {/* Decorative blur */}
           <div className={cn("absolute top-1/2 left-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/5")} />
           <div className={cn("absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl -translate-y-1/2 pointer-events-none", "bg-foreground/[0.03]")} />
 
-          <div className="max-w-4xl mx-auto text-center relative z-10">
-            <h2 className={cn("text-3xl font-bold mb-4", "text-foreground")}>
+          <Box className="max-w-4xl mx-auto text-center relative z-10">
+            <Box tag="h2" className={cn("text-3xl font-bold mb-4", "text-foreground")}>
               Join our research efforts
-            </h2>
-            <p className={cn("text-xl mb-8", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl mb-8", "text-muted-foreground")}>
               We're looking for talented researchers to help build the future of safe AI.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </Box>
+            <Box className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/careers">
-                <button className="btn-brutalist pill-pink">
+                <Box tag="button" className="btn-brutalist pill-pink">
                   View Open Positions
-                </button>
+                </Box>
               </Link>
               <a href="mailto:research@zoo.ngo">
-                <button className="btn-brutalist pill-green">
+                <Box tag="button" className="btn-brutalist pill-green">
                   Contact Research Team
-                </button>
+                </Box>
               </a>
-            </div>
-          </div>
-        </section>
-      </main>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
   );
 }

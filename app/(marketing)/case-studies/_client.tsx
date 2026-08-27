@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import { motion } from "framer-motion";
 import { Brain, Shield, Network, Sparkles, Cpu, Lock, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -114,9 +115,9 @@ export default function PageClient() {
   ];
 
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <Box className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -124,12 +125,12 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6">
+            <Box tag="h1" className="text-5xl sm:text-6xl font-bold mb-6">
               Research Impact
-            </h1>
-            <p className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl sm:text-2xl max-w-3xl mx-auto", "text-muted-foreground")}>
               Delivering measurable breakthroughs in AI efficiency, cryptography, and distributed systems
-            </p>
+            </Box>
           </motion.div>
 
           {/* Success Metrics */}
@@ -140,26 +141,26 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
           >
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">130+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Research Papers</div>
-            </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">100+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>AI Model Weights</div>
-            </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">2,500+</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>OSS Projects</div>
-            </div>
-            <div className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
-              <div className="text-3xl font-bold mb-2">4</div>
-              <div className={cn("text-sm", "text-muted-foreground")}>Research Organizations</div>
-            </div>
+            <Box className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
+              <Box className="text-3xl font-bold mb-2">130+</Box>
+              <Box className={cn("text-sm", "text-muted-foreground")}>Research Papers</Box>
+            </Box>
+            <Box className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
+              <Box className="text-3xl font-bold mb-2">100+</Box>
+              <Box className={cn("text-sm", "text-muted-foreground")}>AI Model Weights</Box>
+            </Box>
+            <Box className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
+              <Box className="text-3xl font-bold mb-2">2,500+</Box>
+              <Box className={cn("text-sm", "text-muted-foreground")}>OSS Projects</Box>
+            </Box>
+            <Box className={cn("p-6 rounded-lg text-center", "bg-foreground/5 border border-border")}>
+              <Box className="text-3xl font-bold mb-2">4</Box>
+              <Box className={cn("text-sm", "text-muted-foreground")}>Research Organizations</Box>
+            </Box>
           </motion.div>
 
           {/* Case Studies Grid */}
-          <div className="space-y-12">
+          <Box className="space-y-12">
             {caseStudies.map((study, index) => {
               const Icon = study.icon;
               return (
@@ -174,52 +175,52 @@ export default function PageClient() {
                   transition={{ duration: 0.5, delay: Math.min(index * 0.1, 0.3) }}
                   className={cn("block rounded-lg p-8 transition-colors group", "bg-foreground/5 border border-border hover:border-border")}
                 >
-                  <div className="flex items-start space-x-4 mb-6">
-                    <div className="flex-shrink-0">
-                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-primary group-hover:bg-primary/90")}>
+                  <Box className="flex items-start space-x-4 mb-6">
+                    <Box className="flex-shrink-0">
+                      <Box className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-colors", "bg-primary group-hover:bg-primary/90")}>
                         <Icon className={cn("w-6 h-6", "text-primary-foreground")} />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <div className={cn("text-sm mb-1", "text-muted-foreground")}>{study.category}</div>
-                      <h3 className={cn("text-2xl font-semibold mb-2 transition-colors", "group-hover:text-foreground/80")}>{study.title}</h3>
-                      <p className={cn("text-muted-foreground")}>{study.description}</p>
-                    </div>
-                  </div>
+                      </Box>
+                    </Box>
+                    <Box className="flex-1">
+                      <Box className={cn("text-sm mb-1", "text-muted-foreground")}>{study.category}</Box>
+                      <Box tag="h3" className={cn("text-2xl font-semibold mb-2 transition-colors", "group-hover:text-foreground/80")}>{study.title}</Box>
+                      <Box tag="p" className={cn("text-muted-foreground")}>{study.description}</Box>
+                    </Box>
+                  </Box>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                  <Box className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                     <div>
-                      <h4 className="text-lg font-semibold mb-3">Key Results</h4>
-                      <ul className="space-y-2">
+                      <Box tag="h4" className="text-lg font-semibold mb-3">Key Results</Box>
+                      <Box tag="ul" className="space-y-2">
                         {study.results.map((result, idx) => (
-                          <li key={idx} className="flex items-start">
+                          <Box tag="li" key={idx} className="flex items-start">
                             <div className={cn("w-1.5 h-1.5 rounded-full mt-2 mr-3 flex-shrink-0", "bg-primary")} />
-                            <span className={cn("text-sm", "text-muted-foreground")}>{result}</span>
-                          </li>
+                            <Box tag="span" className={cn("text-sm", "text-muted-foreground")}>{result}</Box>
+                          </Box>
                         ))}
-                      </ul>
+                      </Box>
                     </div>
                     <div>
-                      <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
-                      <div className="flex flex-wrap gap-2 mb-4">
+                      <Box tag="h4" className="text-lg font-semibold mb-3">Technologies Used</Box>
+                      <Box className="flex flex-wrap gap-2 mb-4">
                         {study.technologies.map((tech, idx) => (
-                          <span
+                          <Box tag="span"
                             key={idx}
                             className={cn("px-3 py-1 rounded-full text-sm", "bg-foreground/10 text-muted-foreground")}
                           >
                             {tech}
-                          </span>
+                          </Box>
                         ))}
-                      </div>
-                      <div className={cn("text-sm", "text-muted-foreground")}>
+                      </Box>
+                      <Box className={cn("text-sm", "text-muted-foreground")}>
                         <strong>Impact:</strong> {study.impact}
-                      </div>
+                      </Box>
                     </div>
-                  </div>
+                  </Box>
                 </motion.a>
               );
             })}
-          </div>
+          </Box>
 
           {/* CTA Section */}
           <motion.div
@@ -229,31 +230,31 @@ export default function PageClient() {
             transition={{ duration: 0.5 }}
             className="mt-20 text-center"
           >
-            <h2 className="text-3xl font-bold mb-6">
+            <Box tag="h2" className="text-3xl font-bold mb-6">
               Explore Our Research
-            </h2>
-            <p className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
+            </Box>
+            <Box tag="p" className={cn("text-xl mb-8 max-w-2xl mx-auto", "text-muted-foreground")}>
               Dive deeper into our published papers and open source projects
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
+            </Box>
+            <Box className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Box tag="a"
                 href="/research#papers"
                 className={cn("inline-block px-8 py-4 rounded-lg font-semibold transition-colors", "bg-primary text-primary-foreground hover:bg-primary/90")}
               >
                 View All Papers
-              </a>
-              <a
+              </Box>
+              <Box tag="a"
                 href="https://github.com/zooai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn("inline-block bg-transparent px-8 py-4 rounded-lg font-semibold transition-colors", "border border-primary text-foreground hover:bg-accent")}
               >
                 Open Source
-              </a>
-            </div>
+              </Box>
+            </Box>
           </motion.div>
-        </div>
-      </main>
-    </div>
+        </Box>
+      </Box>
+    </Box>
   );
 }

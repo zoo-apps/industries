@@ -1,5 +1,6 @@
 "use client";
 
+import { Box } from '@hanzo/ui'
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -137,30 +138,30 @@ const documentationLinks = [
 
 export default function PageClient() {
   return (
-    <div className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
-      <main className="pt-24">
+    <Box className={cn("min-h-screen transition-colors duration-300", "bg-background text-foreground")}>
+      <Box tag="main" className="pt-24">
         {/* Hero Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="text-center mb-12"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
+              <Box className="inline-flex items-center gap-2 px-4 py-2 bg-foreground/10 border border-border rounded-full mb-6">
                 <HelpCircle className="w-4 h-4 text-foreground" />
-                <span className="text-foreground text-sm font-medium">Help Center</span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <Box tag="span" className="text-foreground text-sm font-medium">Help Center</Box>
+              </Box>
+              <Box tag="h1" className="text-4xl md:text-6xl font-bold mb-6">
                 How can we help?
-              </h1>
-              <p className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
+              </Box>
+              <Box tag="p" className={cn("text-xl max-w-2xl mx-auto mb-8", "text-muted-foreground")}>
                 Find answers to common questions, explore our documentation, or get in touch with our support team.
-              </p>
+              </Box>
 
               {/* Search */}
-              <div className="max-w-xl mx-auto relative">
+              <Box className="max-w-xl mx-auto relative">
                 <Search className={cn("absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5", "text-muted-foreground")} />
                 <Input
                   type="text"
@@ -170,14 +171,14 @@ export default function PageClient() {
                     "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground"
                   )}
                 />
-              </div>
+              </Box>
             </motion.div>
-          </div>
-        </section>
+          </Box>
+        </Box>
 
         {/* Documentation Links */}
-        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -185,11 +186,11 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Documentation</h2>
-              <p className={cn("text-muted-foreground")}>Explore our comprehensive documentation and guides</p>
+              <Box tag="h2" className="text-3xl font-bold mb-4">Documentation</Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>Explore our comprehensive documentation and guides</Box>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Box className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {documentationLinks.map((doc, index) => {
                 const Icon = doc.icon;
                 return (
@@ -207,26 +208,26 @@ export default function PageClient() {
                       "bg-foreground/5 border-border"
                     )}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="w-12 h-12 bg-foreground/10 rounded-lg flex items-center justify-center">
+                    <Box className="flex items-start justify-between mb-4">
+                      <Box className="w-12 h-12 bg-foreground/10 rounded-lg flex items-center justify-center">
                         <Icon className="w-6 h-6 text-foreground" />
-                      </div>
+                      </Box>
                       <ExternalLink className={cn("w-4 h-4 group-hover:text-foreground transition-colors", "text-foreground/20")} />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-foreground transition-colors">
+                    </Box>
+                    <Box tag="h3" className="text-xl font-semibold mb-2 group-hover:text-foreground transition-colors">
                       {doc.title}
-                    </h3>
-                    <p className={cn("text-sm", "text-muted-foreground")}>{doc.description}</p>
+                    </Box>
+                    <Box tag="p" className={cn("text-sm", "text-muted-foreground")}>{doc.description}</Box>
                   </motion.a>
                 );
               })}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* FAQ Section */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -234,11 +235,11 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className={cn("text-muted-foreground")}>Quick answers to common questions</p>
+              <Box tag="h2" className="text-3xl font-bold mb-4">Frequently Asked Questions</Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>Quick answers to common questions</Box>
             </motion.div>
 
-            <div className="grid lg:grid-cols-2 gap-8">
+            <Box className="grid lg:grid-cols-2 gap-8">
               {faqs.map((category, categoryIndex) => (
                 <motion.div
                   key={category.category}
@@ -251,10 +252,10 @@ export default function PageClient() {
                     "bg-foreground/5 border-border"
                   )}
                 >
-                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                  <Box tag="h3" className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <span className="w-2 h-2 bg-primary rounded-full" />
                     {category.category}
-                  </h3>
+                  </Box>
                   <Accordion type="single" collapsible className="space-y-2">
                     {category.questions.map((faq, faqIndex) => (
                       <AccordionItem
@@ -273,13 +274,13 @@ export default function PageClient() {
                   </Accordion>
                 </motion.div>
               ))}
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Contact Support Section */}
-        <section className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className={cn("py-24 px-4", "bg-foreground/[0.03]")}>
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -287,11 +288,11 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-3xl font-bold mb-4">Need More Help?</h2>
-              <p className={cn("text-muted-foreground")}>Our support team is here to assist you</p>
+              <Box tag="h2" className="text-3xl font-bold mb-4">Need More Help?</Box>
+              <Box tag="p" className={cn("text-muted-foreground")}>Our support team is here to assist you</Box>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <Box className="grid md:grid-cols-3 gap-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -302,13 +303,13 @@ export default function PageClient() {
                   "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <MessageCircle className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Live Chat</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                </Box>
+                <Box tag="h3" className="text-xl font-semibold mb-3">Live Chat</Box>
+                <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Chat with our support team in real-time for immediate assistance.
-                </p>
+                </Box>
                 <a href="https://zoo.bot" target="_blank" rel="noopener noreferrer">
                   <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
                     Start Chat
@@ -326,13 +327,13 @@ export default function PageClient() {
                   "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Mail className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Email Support</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                </Box>
+                <Box tag="h3" className="text-xl font-semibold mb-3">Email Support</Box>
+                <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Send us a detailed message and we'll respond within 24 hours.
-                </p>
+                </Box>
                 <a href="mailto:support@zoo.ngo">
                   <Button variant="outline" className={cn(
                     "w-full",
@@ -353,13 +354,13 @@ export default function PageClient() {
                   "bg-foreground/5 border-border"
                 )}
               >
-                <div className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Box className="w-16 h-16 bg-foreground/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Book className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-xl font-semibold mb-3">Community</h3>
-                <p className={cn("mb-6", "text-muted-foreground")}>
+                </Box>
+                <Box tag="h3" className="text-xl font-semibold mb-3">Community</Box>
+                <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                   Join our Discord community to connect with other developers.
-                </p>
+                </Box>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
                   <Button variant="outline" className={cn(
                     "w-full",
@@ -369,13 +370,13 @@ export default function PageClient() {
                   </Button>
                 </a>
               </motion.div>
-            </div>
-          </div>
-        </section>
+            </Box>
+          </Box>
+        </Box>
 
         {/* Enterprise Support */}
-        <section className="py-24 px-4">
-          <div className="max-w-7xl mx-auto">
+        <Box tag="section" className="py-24 px-4">
+          <Box className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -383,48 +384,48 @@ export default function PageClient() {
               viewport={{ once: true }}
               className="bg-gradient-to-r from-white/10 to-transparent border border-border rounded-2xl p-8 md:p-12"
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <Box className="grid md:grid-cols-2 gap-8 items-center">
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                  <Box tag="h2" className="text-3xl md:text-4xl font-bold mb-4">
                     Enterprise Support
-                  </h2>
-                  <p className={cn("mb-6", "text-muted-foreground")}>
+                  </Box>
+                  <Box tag="p" className={cn("mb-6", "text-muted-foreground")}>
                     Get dedicated support, custom SLAs, and direct access to our engineering team with an enterprise plan.
-                  </p>
-                  <ul className={cn("space-y-3 mb-8", "text-muted-foreground")}>
-                    <li className="flex items-center gap-2">
+                  </Box>
+                  <Box tag="ul" className={cn("space-y-3 mb-8", "text-muted-foreground")}>
+                    <Box tag="li" className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       24/7 priority support
-                    </li>
-                    <li className="flex items-center gap-2">
+                    </Box>
+                    <Box tag="li" className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Dedicated success manager
-                    </li>
-                    <li className="flex items-center gap-2">
+                    </Box>
+                    <Box tag="li" className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Custom SLA agreements
-                    </li>
-                    <li className="flex items-center gap-2">
+                    </Box>
+                    <Box tag="li" className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                       Direct engineering support
-                    </li>
-                  </ul>
+                    </Box>
+                  </Box>
                   <Link href="/contact">
                     <Button className="bg-primary hover:bg-primary/90 text-foreground">
                       Contact Sales
                     </Button>
                   </Link>
                 </div>
-                <div className="hidden md:flex justify-center">
-                  <div className="w-48 h-48 bg-foreground/10 rounded-full flex items-center justify-center">
+                <Box className="hidden md:flex justify-center">
+                  <Box className="w-48 h-48 bg-foreground/10 rounded-full flex items-center justify-center">
                     <Shield className="w-24 h-24 text-foreground" />
-                  </div>
-                </div>
-              </div>
+                  </Box>
+                </Box>
+              </Box>
             </motion.div>
-          </div>
-        </section>
-      </main>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 }
