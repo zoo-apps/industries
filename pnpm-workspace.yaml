@@ -2,6 +2,9 @@ packages:
   - .
 allowBuilds:
   sharp: true
+# The age gate is for a stranger's release, not ours. Named without a version:
+# pinning one meant every publish of our own packages needed an edit here before
+# the app could see it, and the app quietly kept building against the old one.
 minimumReleaseAgeExclude:
-  - '@hanzo/design@0.5.21'
-  - '@hanzo/ui@8.13.3'
+  - '@hanzo/design'
+  - '@hanzo/ui'

@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { M } from '@/components/motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Box, Button, css, sx } from '@hanzo/ui'
+import { Box, Button, css } from '@hanzo/ui'
 import { ChevronDown, ExternalLink, Menu, X, Bot, Code2, Cloud, Cpu, MessageSquare, BookOpen, Microscope, Brain, Shield, Network, Boxes, FlaskConical, FileText, Github, Sparkles, Video, Box as BoxIcon, Zap, Server, Smartphone, type LucideIcon } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import NavbarContainer from './navigation/NavbarContainer'
@@ -383,10 +383,10 @@ export default function Navbar() {
               ))}
               <Box className="pt-4 space-y-2 border-t border-border">
                 <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Button variant="outline" {...sx('w-full border-border text-foreground hover:bg-accent')}>Contact</Button>
+                  <Button variant="outline" className="w-full border-border text-foreground hover:bg-accent">Contact</Button>
                 </Link>
                 <a href={site.links.platform} target="_blank" rel="noopener noreferrer">
-                  <Button {...sx('w-full bg-primary text-primary-foreground hover:bg-primary/90')}>Try Zen</Button>
+                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Try Zen</Button>
                 </a>
               </Box>
             </Box>

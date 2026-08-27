@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -155,13 +155,13 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-wrap gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
-                  <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Mail style={css('w-4 h-4')} />
                     Contact Press Team
                   </Button>
                 </a>
                 <a href="https://github.com/zooai/brand" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" {...sx('gap-2')}>
+                  <Button variant="outline" className="gap-2">
                     <Download style={css('w-4 h-4')} />
                     Download Press Kit
                   </Button>
@@ -228,7 +228,7 @@ export default function PageClient() {
                 <Box tag="h3" className="font-semibold mb-4">Schedule Interview</Box>
                 <Box tag="p" className={cn("text-sm mb-4", "text-muted-foreground")}>Book time with our communications team.</Box>
                 <a href="https://cal.com/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button size="sm" variant="outline" {...sx('w-full gap-2')}>
+                  <Button size="sm" variant="outline" className="w-full gap-2">
                     <Calendar style={css('w-4 h-4')} />
                     Schedule via Cal.com
                   </Button>
@@ -247,7 +247,7 @@ export default function PageClient() {
                 <Box tag="h2" className="text-2xl font-bold">Brand Assets</Box>
               </Box>
               <a href="https://github.com/zooai/brand" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm" {...sx('gap-2')}>
+                <Button variant="outline" size="sm" className="gap-2">
                   <Github style={css('w-4 h-4')} />
                   View on GitHub
                 </Button>
@@ -305,13 +305,13 @@ export default function PageClient() {
 
             <Box className="flex flex-wrap gap-4">
               <a href="https://github.com/zooai/brand/archive/refs/heads/main.zip">
-                <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                   <Download style={css('w-4 h-4')} />
                   Download All Assets (ZIP)
                 </Button>
               </a>
               <a href="https://github.com/zooai/brand/blob/main/GUIDELINES.md" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" {...sx('gap-2')}>
+                <Button variant="outline" className="gap-2">
                   <BookOpen style={css('w-4 h-4')} />
                   Brand Guidelines
                 </Button>
@@ -357,7 +357,7 @@ export default function PageClient() {
                         rel={release.link.startsWith("http") ? "noopener noreferrer" : undefined}
                         className="flex-shrink-0"
                       >
-                        <Button variant="ghost" size="sm" {...sx(cn("gap-1", "text-muted-foreground hover:text-foreground"))}>
+                        <Button variant="ghost" size="sm" className={cn("gap-1", "text-muted-foreground hover:text-foreground")}>
                           Learn more
                           <ExternalLink style={css('w-3 h-3')} />
                         </Button>
@@ -414,13 +414,13 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-wrap gap-4 justify-center">
                 <Link href="/team">
-                  <Button variant="outline" {...sx('gap-2')}>
+                  <Button variant="outline" className="gap-2">
                     <Users style={css('w-4 h-4')} />
                     View Team Page
                   </Button>
                 </Link>
                 <a href="mailto:press@zoo.ngo">
-                  <Button {...sx(cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90"))}>
+                  <Button className={cn("gap-2", "bg-primary text-primary-foreground hover:bg-primary/90")}>
                     <Mail style={css('w-4 h-4')} />
                     Request Executive Bios
                   </Button>

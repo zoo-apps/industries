@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
@@ -229,7 +229,7 @@ export default function PageClient() {
                     size="sm"
                     onClick={handleRefresh}
                     disabled={isRefreshing}
-                    {...sx(cn("text-muted-foreground hover:text-foreground"))}
+                    className={cn("text-muted-foreground hover:text-foreground")}
                   >
                     <RefreshCw style={css(cn("w-4 h-4 mr-2", isRefreshing ? "animate-spin" : ""))} />
                     Refresh
@@ -409,12 +409,12 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a href="https://x.com/zoo_labs" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" {...sx(cn("border-border hover:bg-accent"))}>
+                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Follow @zoo_labs
                   </Button>
                 </a>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" {...sx(cn("border-border hover:bg-accent"))}>
+                  <Button variant="outline" className={cn("border-border hover:bg-accent")}>
                     Join Discord
                   </Button>
                 </a>

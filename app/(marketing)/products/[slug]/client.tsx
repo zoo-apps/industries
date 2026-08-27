@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { notFound } from 'next/navigation'
 import { productPages } from '@/lib/data/products'
@@ -43,14 +43,14 @@ export default function ProductPageClient({ slug }: { slug: string }) {
             <Box className="flex flex-wrap gap-4">
               {product.documentation && (
                 <a href={product.documentation} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" {...sx('rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2')}>
+                  <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90 gap-2">
                     Documentation
                     <ExternalLink style={css('w-4 h-4')} />
                   </Button>
                 </a>
               )}
               <Link href="/contact">
-                <Button size="lg" variant="outline" {...sx('rounded-full px-8 border-border text-foreground hover:bg-accent')}>
+                <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
                   Contact Sales
                   <ArrowRight style={css('w-4 h-4 ml-2')} />
                 </Button>
@@ -98,13 +98,13 @@ export default function ProductPageClient({ slug }: { slug: string }) {
           </Box>
           <Box className="flex flex-wrap gap-4 justify-center">
             <Link href="/contact">
-              <Button size="lg" {...sx('rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90')}>
+              <Button size="lg" className="rounded-full px-8 bg-primary text-primary-foreground hover:bg-primary/90">
                 Contact Us
                 <ArrowRight style={css('w-4 h-4 ml-2')} />
               </Button>
             </Link>
             <Link href="/research">
-              <Button size="lg" variant="outline" {...sx('rounded-full px-8 border-border text-foreground hover:bg-accent')}>
+              <Button size="lg" variant="outline" className="rounded-full px-8 border-border text-foreground hover:bg-accent">
                 View Research
               </Button>
             </Link>

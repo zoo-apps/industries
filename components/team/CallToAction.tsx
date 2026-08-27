@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import Link from "next/link";
 import { Button } from "@hanzo/ui";
 import { ArrowRight } from "lucide-react";
@@ -66,10 +66,10 @@ export default function CallToAction() {
           <Link href="/careers">
             <Button
               size="lg"
-              {...sx(cn(
+              className={cn(
                 "rounded-full px-8",
                 "bg-primary text-primary-foreground hover:bg-primary/90"
-              ))}
+              )}
             >
               View Open Roles
               <ArrowRight style={css('ml-2 h-4 w-4')} />
@@ -79,10 +79,10 @@ export default function CallToAction() {
             <Button
               size="lg"
               variant="outline"
-              {...sx(cn(
+              className={cn(
                 "rounded-full px-8",
                 "border-border text-foreground hover:bg-accent"
-              ))}
+              )}
             >
               Get in Touch
               <ArrowRight style={css('ml-2 h-4 w-4')} />

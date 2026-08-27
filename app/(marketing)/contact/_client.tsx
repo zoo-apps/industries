@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -177,7 +177,7 @@ export default function PageClient() {
                     </Box>
                     <Button
                       onClick={() => setSubmitted(false)}
-                      {...sx(cn("mt-4", "bg-foreground/10 hover:bg-accent text-foreground"))}
+                      className={cn("mt-4", "bg-foreground/10 hover:bg-accent text-foreground")}
                     >
                       Send Another Message
                     </Button>
@@ -252,7 +252,7 @@ export default function PageClient() {
                           value={formData.inquiryType}
                           onValueChange={(value) => setFormData({ ...formData, inquiryType: value })}
                         >
-                          <SelectTrigger id="inquiryType" {...sx('w-full')}>
+                          <SelectTrigger id="inquiryType" className="w-full">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -307,7 +307,7 @@ export default function PageClient() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      {...sx(cn("w-full sm:w-auto rounded-full px-6 disabled:opacity-50 transition-all", "bg-primary text-primary-foreground hover:bg-primary/90"))}
+                      className={cn("w-full sm:w-auto rounded-full px-6 disabled:opacity-50 transition-all", "bg-primary text-primary-foreground hover:bg-primary/90")}
                     >
                       {isSubmitting ? (
                         "Sending..."

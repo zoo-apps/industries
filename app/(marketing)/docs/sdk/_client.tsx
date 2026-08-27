@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -509,7 +509,7 @@ export default function PageClient() {
             All SDKs wrap the same REST API. If you prefer raw HTTP, check the API reference.
           </Box>
           <Link href="/docs/api">
-            <Button variant="outline" {...sx('gap-2')}>
+            <Button variant="outline" className="gap-2">
               API Reference <ArrowRight style={css('w-4 h-4')} />
             </Button>
           </Link>

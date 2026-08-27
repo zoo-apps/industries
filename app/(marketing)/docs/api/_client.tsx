@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -493,7 +493,7 @@ client = OpenAI(
             Our SDKs handle authentication, retries, streaming, and typed responses out of the box.
           </Box>
           <Link href="/docs/sdk">
-            <Button variant="outline" {...sx('gap-2')}>
+            <Button variant="outline" className="gap-2">
               View SDKs <ArrowRight style={css('w-4 h-4')} />
             </Button>
           </Link>

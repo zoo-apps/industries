@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { Shield, Lock, Key, UserCheck, Server, FileCheck } from "lucide-react";
 import { Button } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
@@ -93,9 +93,9 @@ export default function PageClient() {
               <a href="/contact">
                 <Button
                   variant="outline"
-                  {...sx(cn(
+                  className={cn(
                     "text-foreground border-primary hover:bg-accent"
-                  ))}
+                  )}
                 >
                   Request Security Documentation
                 </Button>

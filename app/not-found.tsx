@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Bot, Send, XCircle } from "lucide-react";
@@ -67,12 +67,12 @@ const [isOpen, setIsOpen] = useState(false);
             one source of truth for `open`, and no wrapper around a button. */}
         <Button
           onClick={() => setIsOpen(true)}
-          {...sx('fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-primary hover:bg-primary/90 text-primary-foreground')}
+          className="fixed bottom-4 right-4 rounded-full p-4 shadow-lg animate-bounce bg-primary hover:bg-primary/90 text-primary-foreground"
           size="icon"
         >
           <Bot style={css('h-6 w-6')} />
         </Button>
-        <DrawerContent {...sx('h-[500px] p-4 bg-background border-border')}>
+        <DrawerContent className="h-[500px] p-4 bg-background border-border">
           <Box className="flex flex-col h-full">
             <Box className="flex items-center justify-between mb-4">
               <Box className="flex items-center space-x-2">

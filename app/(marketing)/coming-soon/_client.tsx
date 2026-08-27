@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, sx } from '@hanzo/ui'
+import { Box } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -27,7 +27,7 @@ export default function PageClient() {
             <Box className="space-x-4">
               <Button
                 size="lg"
-                {...sx(cn("bg-primary text-primary-foreground hover:bg-primary/90"))}
+                className={cn("bg-primary text-primary-foreground hover:bg-primary/90")}
                 onClick={() => router.push("/")}
               >
                 Back to Home
@@ -35,7 +35,7 @@ export default function PageClient() {
               <Button
                 size="lg"
                 variant="outline"
-                {...sx(cn("border-primary text-foreground hover:bg-primary hover:text-primary-foreground"))}
+                className={cn("border-primary text-foreground hover:bg-primary hover:text-primary-foreground")}
                 onClick={() => router.push("/contact")}
               >
                 Contact Us

@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -456,12 +456,12 @@ export default function PageClient() {
                       rel="noopener noreferrer"
                     >
                       <Button
-                        {...sx(cn(
+                        className={cn(
                           "w-full mb-6",
                           highlighted
                             ? "bg-primary text-primary-foreground hover:bg-primary/90"
                             : "bg-foreground/10 text-foreground hover:bg-accent"
-                        ))}
+                        )}
                       >
                         {ctaText}
                       </Button>
@@ -523,9 +523,9 @@ export default function PageClient() {
                   <Box className="flex flex-col sm:flex-row gap-4">
                     <Link href="/contact">
                       <Button
-                        {...sx(cn(
+                        className={cn(
                           "bg-primary text-primary-foreground hover:bg-primary/90"
-                        ))}
+                        )}
                       >
                         Contact Sales
                         <ArrowRight style={css('w-4 h-4 ml-2')} />
@@ -538,9 +538,9 @@ export default function PageClient() {
                     >
                       <Button
                         variant="outline"
-                        {...sx(cn(
+                        className={cn(
                           "border-border text-foreground hover:bg-accent"
-                        ))}
+                        )}
                       >
                         Schedule a Demo
                       </Button>
@@ -1007,9 +1007,9 @@ export default function PageClient() {
                 rel="noopener noreferrer"
               >
                 <Button
-                  {...sx(cn(
+                  className={cn(
                     "bg-primary text-primary-foreground hover:bg-primary/90"
-                  ))}
+                  )}
                 >
                   Start Building Free
                 </Button>
@@ -1017,9 +1017,9 @@ export default function PageClient() {
               <Link href="/contact">
                 <Button
                   variant="outline"
-                  {...sx(cn(
+                  className={cn(
                     "border-border text-foreground hover:bg-accent"
-                  ))}
+                  )}
                 >
                   Talk to Sales
                 </Button>

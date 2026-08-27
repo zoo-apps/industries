@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { useState, useMemo } from "react";
@@ -716,7 +716,7 @@ export default function PageClient() {
 
               {/* Team Filter */}
               <Select value={selectedTeam} onValueChange={setSelectedTeam}>
-                <SelectTrigger {...sx('w-full rounded-lg')}>
+                <SelectTrigger className="w-full rounded-lg">
                   <Building2 style={css('h-4 w-4 shrink-0 text-muted-foreground mr-2')} />
                   <SelectValue />
                 </SelectTrigger>
@@ -729,7 +729,7 @@ export default function PageClient() {
 
               {/* Location Filter */}
               <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                <SelectTrigger {...sx('w-full rounded-lg')}>
+                <SelectTrigger className="w-full rounded-lg">
                   <MapPin style={css('h-4 w-4 shrink-0 text-muted-foreground mr-2')} />
                   <SelectValue />
                 </SelectTrigger>

@@ -1,6 +1,6 @@
 'use client'
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
@@ -166,7 +166,7 @@ export default function PageClient() {
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
+                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Github style={css('w-4 h-4 mr-2')} />
                   Browse GitHub
@@ -176,7 +176,7 @@ export default function PageClient() {
                 <Button
                   size="lg"
                   variant="outline"
-                  {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
+                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
                 >
                   <DollarSign style={css('w-4 h-4 mr-2')} />
                   Connect &amp; Start Earning
@@ -505,7 +505,7 @@ export default function PageClient() {
                 >
                   <Button
                     size="lg"
-                    {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
+                    className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
                   >
                     <Wallet style={css('w-4 h-4 mr-2')} />
                     Connect &amp; Start Earning
@@ -520,7 +520,7 @@ export default function PageClient() {
                   <Button
                     size="lg"
                     variant="outline"
-                    {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
+                    className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
                   >
                     <BarChart3 style={css('w-4 h-4 mr-2')} />
                     View Payout Dashboard
@@ -552,7 +552,7 @@ export default function PageClient() {
                 </Box>
               </div>
               <Link href="/research">
-                <Button {...sx('rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90')}>
+                <Button className="rounded-full px-6 bg-primary text-primary-foreground hover:bg-primary/90">
                   Browse Papers
                   <ArrowRight style={css('ml-2 w-4 h-4')} />
                 </Button>
@@ -597,7 +597,7 @@ export default function PageClient() {
               <a href={site.links.github} target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
-                  {...sx('rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90')}
+                  className="rounded-full px-8 h-12 bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                   <Github style={css('mr-2 h-5 w-5')} />
                   View on GitHub
@@ -608,7 +608,7 @@ export default function PageClient() {
                 <Button
                   size="lg"
                   variant="outline"
-                  {...sx('rounded-full px-8 h-12 border-border text-foreground hover:bg-accent')}
+                  className="rounded-full px-8 h-12 border-border text-foreground hover:bg-accent"
                 >
                   <Wallet style={css('mr-2 h-5 w-5')} />
                   Connect &amp; Earn

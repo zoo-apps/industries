@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { motion } from "framer-motion";
 import { Button } from "@hanzo/ui";
@@ -293,7 +293,7 @@ export default function PageClient() {
                 <FileText style={css('w-6 h-6 text-foreground')} />
                 <Box tag="h2" className="text-3xl font-bold">Press Releases</Box>
               </Box>
-              <Button variant="outline" {...sx(cn("border-border text-foreground hover:bg-accent"))}>
+              <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                 View All
               </Button>
             </M>
@@ -321,7 +321,7 @@ export default function PageClient() {
                     </Box>
                     <Button
                       variant="ghost"
-                      {...sx('text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap')}
+                      className="text-foreground hover:text-foreground hover:bg-accent whitespace-nowrap"
                     >
                       Read Release
                       <ExternalLink style={css('w-4 h-4 ml-2')} />
@@ -351,11 +351,11 @@ export default function PageClient() {
               </Box>
               <Box className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="mailto:press@zoo.ngo">
-                  <Button {...sx('bg-primary hover:bg-primary/90 text-foreground')}>
+                  <Button className="bg-primary hover:bg-primary/90 text-foreground">
                     Contact Press Team
                   </Button>
                 </a>
-                <Button variant="outline" {...sx(cn("border-border text-foreground hover:bg-accent"))}>
+                <Button variant="outline" className={cn("border-border text-foreground hover:bg-accent")}>
                   Download Press Kit
                 </Button>
               </Box>

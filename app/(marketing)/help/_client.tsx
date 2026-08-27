@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -167,10 +167,10 @@ export default function PageClient() {
                 <Input
                   type="text"
                   placeholder="Search for help articles..."
-                  {...sx(cn(
+                  className={cn(
                     "w-full pl-12 pr-4 py-6 rounded-xl text-lg",
                     "bg-foreground/5 border-border text-foreground placeholder:text-muted-foreground"
-                  ))}
+                  )}
                 />
               </Box>
             </M>
@@ -259,17 +259,17 @@ export default function PageClient() {
                     <Box tag="span" className="w-2 h-2 bg-primary rounded-full" />
                     {category.category}
                   </Box>
-                  <Accordion type="single" collapsible {...sx('space-y-2')}>
+                  <Accordion type="single" collapsible className="space-y-2">
                     {category.questions.map((faq, faqIndex) => (
                       <AccordionItem
                         key={faqIndex}
                         value={`${categoryIndex}-${faqIndex}`}
-                        {...sx(cn("border-border"))}
+                        className={cn("border-border")}
                       >
-                        <AccordionTrigger {...sx('text-left hover:text-foreground hover:no-underline py-3')}>
+                        <AccordionTrigger className="text-left hover:text-foreground hover:no-underline py-3">
                           {faq.q}
                         </AccordionTrigger>
-                        <AccordionContent {...sx(cn("pb-4", "text-muted-foreground"))}>
+                        <AccordionContent className={cn("pb-4", "text-muted-foreground")}>
                           {faq.a}
                         </AccordionContent>
                       </AccordionItem>
@@ -314,7 +314,7 @@ export default function PageClient() {
                   Chat with our support team in real-time for immediate assistance.
                 </Box>
                 <a href="https://zoo.bot" target="_blank" rel="noopener noreferrer">
-                  <Button {...sx('bg-primary hover:bg-primary/90 text-foreground w-full')}>
+                  <Button className="bg-primary hover:bg-primary/90 text-foreground w-full">
                     Start Chat
                   </Button>
                 </a>
@@ -338,10 +338,10 @@ export default function PageClient() {
                   Send us a detailed message and we'll respond within 24 hours.
                 </Box>
                 <a href="mailto:support@zoo.ngo">
-                  <Button variant="outline" {...sx(cn(
+                  <Button variant="outline" className={cn(
                     "w-full",
                     "border-border text-foreground hover:bg-accent"
-                  ))}>
+                  )}>
                     support@zoo.ngo
                   </Button>
                 </a>
@@ -365,10 +365,10 @@ export default function PageClient() {
                   Join our Discord community to connect with other developers.
                 </Box>
                 <a href="https://discord.gg/hanzo" target="_blank" rel="noopener noreferrer">
-                  <Button variant="outline" {...sx(cn(
+                  <Button variant="outline" className={cn(
                     "w-full",
                     "border-border text-foreground hover:bg-accent"
-                  ))}>
+                  )}>
                     Join Discord
                   </Button>
                 </a>
@@ -414,7 +414,7 @@ export default function PageClient() {
                     </Box>
                   </Box>
                   <Link href="/contact">
-                    <Button {...sx('bg-primary hover:bg-primary/90 text-foreground')}>
+                    <Button className="bg-primary hover:bg-primary/90 text-foreground">
                       Contact Sales
                     </Button>
                   </Link>

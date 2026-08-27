@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, css, sx } from '@hanzo/ui'
+import { Box, css } from '@hanzo/ui'
 import { M } from '@/components/motion'
 import { useState } from "react";
 import Link from "next/link";
@@ -381,12 +381,12 @@ export default function PageClient() {
           </Box>
           <Box className="flex flex-wrap gap-3 mt-8">
             <Link href="/docs/sdk">
-              <Button variant="primary" {...sx('gap-2')}>
+              <Button variant="primary" className="gap-2">
                 Get Started <ArrowRight style={css('w-4 h-4')} />
               </Button>
             </Link>
             <Link href="/docs/api">
-              <Button variant="outline" {...sx('gap-2')}>
+              <Button variant="outline" className="gap-2">
                 API Reference <BookOpen style={css('w-4 h-4')} />
               </Button>
             </Link>
@@ -651,12 +651,12 @@ export default function PageClient() {
           </Box>
           <Box className="flex flex-wrap justify-center gap-3">
             <a href="https://console.zoo.ngo" target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" {...sx('gap-2')}>
+              <Button variant="primary" className="gap-2">
                 Get API Key <ArrowRight style={css('w-4 h-4')} />
               </Button>
             </a>
             <a href="https://docs.zoo.ngo" target="_blank" rel="noopener noreferrer">
-              <Button variant="outline" {...sx('gap-2')}>
+              <Button variant="outline" className="gap-2">
                 Full Documentation <ExternalLink style={css('w-4 h-4')} />
               </Button>
             </a>
