@@ -7,7 +7,6 @@ import Ecosystem from "@/components/Ecosystem";
 import ZooLabsNarrative from "@/components/ZooLabsNarrative";
 import ServicesOverview from "@/components/ServicesOverview";
 import ResearchHighlights from "@/components/ResearchHighlights";
-import Leadership from "@/components/Leadership";
 import TrustedBySection from "@/components/TrustedBySection";
 import Contact from "@/components/Contact";
 import { cn } from "@/lib/utils";
@@ -44,7 +43,6 @@ export default function PageClient() {
         <ZooLabsNarrative />
         <ServicesOverview />
         <ResearchHighlights />
-        <Leadership />
         <TrustedBySection />
         <Contact />
       </main>

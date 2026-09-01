@@ -6,12 +6,10 @@ import { Mail, Phone, MapPin, Microscope, Building2 } from "lucide-react";
 type Contact = { name: string; role: string; email: string };
 
 const researchDivision: Contact[] = [
-  { name: "Antje Karina Worring",  role: "Chief Executive Officer",        email: "a@zoo.industries"        },
   { name: "Research Partnerships", role: "Academic & Industry Collaboration", email: "research@zoo.industries" },
 ];
 
 const commercialDivision: Contact[] = [
-  { name: "Dave Lorenzini", role: "Chief Strategy Officer",  email: "dave@zoo.industries" },
 ];
 
 function ContactRow({ c }: { c: Contact }) {
