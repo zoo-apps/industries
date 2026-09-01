@@ -11,12 +11,6 @@ export default function Leadership() {
       image: "/leadership/antje-worring.png"
     },
     {
-      name: "Zach Kelling",
-      title: "Founding CTO",
-      bio: "Technical founder driving Zoo's mission to build frontier AI. Leads architecture, product vision, and technical strategy across the full stack.",
-      image: "/leadership/zach-kelling.png"
-    },
-    {
       name: "Dave Lorenzini",
       title: "Chief Strategy Officer",
       bio: "Strategy visionary with decades of experience in immersive computing and AI. Leads strategic planning, partnerships, and long-term company direction.",

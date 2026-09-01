@@ -11,7 +11,6 @@ const researchDivision: Contact[] = [
 ];
 
 const commercialDivision: Contact[] = [
-  { name: "Zach Kelling",   role: "Founding CTO",            email: "zach@zoo.industries" },
   { name: "Dave Lorenzini", role: "Chief Strategy Officer",  email: "dave@zoo.industries" },
 ];
 

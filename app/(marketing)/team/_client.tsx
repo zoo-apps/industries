@@ -29,14 +29,6 @@ export default function PageClient() {
       image: "/leadership/michael-kelling.png"
     },
     {
-      name: "Zach Kelling",
-      role: "Founding CTO",
-      description: "Technical founder driving Zoo's mission to build frontier AI.",
-      icon: Code2,
-      gradient: "from-white/20 to-white/10",
-      image: "/leadership/zach-kelling.png"
-    },
-    {
       name: "Dave Lorenzini",
       role: "Chief Strategy Officer",
       description: "Strategy visionary with decades of experience in immersive computing and AI.",
