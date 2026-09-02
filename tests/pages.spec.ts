@@ -112,11 +112,9 @@ test('Command palette opens with Cmd+K', async ({ page }) => {
 test('Fonts load correctly (Geist family)', async ({ page }) => {
   await page.goto('/', { waitUntil: 'networkidle' });
 
-  // Check that body uses Geist font
   const fontFamily = await page.evaluate(() => {
     return window.getComputedStyle(document.body).fontFamily;
   });
 
-  // Should contain Geist or system fonts (fallback)
   expect(fontFamily.toLowerCase()).toMatch(/geist|system-ui|sans-serif/);
 });

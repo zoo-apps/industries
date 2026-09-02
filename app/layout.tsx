@@ -4,8 +4,8 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import site from '@/site.config'
 import './globals.css'
 
-const geist = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const mono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
+const geist = Geist({ variable: '--font-sans', subsets: ['latin'] })
+const mono = Geist_Mono({ variable: '--font-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.brand.url),
