@@ -1,8 +1,7 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Toaster } from '@hanzo/ui/sonner'
-import { TooltipProvider } from '@hanzo/ui/tooltip'
+import { Toaster, TooltipProvider } from '@hanzo/ui'
 import Navbar from '@/components/Navbar'
 import TopBanner from '@/components/TopBanner'
 import Footer from '@/components/Footer'
@@ -15,7 +14,7 @@ export default function MarketingShell({
   children: React.ReactNode
 }) {
   return (
-    <TooltipProvider>
+    <TooltipProvider delay={700}>
       <Toaster />
       <div className="min-h-screen bg-background text-foreground">
         <TopBanner />

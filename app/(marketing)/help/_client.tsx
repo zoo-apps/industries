@@ -9,7 +9,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@hanzo/ui/accordion";
+} from "@hanzo/ui";
 import {
   Search,
   Book,

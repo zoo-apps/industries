@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { Bot, Send, XCircle } from "lucide-react";
-import { Button } from "@hanzo/ui";
-import { Drawer, DrawerContent, DrawerTrigger } from "@hanzo/ui/drawer";
+import { Button, Drawer, DrawerContent, DrawerTrigger, toast } from "@hanzo/ui";
 import { cn } from "@/lib/utils";
-import { useToast } from "@/hooks/use-toast";
 type MessageRole = "user" | "assistant";
 
 interface Message {
@@ -19,7 +17,6 @@ export default function NotFound() {
 const [isOpen, setIsOpen] = useState(false);
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
-  const { toast } = useToast();
 
   useEffect(() => {
     // Track 404 via analytics if available
@@ -49,8 +46,7 @@ const [isOpen, setIsOpen] = useState(false);
       setMessages([...newMessages, aiMessage]);
     }, 1000);
 
-    toast({
-      title: "Message sent!",
+    toast("Message sent!", {
       description: "The AI assistant will respond shortly.",
     });
   };
