@@ -29,3 +29,7 @@ next-env.d.ts
 
 CLAUDE.md
 .claude/settings.local.json
+
+# Local symlinks to LLM.md
+AGENTS.md
+GEMINI.md
