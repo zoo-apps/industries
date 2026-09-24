@@ -55,7 +55,9 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
         {/* Zoo Analytics — privacy-first, respects DNT, no cookies */}
-        <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} data-do-not-track="true" data-exclude-search="true" />
+        {site.analytics.siteId && (
+          <script defer src={site.analytics.scriptUrl} data-website-id={site.analytics.siteId} data-do-not-track="true" data-exclude-search="true" />
+        )}
       </body>
     </html>
   )

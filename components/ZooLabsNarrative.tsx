@@ -122,7 +122,6 @@ export default function ZooLabsNarrative() {
             "Intelligent animal agents with a gamified economy and marketplace.",
             "Supports endangered species and wildlife in the real world.",
             "Autonomous creation and task execution.",
-            "Regulated tokenization partners give blockchain investors access to $113 Trillion worth of digital securities.",
           ].map((line, i) => (
             <motion.div
               key={i}
@@ -162,14 +161,6 @@ export default function ZooLabsNarrative() {
               h: "Predatory pricing",
               p: "Organizations like OpenAI, Anthropic, etc. charge people without any fair weighting — immeasurable pricing strategies that remove affordability and make AI inaccessible.",
             },
-            {
-              h: "Public market access",
-              p: "Public market stocks are easily bought by anyone via brokerages on exchanges like the NYSE, offering high liquidity, transparency, and low minimums.",
-            },
-            {
-              h: "Private market gatekeeping",
-              p: "Private market stocks are shares in private companies, typically restricted to accredited or institutional investors with lower liquidity and limited transparency.",
-            },
           ].map((card, i) => (
             <motion.div
               key={card.h}
@@ -186,61 +177,6 @@ export default function ZooLabsNarrative() {
         </div>
       </Section>
 
-      {/* ── Private Equity on Chain ────────────────────────── */}
-      <Section id="pe-on-chain">
-        <SectionHead
-          pillClass="pill-blue"
-          title="Private Equity on Chain"
-          subtitle="The biggest redistribution of wealth the world is yet to see."
-        />
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
-          <motion.div {...fade} transition={{ duration: 0.5 }} className="panel lg:col-span-2 space-y-4">
-            <p className="text-base md:text-lg font-medium">
-              Through our regulated tokenization partner, ZOO gains a compliant path to tokenize and
-              distribute GPU-backed AI infrastructure using broker-dealer, ATS,
-              transfer agency, and blockchain settlement rails.
-            </p>
-            <blockquote className="border-l-4 border-black pl-4 italic text-sm md:text-base">
-              "While smaller, private equity has historically generated higher
-              long-term net returns, often outpacing the S&amp;P 500 over 10-
-              and 20-year periods."
-              <span className="block not-italic mt-2 text-xs md:text-sm font-semibold">
-                — Start Engine
-              </span>
-            </blockquote>
-          </motion.div>
-          <motion.div
-            {...fade}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-2 gap-3 md:gap-4"
-          >
-            {[
-              { v: "$1.75T", l: "Hedge funds" },
-              { v: "$852B", l: "Venture capital" },
-              { v: "$1.2T", l: "Private credit" },
-              { v: "$134B", l: "Real estate" },
-              { v: "$159B", l: "Infrastructure" },
-              { v: "$113T", l: "Total addressable" },
-            ].map((s) => (
-              <div
-                key={s.l}
-                className="p-3 md:p-4 border-2 border-black bg-white text-center"
-              >
-                <div className="text-lg md:text-2xl font-extrabold">{s.v}</div>
-                <div className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-black/70">
-                  {s.l}
-                </div>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-        <p className="text-xs md:text-sm text-black/60 max-w-3xl">
-          Source: Based on World Bank and Preqin data, as cited in McKinsey
-          &amp; Company's "Global Private Markets Review 2020." Data as of year
-          end 2019. Growth rates indexed to 2000 values.
-        </p>
-      </Section>
-
       {/* ── How Zoo Works ───────────────────────────────────── */}
       <Section id="how">
         <SectionHead pillClass="pill-yellow" title="How does Zoo work?" />
@@ -250,7 +186,7 @@ export default function ZooLabsNarrative() {
             "Choose your display. Your experience is unique and tailored to whichever compatible device you use.",
             "Train up your buddy to be a specialist and sell them to collect $ZOO coin, and mine $AI.",
             "Play, learn, and task your buddy with almost anything. Trade them or sell copies.",
-            "Exchange your $AI or $ZOO coins for any other cryptocurrency, and up to 13,000+ digital securities via our regulated ATS partner.",
+            "Exchange your $AI or $ZOO coins for any other cryptocurrency.",
           ].map((step, i) => (
             <motion.div
               key={i}

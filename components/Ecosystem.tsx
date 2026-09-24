@@ -98,25 +98,19 @@ export default function Ecosystem() {
               <span className="pill pill-green text-lg md:text-xl">
                 $ZOO NETWORK
               </span>
-              <span aria-label="USA" className="text-2xl">🇺🇸</span>
             </div>
             <div className="space-y-3 mb-6 text-base font-medium">
               <p>
-                Now <u>anyone</u> can buy pre-IPO stocks on chain, legally and
-                securely.
+                $ZOO is the fixed-supply governance token; $AI is the
+                compute-meter token. Both live on Zoo Network.
               </p>
-              <p className="underline">USA backed compliance is a win win.</p>
             </div>
             <div className="panel panel-green space-y-4">
-              <p className="font-bold">
-                Exclusive access to regulated tokenization infrastructure
-              </p>
+              <p className="font-bold">Proof of AI</p>
               <p>
-                Through our regulated tokenization partner, ZOO can bring
-                GPU-backed AI infrastructure into a regulated market structure,
-                leveraging broker-dealer, ATS, transfer agency, and blockchain
-                settlement rails to reach accredited and institutional capital
-                beyond crypto-native investors.
+                Compute is verified on-chain via Zoo Network. 25% of every API
+                dollar flows back to the open-source contributors whose code
+                served the request.
               </p>
             </div>
           </motion.div>

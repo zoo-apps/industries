@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Hero from "@/components/Hero";
-import InvestorNarrative from "@/components/InvestorNarrative";
 import Ecosystem from "@/components/Ecosystem";
 import ZooLabsNarrative from "@/components/ZooLabsNarrative";
 import ServicesOverview from "@/components/ServicesOverview";
@@ -38,7 +37,6 @@ export default function PageClient() {
   return (
       <main>
         <Hero />
-        <InvestorNarrative />
         <Ecosystem />
         <ZooLabsNarrative />
         <ServicesOverview />

@@ -56,18 +56,13 @@ const ecosystemPoints = [
   },
   {
     h: '$AI is mineable',
-    p: 'Run a node, contribute inference, mine $AI. $ZOO is the fixed-supply governance token; $AI is the compute-meter token, both live on Zoo Network with a regulated bridge via an external tokenization partner.',
+    p: 'Run a node, contribute inference, mine $AI. $ZOO is the fixed-supply governance token; $AI is the compute-meter token, both live on Zoo Network.',
     color: 'var(--brand-cyan)',
   },
   {
     h: 'DSO — Decentralized Semantic Optimization',
     p: 'ZIP-001. Models continually optimize against a community-curated objective set, instead of a single lab\'s reward model. Same idea as RLHF, but the H is everyone.',
     color: 'var(--brand-blue)',
-  },
-  {
-    h: 'Regulated tokenization rails',
-    p: 'Tokenized GPU infrastructure distributed through a registered broker-dealer / ATS with transfer agency and blockchain settlement — the same private-market vehicle that gates SpaceX and Anthropic equity today.',
-    color: 'var(--brand-red)',
   },
 ]
 
