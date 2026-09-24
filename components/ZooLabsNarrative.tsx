@@ -262,7 +262,7 @@ export default function ZooLabsNarrative() {
             {
               h: "zoo.fund",
               s: "Financing",
-              p: "Tokenized infrastructure financing with transparent economics.",
+              p: "Research DAOs raise on-chain for one named question, and publish what they find.",
               c: "var(--brand-yellow)",
               href: "https://zoo.fund",
             },
