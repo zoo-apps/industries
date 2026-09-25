@@ -369,8 +369,7 @@ export default function PageClient() {
                       <div>
                         <p className="font-medium">Headquarters</p>
                         <p className={cn("text-sm", "text-muted-foreground")}>
-                          1824 S. Fairfax Ave<br />
-                          Los Angeles, CA 90019
+                          San Francisco, CA
                         </p>
                       </div>
                     </div>

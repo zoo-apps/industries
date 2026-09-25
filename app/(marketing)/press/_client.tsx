@@ -96,7 +96,7 @@ const pressReleases = [
   {
     date: "2016",
     title: "Zoo Industries Founded",
-    description: "Zoo Industries Inc founded in Los Angeles to build frontier AI infrastructure and enterprise AI solutions.",
+    description: "Zoo Industries Inc founded to build frontier AI infrastructure and enterprise AI solutions.",
     type: "Milestone",
   },
 ];
@@ -178,7 +178,7 @@ export default function PageClient() {
             </div>
             <div className="max-w-3xl">
               <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
-                <strong>Zoo Industries Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 in Los Angeles, Zoo develops large language models, AI training frameworks, and enterprise AI platforms.
+                <strong>Zoo Industries Inc</strong> (Techstars '17) is a frontier AI research lab building next-generation AI infrastructure. Founded in 2016 and based in San Francisco, Zoo develops large language models, AI training frameworks, and enterprise AI platforms.
               </p>
               <p className={cn("text-lg leading-relaxed mb-4", "text-muted-foreground")}>
                 Our research spans efficient model training (Training-Free GRPO, ASO), post-quantum cryptography, fully homomorphic encryption, and decentralized AI infrastructure. We publish open research and release open-source AI models through the Zen LM family.
@@ -218,7 +218,7 @@ export default function PageClient() {
                 <h3 className="font-semibold mb-4">Headquarters</h3>
                 <div className={cn("space-y-1", "text-muted-foreground")}>
                   <p className={cn("font-medium", "text-muted-foreground")}>Zoo Industries Inc</p>
-                  <p>Los Angeles, California</p>
+                  <p>San Francisco, California</p>
                   <p>United States</p>
                 </div>
               </div>
@@ -446,7 +446,8 @@ export default function PageClient() {
               <div className={cn("p-6 rounded-xl border", "bg-foreground/5 border-border")}>
                 <h3 className="font-semibold mb-3">Key Facts</h3>
                 <ul className={cn("space-y-2 text-sm", "text-muted-foreground")}>
-                  <li><strong>Founded:</strong> 2016 in Los Angeles</li>
+                  <li><strong>Founded:</strong> 2016</li>
+                  <li><strong>Headquarters:</strong> San Francisco, CA</li>
                   <li><strong>Research:</strong> <a href="/research#papers" className="underline hover:opacity-80">Published papers</a></li>
                   <li><strong>Models:</strong> <a href="https://huggingface.co/zenlm" target="_blank" rel="noopener noreferrer" className="underline hover:opacity-80">Zen LM family</a></li>
                 </ul>

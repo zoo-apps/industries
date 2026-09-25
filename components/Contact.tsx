@@ -128,8 +128,7 @@ export default function Contact() {
               </h5>
             </div>
             <p className="text-sm sm:text-base text-foreground leading-relaxed">
-              1824 S. Fairfax Ave<br />
-              Los Angeles, CA 90019<br />
+              San Francisco, CA<br />
               United States
             </p>
           </div>

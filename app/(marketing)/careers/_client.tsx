@@ -69,7 +69,7 @@ const jobs: Job[] = [
     id: "5",
     title: "Research Engineer, Multimodal (Vision)",
     team: "AI Research & Engineering",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -98,7 +98,7 @@ const jobs: Job[] = [
     id: "8",
     title: "Research Engineer, Agents",
     team: "AI Research & Engineering",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     new: true,
     salary: "$200,000 - $350,000",
@@ -128,7 +128,7 @@ const jobs: Job[] = [
     id: "11",
     title: "ML Engineer, Real-time Inference",
     team: "AI Research & Engineering",
-    location: "Los Angeles, CA | San Francisco, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     salary: "$180,000 - $300,000",
     description: "Build low-latency inference systems for real-time AI applications."
@@ -210,7 +210,7 @@ const jobs: Job[] = [
     id: "19",
     title: "Systems Engineer, Lux Node",
     team: "Blockchain & Consensus",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     salary: "$180,000 - $300,000",
     description: "Build and optimize the Lux Network node implementation in Go."
@@ -241,7 +241,7 @@ const jobs: Job[] = [
     id: "22",
     title: "Staff Software Engineer, Platform",
     team: "Infrastructure & Platform",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     salary: "$250,000 - $400,000",
     description: "Lead platform engineering for our AI infrastructure."
@@ -280,7 +280,7 @@ const jobs: Job[] = [
     id: "26",
     title: "Software Engineer, MCP Infrastructure",
     team: "Infrastructure & Platform",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     new: true,
     salary: "$180,000 - $300,000",
@@ -303,7 +303,7 @@ const jobs: Job[] = [
     id: "28",
     title: "Product Manager, AI Platform",
     team: "Product & Design",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     salary: "$180,000 - $280,000",
     description: "Define and drive the product roadmap for our AI platform."
@@ -322,7 +322,7 @@ const jobs: Job[] = [
     id: "30",
     title: "Technical Product Manager, MCP",
     team: "Product & Design",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     new: true,
     salary: "$180,000 - $280,000",
@@ -385,7 +385,7 @@ const jobs: Job[] = [
     id: "36",
     title: "Research Program Manager",
     team: "Research Operations",
-    location: "San Francisco, CA | Los Angeles, CA",
+    location: "San Francisco, CA",
     type: "full-time",
     salary: "$150,000 - $220,000",
     description: "Coordinate research programs across teams."
@@ -433,7 +433,7 @@ const jobs: Job[] = [
     id: "41",
     title: "Recruiting Coordinator",
     team: "Operations",
-    location: "San Francisco, CA | Los Angeles, CA | Kansas City, MO",
+    location: "San Francisco, CA | Kansas City, MO",
     type: "full-time",
     salary: "$80,000 - $120,000",
     description: "Coordinate interviews and support recruiting operations."
@@ -451,7 +451,7 @@ const jobs: Job[] = [
 ];
 
 const teams = ["All Teams", ...Array.from(new Set(jobs.map(j => j.team)))];
-const locations = ["All Locations", "San Francisco, CA", "Los Angeles, CA", "Kansas City, MO", "Vancouver, BC", "New York, NY", "Marbella, Spain", "Paris, France", "Remote"];
+const locations = ["All Locations", "San Francisco, CA", "Kansas City, MO", "Vancouver, BC", "New York, NY", "Marbella, Spain", "Paris, France", "Remote"];
 
 export default function PageClient() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -587,7 +587,7 @@ export default function PageClient() {
                 <p><strong>Location:</strong> {selectedJob.location}</p>
                 <p><strong>Type:</strong> {selectedJob.type.charAt(0).toUpperCase() + selectedJob.type.slice(1)}</p>
                 <p><strong>Visa Sponsorship:</strong> We sponsor visas and will make every reasonable effort to support your visa process.</p>
-                <p><strong>Hybrid Policy:</strong> We expect staff to be in one of our offices (San Francisco, Los Angeles, Kansas City, Vancouver, New York, Marbella, or Paris) at least 25% of the time, though some roles may be fully remote.</p>
+                <p><strong>Hybrid Policy:</strong> We expect staff to be in one of our offices (San Francisco, Kansas City, Vancouver, New York, Marbella, or Paris) at least 25% of the time, though some roles may be fully remote.</p>
               </div>
             </div>
 
@@ -651,7 +651,7 @@ export default function PageClient() {
             <div className={cn("flex flex-wrap justify-center gap-6 text-sm", "text-muted-foreground")}>
               <span className="flex items-center gap-2">
                 <Building2 className="w-4 h-4" />
-                7 Global Offices
+                6 Global Offices
               </span>
               <span className="flex items-center gap-2">
                 <Briefcase className="w-4 h-4" />
@@ -874,7 +874,7 @@ export default function PageClient() {
                 <Laptop className="w-8 h-8 mb-4" />
                 <h3 className="font-semibold mb-2">Flexible Work</h3>
                 <p className={cn("text-sm", "text-muted-foreground")}>
-                  Remote-friendly culture with offices in San Francisco, Los Angeles, New York, Kansas City, Vancouver, Marbella, and Paris.
+                  Remote-friendly culture with offices in San Francisco, New York, Kansas City, Vancouver, Marbella, and Paris.
                 </p>
               </div>
               <div className={cn("border rounded-lg p-6", "bg-foreground/5 border-border")}>
